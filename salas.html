@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salas</title>
+    <!-- Boxicons -->
+	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+	<link href='https://unpkg.com/boxicons@2.1.4/dist/boxicons.js' rel='stylesheet'>
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+    <!--CSS-->
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+
+
+
+    <style>
+        body {
+          margin: 0;
+          padding: 0;
+          font-family: Arial, sans-serif;
+          background-color: #f9f9f9;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start; 
+          justify-content: flex-start; 
+          min-height: 100vh;
+        }
+    
+        .container {
+            width: 90%;               /* Mais estreito em telas pequenas */
+            max-width: 240px;         /* Menor largura máxima */
+            padding: 16px;            /* Menor espaço interno */
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            background-color: white;
+          }
+          
+          
+    
+        .preview-image {
+          width: 100%;
+          border-radius: 12px;
+          object-fit: cover;
+        }
+    
+        .description {
+          font-size: 16px;
+          text-align: center;
+          color: #333;
+        }
+    
+        .buttons {
+            display: flex;
+            justify-content: center; /* Centraliza os botões horizontalmente */
+            align-items: center;     /* Alinha verticalmente se necessário */
+            gap: 12px;               /* Espaço entre os botões */
+            margin-top: 16px;
+            flex-wrap: wrap;         /* Permite que quebrem em telas pequenas */
+          }
+          
+    
+        .button {
+            min-width: 80px;         /* Menor largura */
+            padding: 8px 12px;       /* Menor altura e espaço lateral */
+            font-size: 12px;         /* Texto menor */
+            border-radius: 6px;
+            text-align: center;
+            cursor: pointer;
+            transition: background 0.3s;
+          }
+          
+          
+        .button.outlined {
+          border: 2px solid #a855f7;
+          background: white;
+          color: #a855f7;
+        }
+    
+        .button.outlined:hover {
+          background: #f3e8ff;
+        }
+    
+        .button.filled {
+          background: #a855f7;
+          color: white;
+          border: none;
+        }
+    
+        .button.filled:hover {
+          background: #9333ea;
+        }
+        .cards-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 4px; 
+            padding: 8px; 
+            justify-items: start; 
+            width: 50%;
+            box-sizing: border-box;
+          }
+          
+        .card-icon {
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;  /* alinha à direita */
+            margin-bottom: -8px;        /* opcional: aproxima do conteúdo abaixo */
+          }
+          
+          
+      </style>
+</head>
+<body>
+    	<!-- SIDEBAR -->
+	<section id="sidebar">
+		<a href="#" class="brand">
+			<i class='bx bxs-smile  bx-lg'></i>
+			<span class="text">Amndgr</span> <!-- puxar o nome do usuario no banco de dados-->
+		</a>
+		<ul class="side-menu top">
+			<li class="active">
+				<a href="#">
+					<i class='bx bxs-dashboard bx-sm' ></i>
+					<span class="text">Raccounter</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<i class='bx bxs-shopping-bag-alt bx-sm' ></i>
+					<span class="text">My Store</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<i class='bx bxs-doughnut-chart bx-sm' ></i>
+					<span class="text">Analytics</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<i class='bx bxs-message-dots bx-sm' ></i>
+					<span class="text">Message</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<i class='bx bxs-group bx-sm' ></i>
+					<span class="text">Team</span>
+				</a>
+			</li>
+		</ul>
+		<ul class="side-menu bottom">
+			<li>
+				<a href="#">
+					<i class='bx bxs-cog bx-sm bx-spin-hover' ></i>
+					<span class="text">Settings</span>
+				</a>
+			</li>
+			<li>
+				<a href="#" class="logout">
+					<i class='bx bx-power-off bx-sm bx-burst-hover' ></i>
+					<span class="text">Logout</span>
+				</a>
+			</li>
+		</ul>
+	</section>
+	<!-- SIDEBAR -->
+
+
+
+	<!-- CONTENT -->
+	<section id="content">
+		<!-- NAVBAR -->
+<nav>
+    <i class='bx bx-menu bx-sm' ></i>
+    <a href="#" class="nav-link">Categories</a>
+    <form action="#">
+        <div class="form-input">
+            <input type="search" placeholder="Search...">
+            <button type="submit" class="search-btn"><i class='bx bx-search' ></i></button>
+        </div>
+    </form>
+    <input type="checkbox" class="checkbox" id="switch-mode" hidden />
+    <label class="swith-lm" for="switch-mode">
+        <i class="bx bxs-moon"></i>
+        <i class="bx bx-sun"></i>
+        <div class="ball"></div>
+    </label>
+
+    <!-- Notification Bell -->
+    <a href="#" class="notification" id="notificationIcon">
+        <i class='bx bxs-bell bx-tada-hover' ></i>
+        <span class="num">8</span>
+    </a>
+    <div class="notification-menu" id="notificationMenu">
+        <ul>
+            <li>New message from John</li>
+            <li>Your order has been shipped</li>
+            <li>New comment on your post</li>
+            <li>Update available for your app</li>
+            <li>Reminder: Meeting at 3PM</li>
+        </ul>
+    </div>
+
+    <!-- Profile Menu -->
+    <a href="#" class="profile" id="profileIcon">
+        <img src="https://placehold.co/600x400/png" alt="Profile">
+    </a>
+    <div class="profile-menu" id="profileMenu">
+        <ul>
+            <li><a href="#">My Profile</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a href="#">Log Out</a></li>
+        </ul>
+    </div>
+</nav>
+<!-- NAVBAR -->
+
+
+		<!-- MAIN -->
+		<main>
+			<div class="head-title">
+				<div class="left">
+					<h1>Raccounter</h1>
+					<ul class="breadcrumb">
+						<li>
+							<a href="#">Dashboard</a>
+						</li>
+						<li><i class='bx bx-chevron-right' ></i></li>
+						<li>
+							<a class="active" href="#">Home</a>
+						</li>
+					</ul>
+				</div>
+				<a href="#" class="btn-download">
+					<i class='bx bxs-cloud-download bx-fade-down-hover' ></i>
+					<span class="text">Get PDF</span>
+				</a>
+			</div>
+
+            <!--Salas-->
+
+            <div class="cards-wrapper">
+                <div class="container">
+                    <div class="card-icon">
+                        <box-icon name='desktop'></box-icon>
+                        <box-icon name='dots-vertical-rounded'></box-icon>
+                        
+                      </div>
+                  <p class="description">Sala 1</p>
+                  <div class="buttons">
+                    <div class="button outlined">Voltar</div>
+                    <div class="button filled">Avançar</div>
+                  </div>
+                </div>
+              
+                <div class="container">
+                    <div class="card-icon">
+                        <box-icon name='desktop'></box-icon>
+                        <box-icon name='dots-vertical-rounded'></box-icon>
+
+                      </div>
+                  <p class="description">Sala 2</p>
+                  <div class="buttons">
+                    <div class="button outlined">Voltar</div>
+                    <div class="button filled">Avançar</div>
+                  </div>
+                </div>
+              
+        
+              </div>
+              
+			
+
+
+			</div>
+		</main>
+		<!-- MAIN -->
+	</section>
+	<!-- CONTENT -->
+	
+
+	<script src="js/script.js"></script>
+    
+</body>
+</html>
+
