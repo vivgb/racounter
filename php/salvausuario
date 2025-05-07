@@ -1,0 +1,11 @@
+<?php
+
+    include('funcoes.php');
+    $tipoUsuario = $_POST["nTipoUsuario"];
+    $nome        = $_POST["nNome"];
+    $login       = $_POST["nEmail"];
+    $senha       = $_POST["nSenha"];
+
+    if($_POST["nAtivo"] == "on") $ativo = "S"; else $ativo = "N";
+
+?>
