@@ -111,3 +111,21 @@ window.addEventListener('click', function (e) {
       });
     });
 
+    // Função de mostrar as seções
+    function mostrarSecao(idSecaoParaMostrar) {
+        const secoes = document.querySelectorAll('.secao'); // todas as seções
+        secoes.forEach(secao => {
+            if (secao.id === idSecaoParaMostrar) {
+                secao.style.display = 'block';
+            } else {
+                secao.style.display = 'none';
+            }
+        });
+    }
+    document.getElementById('btn-my-store').addEventListener('click', function (e) {
+        e.preventDefault();
+        mostrarSecao('salas-section');
+    });
+    
+
+
