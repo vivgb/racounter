@@ -28,24 +28,14 @@
         //enviarEmail('destino@email.com.br','Mensagem de e-mail para SA','Teste SA','Eu mesmo');
 
         foreach ($resultLogin as $coluna) {
-                        
-            //***Verificar os dados da consulta SQL
-            $_SESSION['idTipoUsuario'] = $coluna['idTipoUsuario'];
+            $_SESSION['idTipoUsuario'] = $coluna['id_tipo_usuario'];
             $_SESSION['logado']        = 1;
-            $_SESSION['idLogin']       = $coluna['idUsuario'];
-            $_SESSION['NomeLogin']     = $coluna['Nome'];
-            $_SESSION['FotoLogin']     = $coluna['Foto'];
-            $_SESSION['AtivoLogin']    = $coluna['FlgAtivo'];
-
-            //Acessar a tela inicial
-            header('location: ../.php');
-            
-        }        
-    }else{
-        //Acessar a tela inicial
+            $_SESSION['idLogin']       = $coluna['id_usuario'];
+            $_SESSION['NomeLogin']     = $coluna['nome'];
+            $_SESSION['AtivoLogin']    = $coluna['flg_ativos'];
+            header('location: ../inicial.php');
+        }
+    }else {
         header('location: ../');
-    } 
-
-    
-
+    }
 ?>
