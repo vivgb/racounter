@@ -11,7 +11,7 @@ allSideMenu.forEach(item => {
     })
 });
 
-// TOGGLE SIDEBAR
+// Alterna visibilidade do sidebar ao clicar no ícone de menu
 const menuBar = document.querySelector('#content nav .bx.bx-menu');
 const sidebar = document.getElementById('sidebar');
 
@@ -20,22 +20,22 @@ menuBar.addEventListener('click', function () {
     sidebar.classList.toggle('hide');
 });
 
-// Sayfa yüklendiğinde ve boyut değişimlerinde sidebar durumunu ayarlama
+// Ajustar o estado do menu lateral ao carregar a página e ao redimensionar
 function adjustSidebar() {
     if (window.innerWidth <= 576) {
-        sidebar.classList.add('hide');  // 576px ve altı için sidebar gizli
+        sidebar.classList.add('hide');   // Esconde o menu lateral para telas pequenas
         sidebar.classList.remove('show');
     } else {
-        sidebar.classList.remove('hide');  // 576px'den büyükse sidebar görünür
+        sidebar.classList.remove('hide');  // Mostra o menu lateral em telas grandes
         sidebar.classList.add('show');
     }
 }
 
-// Sayfa yüklendiğinde ve pencere boyutu değiştiğinde sidebar durumunu ayarlama
+// Ajustar o estado do menu lateral ao carregar a página e ao redimensionar
 window.addEventListener('load', adjustSidebar);
 window.addEventListener('resize', adjustSidebar);
 
-// Arama butonunu toggle etme
+
 const searchButton = document.querySelector('#content nav form .form-input button');
 const searchButtonIcon = document.querySelector('#content nav form .form-input button .bx');
 const searchForm = document.querySelector('#content nav form');
@@ -63,10 +63,10 @@ switchMode.addEventListener('change', function () {
     }
 })
 
-// Notification Menu Toggle
+// Mostrar/Esconder Menus de Notificação e Perfil
 document.querySelector('.notification').addEventListener('click', function () {
     document.querySelector('.notification-menu').classList.toggle('show');
-    document.querySelector('.profile-menu').classList.remove('show'); // Close profile menu if open
+    document.querySelector('.profile-menu').classList.remove('show'); // Fecha o perfil
 });
 
 // Profile Menu Toggle
@@ -75,7 +75,7 @@ document.querySelector('.profile').addEventListener('click', function () {
     document.querySelector('.notification-menu').classList.remove('show'); // Close notification menu if open
 });
 
-// Close menus if clicked outside
+//  Fechar menus ao clicar fora
 window.addEventListener('click', function (e) {
     if (!e.target.closest('.notification') && !e.target.closest('.profile')) {
         document.querySelector('.notification-menu').classList.remove('show');
@@ -83,19 +83,19 @@ window.addEventListener('click', function (e) {
     }
 });
 
-// Menülerin açılıp kapanması için fonksiyon
+// Função para alternar menus personalizados
     function toggleMenu(menuId) {
       var menu = document.getElementById(menuId);
       var allMenus = document.querySelectorAll('.menu');
 
-      // Diğer tüm menüleri kapat
+      // Fecha todos os outros menus
       allMenus.forEach(function(m) {
         if (m !== menu) {
           m.style.display = 'none';
         }
       });
 
-      // Tıklanan menü varsa aç, yoksa kapat
+      // Mostra ou esconde o menu clicado
       if (menu.style.display === 'none' || menu.style.display === '') {
         menu.style.display = 'block';
       } else {
@@ -103,7 +103,7 @@ window.addEventListener('click', function (e) {
       }
     }
 
-    // Başlangıçta tüm menüleri kapalı tut
+    // Mantém todos os menus fechados no início
     document.addEventListener("DOMContentLoaded", function() {
       var allMenus = document.querySelectorAll('.menu');
       allMenus.forEach(function(menu) {
