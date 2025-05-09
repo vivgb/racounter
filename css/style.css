@@ -847,6 +847,7 @@ body.dark #content nav .profile-menu li a {
   justify-items: start; 
   width: 50%;
   box-sizing: border-box;
+  margin-left: 60px; /* <-- controla o quanto empurra pra direita */
 }
 
 .card-icon {
