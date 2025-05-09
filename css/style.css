@@ -780,9 +780,9 @@ body.dark #content nav .profile-menu li a {
 
 /* style das salas*/
 .sala-card {
-	width: 90%;
-	max-width: 240px;
-	padding: 16px;
+	width: 90%;               /* Mais estreito em telas pequenas */
+	max-width: 240px;         /* Menor largura máxima */
+	padding: 16px;            /* Menor espaço interno */
 	border-radius: 12px;
 	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 	display: flex;
@@ -790,15 +790,8 @@ body.dark #content nav .profile-menu li a {
 	align-items: center;
 	gap: 12px;
 	background-color: white;
-	transition: width 0.3s ease, max-width 0.3s ease;
-}
-
-/* Quando a sidebar estiver escondida */
-#sidebar.hide ~ #content .sala-card {
-	max-width: 300px; /* aumenta um pouco a largura máxima */
-	width: 95%;       /* pode ocupar um pouco mais do espaço */
-}
-
+  }
+  
 
   .sala-nome {
   font-size: 16px;
