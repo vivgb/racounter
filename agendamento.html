@@ -3,69 +3,107 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Salas - Calendário</title>
-  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-
+  <title>Calendário Interativo</title>
   <style>
     body {
       font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: start;
+      height: 100vh;
       margin: 0;
       padding: 20px;
-      background-color: #fafafa;
     }
 
-    h1 {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    .calendar-container {
-      max-width: 500px;
-      margin: auto;
-      background: white;
+    .calendar-wrapper {
+      max-width: 480px;
+      width: 100%;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
       padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px #ccc;
     }
 
-    .month-year {
-      text-align: center;
-      font-size: 1.2em;
-      margin-bottom: 10px;
+    .month-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .month-title {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .nav-btn {
+      background: none;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+      color: #a855f7;
     }
 
     .calendar {
       display: grid;
       grid-template-columns: repeat(7, 1fr);
-      gap: 4px;
+      gap: 8px;
     }
 
     .calendar div {
-      padding: 10px;
+      padding: 14px;
       border: 1px solid #eee;
-      border-radius: 4px;
+      border-radius: 6px;
       text-align: center;
+      font-size: 14px;
       cursor: pointer;
       transition: background 0.2s;
     }
 
     .calendar div:hover {
-      background-color: #f0e8ff;
+      background-color: #f3e8ff;
     }
 
     .day-name {
       font-weight: bold;
-      background-color: #ddd;
+      background: #ddd;
+      cursor: default;
+    }
+
+    .hours-box {
+      margin-top: 16px;
+      padding: 10px;
+      background: #f9f9f9;
+      border-radius: 8px;
+      display: none;
+    }
+
+    .hours-box h4 {
+      margin: 0 0 10px;
+    }
+
+    .hour {
+      padding: 6px;
+      margin: 2px 0;
+      border-bottom: 1px solid #ddd;
+      font-size: 13px;
     }
   </style>
 </head>
 <body>
+  <div class="calendar-wrapper">
+    <div class="month-header">
+      <button class="nav-btn" onclick="changeMonth(-1)">←</button>
+      <div class="month-title" id="monthTitle"></div>
+      <button class="nav-btn" onclick="changeMonth(1)">→</button>
+    </div>
 
-  <div class="calendar-container">
-    <h1>Salas Reservadas</h1>
-    <div class="month-year" id="monthYear"></div>
-    <div class="calendar" data-month="4" data-year="2025">
-      <!-- Dias serão inseridos via JS -->
+    <div class="calendar" id="calendar"></div>
+
+    <div class="hours-box" id="hoursBox">
+      <h4 id="selectedDay"></h4>
+      <div id="hoursList"></div>
     </div>
   </div>
 
@@ -76,43 +114,72 @@
       "Setembro", "Outubro", "Novembro", "Dezembro"
     ];
 
-    const dayNames = ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"];
+    const dayNames = ["D", "S", "T", "Q", "Q", "S", "S"];
 
-    function generateCalendar(container, month, year) {
+    let currentMonth = new Date().getMonth();
+    let currentYear = new Date().getFullYear();
+
+    const calendar = document.getElementById("calendar");
+    const monthTitle = document.getElementById("monthTitle");
+    const hoursBox = document.getElementById("hoursBox");
+    const selectedDay = document.getElementById("selectedDay");
+    const hoursList = document.getElementById("hoursList");
+
+    function renderCalendar(month, year) {
+      calendar.innerHTML = "";
+
+      // Cabeçalhos dos dias da semana
+      for (let i = 0; i < 7; i++) {
+        const day = document.createElement("div");
+        day.textContent = dayNames[i];
+        day.classList.add("day-name");
+        calendar.appendChild(day);
+      }
+
       const date = new Date(year, month, 1);
       const daysInMonth = new Date(year, month + 1, 0).getDate();
       const startDay = date.getDay();
 
-      // Insere os nomes dos dias da semana
-      dayNames.forEach(day => {
-        const el = document.createElement('div');
-        el.classList.add('day-name');
-        el.textContent = day;
-        container.appendChild(el);
-      });
-
-      // Preenche espaços vazios antes do 1º dia do mês
       for (let i = 0; i < startDay; i++) {
-        const empty = document.createElement('div');
-        container.appendChild(empty);
+        calendar.appendChild(document.createElement("div"));
       }
 
-      // Preenche os dias do mês
       for (let i = 1; i <= daysInMonth; i++) {
-        const day = document.createElement('div');
+        const day = document.createElement("div");
         day.textContent = i;
-        container.appendChild(day);
+        day.addEventListener("click", () => showHours(i, month, year));
+        calendar.appendChild(day);
       }
 
-      // Atualiza o título com mês e ano
-      document.getElementById('monthYear').textContent = `${monthNames[month]} de ${year}`;
+      monthTitle.textContent = `${monthNames[month]} ${year}`;
     }
 
-    document.querySelectorAll('.calendar').forEach(calendar => {
-      const month = parseInt(calendar.getAttribute('data-month'));
-      const year = parseInt(calendar.getAttribute('data-year'));
-      generateCalendar(calendar, month, year);
-    });
+    function showHours(day, month, year) {
+      selectedDay.textContent = `Horários de ${day} de ${monthNames[month]} ${year}`;
+      hoursList.innerHTML = "";
+      for (let h = 0; h < 24; h++) {
+        const time = document.createElement("div");
+        time.classList.add("hour");
+        time.textContent = `${String(h).padStart(2, '0')}:00`;
+        hoursList.appendChild(time);
+      }
+      hoursBox.style.display = "block";
+    }
+
+    function changeMonth(diff) {
+      currentMonth += diff;
+      if (currentMonth < 0) {
+        currentMonth = 11;
+        currentYear--;
+      } else if (currentMonth > 11) {
+        currentMonth = 0;
+        currentYear++;
+      }
+      renderCalendar(currentMonth, currentYear);
+      hoursBox.style.display = "none";
+    }
+
+    renderCalendar(currentMonth, currentYear);
   </script>
 </body>
 </html>
