@@ -856,3 +856,17 @@ body.dark #content nav .profile-menu li a {
   justify-content: flex-end;  /* alinha à direita */
   margin-bottom: -8px;        /* opcional: aproxima do conteúdo abaixo */
 }
+
+.calendar div {
+	padding: 6px;
+	border: 1px solid #eee;
+	border-radius: 4px;
+	cursor: pointer;
+	transition: background 0.2s;
+  }
+  
+  .calendar div:hover {
+	background-color: #f0e8ff;
+  }
+  
+

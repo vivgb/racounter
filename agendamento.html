@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Salas - Calendário</title>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #fafafa;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .calendar-container {
+      max-width: 500px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #ccc;
+    }
+
+    .month-year {
+      text-align: center;
+      font-size: 1.2em;
+      margin-bottom: 10px;
+    }
+
+    .calendar {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 4px;
+    }
+
+    .calendar div {
+      padding: 10px;
+      border: 1px solid #eee;
+      border-radius: 4px;
+      text-align: center;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .calendar div:hover {
+      background-color: #f0e8ff;
+    }
+
+    .day-name {
+      font-weight: bold;
+      background-color: #ddd;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="calendar-container">
+    <h1>Salas Reservadas</h1>
+    <div class="month-year" id="monthYear"></div>
+    <div class="calendar" data-month="4" data-year="2025">
+      <!-- Dias serão inseridos via JS -->
+    </div>
+  </div>
+
+  <script>
+    const monthNames = [
+      "Janeiro", "Fevereiro", "Março", "Abril",
+      "Maio", "Junho", "Julho", "Agosto",
+      "Setembro", "Outubro", "Novembro", "Dezembro"
+    ];
+
+    const dayNames = ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"];
+
+    function generateCalendar(container, month, year) {
+      const date = new Date(year, month, 1);
+      const daysInMonth = new Date(year, month + 1, 0).getDate();
+      const startDay = date.getDay();
+
+      // Insere os nomes dos dias da semana
+      dayNames.forEach(day => {
+        const el = document.createElement('div');
+        el.classList.add('day-name');
+        el.textContent = day;
+        container.appendChild(el);
+      });
+
+      // Preenche espaços vazios antes do 1º dia do mês
+      for (let i = 0; i < startDay; i++) {
+        const empty = document.createElement('div');
+        container.appendChild(empty);
+      }
+
+      // Preenche os dias do mês
+      for (let i = 1; i <= daysInMonth; i++) {
+        const day = document.createElement('div');
+        day.textContent = i;
+        container.appendChild(day);
+      }
+
+      // Atualiza o título com mês e ano
+      document.getElementById('monthYear').textContent = `${monthNames[month]} de ${year}`;
+    }
+
+    document.querySelectorAll('.calendar').forEach(calendar => {
+      const month = parseInt(calendar.getAttribute('data-month'));
+      const year = parseInt(calendar.getAttribute('data-year'));
+      generateCalendar(calendar, month, year);
+    });
+  </script>
+</body>
+</html>
