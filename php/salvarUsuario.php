@@ -16,7 +16,7 @@
 
 
         //INSERT
-        $sql = "INSERT INTO usuarios (idUsuario,idTipoUsuario,Nome,Login,Senha,FlgAtivo) "
+        $sql = "INSERT INTO usuarios (id_usuario,id_tipo_usuario,nome,email,senha,flg_ativos) "
                 ." VALUES (".$idUsuario.","
                 .$tipoUsuario.","
                 ."'$nome',"
@@ -33,14 +33,14 @@
         }
 
         $sql = "UPDATE usuarios "
-                ." SET idTipoUsuario = $tipoUsuario, "
-                    ." Nome = '$nome', "
-                    ." Login = '$login', "
-                    ." setSenha '.$setSenha.';"; 
+                ." SET id_tipo_usuario = $tipoUsuario, "
+                    ." nome = '$nome', "
+                    ." email = '$email', "
+                    ." senha '.$setSenha.';"; 
     }elseif($funcao == "D"){
         //DELETE
         $sql = "DELETE FROM usuarios "
-                ." WHERE idUsuario = $idUsuario;";
+                ." WHERE id_usuario = $idUsuario;";
     }
 
     $result = mysqli_query($conn,$sql);
@@ -76,8 +76,8 @@
         include("conexao.php");
         //UPDATE
         $sql = "UPDATE usuarios "
-                ." SET Foto = '$dirImagem' "
-                ." WHERE idUsuario = $idUsuario;";
+                ." SET foto = '$dirImagem' "
+                ." WHERE id_usuario = $idUsuario;";
         $result = mysqli_query($conn,$sql);
         mysqli_close($conn);
     }

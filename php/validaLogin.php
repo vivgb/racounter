@@ -28,7 +28,7 @@
         //enviarEmail('destino@email.com.br','Mensagem de e-mail para SA','Teste SA','Eu mesmo');
 
         foreach ($resultLogin as $coluna) {
-            $_SESSION['idTipoUsuario'] = $coluna['id_tipo_usuario'];
+            $_SESSION['id_tipo_usuario'] = $coluna['id_tipo_usuario'];
             $_SESSION['logado']        = 1;
             $_SESSION['idLogin']       = $coluna['id_usuario'];
             $_SESSION['NomeLogin']     = $coluna['nome'];
