@@ -37,7 +37,7 @@
             <form method="POST" action="php/salvarUsuario.php?funcao=I" enctype="multipart/form-data">
                 <h1>Registrar</h1>
                 <div class="input-box">
-                    <input type="text" name="nUsuario" placeholder="nUsuario" required>
+                    <input type="text" name="nUsuario" placeholder="Usuario" required>
                     <i class='bx bxs-user'></i>
                 </div>
                 <div class="input-box">

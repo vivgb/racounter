@@ -15,7 +15,7 @@ function montaMenu($n1,$n2){
     $opcPainelFiltro  = '';
     $opcUsuarios      = '';
     $opcFornecedores  = '';
-    $opcProdutos      = '';
+    $opcSalas         = '';
     $opcPerfil        = '';
     
     //Primeiro nível do menu
@@ -57,8 +57,8 @@ function montaMenu($n1,$n2){
             $opcFornecedores = 'active';
             break; 
         
-        case 'produtos':
-            $opcProdutos = 'active';
+        case 'salas':
+            $opcSalas = 'active';
             break;       
         
         case 'perfil':
@@ -131,7 +131,7 @@ function montaMenu($n1,$n2){
 
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
-                        <a href="./produtos.php" class="nav-link '.$opcProdutos.'">
+                        <a href="./salas.php" class="nav-link '.$opcSalas.'">
                         <i class="ion ion-bag nav-icon"></i>
                         <p>Produtos</p>
                         </a>
