@@ -268,26 +268,6 @@
 	</main>
 
 	
-	<section id="">
-		<main id="salas-section" style="display: none;" class="secao">
-			<div class="cards-wrapper">
-				<div class="sala-card">
-					<div class="card-icon">
-						<box-icon name='desktop'></box-icon>
-						<box-icon name='dots-vertical-rounded'></box-icon>
-					</div>
-					<p class="sala-nome">Sala 1</p>
-					<div class="buttons">
-						<div class="button outlined">Configurações</div>
-						<div class="button filled">Ver</div>
-					</div>
-				</div>
-				
-				
-			</div>
-		</section>
-
-		</main>
 	  
 	
 	<script src="js/script.js"></script>
