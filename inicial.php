@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,9 +8,9 @@
 	<!-- Boxicons -->
 	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 	<link href='https://unpkg.com/boxicons@2.1.4/dist/boxicons.js' rel='stylesheet'>
-	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
 	<link rel="manifest" href="/site.webmanifest">
 
 
@@ -27,21 +28,21 @@
 		</a>
 		<ul class="side-menu top">
 			<li class="active">
-				<a href="#">
+				<a href="#" onclick="mostrarSecao('main-content')">
 					<i class='bx bxs-dashboard bx-sm' ></i>
-					<span class="text">Raccounter</span>
+					<span class="text">Início</span>
 				</a>
 			</li>
 			<li>
-				<a href="#" id="btn-my-store">
-				  <i class='bx bxs-shopping-bag-alt bx-sm'></i>
-				  <span class="text">Salas</span>
+				<a href="#" onclick="mostrarSecao('salas-section')">
+					<i class='bx bx-desktop bx-sm'></i>
+					<span class="text">Salas</span>
 				</a>
 			  </li>
 			<li>
 				<a href="#">
-					<i class='bx bxs-doughnut-chart bx-sm' ></i>
-					<span class="text">Analytics</span>
+					<i class='bx bx-calendar-event bx-sm'></i>
+					<span class="text">Agendamento</span>
 				</a>
 			</li>
 			<li>
@@ -102,23 +103,23 @@
     </a>
     <div class="notification-menu" id="notificationMenu">
         <ul>
-            <li>New message from John</li>
-            <li>Your order has been shipped</li>
-            <li>New comment on your post</li>
-            <li>Update available for your app</li>
-            <li>Reminder: Meeting at 3PM</li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
         </ul>
     </div>
 
     <!-- Profile Menu -->
     <a href="#" class="profile" id="profileIcon">
-        <img src="https://placehold.co/600x400/png" alt="Profile">
+        <img src="https://placehold.co/600x400/png" alt="Profile"> <!--puxar a foto de perfil do usuario-->
     </a>
     <div class="profile-menu" id="profileMenu">
         <ul>
-            <li><a href="#">My Profile</a></li>
-            <li><a href="#">Settings</a></li>
-            <li><a href="#">Log Out</a></li>
+            <li><a href="#"><!--nome do Usuario-->></a></li>
+            <li><a href="#">configuracoes</a></li>
+            <li><a href="#">sair</a></li>
         </ul>
     </div>
 </nav>
@@ -126,7 +127,7 @@
 
 
 		<!-- MAIN -->
-		<main id="main-content">
+		<main id="main-content" class="secao">
 			<div class="head-title">
 				<div class="left">
 					<h1>Raccounter</h1>
@@ -150,22 +151,22 @@
 				<li>
 					<i class='bx bxs-calendar-check' ></i>
 					<span class="text">
-						<h3>1020</h3>
-						<p>New Order</p>
+						<h3>2/3</h3>
+						<p>EM uso</p>
 					</span>
 				</li>
 				<li>
 					<i class='bx bxs-group' ></i>
 					<span class="text">
-						<h3>2834</h3>
-						<p>Visitors</p>
+						<h3>12</h3>
+						<p>Pessoas</p>
 					</span>
 				</li>
 				<li>
 					<i class='bx bxs-dollar-circle' ></i>
 					<span class="text">
-						<h3>N$2543.00</h3>
-						<p>Total Sales</p>
+						<h3>56</h3>
+						<p>Total diario</p>
 					</span>
 				</li>
 			</ul>
@@ -174,16 +175,16 @@
 			<div class="table-data">
 				<div class="order">
 					<div class="head">
-						<h3>Recent Orders</h3>
+						<h3>Salas mais usadas</h3>
 						<i class='bx bx-search' ></i>
 						<i class='bx bx-filter' ></i>
 					</div>
 					<table>
 						<thead>
 							<tr>
-								<th>User</th>
-								<th>Date Order</th>
-								<th>Status</th>
+								<th>Codigo</th>
+								<th>quantidade</th>
+								<th>Lotação</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -266,6 +267,9 @@
 		<!-- CONTENT -->
 	
 	</main>
+
+	
+	  
 	
 	<script src="js/script.js"></script>
 </body>

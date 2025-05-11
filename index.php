@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Raccounter</title>
+    <title>Login</title>
     <link rel="stylesheet" href="css/style_login.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -37,7 +37,7 @@
             <form method="POST" action="php/salvarUsuario.php?funcao=I" enctype="multipart/form-data">
                 <h1>Registrar</h1>
                 <div class="input-box">
-                    <input type="text" name="nUsuario" placeholder="nUsuario" required>
+                    <input type="text" name="nUsuario" placeholder="Usuario" required>
                     <i class='bx bxs-user'></i>
                 </div>
                 <div class="input-box">
