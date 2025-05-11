@@ -75,13 +75,16 @@ setInterval(() => {
         piscando = true;
         const imagemAtual = olhos.src;
 
-        // Mostra a imagem piscando
-        trocarOlho("pisca");
-
+        // Verifica se ele está com olhar desviado (olho6)
+        if (imagemAtual.includes("olho6.jpeg")) {
+            trocarOlho("pisca2");
+        } else {
+            trocarOlho("pisca");
+        }
         // Depois de 200ms, volta para o olho anterior
         setTimeout(() => {
             olhos.src = imagemAtual;
             piscando = false;
         }, 200);
     }
-}, 5000); // Pisca a cada 5 segundos
+}, 4000); // Pisca a cada 4 segundos
