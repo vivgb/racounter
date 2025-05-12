@@ -3,93 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="css/style_inicial.css">
   <title>Calendário Interativo</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f4f4f4;
-      display: flex;
-      justify-content: center;
-      align-items: start;
-      height: 100vh;
-      margin: 0;
-      padding: 20px;
-    }
-
-    .calendar-wrapper {
-      max-width: 480px;
-      width: 100%;
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-      padding: 20px;
-    }
-
-    .month-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 12px;
-    }
-
-    .month-title {
-      font-size: 20px;
-      font-weight: bold;
-    }
-
-    .nav-btn {
-      background: none;
-      border: none;
-      font-size: 20px;
-      cursor: pointer;
-      color: #a855f7;
-    }
-
-    .calendar {
-      display: grid;
-      grid-template-columns: repeat(7, 1fr);
-      gap: 8px;
-    }
-
-    .calendar div {
-      padding: 14px;
-      border: 1px solid #eee;
-      border-radius: 6px;
-      text-align: center;
-      font-size: 14px;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-
-    .calendar div:hover {
-      background-color: #f3e8ff;
-    }
-
-    .day-name {
-      font-weight: bold;
-      background: #ddd;
-      cursor: default;
-    }
-
-    .hours-box {
-      margin-top: 16px;
-      padding: 10px;
-      background: #f9f9f9;
-      border-radius: 8px;
-      display: none;
-    }
-
-    .hours-box h4 {
-      margin: 0 0 10px;
-    }
-
-    .hour {
-      padding: 6px;
-      margin: 2px 0;
-      border-bottom: 1px solid #ddd;
-      font-size: 13px;
-    }
-  </style>
+  
 </head>
 <body>
   <div class="calendar-wrapper">
