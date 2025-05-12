@@ -1,3 +1,7 @@
+<?php
+  session_start();
+  include ("funcao.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
