@@ -20,7 +20,7 @@
                 ."'$login',"
                 ."md5('$senha'),"
                 ."'$ativo');";
-
+        
     }elseif($funcao == "A"){
 
         if($senha == ''){ 
@@ -39,7 +39,8 @@
         $sql = "DELETE FROM usuarios "
                 ." WHERE id_usuario = $idUsuario;";
     }
-
+    var_dump($sql);
+    die();
     $result = mysqli_query($conn,$sql);
     mysqli_close($conn);
 
@@ -66,6 +67,9 @@
         $sql = "UPDATE usuarios "
                 ." SET foto = '$dirImagem' "
                 ." WHERE id_usuario = $idUsuario;";
+
+        var_dump(sql);
+        die();
         $result = mysqli_query($conn,$sql);
         mysqli_close($conn);
     }
