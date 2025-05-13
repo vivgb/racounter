@@ -2,25 +2,34 @@
 
     include('funcoes.php');
 
-    $tipoUsuario = $_POST["nTipoUsuario"];
+    $id          = 1;
+    //var_dump($id);
+    $tipoUsuario = 1; //$_POST["nTipoUsuario"];
+    //var_dump($tipoUsuario);
     $nome        = $_POST["nNome"];
-    $login       = $_POST["nLogin"];
+    //var_dump($nome);
+    $email       = $_POST["nEmail"];
+    //var_dump($email);
     $senha       = $_POST["nSenha"];
+    //var_dump($senha);
+    $funcao      = $_GET["funcao"];
+    //var_dump($funcao);
+    //die();
 
     if($_POST["nAtivo"] == "on") $ativo = "S"; else $ativo = "N";
+    //var_dump($ativo);
+    //die();
 
     include("conexao.php");
 
     if($funcao == "I"){
 
-        $sql = "INSERT INTO usuarios (id_usuario,id_tipo_usuario,nome,email,senha,flg_ativos) "
-                ." VALUES (".$idUsuario.","
-                .$tipoUsuario.","
-                ."'$nome',"
-                ."'$login',"
-                ."md5('$senha'),"
-                ."'$ativo');";
-        
+        $sql = "INSERT INTO usuarios (id,nome,email,senha,flg_ativos) VALUES (".$id.",'".$nome."','".$email."', md5('".$senha."'),'".$ativo."');";
+
+        //var_dump($sql);
+        //die();
+
+
     }elseif($funcao == "A"){
 
         if($senha == ''){ 
@@ -39,9 +48,10 @@
         $sql = "DELETE FROM usuarios "
                 ." WHERE id_usuario = $idUsuario;";
     }
-    var_dump($sql);
-    die();
+
     $result = mysqli_query($conn,$sql);
+    //var_dump($result);
+    //die();
     mysqli_close($conn);
 
 
@@ -74,6 +84,6 @@
         mysqli_close($conn);
     }
 
-    header("location: ../usuarios.php");
+    header("location: ../inicial.php");
 
 ?>

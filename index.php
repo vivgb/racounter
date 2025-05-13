@@ -44,7 +44,11 @@
             <form method="POST" action="php/salvarUsuario.php?funcao=I" enctype="multipart/form-data">
                 <h1>Registrar</h1>
                 <div class="input-box">
-                    <input type="email" name="nEmail" placeholder="Email" required>
+                    <input type="text" name="nNome" placeholder="Usuario" required>
+                    <i class='bx bxs-user'></i>
+                </div>
+                <div class="input-box">
+                    <input type="email" name="nLogin" placeholder="Email" required>
                     <i class='bx bxs-envelope' ></i>
                 </div>
                 <div class="input-box">
