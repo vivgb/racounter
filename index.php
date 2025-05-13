@@ -59,6 +59,10 @@
                     <input type="password" name="nSenha" placeholder="Confirmar senha" required>
                     <i class='bx bxs-lock-alt' ></i>
                 </div>
+                <p>
+                    <input type="checkbox" id="iAtivo" name="nAtivo" <?php echo ativoUsuario($_GET['id']); ?>>
+                    <label for="iAtivo">Usuário Ativo</label>
+                </p>        
                 <button type="submit" class="btn">Register</button>
             </form>
         </div>
