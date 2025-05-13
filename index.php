@@ -1,3 +1,7 @@
+<?php
+    session_start();
+    include("php/funcoes.php")
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -25,7 +29,7 @@
             <form method="POST" action="php/validaLogin.php">
                 <h1>Login</h1>
                 <div class="input-box">
-                    <input type="text" name="nEmail" placeholder="Usuario" required>
+                    <input type="text" name="nLogin" placeholder="Usuario" required>
                     <i class='bx bxs-user'></i>
                 </div>
                 <div class="input-box">
@@ -41,14 +45,16 @@
         </div>
 
         <div class="form-box register">
-            <form method="POST" action="php/salvarUsuario.php?funcao=I" enctype="multipart/form-data">
+            <form method="POST" action="php/salvarUsuario.php?funcao=I" enctype="multipart/form-data" 
+            onsubmit="return validarCadastro()">
+            
                 <h1>Registrar</h1>
                 <div class="input-box">
-                    <input type="text" name="nNome" placeholder="Usuario" required>
-                    <i class='bx bxs-user'></i>
+                    <input type="text" name="nNome" placeholder="Nome" required>
+                    <i class='bx bxs-user' ></i>
                 </div>
                 <div class="input-box">
-                    <input type="email" name="nLogin" placeholder="Email" required>
+                    <input type="email" name="nEmail" placeholder="Email" required>
                     <i class='bx bxs-envelope' ></i>
                 </div>
                 <div class="input-box">
@@ -56,10 +62,13 @@
                     <i class='bx bxs-lock-alt' ></i>
                 </div>
                 <div class="input-box">
-                    <input type="password" name="nSenha" placeholder="Confirmar senha" required>
+                    <input type="password" name="nConfirmSenha" placeholder="Confirmar senha" required>
                     <i class='bx bxs-lock-alt' ></i>
                 </div>
-
+                <p>
+                    <label><input type="checkbox" id="nAtivo" name="nAtivo" >Ativo</label>
+                </p>
+              
                 <button type="submit" class="btn">Register</button>
             </form>
         </div>
@@ -80,5 +89,17 @@
     </div>
 
     <script src="js/main.js"></script>
+    <script>
+        function validarCadastro() {
+            const senha = document.getElementById('nSenha').value;
+            const confirmSenha = document.getElementById('nConfirmSenha').value;
+            
+            if (senha !== confirmSenha) {
+                alert('As senhas não coincidem!');
+                return false;
+            }
+            return true;
+        }
+    </script>
 </body>
 </html>
