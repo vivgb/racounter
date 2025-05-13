@@ -2,13 +2,13 @@
 
     include('funcoes.php');
 
-    $id          = 1;
+    //$idUsuario   = 1;
     //var_dump($id);
     $tipoUsuario = 1; //$_POST["nTipoUsuario"];
     //var_dump($tipoUsuario);
     $nome        = $_POST["nNome"];
     //var_dump($nome);
-    $email       = $_POST["nEmail"];
+    $email       = $_POST["nLogin"];
     //var_dump($email);
     $senha       = $_POST["nSenha"];
     //var_dump($senha);
@@ -23,8 +23,11 @@
     include("conexao.php");
 
     if($funcao == "I"){
+        $idUsuario = proxIdUsuario();
+        //var_dump();
+        //die();
 
-        $sql = "INSERT INTO usuarios (id,nome,email,senha,flg_ativos) VALUES (".$id.",'".$nome."','".$email."', md5('".$senha."'),'".$ativo."');";
+        $sql = "INSERT INTO usuarios (id,nome,email,senha,flg_ativos) VALUES (".$idUsuario.",'".$nome."','".$email."', md5('".$senha."'),'".$ativo."');";
 
         //var_dump($sql);
         //die();
