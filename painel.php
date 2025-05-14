@@ -107,7 +107,7 @@ if (!isset($_SESSION['logado'])) {
           include 'paginas/Analistc.php';
           break;
         case 'logout':
-          include 'paginas/index.php';
+          include 'index.php';
           break;
         default:
           echo "<p>Página não encontrada.</p>";
