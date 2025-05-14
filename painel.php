@@ -31,10 +31,6 @@ if (!isset($_SESSION['logado'])) {
 
 	<?php include 'sidebar.php'; ?>
 	
-
-
-	<!-- CONTENT -->
-	<section id="content">
 		<!-- NAVBAR -->
 	<nav>
 		<i class='bx bx-menu bx-sm' ></i>
@@ -79,7 +75,6 @@ if (!isset($_SESSION['logado'])) {
 			</ul>
 		</div>
 	</nav>
-<!-- NAVBAR -->
 	<?php
 		if (isset($_GET['page'])) {
 			$pagina = $_GET['page'];
@@ -90,7 +85,35 @@ if (!isset($_SESSION['logado'])) {
 			include "paginas/home.php"; // ou algum conteúdo padrão
 		}
 	?>
-
+	<main>
+    <?php
+		if (isset($_GET['page'])) {
+			$pagina = $_GET['page'];
+			if ($pagina == "salas"){
+				include "paginas/salas.php";
+			}
+		} else {
+			include "paginas/home.php"; // ou algum conteúdo padrão
+		}
+		
+      switch ($pagina) {
+        case 'home':
+          include 'paginas/home.php';
+          break;
+        case 'salas':
+          include 'paginas/salas.php';
+          break;
+        case 'Analistc':
+          include 'paginas/Analistc.php';
+          break;
+        case 'logout':
+          include 'paginas/index.php';
+          break;
+        default:
+          echo "<p>Página não encontrada.</p>";
+      }
+    ?>
+  </main>
 		
 	
 

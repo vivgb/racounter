@@ -6,7 +6,7 @@
 		</a>
 		<ul class="side-menu top">
 			<li class="active">
-				<a href="#" onclick="mostrarSecao('main-content')">
+				<a href=" painel.php?page=home">
 					<i class='bx bxs-dashboard bx-sm' ></i>
 					<span class="text">Início</span>
 				</a>
@@ -18,7 +18,7 @@
 				</a>
 			  </li>
 			<li>
-				<a href="#">
+				<a href=" painel.php?page=Analistc">
 					<i class='bx bx-calendar-event bx-sm'></i>
 					<span class="text">Agendamento</span>
 				</a>
@@ -44,7 +44,7 @@
 				</a>
 			</li>
 			<li>
-				<a href="#" class="logout">
+				<a href=" painel.php?page=index" class="logout">
 					<i class='bx bx-power-off bx-sm bx-burst-hover' ></i>
 					<span class="text">Logout</span>
 				</a>

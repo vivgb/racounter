@@ -44,6 +44,6 @@
     //die();
     mysqli_close($conn);
 
-    header("location: ../inicial.php");
+    header("location: ../painel.php");
 
 ?>
