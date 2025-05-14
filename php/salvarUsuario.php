@@ -1,6 +1,6 @@
 <?php
     include('funcoes.php');
-
+    
     //$idUsuario   = 1;
     //var_dump($id);
     $tipoUsuario = 1; //$_POST["nTipoUsuario"];
