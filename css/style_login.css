@@ -259,8 +259,52 @@ form{ width: 100%; }
     object-position: center; /* Centraliza a imagem */
 }
 
-
-
+.esq {
+    display: flex;
+    flex-direction: column;
+    /*align-items: center;*/
+    gap: 15px; /* controla a distância entre os itens dentro do .esq */
+  }
+  
+  .esq label {
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+  }
+  
+  /* Checkbox estilizado */
+  .esq input[type="checkbox"] {
+    accent-color: #6c4434; /* Cor quando está marcado (funciona nos navegadores modernos) */
+    width: 18px;
+    height: 18px;
+    margin-right: 5px;
+  }
+  
+  /* Select customizado */
+  .esq select {
+    padding: 5px 10px;
+    border: 1px solid #6c4434;
+    border-radius: 5px;
+    background-color: #f0fdfc;
+    font-weight: 500;
+    gap: 15px;
+  }
+  
+  .esq select:focus {
+    outline: none;
+    border-color: #947364 ;
+  }
+  
+  .tipo-usuario {
+    display: flex;
+    align-items: center; /* alinha verticalmente o label e o select */
+    gap: 10px; /* espaço entre o texto e o select */
+    margin-bottom: 20px; 
+  }
+  
+  .tipo-usuario label {
+    min-width: 120px; /* ou ajuste conforme necessário para alinhar bem */
+  }
 
 @media screen and (max-width: 400px){
     .form-box { padding: 20px; }

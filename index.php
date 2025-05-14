@@ -65,14 +65,21 @@
                     <input type="password" name="nConfirmSenha" placeholder="Confirmar senha" required>
                     <i class='bx bxs-lock-alt' ></i>
                 </div>
-                <div class="forget">
-                        <label><input type="checkbox" id="nAtivo" name="nAtivo" >Ativo</label>
-                        <label style="margin-left: 25px;" for="iTipo">Tipo de Usuário:</label>
-                         <select name="nTipo" id="iTipo" required>
-                            <option>Selecione...</option>
-                            <?php echo optionTipoUsuario(0);?>
-                        </select> 
+                <div class="esq"> 
+                    <label for="nAtivo">
+                      <input type="checkbox" id="nAtivo" name="nAtivo">
+                      Ativo
+                    </label>
+                  
+                    <div class="tipo-usuario">
+                      <label for="iTipo">Tipo de Usuário:</label>
+                      <select name="nTipo" id="iTipo" required>
+                        <option>Selecione...</option>
+                        <?php echo optionTipoUsuario(0); ?>
+                      </select>
                     </div>
+                </div>
+                  
                 <button type="submit" class="btn">Register</button>
             </form>
         </div>
