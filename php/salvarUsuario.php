@@ -7,10 +7,13 @@
     //var_dump($tipoUsuario);
     $nome        = $_POST["nNome"];
     //var_dump($nome);
-    $email       = $_POST["nLogin"];
+    $email       = $_POST["nEmail"];
     //var_dump($email);
     $senha       = $_POST["nSenha"];
+    //var_dump($senha);
     $funcao      = $_GET["funcao"];
+    //var_dump($funcao);
+    //die();
 
     if($_POST["nAtivo"] == "on") $ativo = "S"; else $ativo = "N";
 
@@ -33,9 +36,14 @@
         $sql = "DELETE FROM usuarios "
                 ." WHERE id_usuario = $idUsuario;";
     }
-    $result = mysqli_query($conn,$sql);
-    mysqli_close($conn);
+
     }
+
+    $result = mysqli_query($conn,$sql);
+    //var_dump($result);
+    //die();
+    mysqli_close($conn);
+
     header("location: ../inicial.php");
 
 ?>

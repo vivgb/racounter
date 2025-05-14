@@ -29,7 +29,7 @@
             <form method="POST" action="php/validaLogin.php">
                 <h1>Login</h1>
                 <div class="input-box">
-                    <input type="text" name="nLogin" placeholder="Usuario" required>
+                    <input type="text" name="nEmail" placeholder="Usuario" required>
                     <i class='bx bxs-user'></i>
                 </div>
                 <div class="input-box">
