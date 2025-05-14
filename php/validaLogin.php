@@ -27,7 +27,11 @@
             $_SESSION['NomeLogin']     = $coluna['nome'];
             $_SESSION['AtivoLogin']    = $coluna['flg_ativos'];
 
+<<<<<<< HEAD
+            header('location: ../painel.php');
+=======
             header('location: ../inicial.php');
+>>>>>>> 1aa3134611a58819dc7b80ce1803e24308d80d68
         }
     }else {
         header('location: ../');
