@@ -29,7 +29,7 @@
             <form method="POST" action="php/validaLogin.php">
                 <h1>Login</h1>
                 <div class="input-box">
-                    <input type="text" name="nEmail" placeholder="Usuario" required>
+                    <input type="text" name="nEmail" placeholder="Usuário" required>
                     <i class='bx bxs-user'></i>
                 </div>
                 <div class="input-box">
@@ -47,7 +47,7 @@
         <div class="form-box register">
             <form method="POST" action="php/salvarUsuario.php?funcao=I" enctype="multipart/form-data" 
             onsubmit="return validarCadastro()">
-            
+
                 <h1>Registrar</h1>
                 <div class="input-box">
                     <input type="text" name="nNome" placeholder="Nome" required>
@@ -65,10 +65,14 @@
                     <input type="password" name="nConfirmSenha" placeholder="Confirmar senha" required>
                     <i class='bx bxs-lock-alt' ></i>
                 </div>
-                <p>
-                    <label><input type="checkbox" id="nAtivo" name="nAtivo" >Ativo</label>
-                </p>
-              
+                <div class="forget">
+                        <label><input type="checkbox" id="nAtivo" name="nAtivo" >Ativo</label>
+                        <label style="margin-left: 25px;" for="iTipo">Tipo de Usuário:</label>
+                         <select name="nTipo" id="iTipo" required>
+                            <option>Selecione...</option>
+                            <?php echo optionTipoUsuario(0);?>
+                        </select> 
+                    </div>
                 <button type="submit" class="btn">Register</button>
             </form>
         </div>
