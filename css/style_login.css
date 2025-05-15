@@ -262,8 +262,7 @@ form{ width: 100%; }
 .esq {
     display: flex;
     flex-direction: column;
-    /*align-items: center;*/
-    gap: 15px; /* controla a distância entre os itens dentro do .esq */
+    gap: 15px; 
   }
   
   .esq label {
@@ -297,13 +296,13 @@ form{ width: 100%; }
   
   .tipo-usuario {
     display: flex;
-    align-items: center; /* alinha verticalmente o label e o select */
-    gap: 10px; /* espaço entre o texto e o select */
+    align-items: center; 
+    gap: 10px; 
     margin-bottom: 20px; 
   }
   
   .tipo-usuario label {
-    min-width: 120px; /* ou ajuste conforme necessário para alinhar bem */
+    min-width: 120px; 
   }
 
 @media screen and (max-width: 400px){
