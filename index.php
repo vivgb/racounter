@@ -73,7 +73,7 @@
                   
                     <div class="tipo-usuario">
                       <label for="iTipo">Tipo de Usuário:</label>
-                      <select name="nTipo" id="iTipo" required>
+                      <select name="nTipoUsuario" id="iTipo" required>
                         <option>Selecione...</option>
                         <?php echo optionTipoUsuario(0); ?>
                       </select>
