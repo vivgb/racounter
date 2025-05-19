@@ -13,10 +13,14 @@
 	<link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
 	<link rel="manifest" href="/site.webmanifest">
 
-
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 	<!-- My CSS -->
 	<link rel="stylesheet" href="css/style.css">
 
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+	
 	<title>Raccounter</title>
 </head>
 <body>
@@ -111,17 +115,35 @@
         </ul>
     </div>
 
-    <!-- Profile Menu -->
-    <a href="#" class="profile" id="profileIcon">
-        <img src="https://placehold.co/600x400/png" alt="Profile"> <!--puxar a foto de perfil do usuario-->
-    </a>
-    <div class="profile-menu" id="profileMenu">
-        <ul>
-            <li><a href="#"><!--nome do Usuario-->></a></li>
-            <li><a href="#">configuracoes</a></li>
-            <li><a href="#">sair</a></li>
-        </ul>
-    </div>
+	<!-- Profile Menu -->
+	<a href="#" class="profile" id="profileIcon">
+		<img id="profileImage" src="https://placehold.co/100x100" alt="Profile">
+	</a>
+
+	<div class="profile-menu" id="profileMenu">
+		<div class="profile-preview">
+			<div class="image-wrapper">
+				<img id="profileImageMenu" src="https://placehold.co/100x100" alt="Profile Preview">
+				<label for="uploadInput" class="upload-overlay">
+					<input type="file" id="uploadInput" class="my_file">
+				</label>
+			</div>
+		</div>
+
+		<ul>
+			<li>
+				<div class="icon-options">
+					<i class='bx bxs-user-circle bx-lg icon-option' data-icon="bxs-user-circle"></i>
+					<i class='bx bxs-face bx-lg icon-option' data-icon="bxs-face"></i>
+					<i class='bx bxs-cat bx-lg icon-option' data-icon="bxs-cat"></i>
+				</div>
+			</li>
+			<li><a href="#">Configurações</a></li>
+			<li><a href="#">Sair</a></li>
+		</ul>
+	</div>
+
+
 </nav>
 <!-- NAVBAR -->
 
