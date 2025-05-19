@@ -1,49 +1,80 @@
 <?php
-    include('funcoes.php');
+include("funcoes.php");
+
+
+$tipoUsuario = $_POST["nTipoUsuario"];
+$nome        = $_POST["nNome"];
+$login       = $_POST["nEmail"];
+$senha       = $_POST["nSenha"];
+$funcao      = $_GET['funcao'];
+$id          = $_GET['id'];
+$setSenha    = '';
+
+
+if ($senha != ''){
+    $setSenha = "senha = md5('$senha'),";
+}
+
+if($_POST['nAtivo'] == "on"){
+    $ativo = 'S';
+}else{
+    $ativo = 'N';
+}
+
+include("conexao.php");
+
+if($funcao == 'I'){
+    $id = proximoID('usuarios','id_usuario');
+    $sql = "INSERT INTO usuarios (id_usuario,id_tipo_usuario,nome,email,senha,flg_ativos)
+            VALUES($id,$tipoUsuario,'$nome','$login',md5('$senha'),'$ativo');";
+
+}elseif($funcao == 'A'){
+                            $sql = "UPDATE usuarios
+                            SET nome = '$nome',
+	                        email = '$login',
+                            $setSenha
+                            flg_ativos = '$ativo',
+                            id_tipo_usuario = $tipoUsuario
+                            WHERE id_usuario = $id;";
+}elseif($funcao == 'E'){
+    $sql = "DELETE FROM usuarios WHERE id_usuario = $id;";
+}
+
+
+//var_dump($sql);
+//die();
+
+
+$result = mysqli_query($conn,$sql);
+mysqli_close($conn);
+
+//IMAGEM
+if($_FILES['nFoto']['tmp_name'] != ""){
+    //Grava a extensão do arquivo
+    $extensao = pathinfo ($_FILES['nFoto']['name'], PATHINFO_EXTENSION);
+
+    //novo nome 
+    $novoNome = md5($_FILES['nFoto']['name']).'.'.$extensao;
+
+    if(is_dir('../img')){
+        $diretorio = '../img/';
+    }else{
+        $diretorio = mkdir('../img/');
+    }
+
+    move_uploaded_file($_FILES['nFoto']['tmp_name'], $diretorio.$novoNome);
+
+    $dirImagem = 'img/'.$novoNome;
     
-    //$idUsuario   = 1;
-    //var_dump($id);
-    $tipoUsuario = 1; //$_POST["nTipoUsuario"];
-    //var_dump($tipoUsuario);
-    $nome        = $_POST["nNome"];
-    //var_dump($nome);
-    $email       = $_POST["nEmail"];
-    //var_dump($email);
-    $senha       = $_POST["nSenha"];
-    //var_dump($senha);
-    $funcao      = $_GET["funcao"];
-    //var_dump($funcao);
-    //die();
-
-    if($_POST["nAtivo"] == "on") $ativo = "S"; else $ativo = "N";
-
     include("conexao.php");
+    $sql = "UPDATE usuario
+     SET foto = '".$dirImagem."'
+     WHERE id_usuario = $id;";
 
-    if($funcao == "I"){
-        $idUsuario = proxIdUsuario();
-        //var_dump();
-        //die();
+     $result = mysqli_query($conn, $sql);
+     mysqli_close($conn);
+}
 
-        $sql = "INSERT INTO usuarios (id,nome,email,senha,flg_ativos) VALUES (".$idUsuario.",'".$nome."','".$email."', md5('".$senha."'),'".$ativo."');";
-
-        //var_dump($sql);
-        //die();
-
-
-    }elseif($funcao == "A"){
-
-        if($senha == ''){ 
-        $sql = "DELETE FROM usuarios "
-                ." WHERE id_usuario = $idUsuario;";
-    }
-
-    }
-
-    $result = mysqli_query($conn,$sql);
-    //var_dump($result);
-    //die();
-    mysqli_close($conn);
-
-    header("location: ../inicial.php");
+header("location: ../inicial.php");
 
 ?>
