@@ -25,7 +25,6 @@ function proxIdUsuario(){
         }
         
         foreach ($array as $coluna) {            
-            //***Verificar os dados da consulta SQL
             $id = $coluna["Maior"] + 1;
         }        
     }else{

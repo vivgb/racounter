@@ -45,7 +45,7 @@
         </div>
 
         <div class="form-box register">
-            <form method="POST" action="php/salvarUsuario.php?funcao=I" enctype="multipart/form-data" 
+            <form method="POST" action="php/salvarUsuario.php?funcao=I&id=0" enctype="multipart/form-data" 
             onsubmit="return validarCadastro()">
 
                 <h1>Registrar</h1>
@@ -73,7 +73,7 @@
                   
                     <div class="tipo-usuario">
                       <label for="iTipo">Tipo de Usuário:</label>
-                      <select name="nTipo" id="iTipo" required>
+                      <select name="nTipoUsuario" id="iTipo" required>
                         <option>Selecione...</option>
                         <?php echo optionTipoUsuario(0); ?>
                       </select>
