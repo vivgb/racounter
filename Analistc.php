@@ -1,3 +1,7 @@
+<?php
+  session_start();
+  include("funcao.php");
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -18,6 +22,17 @@
       padding: 20px;
       text-align: center;
       font-size: 24px;
+      font-weight: bold;
+    }
+    nav {
+      background-color: #6c4434;
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      color: #fcf4dc;
+      text-decoration: none;
+      margin: 0 15px;
       font-weight: bold;
     }
     .calendar-section {
@@ -87,6 +102,11 @@
 </head>
 <body>
   <header>Estatísticas das Salas</header>
+  <nav>
+    <a href="#salas">Salas</a>
+    <a href="#relatorios">Relatórios</a>
+    <a href="#configuracoes">Configurações</a>
+  </nav>
   <div class="calendar-section">
     <!-- Calendário -->
     <div class="calendar">
