@@ -122,7 +122,7 @@ window.addEventListener('click', function (e) {
             }
         });
     }
-    document.getElementById('btn-my-store').addEventListener('click', function (e) {
+    document.getElementById('bx bx-desktop').addEventListener('click', function (e) {
         e.preventDefault();
         mostrarSecao('salas-section');
     });
