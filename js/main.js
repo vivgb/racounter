@@ -27,7 +27,7 @@ const olhos = document.querySelector('#olhos');
 
 // Função para trocar a imagem do olho
 function trocarOlho(nome) {
-    olhos.src = `img/guaxinim/${nome}.jpeg`;
+    olhos.src = img/guaxinim/${nome}.jpeg;
 }
 
 // Movimentação dos olhos acompanhando o preenchimento do e-mail

@@ -41,7 +41,7 @@ body{
 form{ width: 100%; }
 
 .form-box{
-    position: center;
+    position: absolute;
     right: 0;
     width: 50%;
     height: 100%;
@@ -95,7 +95,6 @@ form{ width: 100%; }
         font-size: 14.5px;
         color: #333;
     }
-
 
 .btn{
     width: 100%;
@@ -311,4 +310,3 @@ form{ width: 100%; }
 
     .toggle-panel h1{font-size: 30px; }
 }
-

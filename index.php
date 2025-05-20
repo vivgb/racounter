@@ -36,8 +36,8 @@
                     <input type="password" name="nSenha" placeholder="Senha" required>
                     <i class='bx bxs-lock-alt' ></i>
                 </div>
-                <div class="forgot-link registrar">
-                    <a href="esqueceu-senha.php">Esqueceu a senha?</a>
+                <div class="forgot-link">
+                    <a href="#">Esqueceu a senha?</a>
                 </div>
                 <button type="submit" class="btn">Login</button>
 
@@ -45,7 +45,7 @@
         </div>
 
         <div class="form-box register">
-            <form method="POST" action="php/salvarUsuario.php?funcao=I&id=0" enctype="multipart/form-data" 
+            <form method="POST" action="php/salvarUsuario.php?funcao=I" enctype="multipart/form-data" 
             onsubmit="return validarCadastro()">
 
                 <h1>Registrar</h1>
@@ -73,7 +73,7 @@
                   
                     <div class="tipo-usuario">
                       <label for="iTipo">Tipo de Usuário:</label>
-                      <select name="nTipoUsuario" id="iTipo" required>
+                      <select name="nTipo" id="iTipo" required>
                         <option>Selecione...</option>
                         <?php echo optionTipoUsuario(0); ?>
                       </select>
@@ -102,18 +102,14 @@
     <script src="js/main.js"></script>
     <script>
         function validarCadastro() {
-            const senha = document.getElementById('senha').value;
-            const confirmSenha = document.getElementById('confirmSenha').value;
+            const senha = document.getElementById('nSenha').value;
+            const confirmSenha = document.getElementById('nConfirmSenha').value;
             
             if (senha !== confirmSenha) {
                 alert('As senhas não coincidem!');
                 return false;
             }
             return true;
-        }
-
-        function limparFormulario() {
-            document.getElementById('formCadastro').reset();
         }
     </script>
 </body>
