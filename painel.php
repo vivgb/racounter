@@ -82,7 +82,7 @@ if (!isset($_SESSION['logado'])) {
 				include "paginas/salas.php";
 			}
 		} else {
-			include "paginas/home.php"; // ou algum conteúdo padrão
+			include "paginas/home.php"; // ou algum conteudo padrão
 		}
 	?>
 	<main>
