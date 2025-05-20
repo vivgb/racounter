@@ -24,7 +24,7 @@ function proxIdUsuario(){
             array_push($array,$linha);
         }
         
-        foreach ($array as $coluna) {            
+        foreach ($array as $coluna) {            s
             $id = $coluna["Maior"] + 1;
         }        
     }else{

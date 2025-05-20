@@ -36,8 +36,8 @@
                     <input type="password" name="nSenha" placeholder="Senha" required>
                     <i class='bx bxs-lock-alt' ></i>
                 </div>
-                <div class="forgot-link">
-                    <a href="#">Esqueceu a senha?</a>
+                <div class="forgot-link registrar">
+                    <a href="esqueceu-senha.php">Esqueceu a senha?</a>
                 </div>
                 <button type="submit" class="btn">Login</button>
 
@@ -102,14 +102,18 @@
     <script src="js/main.js"></script>
     <script>
         function validarCadastro() {
-            const senha = document.getElementById('nSenha').value;
-            const confirmSenha = document.getElementById('nConfirmSenha').value;
+            const senha = document.getElementById('senha').value;
+            const confirmSenha = document.getElementById('confirmSenha').value;
             
             if (senha !== confirmSenha) {
                 alert('As senhas não coincidem!');
                 return false;
             }
             return true;
+        }
+
+        function limparFormulario() {
+            document.getElementById('formCadastro').reset();
         }
     </script>
 </body>
