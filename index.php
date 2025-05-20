@@ -1,3 +1,4 @@
+<!-- Comi o cu de quem ta lendo -->
 <?php
     session_start();
     include("php/funcoes.php")
@@ -17,6 +18,7 @@
 
 </head>
 <body>
+
 
 
     <div class="container">
