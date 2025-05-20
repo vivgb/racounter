@@ -39,7 +39,7 @@
                     <i class='bx bxs-lock-alt' ></i>
                 </div>
                 <div class="forgot-link">
-                    <a href="#">Esqueceu a senha?</a>
+                    <a href="esqueceu-senha.php">Esqueceu a senha?</a>
                 </div>
                 <button type="submit" class="btn">Login</button>
 
