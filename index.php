@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-<!-- Comi o cu de quem ta lendo  -->
-=======
-<!-- Comi o cu de quem ta lendo . -->
->>>>>>> 40c6fc0d868c23e6cb2cbe620991cc7c1a1a719a
+
 <?php
     session_start();
     include("php/funcoes.php")
