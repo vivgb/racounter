@@ -1,6 +1,5 @@
-<?php 
 <!-- MAIN -->
-<main id="main-content" class="secao">
+<section>
     <div class="head-title">
         <div class="left">
             <h1>Raccounter</h1>
@@ -136,8 +135,6 @@
         </div>
     </div>
     <!-- MAIN -->
-    </section>
     <!-- CONTENT -->
 
-</main>
-?>
+</section>
