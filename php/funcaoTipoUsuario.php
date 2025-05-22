@@ -35,13 +35,7 @@ function optionTipoUsuario(){
     mysqli_close($conn);
 
     if (mysqli_num_rows($result) > 0) {
-        $array = array();
-        
-        while ($linha = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-            array_push($array,$linha);
-        }
-        
-        foreach ($array as $coluna) {                       
+        foreach ($result as $coluna) {                       
             $option .= '<option value="'.$coluna['id_tipo_usuario'].'">'.$coluna['descricao'].'</option>';
         }        
     } 

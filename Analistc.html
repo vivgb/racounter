@@ -157,6 +157,9 @@
   <script>
     const usageDataBase = {
       "2025-05": Array.from({ length: 31 }, () => Math.floor(Math.random() * 11)),
+      "2025-06": Array.from({ length: 30 }, () => Math.floor(Math.random() * 11)),
+      "2025-07": Array.from({ length: 31 }, () => Math.floor(Math.random() * 11)),
+      "2025-08": Array.from({ length: 31 }, () => Math.floor(Math.random() * 11)),
       "2025-04": Array.from({ length: 30 }, () => Math.floor(Math.random() * 11)),
       "2025-03": Array.from({ length: 31 }, () => Math.floor(Math.random() * 11))
     };
@@ -176,7 +179,7 @@
     function renderCalendar(date) {
       const calendarGrid = document.getElementById("calendarGrid");
       const monthKey = getMonthKey(date);
-      const data = usageDataBase[monthKey] || [];
+      const data = usageDataBase[monthKey] || Array(31).fill(0); // Preencher com zeros se não houver dados
 
       document.getElementById("monthDisplay").textContent = date.toLocaleString("pt-BR", {
         month: "long",
@@ -184,21 +187,22 @@
       });
 
       calendarGrid.innerHTML = "";
-      data.forEach((uso, i) => {
+      const daysInMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate(); // Obtém o número de dias no mês
+      for (let i = 0; i < daysInMonth; i++) {
         const day = document.createElement("div");
         day.className = "day-cell";
         day.textContent = i + 1;
-        day.onclick = () => renderDayChart(i + 1); // Interação ao clicar no dia
+        day.onclick = () => renderDayChart(i + 1);
         calendarGrid.appendChild(day);
-      });
+      }
 
       const total = data.reduce((a, b) => a + b, 0);
-      const average = (total / data.length).toFixed(1);
+      const average = (total / daysInMonth).toFixed(1);
       document.getElementById("total").textContent = total;
       document.getElementById("average").textContent = average;
 
       renderMonthChart(data);
-      updateReservationsList(); // Atualiza a lista de reservas ao renderizar o calendário
+      updateReservationsList();
     }
 
     function renderMonthChart(data) {
