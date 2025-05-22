@@ -1,108 +1,14 @@
 <?php
-  session_start();
-  include("funcao.php");
+// Evita acesso direto
+if (basename(__FILE__) === basename($_SERVER['SCRIPT_FILENAME'])) {
+    header("Location: ../index.php");
+    exit;
+}
 ?>
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dashboard de Salas</title>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <style>
-    body {
-      margin: 0;
-      font-family: sans-serif;
-      background-color: #947364;
-      color: #000;
-    }
-    header {
-      background-color: #3c1209;
-      color: #fcf4dc;
-      padding: 20px;
-      text-align: center;
-      font-size: 24px;
-      font-weight: bold;
-    }
-    nav {
-      background-color: #6c4434;
-      padding: 10px;
-      text-align: center;
-    }
-    nav a {
-      color: #fcf4dc;
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: bold;
-    }
-    .calendar-section {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-      padding: 20px;
-    }
-    .calendar, .chart-container, .summary-container {
-      background-color: #d5c1ac;
-      border-radius: 10px;
-      padding: 20px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    }
-    .calendar-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 10px;
-    }
-    .calendar-header button {
-      background-color: #6c4434;
-      color: #fcf4dc;
-      border: none;
-      padding: 5px 10px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    .calendar-grid {
-      display: grid;
-      grid-template-columns: repeat(7, 1fr);
-      gap: 5px;
-    }
-    .day-cell {
-      background-color: #fcf4dc;
-      padding: 10px;
-      text-align: center;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    .chart-container {
-      height: 300px;
-    }
-    .summary {
-      display: flex;
-      justify-content: space-around;
-      margin-bottom: 20px;
-    }
-    .summary div {
-      text-align: center;
-    }
-    .summary span {
-      display: block;
-      font-weight: bold;
-    }
-    .room-summary {
-      display: flex;
-      justify-content: space-between;
-      background-color: #fcf4dc;
-      color: #000;
-      padding: 10px;
-      margin-top: 10px;
-      border-radius: 10px;
-      font-weight: bold;
-    }
-  </style>
-</head>
-<body>
-  <header>Estatísticas das Salas</header>
-  <nav>
+
+  <section id="agendamento">
+  <header id="estatisticas">Estatísticas das Salas</header>
+  <nav id="agenda">
     <a href="#salas">Salas</a>
     <a href="#relatorios">Relatórios</a>
     <a href="#configuracoes">Configurações</a>
@@ -154,107 +60,7 @@
       </div>
     </div>
   </div>
-
-  <script>
-    const usageDataBase = {
-      "2025-05": Array.from({ length: 31 }, () => Math.floor(Math.random() * 11)),
-      "2025-04": Array.from({ length: 30 }, () => Math.floor(Math.random() * 11)),
-      "2025-03": Array.from({ length: 31 }, () => Math.floor(Math.random() * 11))
-    };
-
-    let currentDate = new Date();
-
-    function getMonthKey(date) {
-      return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}`;
-    }
-
-    function renderCalendar(date) {
-      const calendarGrid = document.getElementById("calendarGrid");
-      const monthKey = getMonthKey(date);
-      const data = usageDataBase[monthKey] || [];
-
-      document.getElementById("monthDisplay").textContent = date.toLocaleString("pt-BR", {
-        month: "long",
-        year: "numeric"
-      });
-
-      calendarGrid.innerHTML = "";
-      data.forEach((uso, i) => {
-        const day = document.createElement("div");
-        day.className = "day-cell";
-        day.textContent = i + 1;
-        day.onclick = () => renderDayChart(i + 1);
-        calendarGrid.appendChild(day);
-      });
-
-      const total = data.reduce((a, b) => a + b, 0);
-      const average = (total / data.length).toFixed(1);
-      document.getElementById("total").textContent = total;
-      document.getElementById("average").textContent = average;
-
-      renderMonthChart(data);
-    }
-
-    function renderMonthChart(data) {
-      const ctx = document.getElementById("usageChart").getContext("2d");
-      if (window.usageChart) window.usageChart.destroy();
-      window.usageChart = new Chart(ctx, {
-        type: "bar",
-        data: {
-          labels: data.map((_, i) => i + 1),
-          datasets: [{
-            label: "Pessoas por dia",
-            data,
-            backgroundColor: "#a855f7"
-          }]
-        },
-        options: {
-          responsive: true,
-          scales: {
-            y: {
-              beginAtZero: true
-            }
-          }
-        }
-      });
-    }
-
-    function renderDayChart(day) {
-      const data = Array.from({ length: 24 }, () => Math.floor(Math.random() * 3));
-      const ctx = document.getElementById("usageChart").getContext("2d");
-      if (window.usageChart) window.usageChart.destroy();
-      window.usageChart = new Chart(ctx, {
-        type: "bar",
-        data: {
-          labels: data.map((_, i) => `${String(i).padStart(2, '0')}:00`),
-          datasets: [{
-            label: `Pessoas por hora - Dia ${day}`,
-            data,
-            backgroundColor: "#f59e0b"
-          }]
-        },
-        options: {
-          responsive: true,
-          scales: {
-            y: {
-              beginAtZero: true
-            }
-          }
-        }
-      });
-    }
-
-    function prevMonth() {
-      currentDate.setMonth(currentDate.getMonth() - 1);
-      renderCalendar(currentDate);
-    }
-
-    function nextMonth() {
-      currentDate.setMonth(currentDate.getMonth() + 1);
-      renderCalendar(currentDate);
-    }
-
-    renderCalendar(currentDate);
-  </script>
-</body>
-</html>
+  </section>
+  
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  

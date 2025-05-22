@@ -33,32 +33,26 @@ if (!isset($_SESSION['logado'])) {
 		<main id="main-content" class="secao">
 			<?php include 'navbar.php'; ?>
 			<?php
-			if (isset($_GET['page'])) {
-				$pagina = $_GET['page'];
-				switch ($pagina) {
-					case 'home':
-						include 'paginas/home.php';
-						break;
-					case 'salas':
-						include 'paginas/salas.php';
-						break;
-					case 'Analistc':
-						include 'paginas/Analistc.php';
-						break;
-					case 'logout':
-						include 'index.php';
-						break;
-					default:
+				if (isset($_GET['page'])) {
+					$pagina = basename($_GET['page']); // remove caminhos perigosos
+				
+					// Lista de páginas permitidas
+					$paginasPermitidas = ['home', 'salas', 'Analistc'];
+				
+					if (in_array($pagina, $paginasPermitidas)) {
+						include "paginas/{$pagina}.php";
+					} else {
 						echo "<p>Página não encontrada.</p>";
+					}
+				} else {
+					include 'paginas/home.php';
 				}
-			} else {
-				include 'paginas/home.php';
-			}
 			?>
 		</main>
 
 	</section>
 	
 	<script src="js/script.js"></script>
+	<script src="js/calendar.js"></script>
 </body>
 </html>

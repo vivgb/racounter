@@ -37,7 +37,7 @@
             $_SESSION['AtivoLogin']    = $coluna['flg_ativos'];
 
             //Acessar a tela inicial
-            header('location: ../inicial.php');
+            header('location: ../painel.php');
             
         }        
     }else{

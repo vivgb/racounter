@@ -15,7 +15,7 @@ li {
 }
 
 :root {
-	--poppins: 'Poppins', sans-serif;
+	--poppins: sans-serif;
 	--lato: 'Lato', sans-serif;
 
 	--light: #FEFBF4;
@@ -60,7 +60,7 @@ body {
 	height: 100%;
 	background: var(--light);
 	z-index: 2000;
-	font-family: var(--lato);
+	font-family: var(--poppins);
 	transition: .3s ease;
 	overflow-x: hidden;
 	scrollbar-width: none;
@@ -73,7 +73,7 @@ body {
 }
 #sidebar .brand {
 	font-size: 24px;
-	font-weight: 700;
+	font-weight: bold;
 	height: 56px;
 	display: flex;
 	align-items: center;
@@ -136,6 +136,7 @@ body {
 	align-items: center;
 	border-radius: 48px;
 	font-size: 16px;
+	font-weight: bold;
 	color: var(--dark);
 	white-space: nowrap;
 	overflow-x: hidden;
@@ -218,6 +219,9 @@ body {
 }
 #content nav a {
 	color: var(--dark);
+	font-weight: bold;
+	text-decoration: none;
+    margin: 0 15px;
 }
 #content nav .bx.bx-menu {
 	cursor: pointer;
@@ -815,4 +819,89 @@ body.dark #content nav .profile-menu li a {
 
 .my_file {
 	display: none;
+}
+
+/* agendamento */
+
+#agendamento header {
+	background-color: #3c1209;
+	color: #fcf4dc;
+	padding: 20px;
+	text-align: center;
+	font-size: 24px;
+	font-weight: bold;
+  }
+#agenda {
+	background-color: #6c4434;
+	padding: 10px;
+	text-align: center;
+  }
+#agenda a {
+	color: #fcf4dc;
+	text-decoration: none;
+	margin: 0 15px;
+	font-weight: bold;
+  }
+.calendar-section {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 20px;
+	padding: 20px;
+  }
+.calendar, .chart-container, .summary-container {
+	background-color: #d5c1ac;
+	border-radius: 10px;
+	padding: 20px;
+	box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+.calendar-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 10px;
+}
+.calendar-header button {
+	background-color: #6c4434;
+	color: #fcf4dc;
+	border: none;
+	padding: 5px 10px;
+	border-radius: 5px;
+	cursor: pointer;
+}
+.calendar-grid {
+	display: grid;
+	grid-template-columns: repeat(7, 1fr);
+	gap: 5px;
+}
+.day-cell {
+	background-color: #fcf4dc;
+	padding: 10px;
+	text-align: center;
+	border-radius: 5px;
+	cursor: pointer;
+}
+.chart-container {
+	height: 300px;
+}
+.summary {
+	display: flex;
+	justify-content: space-around;
+	margin-bottom: 20px;
+}
+.summary div {
+	text-align: center;
+}
+.summary span {
+	display: block;
+	font-weight: bold;
+}
+.room-summary {
+	display: flex;
+	justify-content: space-between;
+	background-color: #fcf4dc;
+	color: #000;
+	padding: 10px;
+	margin-top: 10px;
+	border-radius: 10px;
+	font-weight: bold;
 }
