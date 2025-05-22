@@ -7,7 +7,7 @@ if (basename(__FILE__) === basename($_SERVER['SCRIPT_FILENAME'])) {
 ?>
 
   <section id="agendamento">
-  <header id="estatisticas">Estatísticas das Salas</header>
+  <header>Estatísticas das Salas</header>
   <nav id="agenda">
     <a href="#salas">Salas</a>
     <a href="#relatorios">Relatórios</a>
