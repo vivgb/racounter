@@ -879,36 +879,36 @@ body.dark #content nav .profile-menu li a {
 	font-size: 24px;
 	font-weight: bold;
   }
-#agenda {
+#agendamento #agenda {
 	background-color: #6c4434;
 	padding: 10px;
 	text-align: center;
   }
-#agenda a {
+#agendamento #agenda a {
 	color: #fcf4dc;
 	text-decoration: none;
 	margin: 0 15px;
 	font-weight: bold;
   }
-.calendar-section {
+#agendamento .calendar-section {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	gap: 20px;
 	padding: 20px;
   }
-.calendar, .chart-container, .summary-container {
+#agendamento .calendar, .chart-container, .summary-container {
 	background-color: #d5c1ac;
 	border-radius: 10px;
 	padding: 20px;
 	box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
-.calendar-header {
+#agendamento .calendar-header {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	margin-bottom: 10px;
 }
-.calendar-header button {
+#agendamento .calendar-header button {
 	background-color: #6c4434;
 	color: #fcf4dc;
 	border: none;
@@ -916,34 +916,34 @@ body.dark #content nav .profile-menu li a {
 	border-radius: 5px;
 	cursor: pointer;
 }
-.calendar-grid {
+#agendamento .calendar-grid {
 	display: grid;
 	grid-template-columns: repeat(7, 1fr);
 	gap: 5px;
 }
-.day-cell {
+#agendamento .day-cell {
 	background-color: #fcf4dc;
 	padding: 10px;
 	text-align: center;
 	border-radius: 5px;
 	cursor: pointer;
 }
-.chart-container {
+#agendamento .chart-container {
 	height: 300px;
 }
-.summary {
+#agendamento .summary {
 	display: flex;
 	justify-content: space-around;
 	margin-bottom: 20px;
 }
-.summary div {
+#agendamento .summary div {
 	text-align: center;
 }
-.summary span {
+#agendamento .summary span {
 	display: block;
 	font-weight: bold;
 }
-.room-summary {
+#agendamento .room-summary {
 	display: flex;
 	justify-content: space-between;
 	background-color: #fcf4dc;
