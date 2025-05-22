@@ -44,7 +44,7 @@
 				</a>
 			  </li>
 			<li>
-				<a href="#">
+				<a href="#" onclick="mostrarSecao('')">
 					<i class='bx bx-calendar-event bx-sm'></i>
 					<span class="text">Agendamento</span>
 				</a>
@@ -115,33 +115,50 @@
         </ul>
     </div>
 
-	<!-- Profile Menu -->
-	<a href="#" class="profile" id="profileIcon">
-		<img id="profileImage" src="https://placehold.co/100x100" alt="Profile">
-	</a>
+<!-- Profile Icon (menu trigger) -->
+<a href="#" class="profile" id="profileIcon">
+	<img id="profileImage" src="https://placehold.co/100x100" alt="Profile">
+</a>
 
-	<div class="profile-menu" id="profileMenu">
-		<div class="profile-preview">
-			<div class="image-wrapper">
-				<img id="profileImageMenu" src="https://placehold.co/100x100" alt="Profile Preview">
-				<label for="uploadInput" class="upload-overlay">
-					<input type="file" id="uploadInput" class="my_file">
-				</label>
-			</div>
+<!-- Profile Menu -->
+<div class="profile-menu" id="profileMenu">
+	<!-- Preview da imagem e ações -->
+	<div class="profile-preview">
+		<div class="image-wrapper">
+			<img id="profileImageMenu" src="https://placehold.co/100x100" alt="Profile Preview">
+			<label for="uploadInput" class="upload-overlay">
+				<input type="file" id="uploadInput" class="my_file">
+			</label>
 		</div>
 
-		<ul>
-			<li>
-				<div class="icon-options">
-					<i class='bx bxs-user-circle bx-lg icon-option' data-icon="bxs-user-circle"></i>
-					<i class='bx bxs-face bx-lg icon-option' data-icon="bxs-face"></i>
-					<i class='bx bxs-cat bx-lg icon-option' data-icon="bxs-cat"></i>
-				</div>
-			</li>
-			<li><a href="#">Configurações</a></li>
-			<li><a href="#">Sair</a></li>
-		</ul>
+		<!-- Ícone de lápis para escolher avatar -->
+		<i class='bx bx-edit icon-edit' id="editAvatarIcon" title="Escolher avatar"></i>
 	</div>
+
+	<!-- Galeria de Avatares (inicialmente escondida) -->
+	<div id="iconGallery" style="display: none; margin-top: 10px;">
+		<div class="icon" id="iconCarousel">
+			<img src="img/guaxinim/rac_emo.jpeg" class="icon-option" data-src="img/guaxinim/rac_emo.jpeg">
+			<img src="img/guaxinim/rac_coquete.jpeg" class="icon-option" data-src="img/guaxinim/rac_coquete.jpeg">
+			<img src="img/guaxinim/rac_swag.jpeg" class="icon-option" data-src="img/guaxinim/rac_swag.jpeg">
+			<img src="img/guaxinim/rac_glasses.jpeg" class="icon-option" data-src="img/guaxinim/rac_glasses.jpeg">
+			<img src="img/guaxinim/rac_triste.jpeg" class="icon-option" data-src="img/guaxinim/rac_triste.jpeg">
+			<img src="img/guaxinim/rac_emo.jpeg" class="icon-option" data-src="img/guaxinim/rac_emo.jpeg">
+		</div>
+
+		<!-- Botão de scroll (opcional) -->
+		<button class="carousel-btn right" onclick="scrollIcons('right')">
+			<i class='bx bx-chevron-right'></i>
+		</button>
+	</div>
+
+	<!-- Outras opções do menu -->
+	<ul>
+		<li><a href="#">Configurações</a></li>
+		<li><a href="#">Sair</a></li>
+	</ul>
+</div>
+
 
 
 </nav>
@@ -149,7 +166,7 @@
 
 
 		<!-- MAIN -->
-		<main id="main-content" class="secao">
+		<main id="main-content" class="secao" >
 			<div class="head-title">
 				<div class="left">
 					<h1>Raccounter</h1>

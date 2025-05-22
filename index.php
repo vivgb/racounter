@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-<!-- Comi o cu de quem ta lendo  -->
-=======
-<!-- Comi o cu de quem ta lendo . -->
->>>>>>> 40c6fc0d868c23e6cb2cbe620991cc7c1a1a719a
 <?php
     session_start();
     include("php/funcoes.php")
@@ -13,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="css/style-login.css">
+    <link rel="stylesheet" href="css/style_login.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">

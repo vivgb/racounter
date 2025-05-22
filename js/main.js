@@ -1,25 +1,16 @@
-//hello.
 const container = document.querySelector('.container');
 const registerBtn = document.querySelector('.register-btn');
 const loginBtn = document.querySelector('.login-btn');
 
 registerBtn.addEventListener('click', () => {
     container.classList.add('active');
-})
-
-loginBtn.addEventListener('click', () => {
-    container.classList.remove('active');
-})
-
-
-
-registerBtn.addEventListener('click', () => {
-    container.classList.add('active');
 });
 
 loginBtn.addEventListener('click', () => {
     container.classList.remove('active');
 });
+
+
 
 // Animação dos olhos do guaxinim
 const emailInput = document.querySelector('.form-box.login input[name="nEmail"]');
@@ -28,7 +19,7 @@ const olhos = document.querySelector('#olhos');
 
 // Função para trocar a imagem do olho
 function trocarOlho(nome) {
-    olhos.src = img/guaxinim/${nome}.jpeg;
+    olhos.src = 'img/guaxinim/${nome}.jpeg;'
 }
 
 // Movimentação dos olhos acompanhando o preenchimento do e-mail

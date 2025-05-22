@@ -789,6 +789,8 @@ body.dark #content nav .profile-menu li a {
 	position: relative;
 	width: 60px;
 	height: 60px;
+	border-radius: 50%;
+	overflow: hidden;
 }
 
 .upload-overlay {
@@ -806,6 +808,7 @@ body.dark #content nav .profile-menu li a {
 	align-items: center;
 }
 
+
 .upload-overlay::before {
 	content: '\f030'; /* ícone de câmera */
 	font-family: "FontAwesome";
@@ -816,3 +819,49 @@ body.dark #content nav .profile-menu li a {
 .my_file {
 	display: none;
 }
+
+.icon-edit {
+	font-size: 18px;
+	color: #666;
+	cursor: pointer;
+	margin-left: 10px;
+	vertical-align: middle;
+	position: relative;
+	top: -20px; /* ajuste fino para alinhar com a imagem */
+}
+
+
+.icon-option {
+	width: 50px;         /* mesmo tamanho do bx-lg */
+	height: 50px;
+	border-radius: 50%;
+	object-fit: cover;
+	cursor: pointer;
+	flex-shrink: 0;
+}
+
+#iconCarousel {
+	display: flex;
+	overflow-x: auto;
+	scroll-behavior: smooth;
+	gap: 10px;
+	padding: 10px;
+	max-width: 250px;
+	
+
+  }
+  
+  .carousel-btn {
+	background: none;
+	border: none;
+	position: absolute;
+	right: 10px;
+	top: 50%;
+	transform: translateY(-50%);
+	z-index: 10;
+	cursor: pointer;
+  }
+  
+  .profile-menu li {
+	position: relative;
+  }

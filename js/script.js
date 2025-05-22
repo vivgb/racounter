@@ -126,6 +126,50 @@ window.addEventListener('click', function (e) {
         e.preventDefault();
         mostrarSecao('salas-section');
     });
+
+    function scrollIcons(direction) {
+        const container = document.getElementById('iconCarousel');
+        const scrollAmount = 80;
+
+        if (direction === 'left') {
+            container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+        } else {
+            container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        }
+    }
+
+// Mostrar/Esconder Galeria de Avatares ao clicar no ícone de lápis
+const editAvatarIcon = document.getElementById('editAvatarIcon');
+const iconGallery = document.getElementById('iconGallery');
+
+if (editAvatarIcon && iconGallery) {
+    editAvatarIcon.addEventListener('click', function (e) {
+        e.stopPropagation(); // Impede fechar ao clicar no próprio ícone
+        iconGallery.style.display = (iconGallery.style.display === 'none' || iconGallery.style.display === '') ? 'block' : 'none';
+    });
+}
+
+// Selecionar um avatar e trocar imagem de perfil
+document.querySelectorAll('.icon-option').forEach(img => {
+    img.addEventListener('click', function () {
+        const newSrc = this.getAttribute('data-src');
+        document.getElementById('profileImage').src = newSrc;
+        document.getElementById('profileImageMenu').src = newSrc;
+        iconGallery.style.display = 'none';
+    });
+});
+
+// Fecha a galeria de avatares se clicar fora
+window.addEventListener('click', function (e) {
+    if (!e.target.closest('#iconGallery') && !e.target.closest('#editAvatarIcon')) {
+        if (iconGallery) {
+            iconGallery.style.display = 'none';
+        }
+    }
+});
+
+
+
     
 
 
