@@ -75,6 +75,6 @@ if($_FILES['nFoto']['tmp_name'] != ""){
      mysqli_close($conn);
 }
 
-header("location: ../inicial.php");
+header("location: ../painel.php");
 
 ?>
