@@ -52,13 +52,13 @@
 			<li>
 				<a href="#">
 					<i class='bx bxs-message-dots bx-sm' ></i>
-					<span class="text">Message</span>
+					<span class="text">suport</span>
 				</a>
 			</li>
 			<li>
 				<a href="#">
 					<i class='bx bxs-group bx-sm' ></i>
-					<span class="text">Team</span>
+					<span class="text">???</span>
 				</a>
 			</li>
 		</ul>
