@@ -76,13 +76,12 @@ body {
 }
 
 .modal-content {
-  background-color: #fff;
+  background-color: #d5c1ac; /* Cor de fundo do popup */
   padding: 20px;
   border: 1px solid #888;
-  width: 300px;
+  width: 400px;
   border-radius: 10px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease;
 }
 
 .modal-content h2 {
@@ -99,11 +98,17 @@ label {
 
 input, select {
   width: calc(100% - 16px);
-  padding: 10px; /* Aumentando o padding */
+  padding: 10px;
   margin-top: 5px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  font-size: 16px; /* Tamanho da fonte */
+  font-size: 16px;
+  background-color: #e0c0a6; /* Cor de fundo mais clara */
+  color: #3c1209; /* Cor da fonte dos inputs */
+}
+
+input::placeholder {
+  color: #000; /* Cor preta para o texto do placeholder */
 }
 
 button {
@@ -115,10 +120,26 @@ button {
   cursor: pointer;
   margin-top: 10px;
   width: 100%;
-  font-size: 16px; /* Tamanho da fonte do botão */
+  font-size: 16px;
   transition: background-color 0.3s;
 }
 
 button:hover {
   background-color: #6c4434; /* Cor ao passar o mouse */
+}
+
+.time-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.time-wrapper select {
+  width: calc(50% - 8px); /* Ajusta a largura dos selects */
+}
+
+.event-date {
+  font-weight: bold;
+  margin-top: 10px;
+  color: #3c1209;
 }

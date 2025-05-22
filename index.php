@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="css/style_login.css">
+    <link rel="stylesheet" href="css/style-login.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -17,6 +17,7 @@
 
 </head>
 <body>
+
 
 
     <div class="container">
@@ -37,7 +38,7 @@
                     <i class='bx bxs-lock-alt' ></i>
                 </div>
                 <div class="forgot-link">
-                    <a href="#">Esqueceu a senha?</a>
+                    <a href="esqueceu-senha.php">Esqueceu a senha?</a>
                 </div>
                 <button type="submit" class="btn">Login</button>
 
@@ -73,9 +74,9 @@
                   
                     <div class="tipo-usuario">
                       <label for="iTipo">Tipo de Usuário:</label>
-                      <select name="nTipo" id="iTipo" required>
+                      <select name="nTipoUsuario" id="iTipo" required>
                         <option>Selecione...</option>
-                        <?php echo optionTipoUsuario(0); ?>
+                        <?php echo optionTipoUsuario();?>
                       </select>
                     </div>
                 </div>
