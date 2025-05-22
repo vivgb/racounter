@@ -26,7 +26,7 @@
       gap: 20px;
       padding: 20px;
     }
-    .calendar, .chart-container, .summary-container {
+    .calendar, .chart-container, .summary-container, .reservations {
       background-color: #d5c1ac;
       border-radius: 10px;
       padding: 20px;
@@ -57,6 +57,10 @@
       text-align: center;
       border-radius: 5px;
       cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .day-cell:hover {
+      background-color: #e2d6c9;
     }
     .chart-container {
       height: 300px;
@@ -83,12 +87,36 @@
       border-radius: 10px;
       font-weight: bold;
     }
+    .reservations {
+      margin-top: 20px;
+    }
+    .reservation-card {
+      background-color: #fcf4dc;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 5px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .details-arrow {
+      cursor: pointer;
+      font-size: 20px;
+      color: #6c4434;
+    }
+    .details {
+      display: none; /* Inicialmente oculto */
+      margin-top: 5px;
+      background-color: #f0e7d1;
+      padding: 10px;
+      border-radius: 5px;
+    }
   </style>
 </head>
 <body>
   <header>Estatísticas das Salas</header>
   <div class="calendar-section">
-    <!-- Calendário -->
+    <!-- Setor 1: Calendário -->
     <div class="calendar">
       <div class="calendar-header">
         <button onclick="prevMonth()">&lt;</button>
@@ -98,11 +126,12 @@
       <div class="calendar-grid" id="calendarGrid"></div>
     </div>
 
-    <!-- Gráfico -->
+    <!-- Setor 2: Gráfico -->
     <div class="chart-container">
       <canvas id="usageChart"></canvas>
     </div>
 
+    <!-- Setor 3: Total de Pessoas -->
     <div class="summary-container">
       <div class="summary">
         <div>
@@ -114,23 +143,13 @@
           <p id="average">0</p>
         </div>
       </div>
+    </div>
 
-      <!-- Salas -->
-      <div class="room-summary">
-        <span>Sala 01</span>
-        <span>45 pessoas | 1.5/dia</span>
-      </div>
-      <div class="room-summary">
-        <span>Sala 02</span>
-        <span>88 pessoas | 2.9/dia</span>
-      </div>
-      <div class="room-summary">
-        <span>Sala 03</span>
-        <span>22 pessoas | 0.7/dia</span>
-      </div>
-      <div class="room-summary">
-        <span>Sala 04</span>
-        <span>57 pessoas | 1.8/dia</span>
+    <!-- Setor 4: Lista de Salas Reservadas -->
+    <div class="reservations">
+      <h3>Salas Reservadas</h3>
+      <div id="reservationsList">
+        <!-- As reservas serão adicionadas aqui -->
       </div>
     </div>
   </div>
@@ -138,20 +157,29 @@
   <script>
     const usageDataBase = {
       "2025-05": Array.from({ length: 31 }, () => Math.floor(Math.random() * 11)),
+      "2025-06": Array.from({ length: 30 }, () => Math.floor(Math.random() * 11)),
+      "2025-07": Array.from({ length: 31 }, () => Math.floor(Math.random() * 11)),
+      "2025-08": Array.from({ length: 31 }, () => Math.floor(Math.random() * 11)),
       "2025-04": Array.from({ length: 30 }, () => Math.floor(Math.random() * 11)),
       "2025-03": Array.from({ length: 31 }, () => Math.floor(Math.random() * 11))
     };
 
+    let reservations = []; // Array para armazenar reservas
     let currentDate = new Date();
 
     function getMonthKey(date) {
       return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}`;
     }
 
+    function formatDate(dateStr) {
+      const [year, month, day] = dateStr.split("-");
+      return `${day}/${month}/${year}`;
+    }
+
     function renderCalendar(date) {
       const calendarGrid = document.getElementById("calendarGrid");
       const monthKey = getMonthKey(date);
-      const data = usageDataBase[monthKey] || [];
+      const data = usageDataBase[monthKey] || Array(31).fill(0); // Preencher com zeros se não houver dados
 
       document.getElementById("monthDisplay").textContent = date.toLocaleString("pt-BR", {
         month: "long",
@@ -159,25 +187,29 @@
       });
 
       calendarGrid.innerHTML = "";
-      data.forEach((uso, i) => {
+      const daysInMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate(); // Obtém o número de dias no mês
+      for (let i = 0; i < daysInMonth; i++) {
         const day = document.createElement("div");
         day.className = "day-cell";
         day.textContent = i + 1;
         day.onclick = () => renderDayChart(i + 1);
         calendarGrid.appendChild(day);
-      });
+      }
 
       const total = data.reduce((a, b) => a + b, 0);
-      const average = (total / data.length).toFixed(1);
+      const average = (total / daysInMonth).toFixed(1);
       document.getElementById("total").textContent = total;
       document.getElementById("average").textContent = average;
 
       renderMonthChart(data);
+      updateReservationsList();
     }
 
     function renderMonthChart(data) {
       const ctx = document.getElementById("usageChart").getContext("2d");
-      if (window.usageChart) window.usageChart.destroy();
+      if (window.usageChart && typeof window.usageChart.destroy === 'function') {
+        window.usageChart.destroy();
+      }
       window.usageChart = new Chart(ctx, {
         type: "bar",
         data: {
@@ -202,7 +234,9 @@
     function renderDayChart(day) {
       const data = Array.from({ length: 24 }, () => Math.floor(Math.random() * 3));
       const ctx = document.getElementById("usageChart").getContext("2d");
-      if (window.usageChart) window.usageChart.destroy();
+      if (window.usageChart && typeof window.usageChart.destroy === 'function') {
+        window.usageChart.destroy();
+      }
       window.usageChart = new Chart(ctx, {
         type: "bar",
         data: {
@@ -233,6 +267,54 @@
       currentDate.setMonth(currentDate.getMonth() + 1);
       renderCalendar(currentDate);
     }
+
+    function addReservation(date, room, resource, quantity, maxCapacity, startTime, endTime) {
+      reservations.push({ date, room, resource, quantity, maxCapacity, startTime, endTime });
+      updateReservationsList();
+    }
+
+    function updateReservationsList() {
+      const reservationsList = document.getElementById("reservationsList");
+      reservationsList.innerHTML = ""; // Limpa a lista atual
+
+      reservations.forEach((reservation, index) => {
+        const card = document.createElement("div");
+        card.className = "reservation-card";
+
+        const text = document.createElement("span");
+        text.textContent = `${reservation.room} reservada`;
+
+        const arrow = document.createElement("span");
+        arrow.className = "details-arrow";
+        arrow.textContent = "▼"; // Setinha para baixo
+        arrow.onclick = () => toggleDetails(index); // Função para mostrar/ocultar os detalhes
+
+        const details = document.createElement("div");
+        details.className = "details";
+        details.innerHTML = `
+          <strong>Quem reservou:</strong> ${reservation.resource}<br>
+          <strong>Dia:</strong> ${formatDate(reservation.date)}<br>
+          <strong>Hora:</strong> ${reservation.startTime} - ${reservation.endTime}<br>
+          <strong>Capacidade máxima:</strong> ${reservation.maxCapacity}<br>
+          <strong>Quantidade de pessoas:</strong> ${reservation.quantity} / ${reservation.maxCapacity}
+        `;
+
+        card.appendChild(text);
+        card.appendChild(arrow);
+        reservationsList.appendChild(card);
+        reservationsList.appendChild(details); // Adiciona os detalhes abaixo do cartão
+      });
+    }
+
+    function toggleDetails(index) {
+      const details = document.querySelectorAll(".details")[index];
+      details.style.display = details.style.display === "none" || details.style.display === "" ? "block" : "none"; // Alterna a visibilidade
+    }
+
+    // Exemplo de como adicionar uma reserva
+    addReservation("2025-05-01", "Sala 01", "João", 10, 20, "09:00", "11:00");
+    addReservation("2025-05-05", "Sala 02", "Maria", 5, 15, "14:00", "15:30");
+    addReservation("2025-05-10", "Sala 03", "Carlos", 8, 10, "10:00", "12:00");
 
     renderCalendar(currentDate);
   </script>

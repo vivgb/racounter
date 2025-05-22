@@ -65,7 +65,7 @@ body {
 	overflow-x: hidden;
 	scrollbar-width: none;
 }
-#sidebar::--webkit-scrollbar {
+#sidebar::-webkit-scrollbar {
 	display: none;
 }
 #sidebar.hide {
@@ -777,100 +777,42 @@ body.dark #content nav .profile-menu li a {
 		min-width: 420px;
 	}
 }
+.profile-preview img {
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	object-fit: cover;
+	display: block;
+}
 
-<<<<<<< HEAD
+.image-wrapper {
+	position: relative;
+	width: 60px;
+	height: 60px;
+}
 
-=======
-/* style das salas*/
-.sala-card {
-	width: 90%;               /* Mais estreito em telas pequenas */
-	max-width: 240px;         /* Menor largura máxima */
-	padding: 16px;            /* Menor espaço interno */
-	border-radius: 12px;
-	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+.upload-overlay {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 28%;
+	background: rgba(0, 0, 0, 0.5);
+	border-bottom-left-radius: 50%;
+	border-bottom-right-radius: 50%;
+	cursor: pointer;
 	display: flex;
-	flex-direction: column;
+	justify-content: center;
 	align-items: center;
-	gap: 12px;
-	background-color: white;
-  }
-  
-
-  .sala-nome {
-  font-size: 16px;
-  text-align: center;
-  color: #333;
 }
 
-.buttons {
-  display: flex;
-  justify-content: center; /* Centraliza os botões horizontalmente */
-  align-items: center;     /* Alinha verticalmente se necessário */
-  gap: 12px;               /* Espaço entre os botões */
-  margin-top: 16px;
-  flex-wrap: wrap;         /* Permite que quebrem em telas pequenas */
-  }
-  
-  
-  .button {
-	min-width: 80px;         /* Menor largura */
-	padding: 8px 12px;       /* Menor altura e espaço lateral */
-	font-size: 12px;         /* Texto menor */
-	border-radius: 6px;
-	text-align: center;
-	cursor: pointer;
-	transition: background 0.3s;
-  }
-  
-  
-  .button.outlined {
-	border: 2px solid #a855f7;
-	background: white;
-	color: #a855f7;
-  }
-  
-  .button.outlined:hover {
-	background: #f3e8ff;
-  }
-  
-  .button.filled {
-	background: #a855f7;
-	color: white;
-	border: none;
-  }
-  
-  .button.filled:hover {
-	background: #9333ea;
-  }
-.cards-wrapper {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 4px; 
-  padding: 8px; 
-  justify-items: start; 
-  width: 50%;
-  box-sizing: border-box;
-  margin-left: 60px; /* <-- controla o quanto empurra pra direita */
+.upload-overlay::before {
+	content: '\f030'; /* ícone de câmera */
+	font-family: "FontAwesome";
+	font-size: 18px;
+	color: #fff;
 }
 
-.card-icon {
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;  /* alinha à direita */
-  margin-bottom: -8px;        /* opcional: aproxima do conteúdo abaixo */
+.my_file {
+	display: none;
 }
-
-.calendar div {
-	padding: 6px;
-	border: 1px solid #eee;
-	border-radius: 4px;
-	cursor: pointer;
-	transition: background 0.2s;
-  }
-  
-  .calendar div:hover {
-	background-color: #f0e8ff;
-  }
-  
->>>>>>> 79bde162f8a4b91dcc9e024a0cb19be4987a42be
-
