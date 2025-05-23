@@ -460,7 +460,6 @@ body.dark #content nav .profile-menu li a {
 /* MAIN */
 #content main {
 	width: 100%;
-	padding: 36px 24px;
 	font-family: var(--poppins);
 	max-height: calc(100vh - 56px);
 	overflow-y: auto;
@@ -869,87 +868,30 @@ body.dark #content nav .profile-menu li a {
   .profile-menu li {
 	position: relative;
   }
-/* agendamento */
 
-#agendamento header {
-	background-color: #3c1209;
-	color: #fcf4dc;
-	padding: 20px;
+  /* ------SALAS----- */
+
+#salas {
+	color: #f9f9f9;
 	text-align: center;
-	font-size: 24px;
-	font-weight: bold;
-  }
-#agendamento #agenda {
-	background-color: #6c4434;
-	padding: 10px;
-	text-align: center;
-  }
-#agendamento #agenda a {
-	color: #fcf4dc;
-	text-decoration: none;
-	margin: 0 15px;
-	font-weight: bold;
-  }
-#agendamento .calendar-section {
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	gap: 20px;
-	padding: 20px;
-  }
-#agendamento .calendar, .chart-container, .summary-container {
-	background-color: #d5c1ac;
+}
+
+#salas h1{
+	margin: 30px 0;
+	font-size: 36px;
+	color: #290b05;
+	text-align: left;
+}
+
+#salas .grid-container .card {
+	background-color: #290b05;
+	padding: 2rem;
 	border-radius: 10px;
-	padding: 20px;
-	box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+	text-align: center;
 }
-#agendamento .calendar-header {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	margin-bottom: 10px;
-}
-#agendamento .calendar-header button {
-	background-color: #6c4434;
-	color: #fcf4dc;
-	border: none;
-	padding: 5px 10px;
-	border-radius: 5px;
-	cursor: pointer;
-}
-#agendamento .calendar-grid {
+
+#salas .grid-container {
 	display: grid;
-	grid-template-columns: repeat(7, 1fr);
-	gap: 5px;
-}
-#agendamento .day-cell {
-	background-color: #fcf4dc;
-	padding: 10px;
-	text-align: center;
-	border-radius: 5px;
-	cursor: pointer;
-}
-#agendamento .chart-container {
-	height: 300px;
-}
-#agendamento .summary {
-	display: flex;
-	justify-content: space-around;
-	margin-bottom: 20px;
-}
-#agendamento .summary div {
-	text-align: center;
-}
-#agendamento .summary span {
-	display: block;
-	font-weight: bold;
-}
-#agendamento .room-summary {
-	display: flex;
-	justify-content: space-between;
-	background-color: #fcf4dc;
-	color: #000;
-	padding: 10px;
-	margin-top: 10px;
-	border-radius: 10px;
-	font-weight: bold;
+	grid-template-columns: repeat(5, 1fr);
+	gap: 15px;
 }
