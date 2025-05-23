@@ -869,6 +869,7 @@ body.dark #content nav .profile-menu li a {
 	position: relative;
   }
 
+<<<<<<< Updated upstream
   /* ------SALAS----- */
 
 #salas {
@@ -894,4 +895,14 @@ body.dark #content nav .profile-menu li a {
 	display: grid;
 	grid-template-columns: repeat(5, 1fr);
 	gap: 15px;
+=======
+/*Agendamento*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Poppins', sans-serif;
+	
+>>>>>>> Stashed changes
 }
