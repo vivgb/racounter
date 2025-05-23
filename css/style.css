@@ -869,7 +869,7 @@ body.dark #content nav .profile-menu li a {
 	position: relative;
   }
 
-  /* ------SALAS----- */
+/* ------SALAS----- */
 
 #salas {
 	color: #f9f9f9;
@@ -884,14 +884,16 @@ body.dark #content nav .profile-menu li a {
 }
 
 #salas .grid-container .card {
+	height: 100%;
 	background-color: #290b05;
 	padding: 2rem;
-	border-radius: 10px;
+	border-radius: 20px;
 	text-align: center;
 }
 
 #salas .grid-container {
 	display: grid;
-	grid-template-columns: repeat(5, 1fr);
+	grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
 	gap: 15px;
+	justify-content: center;
 }
