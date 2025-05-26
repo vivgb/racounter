@@ -792,6 +792,8 @@ body.dark #content nav .profile-menu li a {
 	position: relative;
 	width: 60px;
 	height: 60px;
+	border-radius: 50%;
+	overflow: hidden;
 }
 
 .upload-overlay {
@@ -809,6 +811,7 @@ body.dark #content nav .profile-menu li a {
 	align-items: center;
 }
 
+
 .upload-overlay::before {
 	content: '\f030'; /* ícone de câmera */
 	font-family: "FontAwesome";
@@ -820,87 +823,92 @@ body.dark #content nav .profile-menu li a {
 	display: none;
 }
 
-/* agendamento */
+.icon-edit {
+	font-size: 18px;
+	color: #666;
+	cursor: pointer;
+	margin-left: 10px;
+	vertical-align: middle;
+	position: relative;
+	top: -20px; /* ajuste fino para alinhar com a imagem */
+}
 
-#agendamento header {
-	background-color: #3c1209;
-	color: #fcf4dc;
-	padding: 20px;
-	text-align: center;
-	font-size: 24px;
-	font-weight: bold;
-  }
-#agendamento #agenda {
-	background-color: #6c4434;
-	padding: 10px;
-	text-align: center;
-  }
-#agendamento #agenda a {
-	color: #fcf4dc;
-	text-decoration: none;
-	margin: 0 15px;
-	font-weight: bold;
-  }
-#agendamento .calendar-section {
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	gap: 20px;
-	padding: 20px;
-  }
-#agendamento .calendar, .chart-container, .summary-container {
-	background-color: #d5c1ac;
-	border-radius: 10px;
-	padding: 20px;
-	box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+
+.icon-option {
+	width: 50px;         /* mesmo tamanho do bx-lg */
+	height: 50px;
+	border-radius: 50%;
+	object-fit: cover;
+	cursor: pointer;
+	flex-shrink: 0;
 }
-#agendamento .calendar-header {
+
+#iconCarousel {
 	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	margin-bottom: 10px;
-}
-#agendamento .calendar-header button {
-	background-color: #6c4434;
-	color: #fcf4dc;
+	overflow-x: auto;
+	scroll-behavior: smooth;
+	gap: 10px;
+	padding: 10px;
+	max-width: 250px;
+	
+
+  }
+  
+  .carousel-btn {
+	background: none;
 	border: none;
-	padding: 5px 10px;
-	border-radius: 5px;
+	position: absolute;
+	right: 10px;
+	top: 50%;
+	transform: translateY(-50%);
+	z-index: 10;
 	cursor: pointer;
-}
-#agendamento .calendar-grid {
-	display: grid;
-	grid-template-columns: repeat(7, 1fr);
-	gap: 5px;
-}
-#agendamento .day-cell {
-	background-color: #fcf4dc;
-	padding: 10px;
-	text-align: center;
-	border-radius: 5px;
-	cursor: pointer;
-}
-#agendamento .chart-container {
-	height: 300px;
-}
-#agendamento .summary {
-	display: flex;
-	justify-content: space-around;
-	margin-bottom: 20px;
-}
-#agendamento .summary div {
+  }
+  
+  .profile-menu li {
+	position: relative;
+  }
+
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+  /* ------SALAS----- */
+
+#salas {
+	color: #f9f9f9;
 	text-align: center;
 }
-#agendamento .summary span {
-	display: block;
-	font-weight: bold;
+
+#salas h1{
+	margin: 30px 0;
+	font-size: 36px;
+	color: #290b05;	
+	text-align: left;
 }
-#agendamento .room-summary {
-	display: flex;
-	justify-content: space-between;
-	background-color: #fcf4dc;
-	color: #000;
-	padding: 10px;
-	margin-top: 10px;
+
+#salas .grid-container .card {
+	background-color: #290b05;
+	padding: 2rem;
 	border-radius: 10px;
-	font-weight: bold;
+	text-align: center;
+}
+
+#salas .grid-container {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	gap: 15px;
+=======
+=======
+>>>>>>> Stashed changes
+/*Agendamento*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Poppins', sans-serif;
+	
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 }
