@@ -896,9 +896,8 @@ body.dark #content nav .profile-menu li a {
 	display: grid;
 	grid-template-columns: repeat(5, 1fr);
 	gap: 15px;
-=======
-=======
->>>>>>> Stashed changes
+
+
 /*Agendamento*/
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 *{
@@ -906,9 +905,5 @@ body.dark #content nav .profile-menu li a {
 	padding: 0;
 	box-sizing: border-box;
 	font-family: 'Poppins', sans-serif;
-	
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+
 }
