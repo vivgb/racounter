@@ -14,7 +14,7 @@
     //$_GET - Valor enviado pelo FORM através da URL
     //$_SESSION - Variável criada pelo usuário no PHP
 
-    include("../conexao.php");
+    include("conexao.php");
     $sql = "SELECT * FROM usuarios "
             ." WHERE email = '$email' "
             ." AND senha = md5('$senha');";
