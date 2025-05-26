@@ -5,19 +5,19 @@
 		<span class="text">Amndgr</span> <!-- puxar o nome do usuario no banco de dados -->
 	</a>
 	<ul class="side-menu top">
-		<li class="active">
+		<li class="<?php echo (array_key_exists('page', $_GET) && $_GET['page'] == 'home' ? 'active' : '')?>">
 			<a href="painel.php?page=home">
 				<i class='bx bxs-dashboard bx-sm'></i>
 				<span class="text">Início</span>
 			</a>
 		</li>
-		<li>
-			<a href="painel.php?page=salas" onclick="mostrarSecao('salas-section')">
+		<li class="<?php echo (array_key_exists('page', $_GET) && $_GET['page'] == 'salas' ? 'active' : '')?>">
+			<a href="painel.php?page=salas">
 				<i class='bx bx-desktop bx-sm'></i>
 				<span class="text">Salas</span>
 			</a>
 		</li>
-		<li>
+		<li class="<?php echo (array_key_exists('page', $_GET) && $_GET['page'] == 'Analistc' ? 'active' : '')?>">
 			<a href="painel.php?page=Analistc">
 				<i class='bx bx-calendar-event bx-sm'></i>
 				<span class="text">Agendamento</span>
