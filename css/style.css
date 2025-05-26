@@ -869,6 +869,7 @@ body.dark #content nav .profile-menu li a {
 	position: relative;
   }
 
+
 /* ------SALAS----- */
 
 #salas {
@@ -879,7 +880,7 @@ body.dark #content nav .profile-menu li a {
 #salas h1{
 	margin: 30px 0;
 	font-size: 36px;
-	color: #290b05;
+	color: #290b05;	
 	text-align: left;
 }
 
@@ -895,5 +896,14 @@ body.dark #content nav .profile-menu li a {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
 	gap: 15px;
-	justify-content: center;
+}
+
+/*Agendamento*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Poppins', sans-serif;
+
 }
