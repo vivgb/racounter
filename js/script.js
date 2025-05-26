@@ -122,12 +122,10 @@ function mostrarSecao(idSecaoParaMostrar) {
 }
 
 // Correção aqui: seleciona o link pelo href e adiciona evento
-const linkSalas = document.querySelector('a[href="painel.php?page=salas"]');
-if (linkSalas) {
-    linkSalas.addEventListener('click', function(e) {
-        e.preventDefault();
-        mostrarSecao('salas-section');
-    });
-    
-
-
+//const linkSalas = document.querySelector('a[href="painel.php?page=salas"]');
+//if (linkSalas) {
+//    linkSalas.addEventListener('click', function(e) {
+//        e.preventDefault();
+//        mostrarSecao('salas-section');
+//    });
+//  }
