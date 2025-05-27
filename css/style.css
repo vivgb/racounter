@@ -818,8 +818,6 @@ body.dark #content nav .profile-menu li a {
 .my_file {
 	display: none;
 }
-<<<<<<< Updated upstream
-=======
 
 .icon-edit {
 	font-size: 18px;
@@ -868,11 +866,8 @@ body.dark #content nav .profile-menu li a {
   }
 
 
-<<<<<<< HEAD
-  /* ------SALAS----- */
-=======
 /* ------SALAS----- */
->>>>>>> 135734d9907b95d736f496bf5faa6d768263b86e
+
 
 #salas {
 	color: #f9f9f9;
@@ -1008,21 +1003,4 @@ header .current-date{
 }
 .dias li:not(.ativo):hover::before{
   background: #f2f2f2;
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
 }
->>>>>>> Stashed changes
-=======
-}
->>>>>>> Stashed changes
-=======
-}
->>>>>>> Stashed changes
-=======
-}
->>>>>>> Stashed changes
-=======
-}
->>>>>>> Stashed changes
