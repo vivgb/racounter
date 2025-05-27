@@ -37,11 +37,11 @@
 		</li>
 	</ul>
 	<ul class="side-menu bottom">
-		<li>
-			<a href="#">
+		<li class="<?php echo (array_key_exists('page', $_GET) && $_GET['page'] == 'config' ? 'active' : '')?>">
+			<a href="painel.php?page=config">
 				<i class='bx bxs-cog bx-sm bx-spin-hover'></i>
-				<span class="text">Settings</span>
-			</a>
+				<span class="text">"config.php"</span>
+			</>
 		</li>
 		<li>
 			<a href="index.php" class="logout">

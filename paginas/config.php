@@ -7,7 +7,7 @@ if (basename(__FILE__) === basename($_SERVER['SCRIPT_FILENAME'])) {
 }
 ?>
 
-<section>
+<section id="Settings">
     <div class="head-title">
         <div class="left">
             <h1>Configurações</h1>
