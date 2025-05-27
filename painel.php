@@ -39,7 +39,11 @@ if (!isset($_SESSION['logado'])) {
 					// Lista de páginas permitidas
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 					$paginasPermitidas = ['home', 'salas', 'Analistc', 'config'];
+=======
+					$paginasPermitidas = ['home', 'salas', 'agendamento'];
+>>>>>>> Stashed changes
 =======
 					$paginasPermitidas = ['home', 'salas', 'agendamento'];
 >>>>>>> Stashed changes
