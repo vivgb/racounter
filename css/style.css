@@ -459,10 +459,12 @@ body.dark #content nav .profile-menu li a {
 
 /* MAIN */
 #content main {
+
 	width: 100%;
 	font-family: var(--poppins);
 	max-height: calc(100vh - 56px);
 	overflow-y: auto;
+	
 }
 #content main .head-title {
 	display: flex;
@@ -470,6 +472,7 @@ body.dark #content nav .profile-menu li a {
 	justify-content: space-between;
 	grid-gap: 16px;
 	flex-wrap: wrap;
+	padding: 36px 24px;
 }
 #content main .head-title .left h1 {
 	font-size: 36px;
@@ -870,7 +873,11 @@ body.dark #content nav .profile-menu li a {
   }
 
 
+<<<<<<< HEAD
+  /* ------SALAS----- */
+=======
 /* ------SALAS----- */
+>>>>>>> 135734d9907b95d736f496bf5faa6d768263b86e
 
 #salas {
 	color: #f9f9f9;
