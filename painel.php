@@ -37,7 +37,7 @@ if (!isset($_SESSION['logado'])) {
 					$pagina = basename($_GET['page']); // remove caminhos perigosos
 				
 					// Lista de páginas permitidas
-					$paginasPermitidas = ['home', 'salas', 'Analistc'];
+					$paginasPermitidas = ['home', 'salas', 'Analistc', 'config'];
 				
 					if (in_array($pagina, $paginasPermitidas)) {
 						include "paginas/{$pagina}.php";

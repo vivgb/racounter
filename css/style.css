@@ -15,7 +15,7 @@ li {
 }
 
 :root {
-	--poppins: sans-serif;
+	--poppins: 'Poppins', sans-serif;
 	--lato: 'Lato', sans-serif;
 
 	--light: #FEFBF4;
@@ -40,13 +40,11 @@ body.dark {
 	--grey:  #290b05 ;
 	--dark: #FBFBFB;
     --blue:  #d5c1ac;
-
 }
 
 body {
 	background: var(--grey);
 	overflow-x: hidden;
-	
 }
 
 
@@ -62,7 +60,7 @@ body {
 	height: 100%;
 	background: var(--light);
 	z-index: 2000;
-	font-family: var(--poppins);
+	font-family: var(--lato);
 	transition: .3s ease;
 	overflow-x: hidden;
 	scrollbar-width: none;
@@ -75,7 +73,7 @@ body {
 }
 #sidebar .brand {
 	font-size: 24px;
-	font-weight: bold;
+	font-weight: 700;
 	height: 56px;
 	display: flex;
 	align-items: center;
@@ -138,7 +136,6 @@ body {
 	align-items: center;
 	border-radius: 48px;
 	font-size: 16px;
-	font-weight: bold;
 	color: var(--dark);
 	white-space: nowrap;
 	overflow-x: hidden;
@@ -221,9 +218,6 @@ body {
 }
 #content nav a {
 	color: var(--dark);
-	font-weight: bold;
-	text-decoration: none;
-    margin: 0 15px;
 }
 #content nav .bx.bx-menu {
 	cursor: pointer;
@@ -363,6 +357,7 @@ body.dark #content nav .notification-menu li a{
 #content nav .profile-menu li {
     padding: 10px;
     border-bottom: 1px solid var(--grey);
+	margin-top: 1px;
 }
 
 #content nav .profile-menu li:hover {
@@ -462,9 +457,11 @@ body.dark #content nav .profile-menu li a {
 /* MAIN */
 #content main {
 	width: 100%;
+	padding: 36px 24px;
 	font-family: var(--poppins);
 	max-height: calc(100vh - 56px);
 	overflow-y: auto;
+	margin-top: -40px;
 }
 #content main .head-title {
 	display: flex;
@@ -794,8 +791,6 @@ body.dark #content nav .profile-menu li a {
 	position: relative;
 	width: 60px;
 	height: 60px;
-	border-radius: 50%;
-	overflow: hidden;
 }
 
 .upload-overlay {
@@ -813,7 +808,6 @@ body.dark #content nav .profile-menu li a {
 	align-items: center;
 }
 
-
 .upload-overlay::before {
 	content: '\f030'; /* ícone de câmera */
 	font-family: "FontAwesome";
@@ -824,6 +818,8 @@ body.dark #content nav .profile-menu li a {
 .my_file {
 	display: none;
 }
+<<<<<<< Updated upstream
+=======
 
 .icon-edit {
 	font-size: 18px;
@@ -872,7 +868,8 @@ body.dark #content nav .profile-menu li a {
   }
 
 
-  /* ------SALAS----- */
+
+/* ------SALAS----- */
 
 #salas {
 	color: #f9f9f9;
@@ -882,123 +879,31 @@ body.dark #content nav .profile-menu li a {
 #salas h1{
 	margin: 30px 0;
 	font-size: 36px;
-	color: #290b05;
+	color: #290b05;	
 	text-align: left;
 }
 
 #salas .grid-container .card {
+	height: 100%;
 	background-color: #290b05;
 	padding: 2rem;
-	border-radius: 10px;
+	border-radius: 20px;
 	text-align: center;
 }
 
 #salas .grid-container {
 	display: grid;
-	grid-template-columns: repeat(5, 1fr);
+	grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
 	gap: 15px;
-
 }
+
 /*Agendamento*/
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 *{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Poppins', sans-serif;
+
 }
-.agendamento{
-  display: flex;
-  align-items: center;
-  padding: 0 10px;
-  justify-content: center;
-  min-height: 100vh;
-  background: #947364
-}
-.geral{
-  width: 450px;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.12);
-}
-.geral header{
-  display: flex;
-  align-items: center;
-  padding: 25px 30px 10px;
-  justify-content: space-between;
-}
-header .icons{
-  display: flex;
-}
-header .icons span{
-  height: 38px;
-  width: 38px;
-  margin: 0 1px;
-  cursor: pointer;
-  color: #878787;
-  text-align: center;
-  line-height: 38px;
-  font-size: 1.9rem;
-  user-select: none;
-  border-radius: 50%;
-}
-.icons span:last-child{
-  margin-right: -10px;
-}
-header .icons span:hover{
-  background: #f2f2f2;
-}
-header .data_atual{
-  font-size: 1.45rem;
-  font-weight: 500;
-}
-.calendario{
-  padding: 20px;
-}
-.calendario ul{
-  display: flex;
-  flex-wrap: wrap;
-  list-style: none;
-  text-align: center;
-}
-.calendario .dias{
-  margin-bottom: 20px;
-}
-.calendario li{
-  color: #333;
-  width: calc(100% / 7);
-  font-size: 1.07rem;
-}
-.calendario .semanas li{
-  font-weight: 500;
-  cursor: default;
-}
-.calendario .dias li{
-  z-index: 1;
-  cursor: pointer;
-  position: relative;
-  margin-top: 30px;
-}
-.dias li.inativo{
-  color: #aaa;
-}
-.dias li.ativo{
-  color: #fff;
-}
-.dias li::before{
-  position: absolute;
-  content: "";
-  left: 50%;
-  top: 50%;
-  height: 40px;
-  width: 40px;
-  z-index: -1;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-}
-.dias li.ativo::before{
-  background: #6d5042;
-}
-.dias li:not(.active):hover::before{
-  background: #f2f2f2;
-}
+>>>>>>> Stashed changes

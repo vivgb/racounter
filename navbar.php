@@ -41,8 +41,8 @@
 	<div class="profile-menu" id="profileMenu">
 		<ul>
 			<li><a href="#">Nome do Usuário</a></li>
-			<li><a href="#">Configurações</a></li>
-			<li><a href="#">Sair</a></li>
+			<li><a href="#">"config.php"</a></li>
+			<a href="index.php"><li>Sair</li></a>
 		</ul>
 	</div>
 </nav>
