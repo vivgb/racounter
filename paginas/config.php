@@ -6,7 +6,7 @@ if (basename(__FILE__) === basename($_SERVER['SCRIPT_FILENAME'])) {
     exit;
 }
 ?>
-
+<link rel="stylesheet" href="css/config.css">
 <section id="Settings">
     <div class="head-title">
         <div class="left">
