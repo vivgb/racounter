@@ -462,7 +462,6 @@ body.dark #content nav .profile-menu li a {
 #content main {
 	width: 100%;
 	font-family: var(--poppins);
-	max-height: calc(100vh - 56px);
 	overflow-y: auto;
 	
 }
@@ -896,14 +895,14 @@ body.dark #content nav .profile-menu li a {
 
 #salas .grid-container {
 	display: grid;
-	grid-template-columns: repeat(3, 1fr); /* 3 colunas fixas */
+	grid-template-columns: repeat(4, 1fr); /* 3 colunas fixas */
 	gap: 20px;
 	padding: 1rem;
   }
   
   #salas .grid-container .card {
-	height: 200px;
-	background-color: #290b05;
+	height: 170px;
+	background-color: #3c1209;
 	padding: 2rem;
 	border-radius: 20px;
 	text-align: center;
@@ -918,6 +917,13 @@ body.dark #content nav .profile-menu li a {
 	transform: scale(1.05);
 	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
   }
+
+@media screen and (max-width: 860px) {
+	#salas .grid-container {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
 
 /*Agendamento*/
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
