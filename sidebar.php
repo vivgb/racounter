@@ -17,8 +17,8 @@
 				<span class="text">Salas</span>
 			</a>
 		</li>
-		<li class="<?php echo (array_key_exists('page', $_GET) && $_GET['page'] == 'Analistc' ? 'active' : '')?>">
-			<a href="painel.php?page=Analistc">
+		<li class="<?php echo (array_key_exists('page', $_GET) && $_GET['page'] == 'agendamento' ? 'active' : '')?>">
+			<a href="painel.php?page=agendamento">
 				<i class='bx bx-calendar-event bx-sm'></i>
 				<span class="text">Agendamento</span>
 			</a>

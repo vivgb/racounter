@@ -1,0 +1,41 @@
+<?php
+// Evita acesso direto
+if (basename(__FILE__) === basename($_SERVER['SCRIPT_FILENAME'])) {
+    header("Location: ../index.php");
+    exit;
+}
+?>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamento</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+    <script src="js/calendario.js" defer></script>
+</head>
+<body >
+    <div class="agendamento">
+        <div class="geral">
+            <header>
+                <p class="data_atual"></p>
+                <div class="icons">
+                    <span id="prev" class="material-symbols-rounded">chevron_left</span>
+                    <span id="next" class="material-symbols-rounded">chevron_right</span> 
+                </div>
+            </header>
+            <div class="calendario">
+                <ul class="semanas">
+                    <li>Dom</li>
+                    <li>Seg</li>
+                    <li>Ter</li>
+                    <li>Qua</li>
+                    <li>Qui</li>
+                    <li>Sex</li>
+                    <li>Sab</li>
+                </ul>
+                <ul class="dias"></ul>    
+            </div>
+        </div>
+    </div>
+</body>
+</html>
