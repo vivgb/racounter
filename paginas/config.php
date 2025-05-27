@@ -7,7 +7,18 @@ if (basename(__FILE__) === basename($_SERVER['SCRIPT_FILENAME'])) {
 }
 ?>
 
-<section id="Settings">
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configurações</title>
+    <link rel="stylesheet" href="css/style_config.css"> <!-- Altere para o caminho correto -->
+</head>
+<body>
+
+<section id="config">
+    <h1>Configurações</h1>
     <div class="head-title">
         <div class="left">
             <h1>Configurações</h1>
@@ -23,7 +34,7 @@ if (basename(__FILE__) === basename($_SERVER['SCRIPT_FILENAME'])) {
         </div>
     </div>
 
-    <div class="settings-section">
+    <div class="config-section">
         <h3>Visualização</h3>
         <label for="visualizacao">Ativar/Desativar:</label>
         <input type="checkbox" id="visualizacao" name="visualizacao">
@@ -51,8 +62,3 @@ if (basename(__FILE__) === basename($_SERVER['SCRIPT_FILENAME'])) {
         <button onclick="window.location.href='mudar_email.php'">Mudar Email</button>
 
         <h4>Verificação de Duas Etapas</h4>
-        <label for="verificacao">Ativar:</label>
-        <input type="checkbox" id="verificacao" name="verificacao">
-    </div>
-</section>
-<!-- MAIN -->
