@@ -472,7 +472,7 @@ body.dark #content nav .profile-menu li a {
 	justify-content: space-between;
 	grid-gap: 16px;
 	flex-wrap: wrap;
-	padding: 25	px 24px;
+	padding: 36px 24px;
 }
 #content main .head-title .left h1 {
 	font-size: 36px;
@@ -923,6 +923,7 @@ body.dark #content nav .profile-menu li a {
 		grid-template-columns: repeat(2, 1fr);
 	}
 }
+
 
 /*Agendamento*/
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
