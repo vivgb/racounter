@@ -873,7 +873,11 @@ body.dark #content nav .profile-menu li a {
   }
 
 
+<<<<<<< HEAD
   /* ------SALAS----- */
+=======
+/* ------SALAS----- */
+>>>>>>> 135734d9907b95d736f496bf5faa6d768263b86e
 
 #salas {
 	color: #f9f9f9;
@@ -888,17 +892,18 @@ body.dark #content nav .profile-menu li a {
 }
 
 #salas .grid-container .card {
+	height: 100%;
 	background-color: #290b05;
 	padding: 2rem;
-	border-radius: 10px;
+	border-radius: 20px;
 	text-align: center;
 }
 
 #salas .grid-container {
 	display: grid;
-	grid-template-columns: repeat(5, 1fr);
+	grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
 	gap: 15px;
-
+}
 
 /*Agendamento*/
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');

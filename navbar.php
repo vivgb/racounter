@@ -42,7 +42,7 @@
 		<ul>
 			<li><a href="#">Nome do Usuário</a></li>
 			<li><a href="#">Configurações</a></li>
-			<li><a href="#">Sair</a></li>
+			<a href="index.php"><li>Sair</li></a>
 		</ul>
 	</div>
 </nav>

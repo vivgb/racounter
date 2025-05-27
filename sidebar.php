@@ -44,7 +44,7 @@
 			</a>
 		</li>
 		<li>
-			<a href="painel.php?page=index" class="logout">
+			<a href="index.php" class="logout">
 				<i class='bx bx-power-off bx-sm bx-burst-hover'></i>
 				<span class="text">Logout</span>
 			</a>
