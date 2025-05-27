@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BRj">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Calendário Interativo</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="navbar">Minha Barra de Navegação</div>
+    <div class="calendar-wrapper">
+        <div class="month-header">
+            <button class="nav-btn" onclick="changeMonth(-1)">←</button>
+            <div class="month-title" id="monthTitle">Maio 2025</div>
+            <button class="nav-btn" onclick="changeMonth(1)">→</button>
+        </div>
+        <div class="calendar" id="calendar"></div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" id="myModal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Adicionar Título e Horário</h2>
+            <div class="event-date" id="eventDate"></div>
+            <div class="time-wrapper">
+                <select id="startTime"></select>
+                <span>até</span>
+                <select id="endTime"></select>
+            </div>
+            <label for="whoReserved">Nome da reserva:</label>
+            <input type="text" id="whoReserved" placeholder="Seu nome">
+            <label for="room">Sala:</label>
+            <input type="text" id="room" placeholder="Nome da sala">
+            <label for="maxPeople">Quantidade máxima de pessoas:</label>
+            <input type="number" id="maxPeople" placeholder="Número de pessoas" min="1">
+            <br>
+            <button onclick="saveEvent()">Salvar</button>
+        </div>
+    </div>
+
+    <script src="js/scriptc.js"></script>
+</body>
+</html>

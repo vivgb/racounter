@@ -15,7 +15,7 @@ li {
 }
 
 :root {
-	--poppins: sans-serif;
+	--poppins: 'Poppins', sans-serif;
 	--lato: 'Lato', sans-serif;
 
 	--light: #FEFBF4;
@@ -60,7 +60,7 @@ body {
 	height: 100%;
 	background: var(--light);
 	z-index: 2000;
-	font-family: var(--poppins);
+	font-family: var(--lato);
 	transition: .3s ease;
 	overflow-x: hidden;
 	scrollbar-width: none;
@@ -73,7 +73,7 @@ body {
 }
 #sidebar .brand {
 	font-size: 24px;
-	font-weight: bold;
+	font-weight: 700;
 	height: 56px;
 	display: flex;
 	align-items: center;
@@ -136,7 +136,6 @@ body {
 	align-items: center;
 	border-radius: 48px;
 	font-size: 16px;
-	font-weight: bold;
 	color: var(--dark);
 	white-space: nowrap;
 	overflow-x: hidden;
@@ -219,9 +218,6 @@ body {
 }
 #content nav a {
 	color: var(--dark);
-	font-weight: bold;
-	text-decoration: none;
-    margin: 0 15px;
 }
 #content nav .bx.bx-menu {
 	cursor: pointer;
@@ -361,6 +357,7 @@ body.dark #content nav .notification-menu li a{
 #content nav .profile-menu li {
     padding: 10px;
     border-bottom: 1px solid var(--grey);
+	margin-top: 1px;
 }
 
 #content nav .profile-menu li:hover {
@@ -459,12 +456,12 @@ body.dark #content nav .profile-menu li a {
 
 /* MAIN */
 #content main {
-
 	width: 100%;
+	padding: 36px 24px;
 	font-family: var(--poppins);
 	max-height: calc(100vh - 56px);
 	overflow-y: auto;
-	
+	margin-top: -40px;
 }
 #content main .head-title {
 	display: flex;
@@ -472,7 +469,6 @@ body.dark #content nav .profile-menu li a {
 	justify-content: space-between;
 	grid-gap: 16px;
 	flex-wrap: wrap;
-	padding: 36px 24px;
 }
 #content main .head-title .left h1 {
 	font-size: 36px;
@@ -795,8 +791,6 @@ body.dark #content nav .profile-menu li a {
 	position: relative;
 	width: 60px;
 	height: 60px;
-	border-radius: 50%;
-	overflow: hidden;
 }
 
 .upload-overlay {
@@ -814,7 +808,6 @@ body.dark #content nav .profile-menu li a {
 	align-items: center;
 }
 
-
 .upload-overlay::before {
 	content: '\f030'; /* ícone de câmera */
 	font-family: "FontAwesome";
@@ -824,93 +817,4 @@ body.dark #content nav .profile-menu li a {
 
 .my_file {
 	display: none;
-}
-
-.icon-edit {
-	font-size: 18px;
-	color: #666;
-	cursor: pointer;
-	margin-left: 10px;
-	vertical-align: middle;
-	position: relative;
-	top: -20px; /* ajuste fino para alinhar com a imagem */
-}
-
-
-.icon-option {
-	width: 50px;         /* mesmo tamanho do bx-lg */
-	height: 50px;
-	border-radius: 50%;
-	object-fit: cover;
-	cursor: pointer;
-	flex-shrink: 0;
-}
-
-#iconCarousel {
-	display: flex;
-	overflow-x: auto;
-	scroll-behavior: smooth;
-	gap: 10px;
-	padding: 10px;
-	max-width: 250px;
-	
-
-  }
-  
-  .carousel-btn {
-	background: none;
-	border: none;
-	position: absolute;
-	right: 10px;
-	top: 50%;
-	transform: translateY(-50%);
-	z-index: 10;
-	cursor: pointer;
-  }
-  
-  .profile-menu li {
-	position: relative;
-  }
-
-
-<<<<<<< HEAD
-  /* ------SALAS----- */
-=======
-/* ------SALAS----- */
->>>>>>> 135734d9907b95d736f496bf5faa6d768263b86e
-
-#salas {
-	color: #f9f9f9;
-	text-align: center;
-}
-
-#salas h1{
-	margin: 30px 0;
-	font-size: 36px;
-	color: #290b05;	
-	text-align: left;
-}
-
-#salas .grid-container .card {
-	height: 100%;
-	background-color: #290b05;
-	padding: 2rem;
-	border-radius: 20px;
-	text-align: center;
-}
-
-#salas .grid-container {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-	gap: 15px;
-}
-
-/*Agendamento*/
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
-*{
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	font-family: 'Poppins', sans-serif;
-
 }
