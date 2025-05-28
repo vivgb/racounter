@@ -818,8 +818,6 @@ body.dark #content nav .profile-menu li a {
 .my_file {
 	display: none;
 }
-<<<<<<< Updated upstream
-=======
 
 .icon-edit {
 	font-size: 18px;
@@ -868,8 +866,8 @@ body.dark #content nav .profile-menu li a {
   }
 
 
-
 /* ------SALAS----- */
+
 
 #salas {
 	color: #f9f9f9;
@@ -898,12 +896,111 @@ body.dark #content nav .profile-menu li a {
 }
 
 /*Agendamento*/
+/* Import Google font - Poppins */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 *{
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	font-family: 'Poppins', sans-serif;
-
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
->>>>>>> Stashed changes
+.agendamento {
+	height: 100%;
+	flex: 1;
+	display: flex;
+	align-items: stretch;
+	justify-content: stretch;
+	background: #6c4434;
+	padding: 0;
+  }
+  
+.geral {
+	width: 100%;
+	height: 100%;
+	background: #fff;
+	padding: 40px;
+	border-radius: 0;
+	box-shadow: none;
+}
+  
+.geral header{
+  display: flex;
+  align-items: center;
+  padding: 25px 30px 10px;
+  justify-content: space-between;
+}
+header .icons{
+  display: flex;
+}
+header .icons span{
+  height: 38px;
+  width: 38px;
+  margin: 0 1px;
+  cursor: pointer;
+  color: #878787;
+  text-align: center;
+  line-height: 38px;
+  font-size: 1.9rem;
+  user-select: none;
+  border-radius: 50%;
+}
+.icons span:last-child{
+  margin-right: -10px;
+}
+header .icons span:hover{
+  background: #f2f2f2;
+}
+header .current-date{
+  font-size: 1.45rem;
+  font-weight: 500;
+}
+.calendario{
+  padding: 20px;
+}
+.calendario ul{
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  text-align: center;
+}
+.calendario .dias{
+  margin-bottom: 20px;
+}
+.calendario li{
+  color: #333;
+  width: calc(100% / 7);
+  font-size: 1.07rem;
+}
+.calendario .semanas li{
+  font-weight: 500;
+  cursor: default;
+}
+.calendario .dias li{
+  z-index: 1;
+  cursor: pointer;
+  position: relative;
+  margin-top: 30px;
+}
+.dias li.inativo{
+  color: #aaa;
+}
+.dias li.ativo{
+  color: #fff;
+}
+.dias li::before{
+  position: absolute;
+  content: "";
+  left: 50%;
+  top: 50%;
+  height: 40px;
+  width: 40px;
+  z-index: -1;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+.dias li.ativo::before{
+  background: #6c4434;
+}
+.dias li:not(.ativo):hover::before{
+  background: #f2f2f2;
+}
