@@ -818,3 +818,92 @@ body.dark #content nav .profile-menu li a {
 .my_file {
 	display: none;
 }
+<<<<<<< Updated upstream
+=======
+
+.icon-edit {
+	font-size: 18px;
+	color: #666;
+	cursor: pointer;
+	margin-left: 10px;
+	vertical-align: middle;
+	position: relative;
+	top: -20px; /* ajuste fino para alinhar com a imagem */
+}
+
+
+.icon-option {
+	width: 50px;         /* mesmo tamanho do bx-lg */
+	height: 50px;
+	border-radius: 50%;
+	object-fit: cover;
+	cursor: pointer;
+	flex-shrink: 0;
+}
+
+#iconCarousel {
+	display: flex;
+	overflow-x: auto;
+	scroll-behavior: smooth;
+	gap: 10px;
+	padding: 10px;
+	max-width: 250px;
+	
+
+  }
+  
+  .carousel-btn {
+	background: none;
+	border: none;
+	position: absolute;
+	right: 10px;
+	top: 50%;
+	transform: translateY(-50%);
+	z-index: 10;
+	cursor: pointer;
+  }
+  
+  .profile-menu li {
+	position: relative;
+  }
+
+
+
+/* ------SALAS----- */
+
+#salas {
+	color: #f9f9f9;
+	text-align: center;
+}
+
+#salas h1{
+	margin: 30px 0;
+	font-size: 36px;
+	color: #290b05;	
+	text-align: left;
+}
+
+#salas .grid-container .card {
+	height: 100%;
+	background-color: #290b05;
+	padding: 2rem;
+	border-radius: 20px;
+	text-align: center;
+}
+
+#salas .grid-container {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+	gap: 15px;
+}
+
+/*Agendamento*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Poppins', sans-serif;
+
+}
+>>>>>>> Stashed changes
