@@ -28,4 +28,17 @@ function proximoID($tabela, $campo){
     return $id + 1;
 }
 
+//buscar ID sala
+function buscarTodasSalas($con) {
+    return $con->query("SELECT id_salas, descricao, lotacao_atual, lotacao_maxima, agendamento FROM salas WHERE ativo = 1");
+}
+
+
+function buscarSalaPorId($con, $id) {
+    $stmt = $con->prepare("SELECT descricao, lotacao_atual FROM salas WHERE id_salas = ?");
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+    return $stmt->get_result()->fetch_assoc();
+}
+
 ?>
