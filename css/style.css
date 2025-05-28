@@ -18,10 +18,10 @@ li {
 	--poppins: 'Poppins', sans-serif;
 	--lato: 'Lato', sans-serif;
 
-	--light: #FEFBF4;
+	--light: #fcf4dc;
 	--blue:  #3c1209;
 	--light-blue: #CFE8FF;
-	--grey:  #e4e2e0;
+	--grey:  #d5c1ac;
 	--dark-grey: #AAAAAA;
 	--dark: #342E37;
 	--red: #DB504A;
@@ -183,6 +183,7 @@ body {
 	width: calc(100% - 220px);
 	left: 220px;
 	transition: .3s ease;
+	
 }
 #sidebar.hide ~ #content {
 	width: calc(100% - 60px);
@@ -459,11 +460,11 @@ body.dark #content nav .profile-menu li a {
 	width: 100%;
 	padding: 36px 24px;
 	font-family: var(--poppins);
-	max-height: calc(100vh - 56px);
 	overflow-y: auto;
 	margin-top: -40px;
 }
 #content main .head-title {
+	
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -474,7 +475,7 @@ body.dark #content nav .profile-menu li a {
 	font-size: 36px;
 	font-weight: 600;
 	margin-bottom: 10px;
-	color: var(--dark);
+	color: #290b05;
 }
 #content main .head-title .left .breadcrumb {
 	display: flex;
@@ -509,6 +510,7 @@ body.dark #content nav .profile-menu li a {
 
 
 #content main .box-info {
+	margin-left: 1rem;
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 	grid-gap: 24px;
@@ -557,6 +559,7 @@ body.dark #content nav .profile-menu li a {
 
 
 #content main .table-data {
+	margin-left: 1rem;
 	display: flex;
 	flex-wrap: wrap;
 	grid-gap: 24px;
@@ -866,7 +869,9 @@ body.dark #content nav .profile-menu li a {
   }
 
 
+
 /* ------SALAS----- */
+
 
 
 #salas {
@@ -879,21 +884,53 @@ body.dark #content nav .profile-menu li a {
 	font-size: 36px;
 	color: #290b05;	
 	text-align: left;
+	font-weight: 600;
+	margin-bottom: 10px;
+	margin-left: 1rem;
 }
 
-#salas .grid-container .card {
-	height: 100%;
-	background-color: #290b05;
-	padding: 2rem;
-	border-radius: 20px;
-	text-align: center;
+body.dark #salas h1 {
+	color: #FEFBF4;
+}
+
+body.dark #salas .grid-container .card {
+	background-color: #3c1209;
+	color: #FEFBF4;
 }
 
 #salas .grid-container {
+	font-size: 13px;
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-	gap: 15px;
+	grid-template-columns: repeat(5, 1fr); /* 3 colunas fixas */
+	gap: 20px;
+	padding: 1rem;
+  }
+  
+  #salas .grid-container .card {
+	height: 150px;
+	background-color: #fcf4dc;
+	padding: 2rem;
+	border-radius: 20px;
+	text-align: center;
+	width: 100%; /* ocupa o espaço da coluna */
+	cursor: pointer;
+	transition: all 0.3s ease;
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+	color: #290b05;
+  }
+  
+  #salas .grid-container .card:hover {
+	background-color: --light;
+	transform: scale(1.05);
+	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  }
+
+@media screen and (max-width: 860px) {
+	#salas .grid-container {
+		grid-template-columns: repeat(2, 1fr);
+	}
 }
+
 
 /*Agendamento*/
 /* Import Google font - Poppins */
