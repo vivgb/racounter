@@ -34,10 +34,11 @@ function buscarTodasSalas($con) {
 }
 
 function buscarSalaPorId($con, $id) {
-    $stmt = $con->prepare("SELECT descricao, lotacao_atual FROM salas WHERE id_salas = ?");
+    $stmt = $con->prepare("SELECT descricao, lotacao_atual, lotacao_maxima, agendamento FROM salas WHERE id_salas = ?");
     $stmt->bind_param("i", $id);
     $stmt->execute();
     return $stmt->get_result()->fetch_assoc();
 }
+
 
 ?>
