@@ -2,7 +2,7 @@
 
     //Abrir conexão com o Banco de Dados
     try{
-        $conn = mysqli_connect("172.16.46.130","raccounter","s3v3n14","raccounter");
+        $conn = mysqli_connect("172.16.46.130","raccounter","s3v3n14","sistema_contagem");
         #var_dump($conn);
         #var_dump(mysqli_connect_error());
     } catch (Exception $e){

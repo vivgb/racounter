@@ -18,10 +18,10 @@ li {
 	--poppins: sans-serif;
 	--lato: 'Lato', sans-serif;
 
-	--light: #FEFBF4;
+	--light: #fcf4dc;
 	--blue:  #3c1209;
 	--light-blue: #CFE8FF;
-	--grey:  #e4e2e0;
+	--grey:  #d5c1ac;
 	--dark-grey: #AAAAAA;
 	--dark: #342E37;
 	--red: #DB504A;
@@ -893,16 +893,26 @@ body.dark #content nav .profile-menu li a {
 	margin-left: 1rem;
 }
 
+body.dark #salas h1 {
+	color: #FEFBF4;
+}
+
+body.dark #salas .grid-container .card {
+	background-color: #3c1209;
+	color: #FEFBF4;
+}
+
 #salas .grid-container {
+	font-size: 13px;
 	display: grid;
-	grid-template-columns: repeat(4, 1fr); /* 3 colunas fixas */
+	grid-template-columns: repeat(5, 1fr); /* 3 colunas fixas */
 	gap: 20px;
 	padding: 1rem;
   }
   
   #salas .grid-container .card {
-	height: 170px;
-	background-color: #3c1209;
+	height: 150px;
+	background-color: #fcf4dc;
 	padding: 2rem;
 	border-radius: 20px;
 	text-align: center;
@@ -910,6 +920,7 @@ body.dark #content nav .profile-menu li a {
 	cursor: pointer;
 	transition: all 0.3s ease;
 	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+	color: #290b05;
   }
   
   #salas .grid-container .card:hover {

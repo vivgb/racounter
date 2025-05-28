@@ -52,7 +52,7 @@ if (!isset($_SESSION['logado'])) {
 
 	</section>
 	
-	<script src="js/script.js"></script>
+	<script src="js/script.js" defer></script>
 	<script src="js/calendar.js"></script>
 </body>
 </html>
