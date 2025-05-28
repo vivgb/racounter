@@ -1,0 +1,91 @@
+<link rel="stylesheet" href="css/style.css">
+export default function SettingsPage() {
+    return (
+      <div className="max-w-3xl mx-auto p-6 space-y-8">
+        <h1 className="text-3xl font-bold">Configurações</h1>
+  
+        {/* Conta */}
+        <section>
+          <h2 className="text-xl font-semibold mb-2">Conta</h2>
+          <div className="space-y-4">
+            <div className="flex justify-between items-center">
+              <span>Email</span>
+              <input
+                type="email"
+                defaultValue="usuario@email.com"
+                className="border rounded px-3 py-1 w-64"
+              />
+            </div>
+            <div className="flex justify-between items-center">
+              <span>Alterar senha</span>
+              <button className="text-blue-600 hover:underline">Trocar</button>
+            </div>
+          </div>
+        </section>
+  
+        {/* Preferências de exibição */}
+        <section>
+          <h2 className="text-xl font-semibold mb-2">Exibição</h2>
+          <div className="space-y-4">
+            <div className="flex justify-between items-center">
+              <span>Tema Escuro</span>
+              <input type="checkbox" className="scale-125" />
+            </div>
+            <div className="flex justify-between items-center">
+              <span>Qualidade de vídeo</span>
+              <select className="border rounded px-2 py-1">
+                <option>Automática</option>
+                <option>Alta</option>
+                <option>Média</option>
+                <option>Baixa</option>
+              </select>
+            </div>
+          </div>
+        </section>
+  
+        {/* Notificações */}
+        <section>
+          <h2 className="text-xl font-semibold mb-2">Notificações</h2>
+          <div className="space-y-4">
+            <div className="flex justify-between items-center">
+              <span>Notificar novos episódios</span>
+              <input type="checkbox" className="scale-125" />
+            </div>
+            <div className="flex justify-between items-center">
+              <span>Promoções e novidades</span>
+              <input type="checkbox" className="scale-125" />
+            </div>
+          </div>
+        </section>
+  
+        {/* Idioma */}
+        <section>
+          <h2 className="text-xl font-semibold mb-2">Idioma</h2>
+          <div className="flex justify-between items-center">
+            <span>Idioma da interface</span>
+            <select className="border rounded px-2 py-1">
+              <option>Português</option>
+              <option>Inglês</option>
+              <option>Espanhol</option>
+            </select>
+          </div>
+        </section>
+  
+        {/* Privacidade */}
+        <section>
+          <h2 className="text-xl font-semibold mb-2">Privacidade</h2>
+          <div className="space-y-4">
+            <div className="flex justify-between items-center">
+              <span>Histórico de visualização</span>
+              <button className="text-red-600 hover:underline">Limpar</button>
+            </div>
+            <div className="flex justify-between items-center">
+              <span>Deletar conta</span>
+              <button className="text-red-600 hover:underline">Excluir</button>
+            </div>
+          </div>
+        </section>
+      </div>
+    );
+  }
+  
