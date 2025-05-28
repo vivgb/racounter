@@ -2,9 +2,9 @@
 //111
     //Abrir conexão com o Banco de Dados
 
-    $conn = mysqli_connect("172.16.46.130","raccounter","s3v3n14","raccounter");
+    //$conn = mysqli_connect("172.16.46.130","raccounter","s3v3n14","raccounter");
 
-    //$conn = mysqli_connect("localhost","root","","sistema_contagem");
+    $conn = mysqli_connect("localhost","root","","sistema_contagem");
 
 
 

@@ -458,7 +458,7 @@ body.dark #content nav .profile-menu li a {
 /* MAIN */
 #content main {
 	width: 100%;
-	padding: 36px 24px;
+	padding: 36px 0px;
 	font-family: var(--poppins);
 	overflow-y: auto;
 	margin-top: -40px;
