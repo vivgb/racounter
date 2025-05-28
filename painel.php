@@ -37,7 +37,12 @@ if (!isset($_SESSION['logado'])) {
 					$pagina = basename($_GET['page']); // remove caminhos perigosos
 				
 					// Lista de páginas permitidas
-					$paginasPermitidas = ['home', 'salas', 'Analistc'];
+
+
+
+					$paginasPermitidas = ['home', 'salas', 'config', 'agendamento' ];
+
+
 				
 					if (in_array($pagina, $paginasPermitidas)) {
 						include "paginas/{$pagina}.php";
@@ -52,7 +57,9 @@ if (!isset($_SESSION['logado'])) {
 
 	</section>
 	
+
 	<script src="js/script.js" defer></script>
 	<script src="js/calendar.js"></script>
+
 </body>
 </html>
