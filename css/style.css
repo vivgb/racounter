@@ -918,15 +918,19 @@ body.dark #salas .grid-container .card {
 	text-align: center;
 	width: 100%; /* ocupa o espaço da coluna */
 	cursor: pointer;
-	transition: all 0.3s ease;
+	transition: all 0.2s ease;
 	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 	color: #290b05;
   }
   
   #salas .grid-container .card:hover {
 	background-color: --light;
-	transform: scale(1.05);
+	transform: scale(1.02);
 	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  #salas .grid-container .card i {
+	font-size: 80px;
   }
 
 @media screen and (max-width: 860px) {

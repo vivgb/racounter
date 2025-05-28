@@ -19,14 +19,14 @@ $salas = buscarTodasSalas($conn);
   <h1>Salas</h1>
   <div class="grid-container">
       <div class="card" id="novaSala">
-        <i class='bx bx-plus'></i> 
+        <i class='bx bx-plus meu-icone'></i> 
     </div>
       <?php while ($sala = $salas->fetch_assoc()): ?>
 
       <div class="card" onclick="irParaSala(<?= $sala['id_salas'] ?>)">
         <h2><?= htmlspecialchars($sala['descricao']) ?></h2>
         <p>Lotação</p> 
-        <p?= $sala['lotacao_atual'] ?>/<?= $sala['lotacao_maxima'] ?></p>
+        <?= $sala['lotacao_atual'] ?>/<?= $sala['lotacao_maxima'] ?></p>
         <?php if (!empty($sala['agendamento'])): ?>
           <p>agendado</p>
         <?php endif; ?>
