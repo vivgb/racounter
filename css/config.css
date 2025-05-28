@@ -1,0 +1,80 @@
+/* Container principal */
+.settings-container {
+    max-width: 768px;
+    margin: 0 auto;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    font-family: sans-serif;
+  }
+  
+  /* Títulos */
+  .settings-title {
+    font-size: 1.875rem; /* 30px */
+    font-weight: bold;
+  }
+  
+  .settings-subtitle {
+    font-size: 1.25rem; /* 20px */
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Seções */
+  .settings-section {
+    border-top: 1px solid #e5e7eb;
+    padding-top: 1rem;
+  }
+  
+  .settings-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .settings-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* Inputs e selects */
+  .settings-input,
+  .settings-select {
+    border: 1px solid #d1d5db;
+    border-radius: 0.375rem;
+    padding: 0.25rem 0.75rem;
+    width: 16rem;
+  }
+  
+  /* Botões */
+  .settings-button-link {
+    color: #2563eb; /* azul */
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  
+  .settings-button-link:hover {
+    text-decoration: none;
+  }
+  
+  .settings-button-danger {
+    color: #dc2626; /* vermelho */
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  
+  .settings-button-danger:hover {
+    text-decoration: none;
+  }
+  
+  /* Checkbox */
+  input[type="checkbox"] {
+    transform: scale(1.25);
+  }
+  
