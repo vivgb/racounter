@@ -53,7 +53,7 @@ if($_FILES['nFoto']['tmp_name'] != ""){
     //Grava a extensão do arquivo
     $extensao = pathinfo ($_FILES['nFoto']['name'], PATHINFO_EXTENSION);
 
-    //novo nome 
+    //Novo nome 
     $novoNome = md5($_FILES['nFoto']['name']).'.'.$extensao;
 
     if(is_dir('../img')){

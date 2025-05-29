@@ -12,7 +12,7 @@
 
     //$_POST - Valor enviado pelo FORM através da propriedade NAME do elemento HTML 
     //$_GET - Valor enviado pelo FORM através da URL
-    //$_SESSION - Variável criada pelo usuário no PHP
+    //$_SESSION - Variável criada pelo usuario no PHP
 
     include("conexao.php");
     $sql = "SELECT * FROM usuarios "

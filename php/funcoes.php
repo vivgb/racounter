@@ -1,7 +1,7 @@
 <?php
     include("funcaoTipoUsuario.php");
 
-    //Descrição de uma Flag de ativo
+    //Descrição de uma Flag de ativos
 function descrFlag($flag){
     if($flag == 'S'){
         return 'Sim';

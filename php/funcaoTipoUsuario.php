@@ -1,5 +1,5 @@
 <?php
-
+//Puxar do banco as descrições do usuário
 function descrTipoUsuario($id){
 
     $descricao = "";

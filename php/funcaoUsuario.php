@@ -12,7 +12,7 @@ function proxIdUsuario(){
     //var_dump(mysqli_num_rows($result));
     //die();
 
-    //Validar se tem retorno do BD
+    //Validar se tem retorno do Bd
     if (mysqli_num_rows($result) > 0) {
                 
         $array = array();

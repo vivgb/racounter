@@ -47,8 +47,8 @@ if (basename(__FILE__) === basename($_SERVER['SCRIPT_FILENAME'])) {
         </select>
 
         <h3>Segurança</h3>
-        <button onclick="window.location.href='mudar_senha.php'">Mudar Senha</button>
-        <button onclick="window.location.href='mudar_email.php'">Mudar Email</button>
+        <button onclick="window.location.href='alterar-senha.php'">Mudar Senha</button>
+        <button onclick="window.location.href='alterar-senha.php'">Mudar Email</button>
 
         <h4>Verificação de Duas Etapas</h4>
         <label for="verificacao">Ativar:</label>
