@@ -134,5 +134,5 @@ function mostrarSecao(idSecaoParaMostrar) {
 
 function irParaSala(salaId) {
     // Redireciona para a página de contagem passando o ID da sala via GET
-    window.location.href = 'contagem.php?sala=' + salaId;
+    window.location.href = 'http://localhost:8080/racounter/painel.php?page=contagem&id=' + salaId;
   }

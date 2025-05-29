@@ -34,11 +34,16 @@ function buscarTodasSalas($con) {
 }
 
 
-function buscarSalaPorId($con, $id) {
-    $stmt = $con->prepare("SELECT descricao, lotacao_atual FROM salas WHERE id_salas = ?");
-    $stmt->bind_param("i", $id);
+function buscarSalaPorId($con, $idSala) {
+    $stmt = $con->prepare("SELECT descricao, lotacao_atual, lotacao_maxima, agendamento FROM salas WHERE id_salas = ?");
+    $stmt->bind_param("i", $idSala);
     $stmt->execute();
     return $stmt->get_result()->fetch_assoc();
 }
 
+function adicionarSala($con, $descricao, $lotacao_maxima) {
+    $stmt = $con->prepare("INSERT INTO salas (descricao, lotacao_maxima, ativo) VALUES (?, ?, 1)");
+    $stmt->bind_param("si", $descricao, $lotacao_maxima);
+    return $stmt->execute();
+}
 ?>

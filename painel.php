@@ -40,7 +40,7 @@ if (!isset($_SESSION['logado'])) {
 
 
 
-					$paginasPermitidas = ['home', 'salas', 'config', 'agendamento' ];
+					$paginasPermitidas = ['home', 'salas', 'config', 'agendamento', 'contagem', 'nova_sala'];
 
 
 				

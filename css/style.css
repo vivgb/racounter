@@ -470,12 +470,19 @@ body.dark #content nav .profile-menu li a {
 	justify-content: space-between;
 	grid-gap: 16px;
 	flex-wrap: wrap;
+	padding: 30px;
 }
 #content main .head-title .left h1 {
 	font-size: 36px;
 	font-weight: 600;
 	margin-bottom: 10px;
 	color: #290b05;
+}
+body.dark #content main .head-title .left h1 {
+	font-size: 36px;
+	font-weight: 600;
+	margin-bottom: 10px;
+	color: #FEFBF4;
 }
 #content main .head-title .left .breadcrumb {
 	display: flex;
@@ -889,7 +896,7 @@ body.dark #content nav .profile-menu li a {
 	margin-left: 1rem;
 }
 
-body.dark #salas h1 {
+body.dark #salas .head-title h1 {
 	color: #FEFBF4;
 }
 
@@ -919,6 +926,26 @@ body.dark #salas .grid-container .card {
 	transition: all 0.2s ease;
 	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 	color: #290b05;
+  }
+
+  #salas .grid-container .card .ocupada {
+	color: red;
+	font-weight: bold;
+  }
+  
+  #salas .grid-container .card .livre {
+	color: green;
+	font-weight: bold;
+  }
+
+  body.dark #salas .grid-container .card .ocupada {
+	color: rgb(255, 64, 64);
+	font-weight: bold;
+  }
+  
+  body.dark #salas .grid-container .card .livre {
+	color: rgb(85, 211, 85);
+	font-weight: bold;
   }
   
   #salas .grid-container .card:hover {
