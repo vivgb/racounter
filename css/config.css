@@ -1,9 +1,5 @@
-<style>
-/* Reset básico */
-* {
-    box-sizing: border-box;
-}
-body {
+
+#config {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(135deg, #6c4434, #6c4434);
     margin: 0;
@@ -108,4 +104,3 @@ button:hover {
         margin-top: 0.5rem;
     }
 }
-</style>

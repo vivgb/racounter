@@ -1,13 +1,12 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Configurações</title>
-    <link rel="stylesheet" href="css/config.css">
-</head>
-<body>
-    <main class="container" role="main" aria-label="Configurações do Usuário">
+<?php
+// Evita acesso direto
+if (basename(__FILE__) === basename($_SERVER['SCRIPT_FILENAME'])) {
+    header("Location: ../index.php");
+    exit;
+}
+?>    
+    
+    <section class="config">
         <h1>Configurações</h1>
 
         <section aria-labelledby="conta-label">
@@ -53,6 +52,5 @@
                 <button type="button" aria-label="Excluir conta" style="background:#e74c3c;">Excluir</button>
             </div>
         </section>
-    </main>
-</body>
-</html>
+</section>
+
