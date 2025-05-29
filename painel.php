@@ -18,6 +18,7 @@ if (!isset($_SESSION['logado'])) {
 	<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png" />
 	<link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png" />
 	<link rel="manifest" href="/site.webmanifest" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
 
 	<!-- My CSS -->
 	<link rel="stylesheet" href="css/style.css" />
@@ -57,9 +58,12 @@ if (!isset($_SESSION['logado'])) {
 
 	</section>
 	
-
 	<script src="js/script.js" defer></script>
-	<script src="js/calendar.js"></script>
+
+	<?php if (isset($_GET['page']) && $_GET['page'] === 'agendamento'): ?>
+		<script src="js/calendario.js" defer></script>
+	<?php endif; ?>
+
 
 </body>
 </html>
