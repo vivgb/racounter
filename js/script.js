@@ -129,3 +129,10 @@ function mostrarSecao(idSecaoParaMostrar) {
 //        mostrarSecao('salas-section');
 //    });
 //  }
+
+// MUDAR DE PAGINA
+
+function irParaSala(salaId) {
+    // Redireciona para a página de contagem passando o ID da sala via GET
+    window.location.href = 'http://localhost:8080/racounter/painel.php?page=contagem&id=' + salaId;
+  }

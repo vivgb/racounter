@@ -5,15 +5,7 @@ if (basename(__FILE__) === basename($_SERVER['SCRIPT_FILENAME'])) {
     exit;
 }
 ?>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agendamento</title>
-    <link rel="stylesheet" href="css/style.css">
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
-    <script src="js/calendario.js" defer></script>
-</head>
-<body >
+
     <div class="agendamento">
         <div class="geral">
             <header>
@@ -36,6 +28,41 @@ if (basename(__FILE__) === basename($_SERVER['SCRIPT_FILENAME'])) {
                 <ul class="dias"></ul>    
             </div>
         </div>
+        <dialog id="eventDialog" >
+            <form method="dialog" id="eventForm">
+                <h2>Create event</h2>
+
+                <label for="eventTitle">Titulo</label>
+                <input type="text" id="eventTitle" placeholder="My awesome event!" required>
+
+                <label for="eventDate">Data</label>
+                <input type="date" id="eventDate" required>
+
+                <div style="display: flex; gap: 10px; margin-top: 10px;">
+                <div>
+                    <label for="startTime">Tempo de inicio</label>
+                    <input type="time" id="startTime" required>
+                </div>
+                <div>
+                    <label for="endTime">Tempo final</label>
+                    <input type="time" id="endTime" required>
+                </div>
+                </div>
+
+                <label style="margin-top: 10px;">Cor</label>
+                <div style="display: flex; gap: 10px; margin: 5px 0;">
+                <input type="color" value="#3b82f6" class="color-option" />
+                <input type="color" value="#f59e0b" class="color-option" />
+                <input type="color" value="#10b981" class="color-option" />
+                <input type="color" value="#a855f7" class="color-option" />
+                </div>
+
+                <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 15px;">
+                <button type="button" id="cancelBtn">Cancel</button>
+                <button type="submit" id="saveBtn">Save</button>
+                </div>
+            </form>
+        </dialog>
+
+
     </div>
-</body>
-</html>

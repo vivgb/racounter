@@ -40,8 +40,8 @@
 		<li class="<?php echo (array_key_exists('page', $_GET) && $_GET['page'] == 'config' ? 'active' : '')?>">
 			<a href="painel.php?page=config">
 				<i class='bx bxs-cog bx-sm bx-spin-hover'></i>
-				<span class="text">"config.php"</span>
-			</>
+				<span class="text">Configurações</span>
+			</a>
 		</li>
 		<li>
 			<a href="index.php" class="logout">
