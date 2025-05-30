@@ -2,7 +2,7 @@
 <section id="sidebar">
 	<a href="#" class="brand">
 		<i class='bx bxs-smile bx-lg'></i>
-		<span class="text">Amndgr</span> <!-- puxar o nome do usuario no banco de dados -->
+		<span class="text"><?php echo $_SESSION['NomeLogin']?></span>
 	</a>
 	<ul class="side-menu top">
 		<li class="<?php echo (array_key_exists('page', $_GET) && $_GET['page'] == 'home' ? 'active' : '')?>">
@@ -23,14 +23,14 @@
 				<span class="text">Agendamento</span>
 			</a>
 		</li>
-		<li>
-			<a href="#">
+		<li class="<?php echo (array_key_exists('page', $_GET) && $_GET['page'] == 'message' ? 'active' : '')?>">
+			<a href="painel.php?page=message">
 				<i class='bx bxs-message-dots bx-sm'></i>
 				<span class="text">Message</span>
 			</a>
 		</li>
-		<li>
-			<a href="#">
+		<li class="<?php echo (array_key_exists('page', $_GET) && $_GET['page'] == 'team' ? 'active' : '')?>">
+			<a href="painel.php?page=team">
 				<i class='bx bxs-group bx-sm'></i>
 				<span class="text">Team</span>
 			</a>
