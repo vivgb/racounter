@@ -1,7 +1,6 @@
 <?php
-    include("funcaoTipoUsuario.php");
-
-    //Descrição de uma Flag de ativos
+include("funcaoTipoUsuario.php");
+//Descrição de uma Flag de ativos
 function descrFlag($flag){
     if($flag == 'S'){
         return 'Sim';
@@ -46,4 +45,7 @@ function adicionarSala($con, $descricao, $lotacao_maxima) {
     $stmt->bind_param("si", $descricao, $lotacao_maxima);
     return $stmt->execute();
 }
+
+
+
 ?>

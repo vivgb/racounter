@@ -1,3 +1,12 @@
+<?php
+
+//ini_set('display_errors', 1);
+//ini_set('display_startup_errors', 1);
+//error_reporting(E_ALL);
+
+// $email como valor inicial
+include("php/email-rec.php");
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -22,15 +31,15 @@
                 <img src="img/guaxinim/guaxinim.jpeg" alt="Guaxinim" id="olhos">
             </div>
 
-            <form method="POST" action="php/recuperarSenha.php">
+            <form method="POST" action="php/email-rec.php">
                 <h2>Recuperar Senha</h2>
 
                 <div class="input-box">
-                    <input type="email" name="nEmail" placeholder="Digite seu e-mail" required>
+                    <input type="email" name="nEmail" placeholder="Digite seu e-mail" required>  
                     <i class='bx bxs-envelope'></i>
                 </div>
 
-                <button type="submit" class="btn">Recuperar Senha</button>
+                <button type="submit" class="btn">Enviar</button>
 
                 <div class="registrar">
                     <a href="index.php">Voltar para Login</a>

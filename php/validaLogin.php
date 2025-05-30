@@ -24,7 +24,7 @@
     //Validar se tem retorno do BD
     if (mysqli_num_rows($resultLogin) > 0) {  
         
-        //enviarEmail('destino@email.com.br','Mensagem de e-mail para SA','Teste SA','Eu mesmo');
+        //enviarEmail('thiagosp419@gmail.com','Mensagem de e-mail para SA','Teste SA','Eu mesmo');
 
         foreach ($resultLogin as $coluna) {
                         
