@@ -1,12 +1,3 @@
-<?php
-
-//ini_set('display_errors', 1);
-//ini_set('display_startup_errors', 1);
-//error_reporting(E_ALL);
-
-// $email como valor inicial
-include("php/email-rec.php");
-?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -35,7 +26,7 @@ include("php/email-rec.php");
                 <h2>Recuperar Senha</h2>
 
                 <div class="input-box">
-                    <input type="email" name="nEmail" placeholder="Digite seu e-mail" required>  
+                    <input type="email" name="nEmail" placeholder="Digite seu e-mail" required>
                     <i class='bx bxs-envelope'></i>
                 </div>
 
