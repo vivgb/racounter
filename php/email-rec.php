@@ -32,9 +32,64 @@ function sendEmail($to, $subject, $message) {
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['nEmail'];
 
-    $assunto = "Recuperação de Senha - Raccounter";
+    $assunto = "Email de Recuperacao - Raccounter";
     $codigo = rand(100000, 999999);
-    $mensagem = "Olá! Seu código de verificação é: <strong>$codigo</strong>";
+$mensagem = '
+<html>
+<head>
+  <style>
+    body {
+      font-family: Roboto, Arial, sans-serif;
+      background-color: #ffffff;
+      color: #202124;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 20px;
+      border: 1px solid #dadce0;
+      border-radius: 8px;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 20px;
+      margin-bottom: 16px;
+      color: #1a73e8;
+    }
+
+    .code {
+      font-size: 32px;
+      font-weight: bold;
+      letter-spacing: 4px;
+      color: #202124;
+      background: #f1f3f4;
+      padding: 12px 24px;
+      border-radius: 8px;
+      display: inline-block;
+      margin: 20px auto;
+    }
+
+    p {
+      font-size: 14px;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Seu código de verificação</h2>
+    <p>Use o código abaixo para continuar:</p>
+    <div class="code">' . $codigo . '</div>
+    <p>Se você não solicitou esse código, ignore esta mensagem.</p>
+  </div>
+</body>
+</html>
+';
 
     $_SESSION['codigo_recuperacao'] = $codigo;
     $_SESSION['email_recuperacao'] = $email;
