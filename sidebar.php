@@ -2,7 +2,7 @@
 <section id="sidebar">
 	<a href="#" class="brand">
 		<i class='bx bxs-smile bx-lg'></i>
-		<span class="text">Amndgr</span> <!-- puxar o nome do usuario no banco de dados -->
+		<span class="text"><?php echo $_SESSION['NomeLogin']?></span> <!-- puxar o nome do usuario no banco de dados -->
 	</a>
 	<ul class="side-menu top">
 		<li class="<?php echo (array_key_exists('page', $_GET) && $_GET['page'] == 'home' ? 'active' : '')?>">
@@ -37,8 +37,8 @@
 		</li>
 	</ul>
 	<ul class="side-menu bottom">
-		<li class="<?php echo (array_key_exists('page', $_GET) && $_GET['page'] == 'config' ? 'active' : '')?>">
-			<a href="painel.php?page=config">
+		<li class="<?php echo (array_key_exists('page', $_GET) && $_GET['page'] == 'config2' ? 'active' : '')?>">
+			<a href="painel.php?page=config2">
 				<i class='bx bxs-cog bx-sm bx-spin-hover'></i>
 				<span class="text">Configurações</span>
 			</a>
