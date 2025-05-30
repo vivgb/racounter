@@ -2,7 +2,7 @@
 <section id="sidebar">
 	<a href="#" class="brand">
 		<i class='bx bxs-smile bx-lg'></i>
-		<span class="text"><?php echo $_SESSION['NomeLogin']?></span> <!-- puxar o nome do usuario no banco de dados -->
+		<span class="text"><?php echo $_SESSION['NomeLogin']?></span>
 	</a>
 	<ul class="side-menu top">
 		<li class="<?php echo (array_key_exists('page', $_GET) && $_GET['page'] == 'home' ? 'active' : '')?>">
