@@ -12,7 +12,7 @@ function sendEmail($to, $subject, $message) {
         $mail->Host       = 'smtp.gmail.com';
         $mail->SMTPAuth   = true;
         $mail->Username   = 'thiagosp419@gmail.com';
-        $mail->Password   = 'aamm smae prmn lmpg'; // Use senha de app
+        $mail->Password   = 'aamm smae prmn lmpg'; // Senha de app
         $mail->SMTPSecure = 'tls';
         $mail->Port       = 587;
 
@@ -28,12 +28,14 @@ function sendEmail($to, $subject, $message) {
         return false;
     }
 }
-
+//Recebe o email via POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['nEmail'];
 
     $assunto = "Email de Recuperacao - Raccounter";
     $codigo = rand(100000, 999999);
+
+    //mensagem enviada por email
 $mensagem = '
 <html>
 <head>

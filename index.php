@@ -27,8 +27,15 @@
                 <img src="img/guaxinim/guaxinim.jpeg" alt="Guaxinim" id="olhos">
 
             </div>
+            
             <form method="POST" action="php/validaLogin.php">
                 <h1>Login</h1>
+                <?php
+               if (isset($_SESSION['erro_login'])) {
+                   echo '<div class="erro">' . $_SESSION['erro_login'] . '</div>';
+                   unset($_SESSION['erro_login']);
+               }
+            ?>
                 <div class="input-box">
                     <input type="text" name="nEmail" placeholder="Usuário" required>
                     <i class='bx bxs-user'></i>
@@ -40,7 +47,7 @@
                 <div class="forgot-link">
                     <a href="esqueceu-senha.php">Esqueceu a senha?</a>
                 </div>
-                <button type="submit" class="btn">Login</button>
+                <button type="submit" name="Bologin" class="btn">Login</button>
 
             </form>
         </div>
@@ -54,6 +61,14 @@
                     <input type="text" name="nNome" placeholder="Nome" required>
                     <i class='bx bxs-user' ></i>
                 </div>
+                
+                <?php
+                if (isset($_SESSION['erro_cadastro'])) {
+                echo '<div class="erro">'.$_SESSION['erro_cadastro'].'</div>';
+                unset($_SESSION['erro_cadastro']);
+                }
+                ?>
+
                 <div class="input-box">
                     <input type="email" name="nEmail" placeholder="Email" required>
                     <i class='bx bxs-envelope' ></i>

@@ -1,50 +1,48 @@
 <?php
-    if(session_status() !== PHP_SESSION_ACTIVE){
-        session_start();
-    }
 
-    include("funcoes.php");
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}
 
-    $_SESSION['logado'] = 0;
+include("funcoes.php");
+include("conexao.php");
 
-    $email = stripslashes($_POST["nEmail"]);
-    $senha = stripslashes($_POST["nSenha"]);
+$_SESSION['logado'] = 0;
 
-    //$_POST - Valor enviado pelo FORM através da propriedade NAME do elemento HTML 
-    //$_GET - Valor enviado pelo FORM através da URL
-    //$_SESSION - Variável criada pelo usuario no PHP
+$email = stripslashes($_POST["nEmail"]);
+$senha = stripslashes($_POST["nSenha"]);
 
-    include("conexao.php");
-    $sql = "SELECT * FROM usuarios "
-            ." WHERE email = '$email' "
-            ." AND senha = md5('$senha');";
-    $resultLogin = mysqli_query($conn,$sql);
+// Verifica se o e-mail existe no banco
+$sqlEmail = "SELECT * FROM usuarios WHERE email = '$email'";
+$resultEmail = mysqli_query($conn, $sqlEmail);
+
+if (mysqli_num_rows($resultEmail) === 0) {
+    $_SESSION['erro_login'] = "Usuário não encontrado! Registre-se para entrar.";
     mysqli_close($conn);
+    header('Location: ../index.php');
+    exit;
+}
 
-    //Validar se tem retorno do BD
-    if (mysqli_num_rows($resultLogin) > 0) {  
-        
-        //enviarEmail('thiagosp419@gmail.com','Mensagem de e-mail para SA','Teste SA','Eu mesmo');
+// Verifica se o e-mail e senha batem
+$sql = "SELECT * FROM usuarios WHERE email = '$email' AND senha = md5('$senha')";
+$resultLogin = mysqli_query($conn, $sql);
+mysqli_close($conn);
 
-        foreach ($resultLogin as $coluna) {
-                        
-            //***Verificar os dados da consulta SQL
-            $_SESSION['idTipoUsuario'] = $coluna['id_tipo_usuario'];
-            $_SESSION['logado']        = 1;
-            $_SESSION['idLogin']       = $coluna['id_usuario'];
-            $_SESSION['NomeLogin']     = $coluna['nome'];
-            $_SESSION['FotoLogin']     = $coluna['Foto'];
-            $_SESSION['AtivoLogin']    = $coluna['flg_ativos'];
+if (mysqli_num_rows($resultLogin) > 0) {
+    foreach ($resultLogin as $coluna) {
+        $_SESSION['idTipoUsuario'] = $coluna['id_tipo_usuario'];
+        $_SESSION['logado']        = 1;
+        $_SESSION['idLogin']       = $coluna['id_usuario'];
+        $_SESSION['NomeLogin']     = $coluna['nome'];
+        $_SESSION['FotoLogin']     = $coluna['Foto'];
+        $_SESSION['AtivoLogin']    = $coluna['flg_ativos'];
 
-            //Acessar a tela inicial
-            header('location: ../painel.php');
-            
-        }        
-    }else{
-        //Acessar a tela inicial
-        header('location: ../');
-    } 
-
-    
-
+        header('location: ../painel.php');
+        exit;
+    }
+} else {
+    $_SESSION['erro_login'] = "Usuário ou senha incorretos!";
+    header('location: ../index.php');
+    exit;
+}
 ?>
