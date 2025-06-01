@@ -65,6 +65,8 @@ if (!isset($_SESSION['logado'])) {
 		<script src="js/calendario.js" defer></script>
 	<?php endif; ?>
 
+	<script src="js/perfil.js"></script>
+
 
 </body>
 </html>

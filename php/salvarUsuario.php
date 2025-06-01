@@ -67,7 +67,7 @@ if($_FILES['nFoto']['tmp_name'] != ""){
     $dirImagem = 'img/'.$novoNome;
     
     include("conexao.php");
-    $sql = "UPDATE usuario
+    $sql = "UPDATE usuarios
      SET foto = '".$dirImagem."'
      WHERE id_usuario = $id;";
 

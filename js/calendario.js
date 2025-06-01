@@ -105,7 +105,7 @@ form.addEventListener("submit", (e) => {
         date: selectedDate,
         start,
         end,
-        color: "selecionado" // aqui você pode implementar captura da cor selecionada
+        color: "selecionado" 
     });
     
     dialog.close();
