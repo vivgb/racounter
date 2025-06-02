@@ -910,8 +910,8 @@ body.dark #salas .grid-container .card {
 .geral {
 	margin-top: auto;
 	margin-bottom: auto;
-	width: 900px;
-	height: 600px;
+	width: 1200px;
+	height: 650px;
 	background: #fcf4dc;
 	padding: 40px;
 	border-radius: 20px;
@@ -985,23 +985,110 @@ header .current-date{
 .dias li.ativo{
   color: #fff;
 }
-.dias li::before{
-  position: absolute;
+.numero-dia {
+  position: relative;
+  z-index: 1;
+  font-weight: 400;
+}
+
+.numero-dia::before {
   content: "";
-  left: 50%;
+  position: absolute;
   top: 50%;
+  left: 50%;
   height: 40px;
   width: 40px;
-  z-index: -1;
+  background: transparent;
   border-radius: 50%;
   transform: translate(-50%, -50%);
+  z-index: -1;
 }
-.dias li.ativo::before{
+
+.dias li.ativo .numero-dia::before {
   background: #6c4434;
 }
-.dias li:not(.ativo):hover::before{
+
+.dias li:not(.ativo):hover .numero-dia::before {
   background: #f2f2f2;
 }
+
+
+.eventos-dia {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    margin-top: 5px;
+    max-height: 50px;
+    overflow: hidden;
+}
+
+.evento {
+    font-size: 0.65rem;
+    padding: 2px 4px;
+    color: white;
+    border-radius: 4px;
+    max-width: 90%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-weight: 500;
+}
+
+
+.tem-evento {
+    border-radius: 50%;
+    font-weight: bold;
+    text-align: center;
+    transition: 0.3s;
+}
+.tem-evento:hover {
+    opacity: 0.9;
+    cursor: pointer;
+}
+
+.popup-evento {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fcf4dc;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    display: none;
+    z-index: 999;
+    min-width: 280px;
+}
+
+.popup-cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.popup-acoes button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-left: 5px;
+}
+
+.popup-detalhes {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.barra-cor {
+    width: 4px;
+    border-radius: 2px;
+    background-color: var(--cor, orange);
+}
+
+
+
 dialog {
 	position: fixed;
 	top: 50%;
@@ -1045,6 +1132,25 @@ dialog input[type="time"] {
 	cursor: pointer;
 	padding: 0;
 }
+
+#salaSelect {
+  height: 36px !important;
+  max-height: 36px !important;
+  min-height: 36px !important;
+  padding: 4px 8px !important;
+  font-size: 14px !important;
+  line-height: 1.2 !important;
+  box-sizing: border-box !important;
+  display: block !important;
+  width: 100% !important;
+  appearance: none !important;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  overflow: hidden !important;
+  resize: none !important;
+}
+
   
 #cancelBtn {
   background-color: #6c4434;

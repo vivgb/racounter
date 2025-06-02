@@ -20,6 +20,7 @@ if (!isset($_SESSION['logado'])) {
 	<link rel="manifest" href="/site.webmanifest" />
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
 
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/4.5.0/apexcharts.min.js"></script>
 	<!-- My CSS -->
 	<link rel="stylesheet" href="css/style.css" />
 	<link rel="stylesheet" href="css/config.css" />
@@ -42,7 +43,7 @@ if (!isset($_SESSION['logado'])) {
 
 
 
-					$paginasPermitidas = ['home', 'salas', 'config2', 'agendamento', 'contagem', 'nova_sala', 'message', 'team'];
+					$paginasPermitidas = ['home', 'salas', 'config2', 'agendamento', 'contagem', 'nova_sala', 'graficos', 'team'];
 
 
 				
@@ -66,6 +67,11 @@ if (!isset($_SESSION['logado'])) {
 	<?php endif; ?>
 
 	<script src="js/perfil.js"></script>
+	
+	<?php if (isset($_GET['page']) && $_GET['page'] === 'graficos'): ?>
+		<script src="js/grafico.js"></script>
+	<?php endif; ?>
+
 
 
 </body>

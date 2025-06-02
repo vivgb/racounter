@@ -6,4 +6,6 @@ if (basename(__FILE__) === basename($_SERVER['SCRIPT_FILENAME'])) {
 }
 ?>
 
-    <h1>Tela de mensagens</h1>
+    <h1>Graficos</h1>
+
+    <div id="grafico" style="max-width: 800px; margin: auto;"></div>

@@ -1,7 +1,7 @@
 <!-- sidebar.html (corrigido) -->
 <section id="sidebar">
 	<a href="#" class="brand">
-		<i class='bx bxs-smile bx-lg'></i>
+		<img src="img/logo.png" alt="Logo" style="width: 80px; height: auto; margin-top: 30px;">
 		<span class="text"><?php echo $_SESSION['NomeLogin']?></span>
 	</a>
 	<ul class="side-menu top">
@@ -23,14 +23,15 @@
 				<span class="text">Agendamento</span>
 			</a>
 		</li>
-		<li class="<?php echo (array_key_exists('page', $_GET) && $_GET['page'] == 'message' ? 'active' : '')?>">
-			<a href="painel.php?page=message">
+		<li class="<?php echo (array_key_exists('page', $_GET) && $_GET['page'] == 'graficos' ? 'active' : '')?>">
+			<a href="painel.php?page=graficos">
 				<i class='bx bxs-message-dots bx-sm'></i>
-				<span class="text">Message</span>
+				<span class="text">Graficos</span>
 			</a>
 		</li>
 		<li class="<?php echo (array_key_exists('page', $_GET) && $_GET['page'] == 'team' ? 'active' : '')?>">
 			<a href="painel.php?page=team">
+				
 				<i class='bx bxs-group bx-sm'></i>
 				<span class="text">Team</span>
 			</a>
