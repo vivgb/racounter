@@ -1,7 +1,7 @@
 <!-- sidebar.html (corrigido) -->
 <section id="sidebar">
 	<a href="#" class="brand">
-		<img src="img/logo.png" alt="Logo" style="width: 80px; height: auto; margin-top: 30px;">
+		<img src="img/logo.png" alt="Logo" style="width: 70px; height: auto; margin-top: 30px;">
 		<span class="text"><?php echo $_SESSION['NomeLogin']?></span>
 	</a>
 	<ul class="side-menu top">
