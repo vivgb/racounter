@@ -2,6 +2,7 @@
 include('php/conexao.php'); 
 $sqlSalas = "SELECT id_salas, descricao FROM salas WHERE ativo = '1'";
 $resultSalas = mysqli_query($conn, $sqlSalas);
+include('agendamento.js');
 ?>
 
     <div class="agendamento">
