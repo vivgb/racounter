@@ -28,21 +28,6 @@ const translationsSettings = {
       clearHistory: "Clear",
       deleteAccount: "Delete Account",
       delete: "Delete"
-    },
-    "es": {
-      title: "Configuraciones",
-      account: "Cuenta",
-      email: "Correo electrónico",
-      changePassword: "Cambiar contraseña",
-      notifications: "Notificaciones",
-      notifyViaGmail: "¿Notificar por Gmail?",
-      language: "Idioma",
-      interfaceLanguage: "Idioma de la interfaz",
-      privacy: "Privacidad",
-      viewHistory: "Historial de visualización",
-      clearHistory: "Limpiar",
-      deleteAccount: "Eliminar cuenta",
-      delete: "Eliminar"
     }
   };
   
@@ -146,56 +131,6 @@ const translationsSettings = {
       ocupada: "Occupied",
       livre: "Free",
       novaSala: "New Room"
-    },
-    "es": {
-      agendamento: "Agendamiento",
-      titulo: "Título",
-      meuEvento: "¡Mi evento!",
-      data: "Fecha",
-      sala: "Sala",
-      inicio: "Inicio",
-      fim: "Fin",
-      cor: "Color",
-      cancelar: "Cancelar",
-      salvar: "Guardar",
-      detalhes: "Detalles",
-      excluir: "Eliminar",
-      editar: "Editar",
-      fechar: "Cerrar",
-      diasSemana: ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"],
-      pageTitle: "Conteo de Personas en la Sala",
-      currentCapacity: "Capacidad actual",
-      maxCapacity: "Capacidad máxima",
-      status: "Estado",
-      occupied: "Ocupada",
-      free: "Libre",
-      roomNotFound: "Sala no encontrada.",
-      noRoomId: "ID de sala no proporcionado.",
-      raccounter: "Raccounter",
-      dashboard: "Panel",
-      home: "Inicio",
-      getPDF: "Descargar PDF",
-      inUse: "En uso",
-      people: "Personas",
-      dailyTotal: "Total diario",
-      mostUsedRooms: "Salas más usadas",
-      code: "Código",
-      quantity: "Cantidad",
-      capacity: "Capacidad",
-      completed: "Completado",
-      pending: "Pendiente",
-      process: "En proceso",
-      todos: "Tareas",
-      checkInventory: "Verificar inventario",
-      manageDelivery: "Gestionar equipo de entrega",
-      contactSelma: "Contactar a Selma: Confirmar entrega",
-      updateCatalogue: "Actualizar catálogo de tienda",
-      countProfit: "Contar análisis de ganancias",
-      salas: "Salas",
-      lotacao: "Capacidad",
-      ocupada: "Ocupada",
-      livre: "Libre",
-      novaSala: "Nueva Sala"
     }
   };
   
@@ -215,5 +150,14 @@ const translationsSettings = {
     document.getElementById("delete-button").innerText = translationsSettings[lang].delete;
   }
   
-  export { translationsSettings, translationsFull, changeLanguage };
+  function changeLangAndSave(lang) {
+    localStorage.setItem("lang", lang);
+    changeLanguage(lang);
+  }
   
+  document.addEventListener("DOMContentLoaded", () => {
+    const savedLang = localStorage.getItem("lang") || "pt-BR";
+    changeLanguage(savedLang);
+  });
+  
+  export { translationsSettings, translationsFull, changeLanguage, changeLangAndSave };
