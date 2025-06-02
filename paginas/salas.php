@@ -6,7 +6,7 @@ if (basename(__FILE__) === basename($_SERVER['SCRIPT_FILENAME'])) {
   exit;
 }
 
-include('salas-idioma.js');
+include('idioma.js');
 require_once 'php/funcoes.php';
 require_once 'php/conexao.php';
 $salas = buscarTodasSalas($conn);
