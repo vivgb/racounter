@@ -101,6 +101,38 @@ function mostrarSaidasHoje() {
 
 //mostrarSaidasHoje();
 
+function SalasOcupadas() {
+    include('conexao.php');
+
+    $sql = ("SELECT * FROM salas WHERE lotacao_atual > 0");
+
+    $result = mysqli_query($conn, $sql);
+    mysqli_close($conn);
+
+    //var_dump(mysqli_num_rows($result));
+    //die;
+
+    //return (mysqli_num_rows($result));
+}
+
+//SalasOcupadas();
+
+function SalasAgendadas() {
+    include('conexao.php');
+
+    $sql = ("SELECT * FROM salas WHERE agendamento = 1");
+
+    $result = mysqli_query($conn, $sql);
+    mysqli_close($conn);
+
+    //var_dump(mysqli_num_rows($result));
+    //die;
+
+    //return (mysqli_num_rows($result));
+}
+
+//SalasAgendadas();
+
 //////////   <\FUNÇÕES AINDA EM TESTE>   //////////
 
 ?>
