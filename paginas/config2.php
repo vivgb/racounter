@@ -1,4 +1,3 @@
-<?php include('idioma.js');?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -39,7 +38,7 @@
                     <option value="pt-BR">Português</option>
                     <option value="en">Inglês</option>
                     <option value="es">Espanhol</option>
-                    </select>
+                </select>
             </div>
         </section>
 
@@ -55,5 +54,7 @@
             </div>
         </section>
     </main>
+
+    <script type="module" src="idioma.js"></script>
 </body>
 </html>

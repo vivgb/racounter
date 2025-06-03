@@ -6,13 +6,9 @@ if (basename(__FILE__) === basename($_SERVER['SCRIPT_FILENAME'])) {
   exit;
 }
 
-include('idioma.js');
 require_once 'php/funcoes.php';
 require_once 'php/conexao.php';
 $salas = buscarTodasSalas($conn);
-
-
-
 ?>
 
 <section id="salas">
@@ -22,23 +18,22 @@ $salas = buscarTodasSalas($conn);
     </div>
   </div>
   <div class="grid-container">
-      <div class="card" id="novaSala" onclick="window.location.href='painel.php?page=nova_sala'">
-        <i class='bx bx-plus meu-icone'></i> 
+    <div class="card" id="novaSala" onclick="window.location.href='painel.php?page=nova_sala'">
+      <i class='bx bx-plus meu-icone'></i> 
     </div>
-      <?php while ($sala = $salas->fetch_assoc()): ?>
-
+    <?php while ($sala = $salas->fetch_assoc()): ?>
       <div class="card" onclick="irParaSala(<?= $sala['id_salas'] ?>)">
         <h2><?= htmlspecialchars($sala['descricao']) ?></h2>
         <p>Lotação</p> 
         <?= $sala['lotacao_atual'] ?>/<?= $sala['lotacao_maxima'] ?></p>
         <?php if (!empty($sala['agendamento']) && $sala['agendamento'] == 1): ?>
-  			<p class="ocupada">Ocupada</p>
-		<?php else: ?>
-  			<p class="livre">Livre</p>
-			<?php endif; ?>
+          <p class="ocupada">Ocupada</p>
+        <?php else: ?>
+          <p class="livre">Livre</p>
+        <?php endif; ?>
       </div>
     <?php endwhile; ?>
-     
-    </div>
-  
+  </div>
 </section>
+
+<script type="module" src="idioma.js"></script>
