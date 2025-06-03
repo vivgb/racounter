@@ -9,6 +9,7 @@ if (basename(__FILE__) === basename($_SERVER['SCRIPT_FILENAME'])) {
 
 
 <section>
+    
     <div class="head-title">
         <div class="left">
             <h1>Raccounter</h1>

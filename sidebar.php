@@ -1,7 +1,7 @@
 <!-- sidebar.html (corrigido) -->
 <section id="sidebar">
 	<a href="#" class="brand">
-		<img src="img/logo.png" alt="Logo" style="width: 70px; height: auto; margin-top: 30px;">
+		<img id="logo" src="img/logo.png" alt="Logo" style="width: 70px; height: auto; margin-top: 30px;">
 		<span class="text"><?php echo $_SESSION['NomeLogin']?></span>
 	</a>
 	<ul class="side-menu top">
@@ -25,15 +25,15 @@
 		</li>
 		<li class="<?php echo (array_key_exists('page', $_GET) && $_GET['page'] == 'graficos' ? 'active' : '')?>">
 			<a href="painel.php?page=graficos">
-				<i class='bx bxs-message-dots bx-sm'></i>
-				<span class="text">Graficos</span>
+			<i class='bx bx-bar-chart-alt-2 bx-sm'></i>
+			<span class="text">Graficos</span>
 			</a>
 		</li>
-		<li class="<?php echo (array_key_exists('page', $_GET) && $_GET['page'] == 'team' ? 'active' : '')?>">
-			<a href="painel.php?page=team">
+		<li class="<?php echo (array_key_exists('page', $_GET) && $_GET['page'] == 'adm' ? 'active' : '')?>">
+			<a href="painel.php?page=adm">
 				
 				<i class='bx bxs-group bx-sm'></i>
-				<span class="text">Team</span>
+				<span class="text">Adm</span>
 			</a>
 		</li>
 	</ul>

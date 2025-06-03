@@ -54,14 +54,25 @@ searchButton.addEventListener('click', function (e) {
 
 // Dark Mode Switch
 const switchMode = document.getElementById('switch-mode');
+const logo       = document.getElementById('logo');
 
 switchMode.addEventListener('change', function () {
     if (this.checked) {
         document.body.classList.add('dark');
+        logo.src = 'img/logo_dark.png';   // nome exato do arquivo escuro
     } else {
         document.body.classList.remove('dark');
+        logo.src = 'img/logo.png';
     }
 });
+
+// Garante a logo certa no carregamento
+document.addEventListener('DOMContentLoaded', () => {
+    logo.src = document.body.classList.contains('dark')
+        ? 'img/logo_dark.png'
+        : 'img/logo.png';
+});
+
 
 // Mostrar/Esconder Menus de Notificação e Perfil
 document.querySelector('.notification').addEventListener('click', function () {
