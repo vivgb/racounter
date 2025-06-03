@@ -24,7 +24,7 @@ if (!isset($_SESSION['logado'])) {
 	<!-- My CSS -->
 	<link rel="stylesheet" href="css/style.css" />
 	<link rel="stylesheet" href="css/config.css" />
-	<link rel="stylesheet" href="../perfil.css" />
+	<link rel="stylesheet" href="css/perfil.css" />
 	
 	<title>Raccounter</title>
 </head>
