@@ -18,16 +18,10 @@ $salas = buscarTodasSalas($conn);
     </div>
   </div>
   <div class="grid-container">
-      <div class="card" id="novaSala">
+    <div class="card" id="novaSala">
         <i class='bx bx-plus meu-icone'></i> 
     </div>
      
-
-		<div class="card" onclick="irParaSala(<?= $sala['id_salas'] ?>)">
-
-    <div class="card" id="novaSala" onclick="window.location.href='painel.php?page=nova_sala'">
-      <i class='bx bx-plus meu-icone'></i> 
-    </div>
     <?php while ($sala = $salas->fetch_assoc()): ?>
       <div class="card" onclick="irParaSala(<?= $sala['id_salas'] ?>)">
         <h2><?= htmlspecialchars($sala['descricao']) ?></h2>
@@ -76,13 +70,3 @@ $salas = buscarTodasSalas($conn);
   </form>
 </dialog>
 
-          <p class="ocupada">Ocupada</p>
-        <?php else: ?>
-          <p class="livre">Livre</p>
-        <?php endif; ?>
-      </div>
-    <?php endwhile; ?>
-  </div>
-</section>
-
-<script type="module" src="idioma.js"></script>
