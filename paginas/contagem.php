@@ -3,10 +3,9 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-include('idioma.js');
 // Inclui arquivos de conexão e funções com caminho relativo correto
 require_once __DIR__ . '/../php/conexao.php';
-require_once __DIR__ . '/../php/funcoes.php';
+require_once __DIR__ . '/../php/funcoes_salas.php';
 
 // Pega o ID da sala pela URL, se existir
 $id_sala = $_GET['id'] ?? null;
