@@ -63,8 +63,42 @@ function mostrarSalasAtivas($IDempresa) {
 
 //mostrarSalasAtivas(1);
 
+function mostrarEntradasHoje(){
+    include('conexao.php');
+    //date_default_timezone_set("America/New_York");
+    $date = date("Y-m-d 00:00:00");
+
+    $sql = ("SELECT * FROM movimentacao WHERE data_hora = '$date' AND tipo = 'E'");
+
+    $result = mysqli_query($conn, $sql);
+    mysqli_close($conn);
+
+    //var_dump(mysqli_num_rows($result));
+    //die;
+
+    //return (mysqli_num_rows($result));
+}
+
+//mostrarEntradasHoje();
+
+function mostrarSaidasHoje() {
+    include('conexao.php');
+    //date_default_timezone_set("America/New_York");
+    $date = date("Y-m-d 00:00:00");
+
+    $sql = ("SELECT * FROM movimentacao WHERE data_hora = '$date' AND tipo = 'S'");
+
+    $result = mysqli_query($conn, $sql);
+    mysqli_close($conn);
+
+    //var_dump(mysqli_num_rows($result));
+    //die;
+
+    //return (mysqli_num_rows($result));
+}
+
+//mostrarSaidasHoje();
+
 //////////   <\FUNÇÕES AINDA EM TESTE>   //////////
-
-
 
 ?>
