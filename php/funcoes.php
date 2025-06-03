@@ -27,7 +27,44 @@ function proximoID($tabela, $campo){
     return $id + 1;
 }
 
+//////////   <FUNÇÕES AINDA EM TESTE>   //////////
+>>>>>>> Stashed changes
 
+//mostrar o total de salas de uma empresa
+function mostrarSalas($IDempresa) {
+    include('conexao.php');
+
+    $sql = ("SELECT * FROM salas WHERE id_empresa = ".$IDempresa."");
+
+    $result = mysqli_query($conn, $sql);
+    mysqli_close($conn);
+
+    //var_dump(mysqli_num_rows($result));
+    //die();
+
+    //return (mysqli_num_rows($result));
+}
+
+//mostrarSalas(1);
+
+//mostrar o total de salas ATIVAS de uma empresa
+function mostrarSalasAtivas($IDempresa) {
+    include('conexao.php');
+
+    $sql = ("SELECT * FROM salas WHERE id_empresa = ".$IDempresa." AND ativo = 1");
+
+    $result = mysqli_query($conn, $sql);
+    mysqli_close($conn);
+
+    //var_dump(mysqli_num_rows($result));
+    //die();
+
+    //return (mysqli_num_rows($result));
+}
+
+//mostrarSalasAtivas(1);
+
+//////////   <\FUNÇÕES AINDA EM TESTE>   //////////
 
 
 
