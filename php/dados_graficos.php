@@ -11,10 +11,10 @@ if ($conn->connect_error) {
 $sql = "
     SELECT s.descricao AS sala, COUNT(a.id_agendamento) AS total_agendamentos
     FROM salas s
-    LEFT JOIN agendamentos a ON s.id_salas = a.id_sala
+    INNER JOIN agendamentos a ON s.id_salas = a.id_sala
     GROUP BY s.id_salas
 ";
-
+// Se eu quiser trazer todas as salas, mesmo sem agendamentos, posso usar LEFT JOIN
 $result = $conn->query($sql);
 
 $dados = [];
