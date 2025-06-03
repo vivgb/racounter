@@ -75,5 +75,7 @@ if($_FILES['nFoto']['tmp_name'] != ""){
      mysqli_close($conn);
 }
 
-header("Location: painel.php?page=home");
+header("Location: ../paginas/adm.php");
+exit;
+
 ?>

@@ -21,7 +21,7 @@ $salas = buscarTodasSalas($conn);
       <div class="card" id="novaSala">
         <i class='bx bx-plus meu-icone'></i> 
     </div>
-      <?php while ($sala = $salas->fetch_assoc()): ?>
+     
 
 		<div class="card" onclick="irParaSala(<?= $sala['id_salas'] ?>)">
 

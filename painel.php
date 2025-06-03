@@ -73,6 +73,10 @@ if (!isset($_SESSION['logado'])) {
 			<script src="js/grafico.js"></script>
 	<?php endif; ?>
 
+	<?php
+		if (isset($_GET['page']) && in_array($_GET['page'], ['adm'])): ?>
+			<script src="js/adm.js"></script>
+	<?php endif; ?>
 
 
 
