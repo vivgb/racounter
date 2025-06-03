@@ -7,7 +7,6 @@ if (basename(__FILE__) === basename($_SERVER['SCRIPT_FILENAME'])) {
 }
 ?>
 
-
 <section>
     <div class="head-title">
         <div class="left">
@@ -58,7 +57,7 @@ if (basename(__FILE__) === basename($_SERVER['SCRIPT_FILENAME'])) {
             </span>
         </li>
     </ul>
-        
+
 
     <div class="table-data">
         <div class="order">
@@ -124,7 +123,6 @@ if (basename(__FILE__) === basename($_SERVER['SCRIPT_FILENAME'])) {
                 <h3>Todos</h3>
                 <i class='bx bx-plus icon'></i>
                 <i class='bx bx-filter' ></i>
-
             </div>
             <ul class="todo-list">
                 <li class="completed">
@@ -150,9 +148,6 @@ if (basename(__FILE__) === basename($_SERVER['SCRIPT_FILENAME'])) {
             </ul>
         </div>
     </div>
-    
 
-    <!-- MAIN -->
-    <!-- CONTENT -->
-
+    <script type="module" src="idioma.js"></script>
 </section>

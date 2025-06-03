@@ -1,41 +1,37 @@
-<?php
-session_start();
-if (!isset($_SESSION['cod_recuperacao'])) {
-    header('Location: esqueceu-senha.php');
-    exit();
-}
-?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Verificar Código</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperar Senha</title>
+
+    <!-- Fonte + Boxicons -->
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- Estilo -->
+    <link rel="stylesheet" href="css/style_recSenha.css">
 </head>
 <body>
-    <h2>Digite o código enviado para o seu e-mail</h2>
 
-    <?php if (isset($_SESSION['msg'])): ?>
-        <p><?php echo $_SESSION['msg']; unset($_SESSION['msg']); ?></p>
-    <?php endif; ?>
+    <div class="container">
+        <div class="form-box login">
+            <form method="POST" action="php/email-rec.php">
+                <h2>Código de verificação</h2>
+                <div class="input-box">
+                    <input type="number" name="nCode" placeholder="Digite o código enviado" autocomplete="off" required>
+                </div>
 
-    <form method="POST" action="verificarCodigo.php">
-        <input type="text" name="codigo" placeholder="Código de verificação" required>
-        <button type="submit">Verificar</button>
-    </form>
+                <button type="submit" name="nbutton_code" class="btn">Enviar</button>
+
+                <div class="registrar">
+                    <a href="esqueceu-senha.php">Voltar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
 </body>
 </html>
 
-<?php
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if ($_POST['codigo'] == $_SESSION['codigo_recuperacao']) {
-        // Código correto - redirecionar para trocar senha
-        header('Location: novaSenha.php');
-        exit();
-    } else {
-        $_SESSION['msg'] = "Código incorreto. Tente novamente.";
-        header('Location: verificarCodigo.php');
-        exit();
-    }
-}
-?>
