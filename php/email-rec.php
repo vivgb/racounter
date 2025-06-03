@@ -101,7 +101,7 @@ $mensagem = '
         header('Location: ../verificarCodigo.php');
         exit;
     } else {
-        $_SESSION['msg'] = "Erro ao enviar e-mail. Tente novamente.";
+        $_SESSION['erro_enviar'] = "Erro ao enviar e-mail. Tente novamente.";
         header('Location: ../email-rec.php');
         exit;
     }
