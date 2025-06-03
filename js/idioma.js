@@ -157,6 +157,7 @@ const translationsSettings = {
   
   document.addEventListener("DOMContentLoaded", () => {
     const savedLang = localStorage.getItem("lang") || "pt-BR";
+    document.getElementById("linguas").value = savedLang;
     changeLanguage(savedLang);
   });
   

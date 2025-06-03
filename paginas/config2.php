@@ -35,11 +35,11 @@
             <h2 id="idioma-label">Idioma</h2>
             <div class="field-group">
                 <label for="linguas" class="field-label" id="linguas-label">Idioma da interface</label>
-                <select id="linguas" aria-describedby="linguas-desc" onchange="changeLanguage(this.value)">
+                <select id="linguas" aria-describedby="linguas-desc" onchange="changeLangAndSave(this.value)">
                     <option value="pt-BR">Português</option>
                     <option value="en">Inglês</option>
                     <option value="es">Espanhol</option>
-                </select>
+                    </select>
             </div>
         </section>
 
