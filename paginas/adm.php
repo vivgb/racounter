@@ -6,4 +6,4 @@ if (basename(__FILE__) === basename($_SERVER['SCRIPT_FILENAME'])) {
 }
 ?>
 
-    <h1>Tela da equipe</h1>
+    <h1>Tela exclusiva adm</h1>
