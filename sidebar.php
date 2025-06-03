@@ -23,17 +23,12 @@
 				<span class="text">Agendamento</span>
 			</a>
 		</li>
-		<li class="<?php echo (array_key_exists('page', $_GET) && $_GET['page'] == 'graficos' ? 'active' : '')?>">
-			<a href="painel.php?page=graficos">
-			<i class='bx bx-bar-chart-alt-2 bx-sm'></i>
-			<span class="text">Graficos</span>
-			</a>
-		</li>
+
 		<li class="<?php echo (array_key_exists('page', $_GET) && $_GET['page'] == 'adm' ? 'active' : '')?>">
 			<a href="painel.php?page=adm">
 				
 				<i class='bx bxs-group bx-sm'></i>
-				<span class="text">Adm</span>
+				<span class="text">Usuários</span>
 			</a>
 		</li>
 	</ul>
@@ -47,7 +42,7 @@
 		<li>
 			<a href="index.php" class="logout">
 				<i class='bx bx-power-off bx-sm bx-burst-hover'></i>
-				<span class="text">Logout</span>
+				<span class="text">Sair</span>
 			</a>
 		</li>
 	</ul>

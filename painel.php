@@ -43,7 +43,7 @@ if (!isset($_SESSION['logado'])) {
 
 
 
-					$paginasPermitidas = ['home', 'salas', 'config2', 'agendamento', 'contagem', 'nova_sala', 'graficos', 'adm'];
+					$paginasPermitidas = ['home', 'salas', 'config2', 'agendamento', 'contagem', 'nova_sala', 'adm'];
 
 
 				
@@ -67,10 +67,12 @@ if (!isset($_SESSION['logado'])) {
 	<?php endif; ?>
 
 	<script src="js/perfil.js"></script>
-	
-	<?php if (isset($_GET['page']) && $_GET['page'] === 'graficos'): ?>
-		<script src="js/grafico.js"></script>
+		
+	<?php
+		if (isset($_GET['page']) && in_array($_GET['page'], ['home'])): ?>
+			<script src="js/grafico.js"></script>
 	<?php endif; ?>
+
 
 
 

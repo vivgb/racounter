@@ -119,36 +119,18 @@ if (basename(__FILE__) === basename($_SERVER['SCRIPT_FILENAME'])) {
                 </tbody>
             </table>
         </div>
-        <div class="todo">
+
+        <div class="grafico">
             <div class="head">
-                <h3>Todos</h3>
-                <i class='bx bx-plus icon'></i>
-                <i class='bx bx-filter' ></i>
+                <h3>Gráfico de Agendamentos</h3>
             </div>
-            <ul class="todo-list">
-                <li class="completed">
-                    <p>Check Inventory</p>
-                    <i class='bx bx-dots-vertical-rounded' ></i>
-                </li>
-                <li class="completed">
-                    <p>Manage Delivery Team</p>
-                    <i class='bx bx-dots-vertical-rounded' ></i>
-                </li>
-                <li class="not-completed">
-                    <p>Contact Selma: Confirm Delivery</p>
-                    <i class='bx bx-dots-vertical-rounded' ></i>
-                </li>
-                <li class="completed">
-                    <p>Update Shop Catalogue</p>
-                    <i class='bx bx-dots-vertical-rounded' ></i>
-                </li>
-                <li class="not-completed">
-                    <p>Count Profit Analytics</p>
-                    <i class='bx bx-dots-vertical-rounded' ></i>
-                </li>
-            </ul>
-        </div>
+            <div id="grafico" style="max-width: 100%; height: 400px;"></div>
+       </div>
+
     </div>
 
     <script type="module" src="idioma.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+
 </section>

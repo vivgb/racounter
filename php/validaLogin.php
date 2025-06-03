@@ -37,7 +37,7 @@ if (mysqli_num_rows($resultLogin) > 0) {
         $_SESSION['FotoLogin']     = $coluna['Foto'];
         $_SESSION['AtivoLogin']    = $coluna['flg_ativos'];
 
-        header('location: ../painel.php');
+        header('Location: ../painel.php?page=home');
         exit;
     }
 } else {

@@ -44,8 +44,31 @@
 		<img src="https://placehold.co/600x400/png" alt="Profile">
 	</a>
 	<dialog id="dialogPerfil" class="dialog-perfil">
-		<form method="dialog">
+		<form method="post" action="php/editarPerfil.php" enctype="multipart/form-data">
 			<h3>Editar Perfil</h3>
+			<input type="hidden" name="isEdicaoPerfil" value="1">
+
+			<!-- Nome de perfil -->
+			<label for="nome">Nome:</label>
+			<input type="text" name="nNome" id="nNome" value="<?php echo $_SESSION['NomeLogin']; ?>" required>
+
+			<!-- Senha atual -->
+			<label for="senha_atual">Senha atual:</label>
+			<input type="password" name="senha_atual" id="senha_atual" >
+
+			<!-- Nova senha -->
+			<label for="nova_senha">Nova senha (opcional):</label>
+			<input type="password" name="nova_senha" id="nova_senha">
+			
+			<input type="hidden" name="funcao" value="A">
+			<input type="hidden" name="id" value="<?php echo $_SESSION['idLogin']; ?>">
+			<input type="hidden" name="nTipoUsuario" value="<?php echo $_SESSION['idTipoUsuario']; ?>">
+			<input type="hidden" name="nEmail" value=""> <!-- Caso você não queira mudar o e-mail -->
+			<input type="hidden" name="nAtivo" value="on"> <!-- Mantém o usuário ativo -->
+			<input type="hidden" name="isEdicaoPerfil" value="1"> <!-- Indica que está editando o próprio perfil -->
+
+
+			<H4>Escolha um icon padrão</H4>
 			<div class="icons-guaxinim">
 				<img src="img/guaxinim/rac_emo.jpeg" class="icon-option" data-src="img/guaxinim/rac_emo.jpeg">
 				<img src="img/guaxinim/rac_coquete.jpeg" class="icon-option" data-src="img/guaxinim/rac_coquete.jpeg">

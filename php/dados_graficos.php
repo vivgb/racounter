@@ -1,33 +1,30 @@
 <?php
-// dados_grafico.php
+header('Content-Type: application/json');
 
 // Conexão com o banco
-include("conexao.php");
+$conn = new mysqli('localhost', 'root', '', 'sistema_contagem');
+if ($conn->connect_error) {
+    die(json_encode(['erro' => 'Erro na conexão com o banco']));
+}
 
-// Consulta SQL: conta quantos agendamentos existem por sala
+// Consulta corrigida
 $sql = "
-    SELECT s.descricao AS sala, COUNT(a.id_agendamento) AS total
+    SELECT s.descricao AS sala, COUNT(a.id_agendamento) AS total_agendamentos
     FROM salas s
     LEFT JOIN agendamentos a ON s.id_salas = a.id_sala
     GROUP BY s.id_salas
-    ORDER BY total DESC
 ";
 
 $result = $conn->query($sql);
 
-$salas = [];
-$totais = [];
-
-if ($result && $result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        $salas[] = $row['sala'];
-        $totais[] = (int)$row['total'];
-    }
+$dados = [];
+while ($row = $result->fetch_assoc()) {
+    $dados[] = [
+        'sala' => $row['sala'],
+        'total' => (int)$row['total_agendamentos']
+    ];
 }
 
-echo json_encode([
-    'labels' => $salas,
-    'data' => $totais
-]);
-
+echo json_encode($dados);
+$conn->close();
 ?>
