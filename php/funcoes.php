@@ -63,6 +63,7 @@ function mostrarSalasAtivas($IDempresa) {
 
 //mostrarSalasAtivas(1);
 
+//mostrar o total de Entradas hoje
 function mostrarEntradasHoje(){
     include('conexao.php');
     //date_default_timezone_set("America/New_York");
@@ -81,6 +82,7 @@ function mostrarEntradasHoje(){
 
 //mostrarEntradasHoje();
 
+//mostrar o total de Saidas hoje
 function mostrarSaidasHoje() {
     include('conexao.php');
     //date_default_timezone_set("America/New_York");
