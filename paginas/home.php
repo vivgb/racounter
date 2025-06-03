@@ -50,8 +50,15 @@ if (basename(__FILE__) === basename($_SERVER['SCRIPT_FILENAME'])) {
                 <p>Total diario</p>
             </span>
         </li>
+        <li>
+            <i class='bx bxs-dollar-circle' ></i>
+            <span class="text">
+                <h3>56</h3>
+                <p>Total diario</p>
+            </span>
+        </li>
     </ul>
-
+        
 
     <div class="table-data">
         <div class="order">

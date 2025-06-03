@@ -40,11 +40,6 @@ function buscarSalaPorId($con, $idSala) {
     return $stmt->get_result()->fetch_assoc();
 }
 
-function adicionarSala($con, $descricao, $lotacao_maxima) {
-    $stmt = $con->prepare("INSERT INTO salas (descricao, lotacao_maxima, ativo) VALUES (?, ?, 1)");
-    $stmt->bind_param("si", $descricao, $lotacao_maxima);
-    return $stmt->execute();
-}
 
 
 

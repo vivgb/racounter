@@ -121,18 +121,32 @@ function mostrarSecao(idSecaoParaMostrar) {
     });
 }
 
-// Correção aqui: seleciona o link pelo href e adiciona evento
-//const linkSalas = document.querySelector('a[href="painel.php?page=salas"]');
-//if (linkSalas) {
-//    linkSalas.addEventListener('click', function(e) {
-//        e.preventDefault();
-//        mostrarSecao('salas-section');
-//    });
-//  }
-
-// MUDAR DE PAGINA
-
+// MUDAR DE PÁGINA
 function irParaSala(salaId) {
-    // Redireciona para a página de contagem passando o ID da sala via GET
     window.location.href = 'http://localhost:8080/racounter/painel.php?page=contagem&id=' + salaId;
-  }
+}
+
+// Abrir e fechar o dialog de "Nova Sala"
+document.addEventListener('DOMContentLoaded', () => {
+    const novaSalaBtn = document.getElementById('novaSala');
+    const dialog = document.getElementById('new_class');
+    const cancelBtn = document.getElementById('cancelBtnClass');
+
+    if (novaSalaBtn && dialog) {
+        novaSalaBtn.addEventListener('click', () => {
+            if (typeof dialog.showModal === 'function') {
+                dialog.showModal();
+            } else {
+                alert("Este navegador não suporta <dialog>");
+            }
+        });
+    }
+
+    if (cancelBtn && dialog) {
+        cancelBtn.addEventListener('click', () => {
+            dialog.close();
+        });
+    }
+});
+  
+  
