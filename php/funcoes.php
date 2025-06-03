@@ -28,7 +28,6 @@ function proximoID($tabela, $campo){
 }
 
 //////////   <FUNÇÕES AINDA EM TESTE>   //////////
->>>>>>> Stashed changes
 
 //mostrar o total de salas de uma empresa
 function mostrarSalas($IDempresa) {
