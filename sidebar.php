@@ -33,7 +33,7 @@
 		</li>
 	</ul>
 	<ul class="side-menu bottom">
-		<li class="<?php echo (array_key_exists('page', $_GET) && $_GET['page'] == 'config2' ? 'active' : '')?>">
+		<li class="<?php echo (array_key_exists('page', $_GET) && $_GET['page'] == 'Perfil' ? 'active' : '')?>">
 			<a href="painel.php?page=config2">
 				<i class='bx bxs-cog bx-sm bx-spin-hover'></i>
 				<span class="text">Configurações</span>
