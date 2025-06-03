@@ -17,7 +17,7 @@ $sqlEmail = "SELECT * FROM usuarios WHERE email = '$email'";
 $resultEmail = mysqli_query($conn, $sqlEmail);
 
 if (mysqli_num_rows($resultEmail) === 0) {
-    $_SESSION['erro_login'] = "Usuário não encontrado! Registre-se para entrar.";
+    $_SESSION['erro_login'] = "Este usuário não existe!";
     mysqli_close($conn);
     header('Location: ../index.php');
     exit;
