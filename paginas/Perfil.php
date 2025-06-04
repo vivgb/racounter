@@ -4,7 +4,6 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Tela de Perfil</title>
-<link rel="stylesheet" href="../config.css" />
 </head>
 <body>
   <main class="container" role="main" aria-label="Tela de Perfil de Usuário">
