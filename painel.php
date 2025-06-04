@@ -19,13 +19,13 @@ if (!isset($_SESSION['logado'])) {
 	<link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png" />
 	<link rel="manifest" href="/site.webmanifest" />
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
-	<link rel="stylesheet" href="../perfil.css" />
 	
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/4.5.0/apexcharts.min.js"></script>
 	<!-- My CSS -->
 	<link rel="stylesheet" href="css/style.css" />
-	<link rel="stylesheet" href="css/config.css" />
+	<link rel="stylesheet" href="../perfil.css" />
 
+	
 	<title>Raccounter</title>
 </head>
 <body>
@@ -44,7 +44,7 @@ if (!isset($_SESSION['logado'])) {
 
 
 
-					$paginasPermitidas = ['home', 'salas', 'config2', 'agendamento', 'contagem', 'nova_sala', 'adm'];
+					$paginasPermitidas = ['home', 'salas', 'agendamento', 'contagem', 'nova_sala', 'adm', 'Perfil'];
 
 
 				
