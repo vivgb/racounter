@@ -1,11 +1,6 @@
 /* Estilo geral do corpo */
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #fcf4dc, #fcf4dc);
-  margin: 0;
-  padding: 0;
-  color: #333;
-}
+
+
 
 /* Container principal */
 .container {
@@ -18,7 +13,7 @@ body {
 }
 
 /* Título principal */
-h1 {
+.container h1 {
   text-align: center;
   font-weight: 700;
   font-size: 2.4rem;
@@ -28,12 +23,12 @@ h1 {
 }
 
 /* Sessões */
-section {
+h2o {
   margin-bottom: 2.5rem;
 }
 
 /* Títulos das seções */
-section h2 {
+.info-section h2 {
   font-size: 1.4rem;
   font-weight: 600;
   color: #6c4434;

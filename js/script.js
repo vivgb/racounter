@@ -137,5 +137,40 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    const conteudo = document.getElementById('conteudo');
+    if (!conteudo) return;
+
+    const idSala = conteudo.dataset.id;
+
+    document.getElementById('mais')?.addEventListener('click', () => atualizarLotacao('mais', idSala));
+    document.getElementById('menos')?.addEventListener('click', () => atualizarLotacao('menos', idSala));
+});
+
+function atualizarLotacao(operacao, idSala) {
+    fetch('php/atualizar_lotacao.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: `idSala=${idSala}&operacao=${operacao}`
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.sucesso) {
+            const lotacaoTexto = document.querySelector('#lotacao p');
+            lotacaoTexto.textContent = `${data.nova_lotacao}/${lotacaoTexto.textContent.split('/')[1]}`;
+
+            const infoLotacao = document.querySelector('#info p:nth-of-type(2)');
+            infoLotacao.textContent = `Lotação atual: ${data.nova_lotacao}`;
+        } else {
+            alert(data.erro || 'Erro ao atualizar.');
+        }
+    })
+    .catch(err => {
+        console.error(err);
+        alert('Erro de conexão com o servidor.');
+    });
+}
+
   
   
