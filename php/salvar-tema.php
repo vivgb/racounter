@@ -1,5 +1,6 @@
 <?php
 // salvar-tema.php
+//teste
 
 session_start();
 require_once 'php/conexao.php'; // Arquivo de conexão com o banco de dados
