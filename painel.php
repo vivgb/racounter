@@ -79,6 +79,8 @@ if (!isset($_SESSION['logado'])) {
 			<script src="js/adm.js"></script>
 	<?php endif; ?>
 
+	<script src="js/tema.js" defer></script>
+
 
 
 </body>

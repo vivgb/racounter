@@ -460,7 +460,7 @@ body.dark #content nav .profile-menu li a {
 	width: 100%;
 	padding: 36px 0px;	
 	font-family: var(--poppins);
-	overflow-y: auto;
+	overflow-y: hidden;
 	margin-top: -40px;
 }
 #content main .head-title {
