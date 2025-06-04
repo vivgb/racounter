@@ -1,37 +1,56 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const editBtn = document.getElementById('editaPerfil');
-  const dialog = document.getElementById('dialogPerfil');
-  const closeDialog = document.getElementById('fecharDialog');
-  const inputHidden = document.getElementById('imagemEscolhida');
 
-  if (editBtn && dialog && closeDialog) {
-    editBtn.addEventListener('click', () => {
-      if (typeof dialog.showModal === "function") {
-        dialog.showModal();
-      } else {
-        alert("Este navegador não suporta <dialog>");
-      }
-    });
+  // Photo change handling
+  const changePhotoBtn = document.getElementById('changePhotoBtn');
+  const photoInput = document.getElementById('photoInput');
+  const photo = document.getElementById('photo');
 
-    closeDialog.addEventListener('click', () => {
-      dialog.close();
-    });
-  }
-
-  // Seleção de imagens pré-definidas
-  const iconOptions = document.querySelectorAll('.icon-option');
-
-  iconOptions.forEach(img => {
-    img.addEventListener('click', () => {
-      const src = img.getAttribute('data-src');
-
-      if (inputHidden) {
-        inputHidden.value = src;
-      }
-
-      // Destaque visual
-      iconOptions.forEach(i => i.classList.remove('selected'));
-      img.classList.add('selected');
-    });
+  changePhotoBtn.addEventListener('click', () => {
+    photoInput.click();
   });
-});
+
+  photoInput.addEventListener('change', function() {
+    const file = this.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        photo.src = e.target.result;
+      }
+      reader.readAsDataURL(file);
+    }
+  });
+
+  // Password change form validation and simulation
+  const passwordForm = document.getElementById('passwordForm');
+  const passwordMsg = document.getElementById('passwordMsg');
+
+  passwordForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    passwordMsg.textContent = '';
+    passwordMsg.classList.remove('error-msg');
+
+    const currentPassword = passwordForm.currentPassword.value.trim();
+    const newPassword = passwordForm.newPassword.value.trim();
+    const confirmPassword = passwordForm.confirmPassword.value.trim();
+
+    if (newPassword.length < 6) {
+      passwordMsg.textContent = 'A nova senha deve ter pelo menos 6 caracteres.';
+      passwordMsg.classList.add('error-msg');
+      return;
+    }
+
+    if (newPassword !== confirmPassword) {
+      passwordMsg.textContent = 'A confirmação da senha não coincide.';
+      passwordMsg.classList.add('error-msg');
+      return;
+    }
+
+    if (currentPassword === newPassword) {
+      passwordMsg.textContent = 'A nova senha deve ser diferente da atual.';
+      passwordMsg.classList.add('error-msg');
+      return;
+    }
+
+    // Simulate password change success
+    passwordMsg.textContent = 'Senha alterada com sucesso!';
+    passwordForm.reset();
+  });
