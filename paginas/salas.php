@@ -26,11 +26,11 @@ $salas = buscarTodasSalas($conn);
       <div class="card" onclick="irParaSala(<?= $sala['id_salas'] ?>)">
         <h2><?= htmlspecialchars($sala['descricao']) ?></h2>
         <p>Lotação</p> 
-        <?= $sala['lotacao_atual'] ?>/<?= $sala['lotacao_maxima'] ?></p>
+        <p><?= $sala['lotacao_atual'] ?>/<?= $sala['lotacao_maxima'] ?></p>
         <?php if (!empty($sala['agendamento']) && $sala['agendamento'] == 1): ?>
   			<p class="ocupada">Agendada</p>
 		<?php else: ?>
-  			<p class="livre">Livre</p>
+  			<p class="livre">Sem agendamentos</p>
 			<?php endif; ?>
       </div>
     <?php endwhile; ?>
@@ -64,8 +64,8 @@ $salas = buscarTodasSalas($conn);
     <input type="hidden" id="classId" name="classId">
 
     <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 15px;">
-      <button type="button" id="cancelBtnClass">Cancelar</button>
-      <button type="submit" id="saveBtnClass">Salvar</button>
+      <button type="button" class="bnt-perfil" id="cancelBtnClass">Cancelar</button>
+      <button type="submit" class="bnt-perfil">Salvar</button>
     </div>
   </form>
 </dialog>

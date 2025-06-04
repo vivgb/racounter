@@ -24,6 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
           plotOptions: {
             bar: {
               horizontal: true,
+              barHeight: '25%' 
             },
           },
           colors: ["#3c1209"],
