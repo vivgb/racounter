@@ -4,9 +4,9 @@ $sqlSalas = "SELECT id_salas, descricao FROM salas WHERE ativo = '1'";
 $resultSalas = mysqli_query($conn, $sqlSalas);
 ?>
 
-<div class="agendamento">
-    <h1 class="titulo-agendamento">Agendamento</h1>
-    <div class="geral">
+<div class="agendamento" id="agendamento">
+    <h1 id="titulo-agendamento" class="titulo-agendamento">Agendamento</h1>
+    <div class="geral" id="geral">
         <header>
             <p class="data_atual"></p>
             <div class="icons">
@@ -14,7 +14,7 @@ $resultSalas = mysqli_query($conn, $sqlSalas);
                 <span id="next" class="material-symbols-rounded">chevron_right</span> 
             </div>
         </header>
-        <div class="calendario">
+        <div class="calendario" id="calen">
             <ul class="semanas">
                 <li>Dom</li>
                 <li>Seg</li>

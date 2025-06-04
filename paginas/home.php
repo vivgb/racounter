@@ -124,7 +124,7 @@ if (basename(__FILE__) === basename($_SERVER['SCRIPT_FILENAME'])) {
             <div class="head">
                 <h3>Gráfico de Agendamentos</h3>
             </div>
-            <div id="grafico" style="max-width: 100%; height: 400px;"></div>
+            <div id="grafico"></div>
        </div>
 
     </div>

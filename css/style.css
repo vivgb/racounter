@@ -460,7 +460,7 @@ body.dark #content nav .profile-menu li a {
 	width: 100%;
 	padding: 36px 0px;	
 	font-family: var(--poppins);
-	overflow-y: auto;
+	overflow-y: hidden;
 	margin-top: -40px;
 }
 #content main .head-title {
@@ -577,7 +577,7 @@ body.dark #content main .head-title .left h1 {
 	border-radius: 20px;
 	background: var(--light);
 	padding: 24px;
-	overflow-x: auto;
+	overflow-x: hidden;
 }
 #content main .table-data .head {
 	display: flex;
@@ -656,6 +656,33 @@ body.dark #content main .head-title .left h1 {
 }
 
 
+.order-usuarios {
+	width: 100%;
+	max-width: 1000px; 
+	margin: 0 auto;   /* centraliza */
+	background: var(--light);
+	border-radius: 20px;
+	padding: 24px;
+	box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
+  
+  .order-usuarios button.btnEditar,
+  .order-usuarios a button,
+  .order-usuarios button {
+	background-color: #6c4434;
+	border: none;
+	padding: 6px 10px;
+	margin: 0 5px;
+	border-radius: 4px;
+	font-size: 13px;
+	cursor: pointer;
+	transition: background-color 0.2s ease;
+  }
+  
+  .order-usuarios button:hover {
+	background-color: #947364;
+  }
+  
 
 /* MAIN */
 /* CONTENT */
@@ -935,6 +962,20 @@ header .current-date{
   font-size: 1.45rem;
   font-weight: 500;
 }
+
+body.dark #agendamento{
+	background-color: #290b05;
+}
+body.dark #geral{
+	background-color:#c9ad8e;
+
+}
+body.dark #agendamento h1{
+	color:#FEFBF4;
+
+}
+
+
 .calendario{
   padding: 20px;
 }
@@ -1116,7 +1157,7 @@ dialog input[type="time"] {
 	padding: 0;
 }
 
-#salaSelect {
+#salaSelect, #nTipoUsuario, #nEmail{
   height: 36px !important;
   max-height: 36px !important;
   min-height: 36px !important;
@@ -1134,6 +1175,15 @@ dialog input[type="time"] {
   resize: none !important;
 }
 
+#btnCriarUsuario {
+	margin-left: 90px; 
+	margin-bottom: 10px;
+	padding: 10px 20px;
+	border-radius: 8px;
+	font-size: 16px;
+	
+  }
+  
   
 #cancelBtn {
   background-color: #6c4434;
@@ -1272,4 +1322,149 @@ dialog input[type="time"] {
 	background-color: #6c4434;
 	color: white;
 	cursor: pointer;
+}
+
+.order-usuarios table td:first-child {
+	display: table-cell !important;
+	padding-left: 4px !important;
+	font-weight: bold;
+	font-size: 16px;
+}
+.id-coluna {
+	padding-left: 4px !important; 
+	text-align: left !important;
+	font-weight: bold;
+	font-size: 16px;
+	width: 40px; /* opcional: define largura mínima */
+}
+
+/* CONTAGEM */
+
+#contagem .bigtitle {
+	display: flex;
+	align-items: center;
+	justify-content: center;    /* centraliza o conteúdo inteiro */
+	gap: 10px;                  /* espaço entre o ícone e o texto */
+	font-size: 36px;
+	color: #290b05;
+	font-weight: 600;
+	margin: 30px 0 50px 55px;
+	position: relative;
+	font-size: 30px;
+	
+	
+}
+body.dark #contagem h1 {
+	color: #fcf4dc;
+}
+body.dark #contagem{
+	color: #fcf4dc;
+}
+
+.bigtitle i {
+	font-size: 48px;
+	position: relative;  /* não precisa ser absolute nesse caso */
+	top: 0;
+	left: -770px;         /* tamanho do ícone */
+	transition: transform 0.3s ease;
+  	cursor: pointer;
+}
+.bigtitle i:hover {
+	transform: translateX(-5px); 
+}
+
+#controles{
+	background-color: #fcf4dc;
+    padding: 10px;
+    max-width: 450px;
+	height: 40vh;
+    margin: 30px auto ;
+	border-radius: 20px;
+	justify-content: center;
+	align-items: center;
+	gap: 30px;
+	text-align: center;
+}
+
+#controles .title{
+	text-align: center;
+    margin-bottom: 50px; 	 
+    font-size: 1.2rem;
+	color: #290b05;
+	font-weight: 500;
+	
+}
+
+body.dark #controles .title{
+	color: #fcf4dc;
+}
+body.dark #controles{
+	background-color: var(--light);
+}
+
+#conteudo {
+	display: flex;
+    justify-content: center;
+    align-items: center;
+	gap: 30px;
+}
+#conteudo #lotacao {
+    text-align: center;
+	font-size: 40px;
+	color: #290b05;
+}
+ body.dark #conteudo #lotacao {
+	color: #fcf4dc;
+ }
+
+#conteudo .acoes{
+	height: 80px;
+	width: 80px;
+    text-align: center;
+	font-size: 40px;
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+	border-radius: 10px;
+	transition: all 0.2s ease;
+	
+}
+
+#conteudo .acoes:hover{
+	transform: scale(1.02);
+	cursor: pointer;
+}
+
+#conteudo #mais {
+	background-color: rgb(20, 158, 20);
+	margin-left: 30px;
+}
+#conteudo #menos {
+	background-color: rgb(203, 28, 28);
+	margin-right: 30px;
+}
+
+#conteudo .acoes i{
+	color: #fcf4dc;
+}
+
+#info {
+	margin-left: 1rem;
+}
+
+.subtitle {
+	margin: 30px 0;
+	font-size: 24px;
+	color: #290b05;	
+	text-align: left;
+	font-weight: 600;
+	margin-bottom: 50px;
+	width: 30%;                /* ou 300px, por exemplo */
+  	border-bottom: 4px solid #290b05;
+  	padding-bottom: 5px;
+}
+
+body.dark #contagem .subtitle {
+	color: #fcf4dc;
+	border-bottom: 4px solid #fcf4dc;
 }

@@ -23,8 +23,8 @@ if (!isset($_SESSION['logado'])) {
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/4.5.0/apexcharts.min.js"></script>
 	<!-- My CSS -->
 	<link rel="stylesheet" href="css/style.css" />
-	<link rel="stylesheet" href="css/config.css" />
-	<link rel="stylesheet" href="css/perfil.css" />
+	<link rel="stylesheet" href="../perfil.css" />
+
 	
 	<title>Raccounter</title>
 </head>
@@ -78,6 +78,8 @@ if (!isset($_SESSION['logado'])) {
 		if (isset($_GET['page']) && in_array($_GET['page'], ['adm'])): ?>
 			<script src="js/adm.js"></script>
 	<?php endif; ?>
+
+	<script src="js/tema.js" defer></script>
 
 
 

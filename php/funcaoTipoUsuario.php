@@ -67,4 +67,23 @@ function descrTipoUsuarioBarras(){
     return $descricao;
 }
 
+
+function buscaTipoUsuarioId($id){
+    $sql = include("conexao.php");
+
+    $sql = "SELECT descricao 
+    FROM tipo_usuario 
+    WHERE id_tipo_usuario = $id;";
+    
+    $result = mysqli_query($conn, $sql);
+    mysqli_close($conn);
+
+    if (mysqli_num_rows($result) > 0){
+        foreach($result as $campo){
+            
+        }
+    }
+    return $campo;
+}
+
 ?>

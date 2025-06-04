@@ -34,8 +34,10 @@ if (mysqli_num_rows($resultLogin) > 0) {
         $_SESSION['logado']        = 1;
         $_SESSION['idLogin']       = $coluna['id_usuario'];
         $_SESSION['NomeLogin']     = $coluna['nome'];
+        $_SESSION['E-mailLogin']   = $coluna['email'];
         $_SESSION['FotoLogin']     = $coluna['Foto'];
         $_SESSION['AtivoLogin']    = $coluna['flg_ativos'];
+
 
         header('Location: ../painel.php?page=home');
         exit;
