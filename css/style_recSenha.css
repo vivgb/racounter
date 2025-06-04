@@ -15,6 +15,16 @@ body {
   background: #947364;
 }
 
+.erro {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 10px 0 5px 0;
+  text-align: center;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
 .container {
   background: #FEFBF4;
   width: 400px;

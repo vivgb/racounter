@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recuperar Senha</title>
+    <title>Código de recuperação</title>
 
     <!-- Fonte + Boxicons -->
      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -17,8 +17,18 @@
 
     <div class="container">
         <div class="form-box login">
-            <form method="POST" action="php/email-rec.php">
+            <form method="POST" action="php/verificarCodigo.php">
                 <h2>Código de verificação</h2>
+                <!-- Dentro do form, antes do input -->
+                <?php
+                session_start();
+                if (isset($_SESSION['erro_codigo'])) {
+                    echo '<div class="erro">'.$_SESSION['erro_codigo'].'</div>';
+                    unset($_SESSION['erro_codigo']);
+                }
+                ?>
+
+
                 <div class="input-box">
                     <input type="number" name="nCode" placeholder="Digite o código enviado" autocomplete="off" required>
                 </div>
