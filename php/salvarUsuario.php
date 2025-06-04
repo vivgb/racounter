@@ -75,7 +75,8 @@ if($_FILES['nFoto']['tmp_name'] != ""){
      mysqli_close($conn);
 }
 
-header("Location: ../paginas/adm.php");
+header('Content-Type: application/json');
+echo json_encode(['success' => true]);
 exit;
 
 ?>
