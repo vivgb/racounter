@@ -63,8 +63,76 @@ function mostrarSalasAtivas($IDempresa) {
 
 //mostrarSalasAtivas(1);
 
+//mostrar o total de Entradas hoje
+function mostrarEntradasHoje(){
+    include('conexao.php');
+    //date_default_timezone_set("America/New_York");
+    $date = date("Y-m-d 00:00:00");
+
+    $sql = ("SELECT * FROM movimentacao WHERE data_hora = '$date' AND tipo = 'E'");
+
+    $result = mysqli_query($conn, $sql);
+    mysqli_close($conn);
+
+    //var_dump(mysqli_num_rows($result));
+    //die;
+
+    //return (mysqli_num_rows($result));
+}
+
+//mostrarEntradasHoje();
+
+//mostrar o total de Saidas hoje
+function mostrarSaidasHoje() {
+    include('conexao.php');
+    //date_default_timezone_set("America/New_York");
+    $date = date("Y-m-d 00:00:00");
+
+    $sql = ("SELECT * FROM movimentacao WHERE data_hora = '$date' AND tipo = 'S'");
+
+    $result = mysqli_query($conn, $sql);
+    mysqli_close($conn);
+
+    //var_dump(mysqli_num_rows($result));
+    //die;
+
+    //return (mysqli_num_rows($result));
+}
+
+//mostrarSaidasHoje();
+
+function SalasOcupadas() {
+    include('conexao.php');
+
+    $sql = ("SELECT * FROM salas WHERE lotacao_atual > 0");
+
+    $result = mysqli_query($conn, $sql);
+    mysqli_close($conn);
+
+    //var_dump(mysqli_num_rows($result));
+    //die;
+
+    //return (mysqli_num_rows($result));
+}
+
+//SalasOcupadas();
+
+function SalasAgendadas() {
+    include('conexao.php');
+
+    $sql = ("SELECT * FROM salas WHERE agendamento = 1");
+
+    $result = mysqli_query($conn, $sql);
+    mysqli_close($conn);
+
+    //var_dump(mysqli_num_rows($result));
+    //die;
+
+    //return (mysqli_num_rows($result));
+}
+
+//SalasAgendadas();
+
 //////////   <\FUNÇÕES AINDA EM TESTE>   //////////
-
-
 
 ?>

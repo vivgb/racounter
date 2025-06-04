@@ -10,7 +10,7 @@
   <main class="container" role="main" aria-label="Tela de Perfil de Usuário">
     <h1>Perfil do Usuário</h1>
     <section class="profile-photo" aria-label="Foto do perfil">
-      <img src="https://i.pravatar.cc/140" alt="Foto do perfil do usuário" id="photo" />
+      <img src=<?php $_SESSION['FotoLogin']?> alt="Foto do perfil do usuário" id="photo" />
       <input type="file" id="photoInput" accept="image/*" style="display:none" aria-hidden="true" />
       <button id="changePhotoBtn" aria-label="Alterar foto do perfil">Alterar Foto</button>
     </section>
@@ -18,7 +18,7 @@
     <section class="info-section" aria-label="Informações do usuário">
       <div class="info-box" aria-labelledby="emailTitle">
         <h2 id="emailTitle">E-mail</h2>
-        <p class="info-text" id="email">usuario@gmail.com</p>
+        <p class="info-text" id="email"><?php echo $_SESSION['E-mailLogin']?></p>
       </div>
       <div class="info-box" aria-labelledby="addressTitle">
         <h2 id="addressTitle">Endereço</h2>
@@ -26,7 +26,7 @@
       </div>
       <div class="info-box" aria-labelledby="personalDataTitle" style="grid-column: span 2;">
         <h2 id="personalDataTitle">Dados Pessoais</h2>
-        <p class="info-text"><strong>Nome:</strong> João da Silva</p>
+        <p class="info-text"><strong>Nome:</strong><?php echo $_SESSION['NomeLogin']?></p>
         <p class="info-text"><strong>Telefone:</strong> (11) 91234-5678</p>
         <p class="info-text"><strong>Data de Nascimento:</strong> 10/03/1985</p>
       </div>
