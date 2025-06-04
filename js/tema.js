@@ -8,6 +8,7 @@ function aplicarTema(tema) {
         document.body.classList.add('dark');
         logo.src = 'img/logo_dark.png';   // nome exato do arquivo escuro
         switchMode.checked = true;        // Marca o switch como ativado
+        
     } else {
         document.body.classList.remove('dark');
         logo.src = 'img/logo.png';

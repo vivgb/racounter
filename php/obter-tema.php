@@ -2,7 +2,7 @@
 // obter-tema.php
 
 session_start();
-require_once 'php/conexao.php'; // Arquivo de conexão com o banco de dados
+require_once 'conexao.php'; // Arquivo de conexão com o banco de dados
 
 // Verifica se o usuário está logado
 if (isset($_SESSION['id_usuario'])) {
@@ -24,4 +24,7 @@ if (isset($_SESSION['id_usuario'])) {
 } else {
     echo json_encode(['tema' => 'light']);  // Se o usuário não estiver logado, retorna 'light'
 }
+
+var_dump("teste");
+die();
 ?>
