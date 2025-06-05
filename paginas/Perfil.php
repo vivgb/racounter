@@ -16,6 +16,6 @@
         <h2o id="personalDataTitle">Dados Pessoais</h2o>
         <p class="info-text"><strong>Nome:</strong><?php echo $_SESSION['NomeLogin']?></p>
         <p class="info-text"><strong>Telefone:</strong><?php echo $_SESSION['telLogin']?></p>
-        <p class="info-text"><strong><?php echo $_SESSION['dataNascLogin']?></strong> 10/03/1985</p>
+        <p class="info-text"><strong>Data de Nascimento:</strong><?php echo $_SESSION['dataNascLogin']?></p>
 
   </saction>
