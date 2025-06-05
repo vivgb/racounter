@@ -27,7 +27,8 @@ $resultSalas = mysqli_query($conn, $sqlSalas);
             <ul class="dias"></ul>    
         </div>
     </div>
-    <dialog id="eventDialog" >
+        <?php if($_SESSION['idTipoUsuario'] == 1){?>
+        <dialog id="eventDialog" >
         <form method="POST" action="php/salvarAgendamento.php" id="eventForm">
             <h2>Agendamento</h2>
 
@@ -73,6 +74,7 @@ $resultSalas = mysqli_query($conn, $sqlSalas);
             </div>
         </form>
     </dialog>
+    <?php }?>
 </div>
 
 <div id="popup-evento" class="popup-evento">

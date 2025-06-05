@@ -57,4 +57,18 @@ function buscarSalaPorId($con, $idSala) {
     return $stmt->get_result()->fetch_assoc();
 }
 
+
+function alterarLotacao($conn, $idSala, $operacao) {
+    if ($operacao === 'mais') {
+        $sql = "UPDATE salas SET lotacao_atual = lotacao_atual + 1 WHERE id_salas = ? AND lotacao_atual < lotacao_maxima";
+    } elseif ($operacao === 'menos') {
+        $sql = "UPDATE salas SET lotacao_atual = lotacao_atual - 1 WHERE id_salas = ? AND lotacao_atual > 0";
+    } else {
+        return false;
+    }
+
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $idSala);
+    return $stmt->execute();
+}
 ?>

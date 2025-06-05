@@ -1,5 +1,6 @@
 <!--Salas-->
 <?php
+session_start();
 // Evita acesso direto
 if (basename(__FILE__) === basename($_SERVER['SCRIPT_FILENAME'])) {
   header("Location: ../index.php");
@@ -18,9 +19,12 @@ $salas = buscarTodasSalas($conn);
     </div>
   </div>
   <div class="grid-container">
+    <?php if($_SESSION['idTipoUsuario'] == 1){?>
     <div class="card" id="novaSala">
-        <i class='bx bx-plus meu-icone'></i> 
+      <i class='bx bx-plus meu-icone'></i> 
     </div>
+    <?php }?>
+
      
     <?php while ($sala = $salas->fetch_assoc()): ?>
       <div class="card" onclick="irParaSala(<?= $sala['id_salas'] ?>)">

@@ -35,7 +35,7 @@
                    echo '<div class="erro">' . $_SESSION['erro_login'] . '</div>';
                    unset($_SESSION['erro_login']);
                }
-            ?>
+               ?>
                 <div class="input-box">
                     <input type="text" name="nEmail" placeholder="Usuário" required>
                     <i class='bx bxs-user'></i>

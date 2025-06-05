@@ -1,5 +1,5 @@
 <!-- MAIN -->
-<?php
+<i?php
 // Evita acesso direto
 if (basename(__FILE__) === basename($_SERVER['SCRIPT_FILENAME'])) {
     header("Location: ../index.php");
@@ -24,37 +24,37 @@ if (basename(__FILE__) === basename($_SERVER['SCRIPT_FILENAME'])) {
         </div>
         <a href="#" class="btn-download">
             <i class='bx bxs-cloud-download bx-fade-down-hover' ></i>
-            <span class="text">Get PDF</span>
+            <span class="text">Relatórios</span>
         </a>
     </div>
 
     <ul class="box-info">
         <li>
-            <i class='bx bxs-calendar-check' ></i>
+            <i class='bx bx-door-open'></i>
             <span class="text">
                 <h3>2/3</h3>
-                <p>EM uso</p>
+                <p>Salas Ativas</p>
             </span>
         </li>
         <li>
-            <i class='bx bxs-group' ></i>
+            <i class='bx bx-log-in'></i>      
             <span class="text">
                 <h3>12</h3>
-                <p>Pessoas</p>
+                <p>Entrada</p>
             </span>
         </li>
         <li>
-            <i class='bx bxs-dollar-circle' ></i>
+            <i class='bx bx-log-out'></i>      
             <span class="text">
                 <h3>56</h3>
-                <p>Total diario</p>
+                <p>Saída</p>
             </span>
         </li>
         <li>
-            <i class='bx bxs-dollar-circle' ></i>
+            <i class='bx bx-group'></i>       
             <span class="text">
                 <h3>56</h3>
-                <p>Total diario</p>
+                <p>Total</p>
             </span>
         </li>
     </ul>
@@ -63,16 +63,16 @@ if (basename(__FILE__) === basename($_SERVER['SCRIPT_FILENAME'])) {
     <div class="table-data">
         <div class="order">
             <div class="head">
-                <h3>Salas mais usadas</h3>
+                <h3>Salas Agendadas</h3>
                 <i class='bx bx-search' ></i>
                 <i class='bx bx-filter' ></i>
             </div>
             <table>
                 <thead>
                     <tr>
-                        <th>Codigo</th>
-                        <th>quantidade</th>
-                        <th>Lotação</th>
+                        <th>Sala</th>
+                        <th>Data/Hora</th>
+                        <th>Usuário</th>
                     </tr>
                 </thead>
                 <tbody>
