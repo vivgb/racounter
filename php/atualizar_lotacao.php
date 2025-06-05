@@ -21,11 +21,15 @@ if ($id_usuario === 0) {
 }
 
 // 2. Verifica se a sala existe e busca usuário vinculado
-$id_usuario_vinculado = buscarUsuarioVinculadoSala($conn, $idSala);
-if ($id_usuario_vinculado === null) {
+$sql = "SELECT id_usuario FROM salas WHERE id_salas = $idSala";
+$result = mysqli_query($conn, $sql);
+
+if (!$result || mysqli_num_rows($result) === 0) {
     echo json_encode(['sucesso' => false, 'erro' => 'Sala não encontrada.']);
     exit;
 }
+$row = mysqli_fetch_assoc($result);
+$id_usuario_vinculado = $row['id_usuario'];
 
 // 3. Verifica se o usuário logado é o vinculado à sala
 if ($tipo_usuario != 1 && $id_usuario !== $id_usuario_vinculado) {
