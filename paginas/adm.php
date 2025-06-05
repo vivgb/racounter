@@ -45,7 +45,7 @@ $result = $conn->query($sql);
     </div>
 </div>
 
-<dialog id="dialogUsuario" style="padding: 20px; border: none; border-radius: 8px; width: 500px; max-width: 90%;">
+<dialog id="dialogUsuario">
     <form id="formUsuario" action="php/salvarUsuario.php?funcao=I" method="post" enctype="multipart/form-data">
         <input type="hidden" name="funcao" id="funcao" value="">
         <input type="hidden" name="id" id="usuarioId" value="">
@@ -71,14 +71,20 @@ $result = $conn->query($sql);
             ?>
         </select><br><br>
 
-        <label style="display: flex; align-items: center; gap: 8px;">Ativo:</label>
-        <input type="checkbox" name="nAtivo" id="nAtivo"><br><br>
+        <div class="checkbox-container">
+            <input type="checkbox" name="nAtivo" id="nAtivo">
+            <label for="nAtivo">Ativo</label>
+        </div>
+
 
         <label>Foto:</label><br>
         <img id="fotoPreview" src="" alt="Foto do usuário" width="80" style="display:none;"><br>
         <input type="file" name="nFoto" id="nFoto"><br><br>
 
-        <button class="bnt-perfil" type="submit">Salvar</button>
-        <button class="bnt-perfil" type="button" id="btnCancelar">Cancelar</button>
+        <div class="button-row">
+            <button class="bnt-perfil" type="submit">Salvar</button>
+            <button class="bnt-perfil" type="button" id="btnCancelar">Cancelar</button>
+        </div>
+
     </form>
 </dialog>

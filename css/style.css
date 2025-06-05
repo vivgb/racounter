@@ -1468,3 +1468,86 @@ body.dark #contagem .subtitle {
 	color: #fcf4dc;
 	border-bottom: 4px solid #fcf4dc;
 }
+
+#dialogUsuario {
+  width: 350px;         
+  max-width: 90%;       
+  padding: 20px;
+  border: none;
+  border-radius: 10px;
+
+}
+
+#dialogUsuario form {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  font-family: sans-serif;
+}
+
+#dialogUsuario label {
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+#dialogUsuario input[type="text"],
+#dialogUsuario input[type="email"],
+#dialogUsuario input[type="password"],
+#dialogUsuario select,
+#dialogUsuario input[type="file"] {
+background-color: #fdf7f2; 
+  border: 1px solid #a67955; 
+  color: #3e2a1d; 
+  width: 100%;
+  padding: 8px 10px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+#dialogUsuario small {
+  color: #666;
+  font-size: 12px;
+  margin-top: -8px;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+}
+
+.checkbox-container input[type="checkbox"] {
+  accent-color: #5a3d2b;
+  width: 16px;
+  height: 16px;
+}
+
+#dialogUsuario img#fotoPreview {
+  margin: 8px 0;
+  border-radius: 6px;
+}
+
+.button-row {
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.bnt-perfil {
+  background-color: #5a3d2b;
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.bnt-perfil:hover {
+  background-color: #7a523c;
+}
