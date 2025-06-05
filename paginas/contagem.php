@@ -41,14 +41,9 @@ if ($id_sala) {
                 <p>Lotação atual: <?= htmlspecialchars($sala['lotacao_atual'] ?? 0) ?></p>
                 <p>Lotação máxima: <?= htmlspecialchars($sala['lotacao_maxima'] ?? 0) ?></p>
                 <p>Status: <?= (!empty($sala['agendamento']) && $sala['agendamento'] == 1) ? 'Agendada' : 'Sem agendamentos' ?></p>
-                <p>Usuário vinculado:</p>
+                <p>Usuário vinculado: <?= htmlspecialchars($sala['nome_usuario'] ?? 'Nenhum') ?></p>
             </div>
-            <div id="agendamentos">
-                <p class="subtitle">Agendamentos</p>
-            </div>
-            <div id="historico">
-                <p class="subtitle">Histórico de movimentação</p>
-            </div>
+          
 
         </section>
 <?php
