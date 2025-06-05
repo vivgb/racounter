@@ -1,4 +1,7 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 session_start();
 require 'conexao.php'; // seu arquivo de conexão com o banco
 require __DIR__ . '/../vendor/autoload.php';
@@ -93,7 +96,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </html>
     ';
 
-    // Atualiza o código de recuperação no banco
     $codigo = mysqli_real_escape_string($conn, $codigo);
     $email  = mysqli_real_escape_string($conn, $email);
 

@@ -24,7 +24,7 @@ if ($id_sala) {
             </h1>
             <div id="controles">
                 <p class="title"><?= htmlspecialchars($sala['descricao'] ?? '') ?></p>
-                <div id="conteudo">
+                <div id="conteudo" data-id="<?= $id_sala ?>">
                     <div id="menos" class="acoes">
                         <i class='bx  bx-minus'  ></i> 
                     </div>

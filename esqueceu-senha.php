@@ -15,6 +15,7 @@
 <body>
 
     <div class="container">
+        <i><ion-icon name="chevron-back-outline"></ion-icon></i>
         <div class="form-box login">
 
             <!-- Avatar Guaxinim com círculo -->

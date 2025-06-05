@@ -25,11 +25,15 @@
 		</li>
 
 		<li class="<?php echo (array_key_exists('page', $_GET) && $_GET['page'] == 'adm' ? 'active' : '')?>">
-			<a href="painel.php?page=adm">
-				
+				<?php if($_SESSION['idTipoUsuario'] == 1){?>
+				<a href="painel.php?page=adm">
 				<i class='bx bxs-group bx-sm'></i>
 				<span class="text">Usuários</span>
-			</a>
+				</a>
+				<?php }?>
+			
+    		
+			
 		</li>
 	</ul>
 	<ul class="side-menu bottom">
@@ -40,7 +44,7 @@
 			</a>
 		</li>
 		<li>
-			<a href="index.php" class="logout">
+			<a href="php/logout.php" class="logout">
 				<i class='bx bx-power-off bx-sm bx-burst-hover'></i>
 				<span class="text">Sair</span>
 			</a>
