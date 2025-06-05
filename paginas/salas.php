@@ -1,6 +1,8 @@
 <!--Salas-->
 <?php
-session_start();
+if (!isset($_SESSION)) {
+  session_start();
+}
 // Evita acesso direto
 if (basename(__FILE__) === basename($_SERVER['SCRIPT_FILENAME'])) {
   header("Location: ../index.php");
@@ -53,18 +55,37 @@ $salas = buscarTodasSalas($conn);
     <label for="classLotacao">Lotação</label>
     <input type="number" id="classLotacao" name="lotacao_maxima" required>
 
+    <label for="usuario">Usuário vinculado</label>
+    <select id="usuario" name="id_usuario" required>
+      <option value="">Selecione um usuário</option>
+      <?php
+      // Buscar usuários do banco e preencher o select
+      $usuarios = buscarTodosUsuarios($conn); // vamos criar essa função
+      if (!$usuarios) {
+        echo '<option value="">Erro ao buscar usuários</option>';
+      } elseif ($usuarios->num_rows === 0) {
+        echo '<option value="">Nenhum usuário encontrado</option>';
+      } else {
+        while ($usuario = $usuarios->fetch_assoc()):
+      ?>
+          <option value="<?= $usuario['id_usuario'] ?>"><?= htmlspecialchars($usuario['nome']) ?></option>
+      <?php
+        endwhile;
+      }
+      ?>
+    </select>
     <label for="empresa">Empresa</label>
     <select id="empresa" name="id_empresa" required>
-	<option value="">Empresa</option>
-	<?php
-	// Buscar empresas do banco e preencher o select
-	$empresas = buscarTodasEmpresas($conn); // Essa função precisa existir
-	while ($empresa = $empresas->fetch_assoc()):
-	?>
-	<option value="<?= $empresa['id_empresa'] ?>"><?= htmlspecialchars($empresa['nome']) ?></option>
-	<?php endwhile; ?>
-	</select>
-
+    <option value=""></option>
+    <?php
+    // Buscar empresas do banco e preencher o select
+    $empresas = buscarTodasEmpresas($conn); // Essa função precisa existir
+    while ($empresa = $empresas->fetch_assoc()):
+    ?>
+    <option value="<?= $empresa['id_empresa'] ?>"><?= htmlspecialchars($empresa['nome']) ?></option>
+    <?php endwhile; ?>
+    </select>
+    
     <input type="hidden" id="classId" name="classId">
 
     <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 15px;">

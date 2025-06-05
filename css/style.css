@@ -460,7 +460,6 @@ body.dark #content nav .profile-menu li a {
 	width: 100%;
 	padding: 36px 0px;	
 	font-family: var(--poppins);
-	overflow-y: hidden;
 	margin-top: -40px;
 }
 #content main .head-title {
@@ -664,7 +663,8 @@ body.dark #content main .head-title .left h1 {
 	border-radius: 20px;
 	padding: 24px;
 	box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  }
+
+}
   
   .order-usuarios button.btnEditar,
   .order-usuarios a button,
@@ -1175,15 +1175,6 @@ dialog input[type="time"] {
   resize: none !important;
 }
 
-#btnCriarUsuario {
-	margin-left: 90px; 
-	margin-bottom: 10px;
-	padding: 10px 20px;
-	border-radius: 8px;
-	font-size: 16px;
-	
-  }
-  
   
 #cancelBtn {
   background-color: #6c4434;
@@ -1458,13 +1449,143 @@ body.dark #controles{
 	color: #290b05;	
 	text-align: left;
 	font-weight: 600;
-	margin-bottom: 50px;
-	width: 30%;                /* ou 300px, por exemplo */
+	width: 30%;                
   	border-bottom: 4px solid #290b05;
-  	padding-bottom: 5px;
+  	padding-bottom: 2px;
 }
 
 body.dark #contagem .subtitle {
 	color: #fcf4dc;
 	border-bottom: 4px solid #fcf4dc;
 }
+
+#dialogUsuario {
+	width: 350px;         
+	max-width: 90%;       
+	border: none;
+	border-radius: 10px;
+
+}
+
+#dialogUsuario form {
+	display: flex;
+	flex-direction: column;
+
+	font-family: sans-serif;
+}
+
+#dialogUsuario label {
+	font-weight: 600;
+	font-size: 14px;
+	margin-bottom: 1px;
+}
+
+#dialogUsuario input[type="text"],
+#dialogUsuario input[type="email"],
+#dialogUsuario input[type="password"],
+#dialogUsuario select,
+#dialogUsuario input[type="file"] {
+	background-color: #fdf7f2; 
+	border: 1px solid #a67955; 
+	color: #3e2a1d; 
+	width: 100%;
+	padding: 8px 10px;
+	font-size: 14px;
+	border-radius: 6px;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+}
+
+#dialogUsuario input[type="file"] {
+  background-color: #fdf7f2; 
+  border: 1px solid #a67955; 
+  color: #3e2a1d; 
+  width: 100%;
+  padding: 8px 10px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  margin-top: 2px; /* Adicionando uma margem superior menor para reduzir o espaço acima do input */
+}
+
+#dialogUsuario img#fotoPreview {
+  margin: 8px 0;
+  border-radius: 6px;
+}
+
+#dialogUsuario small {
+	color: #666;
+	font-size: 12px;
+	margin-top: -8px;
+}
+
+.checkbox-container {
+	display: flex;
+	align-items: center;
+	gap: 5px;
+	font-weight: 600;
+}
+
+.checkbox-container input[type="checkbox"] {
+	accent-color: #5a3d2b;
+	width: 16px;
+	height: 16px;
+}
+
+#dialogUsuario img#fotoPreview {
+	margin: 8px 0;
+	border-radius: 6px;
+}
+
+.button-row {
+	display: flex;
+	justify-content: flex-start;
+	gap: 10px;
+	margin-top: 10px;
+}
+
+.bnt-perfil {
+	background-color: #5a3d2b;
+	color: white;
+	border: none;
+	padding: 6px 14px;
+	border-radius: 6px;
+	cursor: pointer;
+	font-size: 14px;
+}
+
+.bnt-perfil:hover {
+	background-color: #7a523c;
+}
+#btnCriarUsuario {
+	margin-left: 210px; 
+	margin-top: 20px;
+	padding: 10px 20px;
+	border-radius: 8px;
+	font-size: 16px;
+	
+  }
+  
+
+.title-adm {
+    font-size: 36px;
+    font-weight: 600;
+    color: #290b05;
+	margin-bottom: 10px;    
+	text-align: left;
+    letter-spacing: 1px;
+    padding-left: 40px;  
+	margin-top: 50px; 
+}
+/* Inicialmente, o formulário de pesquisa estará oculto */
+form {
+	display: none;
+  }
+  
+  /* Exibe o formulário de pesquisa apenas nas páginas com 'salas' ou 'usuarios' */
+  body.salvas form,
+  body.adm  form {
+	display: block;
+  }
+  

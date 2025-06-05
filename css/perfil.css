@@ -1,9 +1,14 @@
-/* Estilo geral do corpo */
-
-
+/* Reset básico */
+.gordao {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #fcf4dc, #fcf4dc);
+  color: #333;
+}
 
 /* Container principal */
-.container {
+.gordo {
   max-width: 768px;
   background: #d5c1ac;
   margin: 3rem auto 4rem;
@@ -13,7 +18,7 @@
 }
 
 /* Título principal */
-.container h1 {
+.main-title {
   text-align: center;
   font-weight: 700;
   font-size: 2.4rem;
@@ -22,19 +27,19 @@
   letter-spacing: 1px;
 }
 
-/* Sessões */
-h2o {
-  margin-bottom: 2.5rem;
-}
-
-/* Títulos das seções */
-.info-section h2 {
+/* Título de seções */
+.section-title {
   font-size: 1.4rem;
   font-weight: 600;
   color: #6c4434;
   margin-bottom: 1rem;
   border-bottom: 2px solid #3c1209;
   padding-bottom: 0.3rem;
+}
+
+/* Sessões */
+h2 {
+  margin-bottom: 2.5rem;
 }
 
 /* Caixas de informação */
@@ -45,23 +50,25 @@ h2o {
   margin-bottom: 1rem;
 }
 
-/* Texto das informações */
 .info-text {
   font-size: 1rem;
   color: #333;
 }
 
-/* Grupo de campos */
-.field-group {
+/* Grupos de campos */
+.field-group,
+.password-group {
   display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 1.4rem;
-  flex-wrap: wrap;
+  flex-direction: row;
 }
 
-/* Rótulo dos campos */
-.field-label {
+.field-label,
+.password-group label {
   font-weight: 600;
   font-size: 1rem;
   color: #6c4434;
@@ -69,10 +76,10 @@ h2o {
   min-width: 180px;
 }
 
-/* Entradas e selects */
 input[type="password"],
 input[type="email"],
-select {
+select,
+.password-group input {
   flex: 1 1 250px;
   padding: 0.5rem 1rem;
   border-radius: 6px;
@@ -81,9 +88,7 @@ select {
   transition: border-color 0.3s ease;
 }
 
-/* Foco entradas e selects */
-input[type="password"]:focus,
-input[type="email"]:focus,
+input:focus,
 select:focus {
   outline: none;
   border-color: #947364;
@@ -91,7 +96,8 @@ select:focus {
 }
 
 /* Botões */
-button {
+button,
+.password-button {
   padding: 0.5rem 1.8rem;
   background-color: #947364;
   border: none;
@@ -102,14 +108,15 @@ button {
   font-weight: 600;
   transition: background-color 0.3s ease;
   flex-shrink: 0;
+  align-self: flex-start;
 }
 
-/* Botões hover */
-button:hover {
+button:hover,
+.password-button:hover {
   background-color: #3c1209;
 }
 
-/* Label para checkbox */
+/* Checkbox */
 .checkbox-label {
   display: flex;
   align-items: center;
@@ -119,7 +126,6 @@ button:hover {
   font-size: 1rem;
 }
 
-/* Checkbox dentro do label */
 .checkbox-label input[type="checkbox"] {
   margin-right: 0.8rem;
   width: 18px;
@@ -127,7 +133,7 @@ button:hover {
   cursor: pointer;
 }
 
-/* Mensagens e alertas */
+/* Mensagens */
 .msg {
   margin-top: 0.5rem;
   font-weight: 600;
@@ -137,23 +143,7 @@ button:hover {
   color: #d32f2f;
 }
 
-/* Responsividade */
-@media (max-width: 580px) {
-  .field-group {
-      flex-direction: column;
-      align-items: flex-start;
-  }
-
-  input[type="password"],
-  input[type="email"],
-  select,
-  button {
-      width: 100%;
-      margin-top: 0.5rem;
-  }
-}
-
-/* Estilo para seção da foto do perfil */
+/* Foto de perfil */
 .profile-photo {
   display: flex;
   flex-direction: column;
@@ -168,5 +158,32 @@ button:hover {
   height: 140px;
   object-fit: cover;
   border: 3px solid #947364;
+  transition: transform 0.3s ease;
 }
 
+.profile-photo img:hover {
+  transform: scale(1.05);
+}
+
+/* Responsividade */
+@media (max-width: 580px) {
+  .field-group,
+  .password-group {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  input[type="password"],
+  input[type="email"],
+  select,
+  .password-group input,
+  button,
+  .password-button {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+
+  .container {
+    padding: 1.5rem;
+  }
+}

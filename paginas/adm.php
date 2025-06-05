@@ -10,18 +10,19 @@ if (basename(__FILE__) === basename($_SERVER['SCRIPT_FILENAME'])) {
 $sql = "SELECT id_usuario, nome, email, senha FROM usuarios";
 $result = $conn->query($sql);
 ?>
+<section id="usuarios">
 
-<h1>Tela exclusiva adm</h1>
-
-<button class="bnt-perfil" id="btnCriarUsuario">Criar Novo Usuário</button>
-<div class="table-data">
-    <div class="order order-usuarios">
-        <table>
-            
-            <thead>
-                <tr>
-                    <th>ID</th><th>Nome</th><th>Email</th><th>Senha Criptografada</th><th>Ações</th>
-                </tr>
+    <h1 class="title-adm">Tela exclusiva adm</h1>
+    
+    <button class="bnt-perfil" id="btnCriarUsuario">Criar Novo Usuário</button>
+    <div class="table-data">
+        <div class="order order-usuarios">
+            <table>
+                
+                <thead>
+                    <tr>
+                        <th>ID</th><th>Nome</th><th>Email</th><th>Senha Criptografada</th><th>Ações</th>
+                    </tr>
             </thead>
             <tbody>
                 <?php while ($row = $result->fetch_assoc()): ?>
@@ -41,25 +42,25 @@ $result = $conn->query($sql);
                     <?php endwhile; ?>
                 </tbody>
             </table>
-        <div class="head"></div>
+            <div class="head"></div>
     </div>
 </div>
 
-<dialog id="dialogUsuario" style="padding: 20px; border: none; border-radius: 8px; width: 500px; max-width: 90%;">
+<dialog id="dialogUsuario">
     <form id="formUsuario" action="php/salvarUsuario.php?funcao=I" method="post" enctype="multipart/form-data">
         <input type="hidden" name="funcao" id="funcao" value="">
         <input type="hidden" name="id" id="usuarioId" value="">
-
+        
         <label>Nome:</label><br>
         <input type="text" name="nNome" id="nNome" required><br><br>
-
+        
         <label>Email:</label><br>
         <input type="email" name="nEmail" id="nEmail" required><br><br>
-
+        
         <label>Senha:</label><br>
         <input type="password" name="nSenha" id="nSenha"><br>
         <small id="senhaInfo"></small><br><br>
-
+        
         <label>Tipo de Usuário:</label><br>
         <select name="nTipoUsuario" id="nTipoUsuario" required>
             <option value="">Selecione</option>
@@ -70,15 +71,23 @@ $result = $conn->query($sql);
             }
             ?>
         </select><br><br>
-
-        <label style="display: flex; align-items: center; gap: 8px;">Ativo:</label>
-        <input type="checkbox" name="nAtivo" id="nAtivo"><br><br>
-
+        
+        <div class="checkbox-container">
+            <input type="checkbox" name="nAtivo" id="nAtivo">
+            <label for="nAtivo">Ativo</label>
+        </div>
+        
+        
         <label>Foto:</label><br>
         <img id="fotoPreview" src="" alt="Foto do usuário" width="80" style="display:none;"><br>
         <input type="file" name="nFoto" id="nFoto"><br><br>
-
-        <button class="bnt-perfil" type="submit">Salvar</button>
-        <button class="bnt-perfil" type="button" id="btnCancelar">Cancelar</button>
+        
+        <div class="button-row">
+            <button class="bnt-perfil" type="submit">Salvar</button>
+            <button class="bnt-perfil" type="button" id="btnCancelar">Cancelar</button>
+        </div>
+        
     </form>
 </dialog>
+
+</section>

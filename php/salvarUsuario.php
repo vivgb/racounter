@@ -9,7 +9,9 @@ $senha       = $_POST["nSenha"];
 $funcao      = $_GET['funcao'];
 $id          = $_GET['id'];
 $setSenha    = '';
-
+$tell        =$_POST['telLogin'];
+$nasc        =$_POST['dataNascLogin'];
+$apelido     =$_POST['apelido'];
 
 if ($senha != ''){
     $setSenha = "senha = md5('$senha'),";

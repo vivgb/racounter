@@ -17,9 +17,6 @@
 
 </head>
 <body>
-
-
-
     <div class="container">
         <div class="form-box login">
             <!-- AVATAR DO GUAXINIM AQUI -->
@@ -27,15 +24,8 @@
                 <img src="img/guaxinim/guaxinim.jpeg" alt="Guaxinim" id="olhos">
 
             </div>
-            
             <form method="POST" action="php/validaLogin.php">
                 <h1>Login</h1>
-                <?php
-               if (isset($_SESSION['erro_login'])) {
-                   echo '<div class="erro">' . $_SESSION['erro_login'] . '</div>';
-                   unset($_SESSION['erro_login']);
-               }
-               ?>
                 <div class="input-box">
                     <input type="text" name="nEmail" placeholder="Usuário" required>
                     <i class='bx bxs-user'></i>
@@ -47,9 +37,21 @@
                 <div class="forgot-link">
                     <a href="esqueceu-senha.php">Esqueceu a senha?</a>
                 </div>
-                <button type="submit" name="Bologin" class="btn">Login</button>
+                <button type="submit" class="btn">Login</button>
 
             </form>
+        </div>
+
+        <div class="toggle-box">
+            <div class="toggle-panel toggle-left">
+                <h1>Olá, Bem-vindo!</h1>
+                <p class="descricao-raccounter">
+                    O <strong>Raccounter</strong> é seu sistema inteligente de contagem de pessoas em ambientes fechados.<br>
+                    Organize salas, acompanhe o movimento e mantenha tudo sob controle — com facilidade e segurança.
+                </p>
+
+            </div>
+
         </div>
     </div>
 
