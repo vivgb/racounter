@@ -35,6 +35,26 @@ function adjustSidebar() {
 window.addEventListener('load', adjustSidebar);
 window.addEventListener('resize', adjustSidebar);
 
+// Função para verificar a visibilidade das sections
+function verificarPagina() {
+    // Obtém a section de salas e usuarios
+    const salasSection = document.querySelector('#salas');
+    const usuariosSection = document.querySelector('#usuarios');
+    
+    // Verifica se a section de salas ou usuarios está visível
+    if (salasSection && salasSection.offsetHeight > 0 || usuariosSection && usuariosSection.offsetHeight > 0) {
+        // Exibe o formulário de pesquisa se for na página de salas ou usuários
+        document.querySelector('#content form').style.display = 'block';
+    } else {
+        // Esconde o formulário de pesquisa se não estiver nas páginas desejadas
+        document.querySelector('#content form').style.display = 'none';
+    }
+}
+
+// Verifica a página ao carregar a página e ao redimensionar
+window.addEventListener('load', verificarPagina);
+window.addEventListener('resize', verificarPagina);
+
 // Botão de Pesquisa Mobile
 const searchButton = document.querySelector('#content form .form-input button');
 const searchButtonIcon = document.querySelector('#content form .form-input button .bx');
@@ -51,6 +71,7 @@ searchButton.addEventListener('click', function (e) {
         }
     }
 });
+
 
 // Mostrar/Esconder Menus de Notificação e Perfil
 document.querySelector('.notification').addEventListener('click', function () {
