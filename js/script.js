@@ -148,7 +148,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById('menos')?.addEventListener('click', () => atualizarLotacao('menos', idSala));
 });
 
-function atualizarLotacao(operacao, idSala) {
+function atualizarLotacao($operacao, $idSala) {
     fetch('php/atualizar_lotacao.php', {
         method: 'POST',
         data: {"idSala": $idSala, "operacao": $operacao}
