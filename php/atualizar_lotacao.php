@@ -10,7 +10,9 @@ header('Content-Type: application/json');
 
 $idSala = intval($_POST['idSala'] ?? 0);
 $operacao = $_POST['operacao'] ?? '';
-$id_usuario = $_SESSION['id_usuario'] ?? 0;  // Pega o ID do usuário logado
+$id_usuario = $_SESSION['idLogin'] ?? 0;  // Pega o ID do usuário logado
+$tipo_usuario = $_SESSION['idTipoUsuario']; // Tipo do usuário (1 = admin)
+
 
 // 1. Verifica se usuário está autenticado
 if ($id_usuario === 0) {
@@ -26,7 +28,7 @@ if ($id_usuario_vinculado === null) {
 }
 
 // 3. Verifica se o usuário logado é o vinculado à sala
-if ($id_usuario !== $id_usuario_vinculado) {
+if ($tipo_usuario != 1 && $id_usuario !== $id_usuario_vinculado) {
     echo json_encode(['sucesso' => false, 'erro' => 'Você não tem permissão para alterar a lotação desta sala.']);
     exit;
 }
@@ -34,6 +36,7 @@ if ($id_usuario !== $id_usuario_vinculado) {
 // 4. Se tudo OK, executa a alteração
 if ($idSala > 0 && in_array($operacao, ['mais', 'menos'])) {
     $sucesso = alterarLotacao($conn, $idSala, $operacao);
+
     if ($sucesso) {
         $tipo = ($operacao === 'mais') ? 'E' : 'S';
         registrarMovimentacao($conn, $id_usuario, $idSala, $tipo);
@@ -47,13 +50,6 @@ if ($idSala > 0 && in_array($operacao, ['mais', 'menos'])) {
 }
 
 
-// Função para buscar usuário vinculado à sala
-function buscarUsuarioVinculadoSala($conn, $idSala) {
-    $stmt = $conn->prepare("SELECT id_usuario FROM salas WHERE id_salas = ?");
-    $stmt->bind_param("i", $idSala);
-    $stmt->execute();
-    $resultado = $stmt->get_result()->fetch_assoc();
-    return $resultado ? $resultado['id_usuario'] : null;
-}
+
 ?>
 

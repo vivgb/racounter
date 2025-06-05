@@ -1,6 +1,8 @@
 <!--Salas-->
 <?php
-session_start();
+if (!isset($_SESSION)) {
+  session_start();
+}
 // Evita acesso direto
 if (basename(__FILE__) === basename($_SERVER['SCRIPT_FILENAME'])) {
   header("Location: ../index.php");

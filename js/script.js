@@ -151,8 +151,7 @@ document.addEventListener("DOMContentLoaded", () => {
 function atualizarLotacao(operacao, idSala) {
     fetch('php/atualizar_lotacao.php', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: `idSala=${idSala}&operacao=${operacao}`
+        data: {"idSala": $idSala, "operacao": $operacao}
     })
     .then(response => response.json())
     .then(data => {

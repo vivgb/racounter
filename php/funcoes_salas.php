@@ -95,11 +95,13 @@ function registrarMovimentacao($conn, $id_usuario, $id_sala, $tipo) {
     return $stmt->execute();
 }
 
+// Função para buscar usuário vinculado à sala
 function buscarUsuarioVinculadoSala($conn, $idSala) {
     $stmt = $conn->prepare("SELECT id_usuario FROM salas WHERE id_salas = ?");
     $stmt->bind_param("i", $idSala);
     $stmt->execute();
-    $resultado = $stmt->get_result()->fetch_assoc();
-    return $resultado ? $resultado['id_usuario'] : null;
+    $resultado = $stmt->get_result();
+    $sala = $resultado->fetch_assoc();
+    return $sala['id_usuario'] ?? null;
 }
 ?>
