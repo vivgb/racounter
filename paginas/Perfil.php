@@ -2,8 +2,10 @@
     <h1>Perfil do Usuário</h1>
     <div class="profile-photo" aria-label="Foto do perfil">
       <img src="https://i.pravatar.cc/140" alt="Foto do perfil do usuário" id="photo" />
-      <input type="file" id="photoInput" accept="image/*" style="display:none" aria-hidden="true" />
-      <button id="changePhotoBtn" aria-label="Alterar foto do perfil">Alterar Foto</button>
+      <form action="Post">
+        <input type="file" id="photoInput" accept="image/*" style="display:none" aria-hidden="true" />
+        <button id="changePhotoBtn" aria-label="Alterar foto do perfil">Alterar Foto</button>
+      </form>
     </div>
 
     <div class="info-section" aria-label="Informações do usuário">
