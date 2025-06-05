@@ -88,4 +88,18 @@ function alterarLotacao($conn, $idSala, $operacao) {
     $stmt->bind_param("i", $idSala);
     return $stmt->execute();
 }
+
+function registrarMovimentacao($conn, $id_usuario, $id_sala, $tipo) {
+    $stmt = $conn->prepare("INSERT INTO movimentacoes (id_usuario, id_salas, tipo, data_hora) VALUES (?, ?, ?, NOW())");
+    $stmt->bind_param("iis", $id_usuario, $id_sala, $tipo);
+    return $stmt->execute();
+}
+
+function buscarUsuarioVinculadoSala($conn, $idSala) {
+    $stmt = $conn->prepare("SELECT id_usuario FROM salas WHERE id_salas = ?");
+    $stmt->bind_param("i", $idSala);
+    $stmt->execute();
+    $resultado = $stmt->get_result()->fetch_assoc();
+    return $resultado ? $resultado['id_usuario'] : null;
+}
 ?>
