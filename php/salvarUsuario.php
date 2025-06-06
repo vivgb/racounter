@@ -17,9 +17,9 @@ if ($senha != ''){
 }
 
 if($_POST['nAtivo'] == "on"){
-    $ativo = 'S';
+    $ativo = '1';
 }else{
-    $ativo = 'N';
+    $ativo = '0';
 }
 
 include("conexao.php");
