@@ -49,7 +49,6 @@
             <div class="toggle-panel toggle-left">
                 <h1>Olá, Bem-vindo!</h1>
                 <p class="descricao-raccounter">
-                    Ao <strong>Raccounter</strong> 
                     Organize salas, acompanhe o movimento e mantenha tudo sob controle — com facilidade e segurança.
                 </p>
 
