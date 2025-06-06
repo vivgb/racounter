@@ -10,10 +10,11 @@ if (!isset($_GET['id']) || empty($_GET['id'])) {
 
 $id = intval($_GET['id']);
 
-$sql = "SELECT u.id_usuario, u.nome, u.email, u.id_tipo_usuario, u.flg_ativos, u.foto
+$sql = "SELECT u.id_usuario, u.nome, u.email, u.id_tipo_usuario, u.flg_ativos, u.foto, u.data_nasc
         FROM usuarios u
         WHERE u.id_usuario = $id
         LIMIT 1";
+
 
 $result = $conn->query($sql);
 

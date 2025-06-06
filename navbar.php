@@ -39,9 +39,6 @@
 			<h3>Editar Perfil</h3>
 			<input type="hidden" name="isEdicaoPerfil" value="1">
 
-			<!-- Nome de perfil -->
-			<label for="nome">Nome:</label>
-			<input type="text" name="nNome" id="nNome" value="<?php echo $_SESSION['NomeLogin'];?>" required>
 
 			<input type="hidden" name="funcao" value="A">
 			<input type="hidden" name="id" value="<?php echo $_SESSION['idLogin']; ?>">
