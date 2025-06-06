@@ -74,6 +74,9 @@ function buscaTipoUsuarioId($id){
     $sql = "SELECT descricao 
     FROM tipo_usuario 
     WHERE id_tipo_usuario = $id;";
+
+    //var_dump($sql);
+    //die();
     
     $result = mysqli_query($conn, $sql);
     mysqli_close($conn);

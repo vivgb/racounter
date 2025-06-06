@@ -176,7 +176,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const conteudo = document.getElementById('conteudo');
     if (!conteudo) return;
 
-    const idSala = conteudo.dataset.id;
+    var idSala = conteudo.dataset.id;
 
     document.getElementById('mais')?.addEventListener('click', () => atualizarLotacao('mais', idSala));
     document.getElementById('menos')?.addEventListener('click', () => atualizarLotacao('menos', idSala));

@@ -26,6 +26,9 @@
             </div>
             <form method="POST" action="php/validaLogin.php">
                 <h1>Login</h1>
+                <?php if (isset($_SESSION['erro_login'])): ?>
+                    <div class="erro"><?php echo $_SESSION['erro_login']; unset($_SESSION['erro_login']); ?></div>
+                <?php endif; ?>
                 <div class="input-box">
                     <input type="text" name="nEmail" placeholder="Usuário" required>
                     <i class='bx bxs-user'></i>

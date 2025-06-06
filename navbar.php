@@ -41,16 +41,8 @@
 
 			<!-- Nome de perfil -->
 			<label for="nome">Nome:</label>
-			<input type="text" name="nNome" id="nNome" value="<?php echo $_SESSION['NomeLogin']; ?>" required>
+			<input type="text" name="nNome" id="nNome" value="<?php echo $_SESSION['NomeLogin'];?>" required>
 
-			<!-- Senha atual -->
-			<label for="senha_atual">Senha atual:</label>
-			<input type="password" name="senha_atual" id="senha_atual" >
-
-			<!-- Nova senha -->
-			<label for="nova_senha">Nova senha (opcional):</label>
-			<input type="password" name="nova_senha" id="nova_senha">
-			
 			<input type="hidden" name="funcao" value="A">
 			<input type="hidden" name="id" value="<?php echo $_SESSION['idLogin']; ?>">
 			<input type="hidden" name="nTipoUsuario" value="<?php echo $_SESSION['idTipoUsuario']; ?>">
@@ -90,7 +82,7 @@
 			</li>
 
 			<li><a href="#">Configurações</a></li>
-			<a href="index.php"><li>Sair</li></a>
+			<a href="php/logout.php"><li>Sair</li></a>
 		</ul>
 	</div>
 </nav>
