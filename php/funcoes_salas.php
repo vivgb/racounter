@@ -102,6 +102,6 @@ function buscarUsuarioVinculadoSala($conn, $idSala) {
     $stmt->execute();
     $resultado = $stmt->get_result();
     $sala = $resultado->fetch_assoc();
-    return $sala['id_usuario'] ?? null;
+    return $id_usuario_vinculado;
 }
 ?>
