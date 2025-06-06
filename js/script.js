@@ -37,19 +37,32 @@ window.addEventListener('resize', adjustSidebar);
 
 // Função para verificar a visibilidade das sections
 function verificarPagina() {
-    // Obtém a section de salas e usuarios
     const salasSection = document.querySelector('#salas');
     const usuariosSection = document.querySelector('#usuarios');
-    
-    // Verifica se a section de salas ou usuarios está visível
-    if (salasSection && salasSection.offsetHeight > 0 || usuariosSection && usuariosSection.offsetHeight > 0) {
-        // Exibe o formulário de pesquisa se for na página de salas ou usuários
-        document.querySelector('#content form').style.display = 'block';
+    const searchFormElement = document.querySelector('#content form');
+
+    // Função auxiliar para checar se o elemento está visível
+    function estaVisivel(elemento) {
+        if (!elemento) return false;
+        const estilo = window.getComputedStyle(elemento);
+        return estilo.display !== 'none' && estilo.visibility !== 'hidden' && elemento.offsetHeight > 0;
+    }
+
+    const mostrarFormulario = estaVisivel(salasSection) || estaVisivel(usuariosSection);
+
+    if (mostrarFormulario) {
+        searchFormElement.style.display = 'block';
+        searchFormElement.style.visibility = 'visible';
+        searchFormElement.style.position = 'static';
+        searchFormElement.style.pointerEvents = 'auto';
     } else {
-        // Esconde o formulário de pesquisa se não estiver nas páginas desejadas
-        document.querySelector('#content form').style.display = 'none';
+        searchFormElement.style.display = 'none'; // Esconde completamente
+        searchFormElement.style.visibility = 'hidden';
+        searchFormElement.style.position = 'absolute';
+        searchFormElement.style.pointerEvents = 'none';
     }
 }
+
 
 // Verifica a página ao carregar a página e ao redimensionar
 window.addEventListener('load', verificarPagina);

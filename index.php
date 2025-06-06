@@ -46,7 +46,7 @@
             <div class="toggle-panel toggle-left">
                 <h1>Olá, Bem-vindo!</h1>
                 <p class="descricao-raccounter">
-                    O <strong>Raccounter</strong> é seu sistema inteligente de contagem de pessoas em ambientes fechados.<br>
+                    Ao <strong>Raccounter</strong> 
                     Organize salas, acompanhe o movimento e mantenha tudo sob controle — com facilidade e segurança.
                 </p>
 

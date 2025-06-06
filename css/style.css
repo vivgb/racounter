@@ -25,7 +25,8 @@ li {
 	--dark-grey: #AAAAAA;
 	--dark: #342E37;
 	--red: #DB504A;
-	--yellow: #056832;
+	--yellow: #d3eb4d;
+	--green: #2d6805;
 	--light-yellow: #70ce8f;
 	--orange: #FD7238;
 	--light-orange: #FFE0D3;
@@ -190,10 +191,28 @@ body {
 	left: 60px;
 }
 
+nav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	
+}
+
+.nav-right {
+	display: flex;
+	align-items: center;
+	gap: 20px; /* Espaçamento entre itens à direita */
+}
+
+nav form.hidden {
+	visibility: hidden;
+}
 
 
 
 /* NAVBAR */
+
+
 #content nav {
 	height: 56px;
 	background: var(--light);
@@ -1578,14 +1597,3 @@ body.dark #contagem .subtitle {
     padding-left: 40px;  
 	margin-top: 50px; 
 }
-/* Inicialmente, o formulário de pesquisa estará oculto */
-form {
-	display: none;
-  }
-  
-  /* Exibe o formulário de pesquisa apenas nas páginas com 'salas' ou 'usuarios' */
-  body.salvas form,
-  body.adm  form {
-	display: block;
-  }
-  
