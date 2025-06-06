@@ -21,7 +21,7 @@ $result = $conn->query($sql);
                 
                 <thead>
                     <tr>
-                        <th>ID</th><th>Nome</th><th>Email</th><th>Senha Criptografada</th><th>Ações</th>
+                        <th>ID</th><th>Nome</th><th>Email</th><th>Senha</th><th>Ações</th>
                     </tr>
             </thead>
             <tbody>
@@ -60,6 +60,11 @@ $result = $conn->query($sql);
         <label>Senha:</label><br>
         <input type="password" name="nSenha" id="nSenha"><br>
         <small id="senhaInfo"></small><br><br>
+        
+        <p>
+            <label for="iDataN">Data de nascimento:</label>
+            <input type="date" name="nDataN" id="iDataN">
+        </p>
         
         <label>Tipo de Usuário:</label><br>
         <select name="nTipoUsuario" id="nTipoUsuario" required>
