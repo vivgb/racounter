@@ -1,3 +1,194 @@
+<style>
+  /* Reset básico */
+.gordao {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+/* Container principal */
+.gordo {
+  max-width: 768px;
+  background: #d5c1ac;
+  margin: 3rem auto 4rem;
+  border-radius: 10px;
+  padding: 2rem 2.5rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Título principal */
+.main-title {
+  text-align: center;
+  font-weight: 700;
+  font-size: 2.4rem;
+  color: #290b05;
+  margin-bottom: 2rem;
+  letter-spacing: 1px;
+}
+
+/* Título de seções */
+.section-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #6c4434;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #3c1209;
+  padding-bottom: 0.3rem;
+}
+
+/* Sessões */
+h2 {
+  margin-bottom: 2.5rem;
+}
+
+/* Caixas de informação */
+.info-box {
+  background: #f9f3e8;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.info-text {
+  font-size: 1rem;
+  color: #333;
+}
+
+/* Grupos de campos */
+.field-group,
+.password-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.field-label,
+.password-group label {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #6c4434;
+  flex: 1;
+  min-width: 180px;
+}
+
+input[type="password"],
+input[type="email"],
+select,
+.password-group input {
+  flex: 1 1 250px;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  border: 1.8px solid #fcf4dc;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #947364;
+  box-shadow: 0 0 6px rgba(148, 115, 100, 0.6);
+}
+
+/* Botões */
+button,
+.password-button {
+  padding: 0.5rem 1.8rem;
+  background-color: #947364;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  flex-shrink: 0;
+  align-self: flex-start;
+}
+
+button:hover,
+.password-button:hover {
+  background-color: #3c1209;
+}
+
+/* Checkbox */
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: #555;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.checkbox-label input[type="checkbox"] {
+  margin-right: 0.8rem;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+/* Mensagens */
+.msg {
+  margin-top: 0.5rem;
+  font-weight: 600;
+}
+
+.error-msg {
+  color: #d32f2f;
+}
+
+/* Foto de perfil */
+.profile-photo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.profile-photo img {
+  border-radius: 50%;
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border: 3px solid #947364;
+  transition: transform 0.3s ease;
+}
+
+.profile-photo img:hover {
+  transform: scale(1.05);
+}
+
+/* Responsividade */
+@media (max-width: 580px) {
+  .field-group,
+  .password-group {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  input[type="password"],
+  input[type="email"],
+  select,
+  .password-group input,
+  button,
+  .password-button {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+
+  .container {
+    padding: 1.5rem;
+  }
+}
+</style>
+
 <div class="gordao">
   <section class="gordo">
       <center><h1>Perfil do Usuário</h1></center>

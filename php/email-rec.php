@@ -1,9 +1,9 @@
 <?php
-ini_set('display_errors', 1);
+/**ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+error_reporting(E_ALL);**/
 session_start();
-require 'conexao.php'; // seu arquivo de conexão com o banco
+require 'conexao.php';
 require __DIR__ . '/../vendor/autoload.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
@@ -38,7 +38,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $codigo = rand(100000, 999999);
     $assunto = "Email de Recuperacao - Raccounter";
 
-    // mensagem enviada por email (igual ao que você já tem)
     $mensagem = '
     <html>
     <head>
@@ -111,12 +110,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             header('Location: ../verificarCodigo.php');
             exit;
         } else {
-            $_SESSION['erro_enviar'] = "Erro ao enviar e-mail. Tente novamente.";
             header('Location: ../email-rec.php');
             exit;
         }
     } else {
-        $_SESSION['erro_enviar'] = "Erro ao salvar o código no banco.";
         header('Location: ../email-rec.php');
         exit;
     }
@@ -124,3 +121,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     header('Location: ../email-rec.php');
     exit;
 }
+?>
