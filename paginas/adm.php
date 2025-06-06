@@ -7,7 +7,7 @@ if (basename(__FILE__) === basename($_SERVER['SCRIPT_FILENAME'])) {
   }
   
 
-$sql = "SELECT id_usuario, nome, email, senha, data_nasc, foto  FROM usuarios";
+$sql = "SELECT id_usuario, nome, email, senha FROM usuarios";
 $result = $conn->query($sql);
 ?>
 <section id="usuarios">
@@ -21,13 +21,7 @@ $result = $conn->query($sql);
                 
                 <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>Nome</th>
-                        <th>Email</th>
-                        <th>Senha</th>
-                        <th>Data de Nascimento</th>
-                        <th>Foto</th>
-                        <th>Ações</th>
+                        <th>ID</th><th>Nome</th><th>Email</th><th>Senha</th><th>Ações</th>
                     </tr>
             </thead>
             <tbody>
@@ -37,14 +31,6 @@ $result = $conn->query($sql);
                         <td><?= htmlspecialchars($row['nome']) ?></td>
                         <td><?= htmlspecialchars($row['email']) ?></td>
                         <td><?= htmlspecialchars($row['senha']) ?></td>
-                        <td><?= date('d/m/Y', strtotime($row['data_nasc'])) ?></td>
-                        <td>
-                            <?php if (!empty($row['foto'])): ?>
-                                <img src="<?= $row['foto'] ?>" alt="Foto" width="40" style="border-radius: 50%;">
-                            <?php else: ?>
-                                —
-                            <?php endif; ?>
-                        </td>
                         <td>
                             <button class="btnEditar" data-id="<?= $row['id_usuario'] ?>">Editar</button>
                             <a href="/racounter/php/excluir_usuario.php?id=<?= $row['id_usuario'] ?>" onclick="return confirm('Tem certeza que deseja excluir?');">

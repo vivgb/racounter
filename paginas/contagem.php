@@ -28,13 +28,13 @@ if ($id_sala) {
             <div id="controles">
                 <p class="title"><?= htmlspecialchars($sala['descricao'] ?? '') ?></p>
                 <div id="conteudo" data-id="<?= $id_sala ?>">
-                    <div id="menos" class="acoes">
+                    <div id="menos" class="acoes" onclick="atualizarLotacao(this)">
                         <i class='bx  bx-minus'  ></i> 
                     </div>
                     <div id="lotacao">
                         <p><?= $sala['lotacao_atual'] ?>/<?= $sala['lotacao_maxima'] ?></p>
                     </div>
-                    <div id="mais" class="acoes">
+                    <div id="mais" class="acoes" onclick="atualizarLotacao(this)">
                         <i class='bx bx-plus meu-icone'></i>
                     </div>
                 </div>

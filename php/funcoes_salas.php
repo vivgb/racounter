@@ -3,7 +3,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-require_once __DIR__ . '/conexao.php';
+require_once 'conexao.php';
 
 function adicionarSala($con, $descricao, $lotacao_maxima, $id_empresa, $id_usuario) {
     $stmt = $con->prepare("INSERT INTO salas (descricao, lotacao_maxima, ativo, id_empresa, id_usuario) VALUES (?, ?, 1, ?, ?)");
@@ -90,7 +90,7 @@ function alterarLotacao($conn, $idSala, $operacao) {
 }
 
 function registrarMovimentacao($conn, $id_usuario, $id_sala, $tipo) {
-    $stmt = $conn->prepare("INSERT INTO movimentacoes (id_usuario, id_salas, tipo, data_hora) VALUES (?, ?, ?, NOW())");
+    $stmt = $conn->prepare("INSERT INTO movimentacao (id_usuario, id_salas, tipo, data_hora) VALUES (?, ?, ?, NOW())");
     $stmt->bind_param("iis", $id_usuario, $id_sala, $tipo);
     return $stmt->execute();
 }
@@ -102,6 +102,6 @@ function buscarUsuarioVinculadoSala($conn, $idSala) {
     $stmt->execute();
     $resultado = $stmt->get_result();
     $sala = $resultado->fetch_assoc();
-    return $id_usuario_vinculado;
+    return $sala['id_usuario'];
 }
 ?>

@@ -146,7 +146,7 @@ function mostrarSecao(idSecaoParaMostrar) {
 
 // MUDAR DE PÁGINA
 function irParaSala(salaId) {
-    window.location.href = 'http://localhost:8080/racounter/painel.php?page=contagem&id=' + salaId;
+    window.location.href = 'painel.php?page=contagem&id=' + salaId;
 }
 
 // Abrir e fechar o dialog de "Nova Sala"
@@ -172,20 +172,27 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-    const conteudo = document.getElementById('conteudo');
-    if (!conteudo) return;
+/*document.addEventListener("DOMContentLoaded", () => {
+    var $conteudo = document.getElementById('conteudo');
+    if (!$conteudo) return;
 
-    var idSala = conteudo.dataset.id;
+    var $idSala = $conteudo.dataset.id;
 
-    document.getElementById('mais')?.addEventListener('click', () => atualizarLotacao('mais', idSala));
-    document.getElementById('menos')?.addEventListener('click', () => atualizarLotacao('menos', idSala));
-});
+    document.getElementById('mais')?.addEventListener('click', () => atualizarLotacao('mais', $idSala));
+    document.getElementById('menos')?.addEventListener('click', () => atualizarLotacao('menos', $idSala));
+});*/
 
-function atualizarLotacao($operacao, $idSala) {
+function atualizarLotacao($node) {
+    var $operacao = $node.id;
+    var $idSala = $node.parentElement.dataset.id;
+
+    var fd = new FormData();
+    fd.append("idSala", $idSala);
+    fd.append("operacao", $operacao);
+
     fetch('php/atualizar_lotacao.php', {
         method: 'POST',
-        data: {"idSala": $idSala, "operacao": $operacao}
+        body: fd
     })
     .then(response => response.json())
     .then(data => {

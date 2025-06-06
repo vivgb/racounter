@@ -4,6 +4,9 @@ if (!isset($_SESSION['logado'])) {
 	header("Location: index.php");
 	exit;
 }
+include('php/funcaoObterTema.php');
+include('php/conexao.php');
+$_SESSION['tema'] = obterTema($conn)['tema'];
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -23,11 +26,10 @@ if (!isset($_SESSION['logado'])) {
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/4.5.0/apexcharts.min.js"></script>
 	<!-- My CSS -->
 	<link rel="stylesheet" href="css/style.css" />
-
 	
 	<title>Raccounter</title>
 </head>
-<body>
+<body class='<?php echo ($_SESSION['tema'] == 'dark' ? 'dark' : '')?>'>
 
 	<?php include 'sidebar.php'; ?>
 	
@@ -77,6 +79,8 @@ if (!isset($_SESSION['logado'])) {
 		if (isset($_GET['page']) && in_array($_GET['page'], ['adm'])): ?>
 			<script src="js/adm.js"></script>
 	<?php endif; ?>
+
+	<script src="js/tema.js" defer></script>
 
 
 

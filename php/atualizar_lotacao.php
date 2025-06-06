@@ -42,7 +42,7 @@ if ($idSala > 0 && in_array($operacao, ['mais', 'menos'])) {
     $sucesso = alterarLotacao($conn, $idSala, $operacao);
 
     if ($sucesso) {
-        $tipo = ($operacao === 'mais') ? 'E' : 'S';
+        $tipo = ($operacao == 'mais' ? 1 : 0);
         registrarMovimentacao($conn, $id_usuario, $idSala, $tipo);
         $sala = buscarSalaPorId($conn, $idSala);
         echo json_encode(['sucesso' => true, 'nova_lotacao' => $sala['lotacao_atual']]);

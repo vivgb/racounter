@@ -7,7 +7,7 @@
 <nav>
 	<i class='bx bx-menu bx-sm'></i>
 	<div class="nav-right">
-		<input type="checkbox" class="checkbox" id="switch-mode" hidden />
+		<input type="checkbox" class="checkbox" id="switch-mode" hidden <?php echo ($_SESSION['tema'] == 'dark' ? 'checked' : '')?>/>
 		<label class="swith-lm" for="switch-mode">
 			<i class="bx bxs-moon"></i>
 			<i class="bx bx-sun"></i>
@@ -39,6 +39,9 @@
 			<h3>Editar Perfil</h3>
 			<input type="hidden" name="isEdicaoPerfil" value="1">
 
+			<!-- Nome de perfil -->
+			<label for="nome">Nome:</label>
+			<input type="text" name="nNome" id="nNome" value="<?php echo $_SESSION['NomeLogin'];?>" required>
 
 			<input type="hidden" name="funcao" value="A">
 			<input type="hidden" name="id" value="<?php echo $_SESSION['idLogin']; ?>">

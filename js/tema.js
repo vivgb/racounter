@@ -17,7 +17,7 @@ function aplicarTema(tema) {
 }
 
 // Ao carregar a página, buscar o tema do banco de dados
-window.onload = function() {
+/*document.addEventListener("DOMContentLoaded", () => {
     // Fazendo uma requisição para obter o tema do banco
     fetch('php/obter-tema.php')
         .then(response => response.json())
@@ -26,7 +26,8 @@ window.onload = function() {
                 aplicarTema(data.tema); // Aplica o tema do banco
             }
         });
-};
+
+});*/
 
 // Event Listener para alternar o tema
 switchMode.addEventListener('change', function () {

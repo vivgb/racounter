@@ -1,21 +1,41 @@
 <style>
-  /* Reset básico */
-.gordao {
-  margin: 0;
-  padding: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #333;
+.perfil-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center; /* ou flex-start se quiser alinhado à esquerda */
+    padding: 20px;
 }
 
-/* Container principal */
-.gordo {
-  max-width: 768px;
-  background: #d5c1ac;
-  margin: 3rem auto 4rem;
-  border-radius: 10px;
-  padding: 2rem 2.5rem;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+.perfil-card {
+    background-color: #fcf4dc;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 20px 25px;
+    width: 400px; 
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
+
+
+.perfil-card:hover {
+    transform: scale(1.03);
+}
+
+.perfil-card h3 {
+    margin: 0 0 10px;
+    font-size: 18px;
+    color: #333;
+}
+
+.perfil-card p {
+    margin: 4px 0;
+    color: #666;
+    font-size: 14px;
+}
+
 
 /* Título principal */
 .main-title {
@@ -44,7 +64,7 @@ h2 {
 
 /* Caixas de informação */
 .info-box {
-  background: #f9f3e8;
+  background: #d5c1ac;
   border-radius: 8px;
   padding: 1rem;
   margin-bottom: 1rem;
@@ -54,6 +74,34 @@ h2 {
   font-size: 1rem;
   color: #333;
 }
+.info-box p {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+    font-size: 15px;
+    line-height: 1.4;
+}
+
+.img-box {
+  background: #d5c1ac;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.img-text {
+  font-size: 1rem;
+  color: #333;
+}
+.img-box p {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+    font-size: 15px;
+    line-height: 1.4;
+}
+
+
 
 /* Grupos de campos */
 .field-group,
@@ -144,25 +192,68 @@ button:hover,
 }
 
 /* Foto de perfil */
+/* Container circular grande */
+.profile-wrapper {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  overflow: hidden;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 3px solid #947364;
+}
+
 .profile-photo {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  gap: 1rem;
   margin-bottom: 2rem;
 }
 
-.profile-photo img {
-  border-radius: 50%;
-  width: 140px;
-  height: 140px;
+
+/* Imagem dentro do círculo */
+.profile-icon {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  border: 3px solid #947364;
+  border-radius: 50%;
   transition: transform 0.3s ease;
 }
 
-.profile-photo img:hover {
+.profile-icon:hover {
   transform: scale(1.05);
+}
+
+/* Câmera flutuante */
+.camera-icon {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40%; /* ocupa a parte inferior */
+  background: rgba(0,0,0,0.5);
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.camera-icon i {
+  color: #fff;
+  font-size: 20px;
+}
+
+/* Input file invisível mas funcional */
+.camera-icon input[type="file"] {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  top: 0;
+  left: 0;
 }
 
 /* Responsividade */
@@ -183,27 +274,38 @@ button:hover,
     margin-top: 0.5rem;
   }
 
-  .container {
-    padding: 1.5rem;
-  }
 }
 </style>
 
-<div class="gordao">
-  <section class="gordo">
+<div class="perfil-container">
+  <section class="perfil-card">
       <center><h1>Perfil do Usuário</h1></center>
-    <div class="profile-photo">
-      <img src="<?php echo $_SESSION['FotoLogin']?>" alt="Foto do perfil do usuário" id="photo">
-      <form method="POST" action="php/salvarUsuario.php" >
-        <input type="file" id="photoInput" accept=image/* style="display:none" aria-hidden="true">
-      </form>
-    </div>
+      <div class="profile-photo">
+        <div class="profile-wrapper">
+          <img src="<?php echo $_SESSION['FotoLogin']?>" alt="Foto do perfil do usuário" class="profile-icon" id="photo">
+          <div class="camera-icon">
+            <i class="bx bx-camera"></i>
+            <input type="file" id="fotoPerfil" class="arquivo" name="nFoto" accept="image/*">
+          </div>
+        </div>
+      </div>
+
       
+    <div  class="img-box" aria-labelledby="personalDataTitle">
+      <center><h1 id="personalDataTitle">Ou selecione uma foto</h1></center>
+      <div class="icons-guaxinim">
+				<img src="img/guaxinim/rac_emo.jpeg" class="icon-option" data-src="img/guaxinim/rac_emo.jpeg">
+				<img src="img/guaxinim/rac_coquete.jpeg" class="icon-option" data-src="img/guaxinim/rac_coquete.jpeg">
+				<img src="img/guaxinim/rac_swag.jpeg" class="icon-option" data-src="img/guaxinim/rac_swag.jpeg">
+				<img src="img/guaxinim/rac_glasses.jpeg" class="icon-option" data-src="img/guaxinim/rac_glasses.jpeg">
+				<img src="img/guaxinim/rac_triste.jpeg" class="icon-option" data-src="img/guaxinim/rac_triste.jpeg">
+				<img src="img/guaxinim/rac_emo.jpeg" class="icon-option" data-src="img/guaxinim/rac_emo.jpeg">
+			</div>
+    </div>
     <div  class="info-box" aria-labelledby="personalDataTitle">
       <center><h1 id="personalDataTitle">Dados Pessoais</h1></center>
       <p class="info-text"><strong>Nome:</strong><?php echo $_SESSION["NomeLogin"]?></p>
       <p class="info-text"><strong>Email:</strong><?php echo $_SESSION["E-mailLogin"]?></p>
-      <p class="info-text"><strong>Data de nascimento:</strong> <?php echo $_SESSION["data_nasc"]?></p>
     </div>
   </section>
 </div>

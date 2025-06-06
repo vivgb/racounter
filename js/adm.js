@@ -23,54 +23,28 @@ btnCancelar.onclick = () => {
     dialog.close();
 };
 
+// ✅ ADICIONE ISSO AQUI
 form.addEventListener('submit', function (event) {
     event.preventDefault();
 
     const formData = new FormData(form);
     const url = form.action;
 
-    console.log("Enviando para:", url);
-    console.log("FormData:");
-    for (let pair of formData.entries()) {
-        console.log(pair[0]+ ': ' + pair[1]);
-    }
-
     fetch(url, {
         method: 'POST',
         body: formData
     })
-    .then(async resp => {
-        console.log("Resposta bruta do servidor:", resp);
-
-        const contentType = resp.headers.get("content-type");
-
-        if (!resp.ok) {
-            const texto = await resp.text();
-            console.error("Erro HTTP:", resp.status, texto);
-            throw new Error("Erro HTTP");
-        }
-
-        if (contentType && contentType.includes("application/json")) {
-            return resp.json();
-        } else {
-            const texto = await resp.text();
-            console.error("Resposta não é JSON válida:", texto);
-            throw new Error("Resposta inválida");
-        }
-    })
+    .then(resp => resp.json())
     .then(data => {
-        console.log("Resposta JSON do servidor:", data);
         if (data.success) {
             console.log("Usuário salvo com sucesso!");
             dialog.close();
-            location.reload();
+            location.reload(); // recarrega a lista ou tabela de usuários
         } else {
-            console.error("Erro ao salvar:", data.error || "Erro desconhecido");
+            console.log("Erro ao salvar: " + (data.error || "desconhecido"));
         }
     })
-    .catch(error => {
-        console.error("Erro na requisição:", error);
-    });
+    .catch(() => console.log("Erro na requisição."));
 });
 
 // Continuação: lógica para editar usuário
