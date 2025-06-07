@@ -172,6 +172,32 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+
+//carrega o dialog que edita sala
+document.addEventListener('DOMContentLoaded', () => {
+    const editsalaBtn = document.getElementById('editSala');
+    const dialog = document.getElementById('edit_delet');
+    const cancelarBtn = document.getElementById('canceleditBtn');
+
+    if (editsalaBtn && dialog) {
+        editsalaBtn.addEventListener('click', () => {
+            if (typeof dialog.showModal === 'function') {
+                dialog.showModal();
+            } else {
+                alert("Este navegador não suporta <dialog>");
+            }
+        });
+    }
+
+    if (cancelarBtn && dialog) {
+        cancelarBtn.addEventListener('click', () => {
+            dialog.close();
+        });
+    }
+});
+
+
+
 /*document.addEventListener("DOMContentLoaded", () => {
     var $conteudo = document.getElementById('conteudo');
     if (!$conteudo) return;

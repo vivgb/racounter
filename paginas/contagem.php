@@ -22,11 +22,12 @@ if ($id_sala) {
                 Controle de movimentação
                 <i class='bx  bx-chevron-left' onclick="window.location.href='./painel.php?page=salas'"></i> 
             </h1>
-            <div class="btn" id="editarsala">
-                <p>Editar</p>
-            </div>
+        
             <div id="controles">
                 <p class="title"><?= htmlspecialchars($sala['descricao'] ?? '') ?></p>
+                <div class="btn" id="editSala" name="editar"> 
+                    <i class='bx bx-edit'></i> 
+                </div>
                 <div id="conteudo" data-id="<?= $id_sala ?>">
                     <div id="menos" class="acoes" onclick="atualizarLotacao(this)">
                         <i class='bx  bx-minus'  ></i> 
@@ -93,9 +94,9 @@ if ($id_sala) {
                 <input type="hidden" id="classId" name="classId">
 
                 <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 15px;">
-                <button type="button" class="bnt-perfil" id="cancelBtnClass">Cancelar</button>
+                <button type="button" class="bnt-perfil" id="canceleditBtn">Cancelar</button>
                 <button type="submit" class="bnt-perfil">Salvar</button>
-                <button type="submit" class="bnt-perfil">Excluir</button>
+                <button type="submit" class="bnt-perfil" onclick="return confirm('Tem certeza que deseja excluir esta sala?')">Excluir</button>
                 </div>
             </form>
         </dialog>
