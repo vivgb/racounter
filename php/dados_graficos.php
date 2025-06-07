@@ -7,7 +7,6 @@ if ($conn->connect_error) {
     die(json_encode(['erro' => 'Erro na conexão com o banco']));
 }
 
-// Consulta corrigida
 $sql = "
     SELECT s.descricao AS sala, COUNT(a.id_agendamento) AS total_agendamentos
     FROM salas s

@@ -43,3 +43,4 @@ echo json_encode([
     'total' => $total,
     'agendamentos' => $agendamentos
 ]);
+$con = null;

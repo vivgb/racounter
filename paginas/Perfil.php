@@ -3,7 +3,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    justify-content: center; /* ou flex-start se quiser alinhado à esquerda */
+    justify-content: center; 
     padding: 20px;
 }
 
@@ -12,7 +12,7 @@
     border: 1px solid #e0e0e0;
     border-radius: 10px;
     padding: 20px 25px;
-    width: 400px; 
+    width: 600px; 
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     transition: transform 0.2s;
     word-wrap: break-word;
@@ -20,9 +20,6 @@
 }
 
 
-.perfil-card:hover {
-    transform: scale(1.03);
-}
 
 .perfil-card h3 {
     margin: 0 0 10px;
@@ -93,14 +90,14 @@ h2 {
   font-size: 1rem;
   color: #333;
 }
-.img-box p {
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    max-width: 100%;
-    font-size: 15px;
-    line-height: 1.4;
-}
 
+.icons-guaxinim {
+	display: flex;
+	gap: 50px;
+	flex-wrap: wrap; 
+	justify-content: center;
+	padding: 10px;
+}
 
 
 /* Grupos de campos */
@@ -143,11 +140,10 @@ select:focus {
   box-shadow: 0 0 6px rgba(148, 115, 100, 0.6);
 }
 
-/* Botões */
-button,
-.password-button {
+
+.bnt-editperfil{
   padding: 0.5rem 1.8rem;
-  background-color: #947364;
+  background-color: #6c4434;
   border: none;
   border-radius: 6px;
   color: white;
@@ -156,11 +152,16 @@ button,
   font-weight: 600;
   transition: background-color 0.3s ease;
   flex-shrink: 0;
-  align-self: flex-start;
+  align-self: center;
+}
+.submit-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px; /* opcional, só pra dar respiro */
 }
 
-button:hover,
-.password-button:hover {
+
+.bnt-editperfil:hover{
   background-color: #3c1209;
 }
 
@@ -250,7 +251,6 @@ button:hover,
   position: absolute;
   width: 100%;
   height: 100%;
-  opacity: 0;
   cursor: pointer;
   top: 0;
   left: 0;
@@ -282,7 +282,9 @@ button:hover,
       <center><h1>Perfil do Usuário</h1></center>
       <div class="profile-photo">
         <div class="profile-wrapper">
-          <img src="<?php echo $_SESSION['FotoLogin']?>" alt="Foto do perfil do usuário" class="profile-icon" id="photo">
+          <!-- Aqui é onde a imagem será exibida -->
+          <img id="photo" class="profile-icon" src="img/guaxinim/default.jpeg" alt="Foto de perfil">
+
           <div class="camera-icon">
             <i class="bx bx-camera"></i>
             <input type="file" id="fotoPerfil" class="arquivo" name="nFoto" accept="image/*">
@@ -290,9 +292,10 @@ button:hover,
         </div>
       </div>
 
+
       
     <div  class="img-box" aria-labelledby="personalDataTitle">
-      <center><h1 id="personalDataTitle">Ou selecione uma foto</h1></center>
+      <center><h1 id="personalDataTitle ">Ou selecione uma foto</h1></center>
       <div class="icons-guaxinim">
 				<img src="img/guaxinim/rac_emo.jpeg" class="icon-option" data-src="img/guaxinim/rac_emo.jpeg">
 				<img src="img/guaxinim/rac_coquete.jpeg" class="icon-option" data-src="img/guaxinim/rac_coquete.jpeg">
@@ -307,5 +310,44 @@ button:hover,
       <p class="info-text"><strong>Nome:</strong><?php echo $_SESSION["NomeLogin"]?></p>
       <p class="info-text"><strong>Email:</strong><?php echo $_SESSION["E-mailLogin"]?></p>
     </div>
+   
+    <div class="submit-wrapper">
+      <button type="submit" class="bnt-editperfil">Salvar Alterações</button>
+    </div>
+
   </section>
 </div>
+<script>
+  const inputFoto = document.getElementById('fotoPerfil');
+  const imgPreview = document.getElementById('photo');
+  const icons = document.querySelectorAll('.icon-option');
+
+  // Quando o usuário seleciona uma imagem do computador
+  inputFoto.addEventListener('change', function () {
+    const file = this.files[0];
+    if (file) {
+      const reader = new FileReader();
+
+      reader.onload = function (e) {
+        imgPreview.src = e.target.result;
+
+        // limpa seleção dos ícones visuais (se quiser fazer isso)
+        icons.forEach(icon => icon.classList.remove('selected'));
+      };
+
+      reader.readAsDataURL(file);
+    }
+  });
+
+  // Quando o usuário clica em um dos ícones de guaxinim
+  icons.forEach(icon => {
+    icon.addEventListener('click', () => {
+      const selectedSrc = icon.getAttribute('data-src');
+      imgPreview.src = selectedSrc;
+
+
+      icons.forEach(i => i.classList.remove('selected'));
+      icon.classList.add('selected');
+    });
+  });
+</script>

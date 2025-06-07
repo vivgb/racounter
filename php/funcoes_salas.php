@@ -3,12 +3,13 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-require_once 'conexao.php';
 
+require_once 'conexao.php';
 function adicionarSala($con, $descricao, $lotacao_maxima, $id_empresa, $id_usuario) {
     $stmt = $con->prepare("INSERT INTO salas (descricao, lotacao_maxima, ativo, id_empresa, id_usuario) VALUES (?, ?, 1, ?, ?)");
     $stmt->bind_param("siii", $descricao, $lotacao_maxima, $id_empresa, $id_usuario);
     return $stmt->execute();
+    
 }
 
 //busca todos os usuarios
@@ -72,6 +73,7 @@ function buscarSalaPorId($con, $idSala) {
     $stmt->bind_param("i", $idSala);
     $stmt->execute();
     return $stmt->get_result()->fetch_assoc();
+    
 }
 
 
@@ -104,4 +106,5 @@ function buscarUsuarioVinculadoSala($conn, $idSala) {
     $sala = $resultado->fetch_assoc();
     return $sala['id_usuario'];
 }
+$con = null;
 ?>

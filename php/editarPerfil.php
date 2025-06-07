@@ -7,7 +7,7 @@ if (!isset($_SESSION['idLogin'])) {
 }
 
 $idUsuario = $_SESSION['idLogin'];
-$nome = $_POST['nNome']; // Corrigido aqui
+$nome = $_POST['nNome'];
 $senhaAtual = $_POST['senha_atual'] ?? '';
 $novaSenha = $_POST['nova_senha'] ?? '';
 $setSenha = "";

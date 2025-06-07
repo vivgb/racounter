@@ -1261,17 +1261,9 @@ dialog input[type="time"] {
   cursor: pointer;
 }
 
-.icons-guaxinim {
-	display: flex;
-	gap: 10px;
-	flex-wrap: wrap; 
-	justify-content: center;
-	padding: 10px;
-}
-
 .icon-option {
-	width: 90px;
-	height: 90px;
+	width: 120px;
+	height: 120px;
 	border-radius: 50%; 
 	object-fit: cover;  
 	cursor: pointer;   

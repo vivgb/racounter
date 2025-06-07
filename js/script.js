@@ -16,7 +16,7 @@ allSideMenu.forEach(item => {
 const menuBar = document.querySelector('#content .bx.bx-menu');
 const sidebar = document.getElementById('sidebar');
 
-// Sidebar toggle işlemi
+
 menuBar.addEventListener('click', function () {
     sidebar.classList.toggle('hide');
 });
