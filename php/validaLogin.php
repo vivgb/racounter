@@ -2,6 +2,7 @@
 
 if (session_status() !== PHP_SESSION_ACTIVE) {
     session_start();
+
 }
 
 include("funcoes.php");
@@ -40,6 +41,9 @@ if (mysqli_num_rows($resultLogin) > 0) {
         $_SESSION['AtivoLogin']    = $coluna['flg_ativos'];
 
         header('Location: ../painel.php?page=home');
+         // Após validar o usuário...
+         $_SESSION['fotoPerfil'] = $dados['foto'] ?? 'img/guaxinim/default.jpeg';
+
         exit;
     }
 } else {

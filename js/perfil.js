@@ -1,56 +1,75 @@
+function initPerfil() {
+  const inputFoto = document.getElementById('fotoPerfil');
+  const imgPreview = document.getElementById('photo');
+  const icons = document.querySelectorAll('.icon-option');
+  const botaoSalvar = document.querySelector('.bnt-editperfil');
 
-  // Photo change handling
-  const changePhotoBtn = document.getElementById('changePhotoBtn');
-  const photoInput = document.getElementById('photoInput');
-  const photo = document.getElementById('photo');
-
-  changePhotoBtn.addEventListener('click', () => {
-    photoInput.click();
-  });
-
-  photoInput.addEventListener('change', function() {
-    const file = this.files[0];
+  // Preview ao escolher arquivo
+  inputFoto.addEventListener('change', () => {
+    const file = inputFoto.files[0];
     if (file) {
       const reader = new FileReader();
-      reader.onload = function(e) {
-        photo.src = e.target.result;
-      }
+      reader.onload = (e) => {
+        imgPreview.src = e.target.result;
+        icons.forEach(icon => icon.classList.remove('selected'));
+      };
       reader.readAsDataURL(file);
     }
   });
 
-  // Password change form validation and simulation
-  const passwordForm = document.getElementById('passwordForm');
-  const passwordMsg = document.getElementById('passwordMsg');
-
-  passwordForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-    passwordMsg.textContent = '';
-    passwordMsg.classList.remove('error-msg');
-
-    const currentPassword = passwordForm.currentPassword.value.trim();
-    const newPassword = passwordForm.newPassword.value.trim();
-    const confirmPassword = passwordForm.confirmPassword.value.trim();
-
-    if (newPassword.length < 6) {
-      passwordMsg.textContent = 'A nova senha deve ter pelo menos 6 caracteres.';
-      passwordMsg.classList.add('error-msg');
-      return;
-    }
-
-    if (newPassword !== confirmPassword) {
-      passwordMsg.textContent = 'A confirmação da senha não coincide.';
-      passwordMsg.classList.add('error-msg');
-      return;
-    }
-
-    if (currentPassword === newPassword) {
-      passwordMsg.textContent = 'A nova senha deve ser diferente da atual.';
-      passwordMsg.classList.add('error-msg');
-      return;
-    }
-
-    // Simulate password change success
-    passwordMsg.textContent = 'Senha alterada com sucesso!';
-    passwordForm.reset();
+  // Seleção de ícones
+  icons.forEach(icon => {
+    icon.addEventListener('click', () => {
+      const selectedSrc = icon.getAttribute('data-src');
+      imgPreview.src = selectedSrc;
+      icons.forEach(i => i.classList.remove('selected'));
+      icon.classList.add('selected');
+      inputFoto.value = ''; // limpa input para evitar conflito
+    });
   });
+
+  // Função para enviar dados
+  async function salvarFoto() {
+    const formData = new FormData();
+    const file = inputFoto.files[0];
+    const selectedIcon = document.querySelector('.icon-option.selected');
+
+    if (file) {
+      formData.append('nFoto', file);
+    } else if (selectedIcon) {
+      formData.append('fotoIcone', selectedIcon.getAttribute('data-src'));
+    } else {
+      alert('Selecione uma imagem ou ícone para continuar.');
+      return;
+    }
+
+    formData.append('id', idLogin); 
+
+    try {
+      const response = await fetch('php/salvarFotoPerfil.php', {
+        method: 'POST',
+        body: formData
+      });
+      const result = await response.json();
+
+      alert(result.mensagem);
+      if (result.status === 'sucesso') {
+        window.location.reload(); // Atualiza para refletir nova imagem
+      }
+    } catch (err) {
+      alert('Erro ao enviar imagem.');
+      console.error(err);
+    }
+  }
+
+  // Evento do botão salvar
+  botaoSalvar.addEventListener('click', (e) => {
+    e.preventDefault();
+    salvarFoto();
+  });
+}
+
+// Chama a função quando o DOM estiver pronto
+document.addEventListener('DOMContentLoaded', () => {
+  initPerfil();
+});

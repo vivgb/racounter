@@ -1,3 +1,8 @@
+<script>
+  const idLogin = <?php echo json_encode($_SESSION['idLogin']); ?>;
+</script>
+
+
 <style>
 .perfil-container {
     display: flex;
@@ -91,12 +96,27 @@ h2 {
   color: #333;
 }
 
+
 .icons-guaxinim {
 	display: flex;
-	gap: 50px;
+	gap: 10px;
 	flex-wrap: wrap; 
 	justify-content: center;
 	padding: 10px;
+}
+
+.icon-option {
+	width: 120px;
+	height: 120px;
+	border-radius: 50%; 
+	object-fit: cover;  
+	cursor: pointer;   
+	border: 2px solid transparent; 
+	transition: border 0.2s ease;
+}
+
+.icon-option:hover {
+	border-color: #555; 
 }
 
 
@@ -280,74 +300,43 @@ select:focus {
 <div class="perfil-container">
   <section class="perfil-card">
       <center><h1>Perfil do Usuário</h1></center>
-      <div class="profile-photo">
-        <div class="profile-wrapper">
-          <!-- Aqui é onde a imagem será exibida -->
-          <img id="photo" class="profile-icon" src="img/guaxinim/default.jpeg" alt="Foto de perfil">
+        <form id="formPerfil" method="POST" enctype="multipart/form-data" action="salvarUsuario.php">
 
-          <div class="camera-icon">
-            <i class="bx bx-camera"></i>
-            <input type="file" id="fotoPerfil" class="arquivo" name="nFoto" accept="image/*">
+          <div class="profile-photo">
+            <div class="profile-wrapper">
+              <!-- Aqui é onde a imagem será exibida -->
+              <img id="photo" class="profile-icon" src="img/guaxinim/default.jpeg" alt="Foto de perfil">
+              
+              <div class="camera-icon">
+                <i class="bx bx-camera"></i>
+                <input type="file" id="fotoPerfil" class="arquivo" name="nFoto" accept="image/*">
+              </div>
+            </div>
           </div>
-        </div>
+          
+
+          
+          <div  class="img-box" aria-labelledby="personalDataTitle">
+            <center><h1 id="personalDataTitle ">Ou selecione uma foto</h1></center>
+            <div class="icons-guaxinim">
+              <img src="img/guaxinim/rac_emo.jpeg" class="icon-option" data-src="img/guaxinim/rac_emo.jpeg">
+              <img src="img/guaxinim/rac_coquete.jpeg" class="icon-option" data-src="img/guaxinim/rac_coquete.jpeg">
+              <img src="img/guaxinim/rac_swag.jpeg" class="icon-option" data-src="img/guaxinim/rac_swag.jpeg">
+              <img src="img/guaxinim/rac_glasses.jpeg" class="icon-option" data-src="img/guaxinim/rac_glasses.jpeg">
+              <img src="img/guaxinim/rac_triste.jpeg" class="icon-option" data-src="img/guaxinim/rac_triste.jpeg">
+              <img src="img/guaxinim/rac_emo.jpeg" class="icon-option" data-src="img/guaxinim/rac_emo.jpeg">
+            </div>
+          </div>
+          <div  class="info-box" aria-labelledby="personalDataTitle">
+            <center><h1 id="personalDataTitle">Dados Pessoais</h1></center>
+        <p class="info-text"><strong>Nome:</strong><?php echo $_SESSION["NomeLogin"]?></p>
+        <p class="info-text"><strong>Email:</strong><?php echo $_SESSION["E-mailLogin"]?></p>
       </div>
-
-
       
-    <div  class="img-box" aria-labelledby="personalDataTitle">
-      <center><h1 id="personalDataTitle ">Ou selecione uma foto</h1></center>
-      <div class="icons-guaxinim">
-				<img src="img/guaxinim/rac_emo.jpeg" class="icon-option" data-src="img/guaxinim/rac_emo.jpeg">
-				<img src="img/guaxinim/rac_coquete.jpeg" class="icon-option" data-src="img/guaxinim/rac_coquete.jpeg">
-				<img src="img/guaxinim/rac_swag.jpeg" class="icon-option" data-src="img/guaxinim/rac_swag.jpeg">
-				<img src="img/guaxinim/rac_glasses.jpeg" class="icon-option" data-src="img/guaxinim/rac_glasses.jpeg">
-				<img src="img/guaxinim/rac_triste.jpeg" class="icon-option" data-src="img/guaxinim/rac_triste.jpeg">
-				<img src="img/guaxinim/rac_emo.jpeg" class="icon-option" data-src="img/guaxinim/rac_emo.jpeg">
-			</div>
-    </div>
-    <div  class="info-box" aria-labelledby="personalDataTitle">
-      <center><h1 id="personalDataTitle">Dados Pessoais</h1></center>
-      <p class="info-text"><strong>Nome:</strong><?php echo $_SESSION["NomeLogin"]?></p>
-      <p class="info-text"><strong>Email:</strong><?php echo $_SESSION["E-mailLogin"]?></p>
-    </div>
-   
-    <div class="submit-wrapper">
-      <button type="submit" class="bnt-editperfil">Salvar Alterações</button>
-    </div>
-
+      <div class="submit-wrapper">
+        <button type="submit" class="bnt-editperfil">Salvar Alterações</button>
+      </div>
+      
+    </form>
   </section>
 </div>
-<script>
-  const inputFoto = document.getElementById('fotoPerfil');
-  const imgPreview = document.getElementById('photo');
-  const icons = document.querySelectorAll('.icon-option');
-
-  // Quando o usuário seleciona uma imagem do computador
-  inputFoto.addEventListener('change', function () {
-    const file = this.files[0];
-    if (file) {
-      const reader = new FileReader();
-
-      reader.onload = function (e) {
-        imgPreview.src = e.target.result;
-
-        // limpa seleção dos ícones visuais (se quiser fazer isso)
-        icons.forEach(icon => icon.classList.remove('selected'));
-      };
-
-      reader.readAsDataURL(file);
-    }
-  });
-
-  // Quando o usuário clica em um dos ícones de guaxinim
-  icons.forEach(icon => {
-    icon.addEventListener('click', () => {
-      const selectedSrc = icon.getAttribute('data-src');
-      imgPreview.src = selectedSrc;
-
-
-      icons.forEach(i => i.classList.remove('selected'));
-      icon.classList.add('selected');
-    });
-  });
-</script>

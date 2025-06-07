@@ -31,7 +31,7 @@
 		
 		<!-- Profile Menu -->
 		<a href="#" class="profile" id="profileIcon">
-			<img src="https://placehold.co/600x400/png" alt="Profile">
+			<img src="<?php echo isset($_SESSION['fotoPerfil']) ? $_SESSION['fotoPerfil'] : 'https://placehold.co/600x400/png'; ?>" alt="Profile">
 		</a>
 	</div>
 	<dialog id="dialogPerfil" class="dialog-perfil">

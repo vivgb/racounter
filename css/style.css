@@ -847,6 +847,26 @@ body.dark #salas .grid-container .card {
 	color: #FEFBF4;
 }
 
+.acao {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px; /* Espaço entre ícone e texto */
+  font-size: 14px;
+  cursor: pointer;
+  color: #333;
+  transition: transform 0.2s ease;
+}
+
+.acao:hover {
+  transform: scale(1.05);
+}
+
+.acao i {
+  font-size: 18px;
+  color: inherit; /* herda a cor do texto */
+}
+
+
 #salas .grid-container {
 	font-size: 13px;
 	display: grid;
@@ -1240,7 +1260,58 @@ dialog input[type="time"] {
   background-color:#8b5f4f;
 }
 
+/* Nome do Usuario */
+.profile-name {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 
+/* Container da imagem de perfil */
+.profile-wrapper {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* Foto de perfil */
+.profile-icon {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Ícone da câmera */
+.camera-icon {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: rgba(0,0,0,0.5);
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 4px;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.profile-wrapper:hover .camera-icon {
+  opacity: 1;
+}
+
+/* Ícone da câmera*/
+.camera-icon i {
+  color: #fff;
+  font-size: 14px;
+}
 
 .arquivo {
   position: absolute;
@@ -1261,19 +1332,7 @@ dialog input[type="time"] {
   cursor: pointer;
 }
 
-.icon-option {
-	width: 120px;
-	height: 120px;
-	border-radius: 50%; 
-	object-fit: cover;  
-	cursor: pointer;   
-	border: 2px solid transparent; 
-	transition: border 0.2s ease;
-}
 
-.icon-option:hover {
-	border-color: #555; 
-}
 .botoes-perfil {
 	display: flex;
 	gap: 10px;

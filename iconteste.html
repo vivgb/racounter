@@ -1,0 +1,60 @@
+<style>
+    .avatar-option {
+      display: inline-block;
+      border: 2px solid transparent;
+      padding: 5px;
+      cursor: pointer;
+      border-radius: 50%;
+    }
+    .avatar-option.selected {
+      border-color: blue;
+    }
+    #preview {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-top: 10px;
+    }
+  </style>
+  
+  <h3>Escolha sua foto de perfil</h3>
+  
+  <!-- Input de upload -->
+  <input type="file" id="fileInput" accept="image/*"><br><br>
+  
+  <!-- Galeria de avatares -->
+  <div id="avatars">
+    <img src="avatar1.png" class="avatar-option" onclick="selectAvatar(this)">
+    <img src="avatar2.png" class="avatar-option" onclick="selectAvatar(this)">
+    <img src="avatar3.png" class="avatar-option" onclick="selectAvatar(this)">
+  </div>
+  
+  <!-- Preview final -->
+  <img id="preview" src="default.png" alt="Pré-visualização">
+  
+  <script>
+    const fileInput = document.getElementById("fileInput");
+    const preview = document.getElementById("preview");
+    const avatarOptions = document.querySelectorAll(".avatar-option");
+  
+    fileInput.addEventListener("change", function () {
+      const file = this.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          preview.src = e.target.result;
+          avatarOptions.forEach(img => img.classList.remove("selected"));
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+  
+    function selectAvatar(img) {
+      preview.src = img.src;
+      avatarOptions.forEach(i => i.classList.remove("selected"));
+      img.classList.add("selected");
+      fileInput.value = ""; // Limpa o upload se escolher avatar
+    }
+  </script>
+  

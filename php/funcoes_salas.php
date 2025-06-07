@@ -3,28 +3,22 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-
 require_once 'conexao.php';
+
 function adicionarSala($con, $descricao, $lotacao_maxima, $id_empresa, $id_usuario) {
     $stmt = $con->prepare("INSERT INTO salas (descricao, lotacao_maxima, ativo, id_empresa, id_usuario) VALUES (?, ?, 1, ?, ?)");
     $stmt->bind_param("siii", $descricao, $lotacao_maxima, $id_empresa, $id_usuario);
     return $stmt->execute();
-    
 }
-
 function editarSala($con, $id_sala, $descricao, $lotacao_maxima, $id_empresa, $id_usuario) {
-    $stmt = $con->prepare("UPDATE salas 
-                           SET descricao = ?, 
-                               lotacao_maxima = ?, 
-                               id_empresa = ?, 
-                               id_usuario = ?
-                           WHERE id_salas = ?");
+    $stmt = $con->prepare("UPDATE salas SET descricao = ?, lotacao_maxima = ?, id_empresa = ?, id_usuario = ? WHERE id_salas = ?");
     $stmt->bind_param("siiii", $descricao, $lotacao_maxima, $id_empresa, $id_usuario, $id_sala);
     return $stmt->execute();
 }
 
-function excluirSala($con, $id_sala) {
-    $stmt = $con->prepare("DELETE FROM salas WHERE id_salas = ?");
+// Função para excluir uma sala ;-;
+function excluirSala($conn, $id_sala) {
+    $stmt = $conn->prepare("UPDATE salas SET ativo = 0 WHERE id_salas = ?");
     $stmt->bind_param("i", $id_sala);
     return $stmt->execute();
 }
@@ -50,11 +44,13 @@ function buscarTodasEmpresas($conn) {
 
 $mensagem = '';
 
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $descricao = trim($_POST['descricao'] ?? '');
     $lotacao_maxima = intval($_POST['lotacao_maxima'] ?? 0);
     $id_empresa = intval($_POST['id_empresa'] ?? 0);
-    $id_usuario = intval($_POST['id_usuario'] ?? 0); // Vem do select
+    $id_usuario = intval($_POST['id_usuario'] ?? 0);
+    $id_sala = isset($_POST['classId']) && is_numeric($_POST['classId']) ? intval($_POST['classId']) : null;
 
     if ($descricao === '') {
         $mensagem = "Por favor, informe a descrição da sala.";
@@ -65,11 +61,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } elseif ($id_usuario <= 0) {
         $mensagem = "Selecione um usuário válido.";
     } else {
-        if (adicionarSala($conn, $descricao, $lotacao_maxima, $id_empresa, $id_usuario)) {
-            header("Location: ../painel.php?page=salas");
-            exit;
+        if ($acao === 'excluir') {
+            $id_sala = intval($_POST['id_sala'] ?? 0);
+            if ($id_sala > 0) {
+                if (excluirSala($con, $id_sala)) {
+                    http_response_code(200);
+                } else {
+                    http_response_code(500);
+                    echo "Erro ao excluir sala.";
+                }
+                exit;
+            }
+        } 
+        if ($id_sala) {
+            // condiçao para editar a sala
+            if (editarSala($conn, $id_sala, $descricao, $lotacao_maxima, $id_empresa, $id_usuario)) {
+                header("Location: ../painel.php?page=salas");
+                exit;
+            } else {
+                $mensagem = "Erro ao editar sala.";
+            }
         } else {
-            $mensagem = "Erro ao adicionar sala. Tente novamente.";
+            // condição para adicionar a sala
+            if (adicionarSala($conn, $descricao, $lotacao_maxima, $id_empresa, $id_usuario)) {
+                header("Location: ../painel.php?page=salas");
+                exit;
+            } else {
+                $mensagem = "Erro ao adicionar sala. Tente novamente.";
+            }
         }
     }
 }
@@ -82,7 +101,7 @@ function buscarTodasSalas($con) {
 
 function buscarSalaPorId($con, $idSala) {
     $stmt = $con->prepare("
-        SELECT s.descricao, s.lotacao_atual, s.lotacao_maxima, s.agendamento, s.id_usuario, u.nome AS nome_usuario
+        SELECT s.id_salas, s.descricao, s.lotacao_atual, s.lotacao_maxima, s.agendamento, s.id_usuario, s.id_empresa, u.nome AS nome_usuario
         FROM salas s
         LEFT JOIN usuarios u ON s.id_usuario = u.id_usuario
         WHERE s.id_salas = ?
@@ -90,7 +109,6 @@ function buscarSalaPorId($con, $idSala) {
     $stmt->bind_param("i", $idSala);
     $stmt->execute();
     return $stmt->get_result()->fetch_assoc();
-    
 }
 
 
@@ -123,5 +141,4 @@ function buscarUsuarioVinculadoSala($conn, $idSala) {
     $sala = $resultado->fetch_assoc();
     return $sala['id_usuario'];
 }
-$con = null;
 ?>

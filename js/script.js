@@ -41,6 +41,7 @@ function verificarPagina() {
     const usuariosSection = document.querySelector('#usuarios');
     const searchFormElement = document.querySelector('#content form');
 
+
     // Função auxiliar para checar se o elemento está visível
     function estaVisivel(elemento) {
         if (!elemento) return false;
@@ -63,27 +64,6 @@ function verificarPagina() {
     }
 }
 
-
-// Verifica a página ao carregar a página e ao redimensionar
-window.addEventListener('load', verificarPagina);
-window.addEventListener('resize', verificarPagina);
-
-// Botão de Pesquisa Mobile
-const searchButton = document.querySelector('#content form .form-input button');
-const searchButtonIcon = document.querySelector('#content form .form-input button .bx');
-const searchForm = document.querySelector('#content form');
-
-searchButton.addEventListener('click', function (e) {
-    if (window.innerWidth < 768) {
-        e.preventDefault();
-        searchForm.classList.toggle('show');
-        if (searchForm.classList.contains('show')) {
-            searchButtonIcon.classList.replace('bx-search', 'bx-x');
-        } else {
-            searchButtonIcon.classList.replace('bx-x', 'bx-search');
-        }
-    }
-});
 
 
 // Mostrar/Esconder Menus de Notificação e Perfil

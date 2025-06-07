@@ -67,8 +67,6 @@ $_SESSION['tema'] = obterTema($conn)['tema'];
 	<?php if (isset($_GET['page']) && $_GET['page'] === 'agendamento'): ?>
 		<script src="js/calendario.js" defer></script>
 	<?php endif; ?>
-
-	<script src="js/perfil.js"></script>
 		
 	<?php
 		if (isset($_GET['page']) && in_array($_GET['page'], ['home'])): ?>
@@ -78,6 +76,11 @@ $_SESSION['tema'] = obterTema($conn)['tema'];
 	<?php
 		if (isset($_GET['page']) && in_array($_GET['page'], ['adm'])): ?>
 			<script src="js/adm.js"></script>
+	<?php endif; ?>
+
+	<?php
+		if (isset($_GET['page']) && in_array($_GET['page'], ['Perfil'])): ?>
+			<script src="js/perfil.js"></script>
 	<?php endif; ?>
 
 	<script src="js/tema.js" defer></script>
