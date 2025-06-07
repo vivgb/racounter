@@ -12,6 +12,23 @@ function adicionarSala($con, $descricao, $lotacao_maxima, $id_empresa, $id_usuar
     
 }
 
+function editarSala($con, $id_sala, $descricao, $lotacao_maxima, $id_empresa, $id_usuario) {
+    $stmt = $con->prepare("UPDATE salas 
+                           SET descricao = ?, 
+                               lotacao_maxima = ?, 
+                               id_empresa = ?, 
+                               id_usuario = ?
+                           WHERE id_salas = ?");
+    $stmt->bind_param("siiii", $descricao, $lotacao_maxima, $id_empresa, $id_usuario, $id_sala);
+    return $stmt->execute();
+}
+
+function excluirSala($con, $id_sala) {
+    $stmt = $con->prepare("DELETE FROM salas WHERE id_salas = ?");
+    $stmt->bind_param("i", $id_sala);
+    return $stmt->execute();
+}
+
 //busca todos os usuarios
 function buscarTodosUsuarios($con) {
     return $con->query("SELECT id_usuario, nome FROM usuarios WHERE flg_ativos = 1");
