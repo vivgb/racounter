@@ -5,46 +5,8 @@ if (basename(__FILE__) === basename($_SERVER['SCRIPT_FILENAME'])) {
     exit;
 }
 
-require_once 'conexao.php';
+require_once 'php/dashboard_dados.php';
 
-$entradas = $saidas = $salas_ativas = 0;
-
-// Entradas do dia
-$res = $conn->query("SELECT COUNT(*) AS total FROM movimentacao WHERE tipo = 1 AND DATE(data_hora) = CURDATE()");
-$entradas = $res->fetch_assoc()['total'] ?? 0;
-
-// Saídas do dia
-$res = $conn->query("SELECT COUNT(*) AS total FROM movimentacao WHERE tipo = 0 AND DATE(data_hora) = CURDATE()");
-$saidas = $res->fetch_assoc()['total'] ?? 0;
-
-// Salas ativas
-$res = $conn->query("SELECT COUNT(*) AS total FROM salas WHERE lotacao_atual > 0 AND ativo = 1");
-$salas_ativas = $res->fetch_assoc()['total'] ?? 0;
-
-// Total do dia
-$total = $entradas + $saidas;
-
-// Salas agendadas recentes
-$agendamentos = [];
-$sql = "
-    SELECT 
-        a.data, 
-        a.hora_inicio,
-        a.hora_fim,
-        s.descricao AS nome_sala, 
-        u.nome AS nome_usuario,
-        a.titulo
-    FROM agendamentos a
-    JOIN salas s ON a.id_sala = s.id_salas
-    JOIN usuarios u ON a.id_usuario = u.id_usuario
-    ORDER BY a.data DESC
-    LIMIT 5
-";
-
-$res = $conn->query($sql);
-while ($row = $res->fetch_assoc()) {
-    $agendamentos[] = $row;
-}
 ?>
 
 
@@ -144,46 +106,8 @@ while ($row = $res->fetch_assoc()) {
 
     </div>
 
-    <script type="module" src="idioma.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-
-    <script>
-function atualizarDashboard() {
-    fetch('dashboard_dados.php')
-        .then(res => res.json())
-        .then(dados => {
-            document.getElementById('entradas').textContent = dados.entradas;
-            document.getElementById('saidas').textContent = dados.saidas;
-            document.getElementById('salas_ativas').textContent = dados.salas_ativas;
-            document.getElementById('total').textContent = dados.total;
-
-            const tbody = document.getElementById('tabela-agendamentos');
-            tbody.innerHTML = '';
-
-            dados.agendamentos.forEach(ag => {
-                const tr = document.createElement('tr');
-
-                const tdSala = document.createElement('td');
-                tdSala.innerHTML = `<p>${ag.nome_sala}</p>`;
-                tr.appendChild(tdSala);
-
-                const tdData = document.createElement('td');
-                const dataFormatada = new Date(ag.data_hora).toLocaleString('pt-BR');
-                tdData.textContent = dataFormatada;
-                tr.appendChild(tdData);
-
-                const tdUsuario = document.createElement('td');
-                tdUsuario.textContent = ag.nome_usuario;
-                tr.appendChild(tdUsuario);
-
-                tbody.appendChild(tr);
-            });
-        });
-}
-
-
-atualizarDashboard();
-</script>
-
-
 </section>
+
+
+<script type="module" src="idioma.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>

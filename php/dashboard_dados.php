@@ -29,18 +29,7 @@ $sql = "
     ORDER BY a.data DESC
     LIMIT 5
 ";
-
-
 $res = $conn->query($sql);
 while ($row = $res->fetch_assoc()) {
     $agendamentos[] = $row;
 }
-
-echo json_encode([
-    'entradas' => $entradas,
-    'saidas' => $saidas,
-    'salas_ativas' => $salas_ativas,
-    'total' => $total,
-    'agendamentos' => $agendamentos
-]);
-$con = null;

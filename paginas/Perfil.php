@@ -141,6 +141,7 @@ h2 {
   min-width: 180px;
 }
 
+
 input[type="password"],
 input[type="email"],
 select,
@@ -300,12 +301,16 @@ select:focus {
 <div class="perfil-container">
   <section class="perfil-card">
       <center><h1>Perfil do Usuário</h1></center>
-        <form id="formPerfil" method="POST" enctype="multipart/form-data" action="salvarUsuario.php">
+    <form id="formFoto" action="php/atualizar_foto.php" method="post" enctype="multipart/form-data">
 
           <div class="profile-photo">
             <div class="profile-wrapper">
               <!-- Aqui é onde a imagem será exibida -->
-              <img id="photo" class="profile-icon" src="img/guaxinim/default.jpeg" alt="Foto de perfil">
+              <input type="hidden" name="funcao" value="A"> <!-- ou I se for inserir -->
+              <input type="hidden" name="id" value="<?php echo $_SESSION['idLogin']; ?>">
+
+
+              <img id="photo" class="profile-icon" src="<?php echo $_SESSION['fotoPerfil'] ?? 'img/guaxinim/default.jpeg'; ?>" alt="Foto de perfil">
               
               <div class="camera-icon">
                 <i class="bx bx-camera"></i>
@@ -314,10 +319,11 @@ select:focus {
             </div>
           </div>
           
-
+          
           
           <div  class="img-box" aria-labelledby="personalDataTitle">
             <center><h1 id="personalDataTitle ">Ou selecione uma foto</h1></center>
+            <input type="hidden" name="fotoIcone" id="fotoIconeSelecionado">
             <div class="icons-guaxinim">
               <img src="img/guaxinim/rac_emo.jpeg" class="icon-option" data-src="img/guaxinim/rac_emo.jpeg">
               <img src="img/guaxinim/rac_coquete.jpeg" class="icon-option" data-src="img/guaxinim/rac_coquete.jpeg">

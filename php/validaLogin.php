@@ -42,9 +42,7 @@ if (mysqli_num_rows($resultLogin) > 0) {
 
         header('Location: ../painel.php?page=home');
          // Após validar o usuário...
-         $_SESSION['fotoPerfil'] = $dados['foto'] ?? 'img/guaxinim/default.jpeg';
-
-        exit;
+        $_SESSION['fotoPerfil'] = $coluna['Foto'] ?? 'img/guaxinim/default.jpeg';
     }
 } else {
     $_SESSION['erro_login'] = "Usuário ou senha incorretos!";

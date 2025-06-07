@@ -78,6 +78,7 @@ $_SESSION['tema'] = obterTema($conn)['tema'];
 			<script src="js/adm.js"></script>
 	<?php endif; ?>
 
+	
 	<?php
 		if (isset($_GET['page']) && in_array($_GET['page'], ['Perfil'])): ?>
 			<script src="js/perfil.js"></script>

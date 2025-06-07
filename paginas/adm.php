@@ -7,7 +7,7 @@ if (basename(__FILE__) === basename($_SERVER['SCRIPT_FILENAME'])) {
   }
   
 
-$sql = "SELECT id_usuario, nome, email, senha FROM usuarios";
+$sql = "SELECT id_usuario, nome, email, senha, Foto FROM usuarios";
 $result = $conn->query($sql);
 ?>
 <section id="usuarios">
@@ -21,7 +21,12 @@ $result = $conn->query($sql);
                 
                 <thead>
                     <tr>
-                        <th>ID</th><th>Nome</th><th>Email</th><th>Senha</th><th>Ações</th>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Email</th>
+                        <th>Senha</th>
+                        <th>Foto</th>
+                        <th>Ações</th>
                     </tr>
             </thead>
             <tbody>
@@ -31,6 +36,15 @@ $result = $conn->query($sql);
                         <td><?= htmlspecialchars($row['nome']) ?></td>
                         <td><?= htmlspecialchars($row['email']) ?></td>
                         <td><?= htmlspecialchars($row['senha']) ?></td>
+                        <td>
+                            <?php if (!empty($row['Foto'])): ?>
+                                <img src="<?= htmlspecialchars($row['Foto']) ?>" alt="Foto do usuário" width="40" height="40" style="border-radius: 50%;">
+                            <?php else: ?>
+                                <img src="img/guaxinim/default.jpeg" alt="Sem foto" width="40" height="40" style="border-radius: 50%;">
+                            <?php endif; ?>
+                        </td>
+
+
                         <td>
                             <button class="btnEditar" data-id="<?= $row['id_usuario'] ?>">Editar</button>
                             <a href="/racounter/php/excluir_usuario.php?id=<?= $row['id_usuario'] ?>" onclick="return confirm('Tem certeza que deseja excluir?');">
@@ -60,11 +74,7 @@ $result = $conn->query($sql);
         <label>Senha:</label><br>
         <input type="password" name="nSenha" id="nSenha"><br>
         <small id="senhaInfo"></small><br><br>
-        
-        <p>
-            <label for="iDataN">Data de nascimento:</label>
-            <input type="date" name="nDataN" id="iDataN">
-        </p>
+    
         
         <label>Tipo de Usuário:</label><br>
         <select name="nTipoUsuario" id="nTipoUsuario" required>
