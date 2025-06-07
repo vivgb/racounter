@@ -25,10 +25,6 @@ require_once 'php/dashboard_dados.php';
                 </li>
             </ul>
         </div>
-        <a href="#" class="btn-download">
-            <i class='bx bxs-cloud-download bx-fade-down-hover' ></i>
-            <span class="text">Relatórios</span>
-        </a>
     </div>
 
     <ul class="box-info">

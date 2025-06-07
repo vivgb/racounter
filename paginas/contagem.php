@@ -22,22 +22,26 @@ if ($id_sala) {
                 Controle de movimentação
                 <i class='bx  bx-chevron-left' onclick="window.location.href='./painel.php?page=salas'"></i> 
             </h1>
-            <div class="btn" id="editarsala"
-                data-id="<?= $sala['id_salas'] ?>"
-                data-descricao="<?= htmlspecialchars($sala['descricao'], ENT_QUOTES) ?>"
-                data-lotacao="<?= $sala['lotacao_maxima'] ?>"
-                data-idusuario="<?= $sala['id_usuario'] ?>"
-                data-idempresa="<?= $sala['id_empresa'] ?>">
-                <i class='bx bx-pencil' style="font-size: 20px; color: #4caf50; cursor: pointer;"></i>
-            </div>
-            <div class="btn" id="excluirsala"
-                data-id="<?= $sala['id_salas'] ?>"
-                data-nome="<?= htmlspecialchars($sala['descricao'], ENT_QUOTES) ?>">
-                <i class='bx bx-trash' style="font-size: 20px; color: #f44336; cursor: pointer;"></i>
-            </div>
+
 
 
             <div id="controles">
+                <div class="icones-controle">
+
+                    <div class="btn" id="editarsala"
+                        data-id="<?= $sala['id_salas'] ?>"
+                        data-descricao="<?= htmlspecialchars($sala['descricao'], ENT_QUOTES) ?>"
+                        data-lotacao="<?= $sala['lotacao_maxima'] ?>"
+                        data-idusuario="<?= $sala['id_usuario'] ?>"
+                        data-idempresa="<?= $sala['id_empresa'] ?>">
+                        <i class='bx bx-pencil' style="font-size: 20px; color: #4caf50; cursor: pointer;"></i>
+                    </div>
+                    <div class="btn" id="excluirsala"
+                        data-id="<?= $sala['id_salas'] ?>"
+                        data-nome="<?= htmlspecialchars($sala['descricao'], ENT_QUOTES) ?>">
+                        <i class='bx bx-trash' style="font-size: 20px; color: #f44336; cursor: pointer;"></i>
+                    </div>
+                </div>
                 <p class="title"><?= htmlspecialchars($sala['descricao'] ?? '') ?></p>
                 <div id="conteudo" data-id="<?= $id_sala ?>">
                     <div id="menos" class="acoes" onclick="atualizarLotacao(this)">
@@ -50,6 +54,7 @@ if ($id_sala) {
                         <i class='bx bx-plus meu-icone'></i>
                     </div>
                 </div>
+
             </div>
             <div id="info">
                 <p class="subtitle">Informações</p>
