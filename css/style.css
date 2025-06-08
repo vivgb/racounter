@@ -1208,13 +1208,30 @@ dialog input[type="time"] {
 	border: 1px solid #ccc;
 }
 .color-option {
-	width: 28px;
-	height: 28px;
-	border-radius: 50%;
-	border: none;
-	cursor: pointer;
-	padding: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
+
+
+.color-option::-webkit-color-swatch-wrapper {
+  padding: 0;
+  border-radius: 50%;
+}
+
+.color-option::-webkit-color-swatch {
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
 
 #salaSelect, #nTipoUsuario, #nEmail{
   height: 36px !important;
@@ -1713,4 +1730,12 @@ body.dark .bnt-perfil{
 
 body.dark .title-adm {
 	color: #fdf7f2;
+}
+.btnEditar i:hover {
+    color: #0056b3;
+    transform: scale(1.2);
+}
+.btnExcluir i:hover {
+    color: #bd2130;
+    transform: scale(1.2);
 }
