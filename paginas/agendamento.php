@@ -97,4 +97,3 @@ $resultSalas = mysqli_query($conn, $sqlSalas);
     </div>
 </div>
 
-<script type="module" src="idioma.js"></script>

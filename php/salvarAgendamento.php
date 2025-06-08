@@ -1,7 +1,7 @@
 <?php
-/**error_reporting(E_ALL);
+error_reporting(E_ALL);
 ini_set('display_errors', 1);
-session_start();**/
+session_start();
 
 include("conexao.php");
 
@@ -15,15 +15,45 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id_usuario = $_SESSION['idLogin'];
     $id_agendamento = $_POST['eventId'] ?? null;
 
+    $hora_inicio = "$data $inicio:00";
+    $hora_fim = "$data $fim:00";
+
+    // Verificar conflito de agendamento na mesma sala e horário
+    $sqlConfere = "SELECT * FROM agendamentos 
+        WHERE id_sala = ? 
+        AND data = ? 
+        AND (
+            (? < CONCAT(data, ' ', hora_fim) AND ? > CONCAT(data, ' ', hora_inicio))
+        )";
     if ($id_agendamento) {
-        // Atualiza
+        $sqlConfere .= " AND id_agendamento != ?";
+    }
+
+    $stmtConf = mysqli_prepare($conn, $sqlConfere);
+    if ($id_agendamento) {
+        mysqli_stmt_bind_param($stmtConf, "ssssi", $id_sala, $data, $hora_inicio, $hora_fim, $id_agendamento);
+    } else {
+        mysqli_stmt_bind_param($stmtConf, "ssss", $id_sala, $data, $hora_inicio, $hora_fim);
+    }
+
+    mysqli_stmt_execute($stmtConf);
+    $result = mysqli_stmt_get_result($stmtConf);
+
+    if (mysqli_num_rows($result) > 0) {
+        echo "CONFLITO";
+        exit;
+    }
+
+    mysqli_stmt_close($stmtConf);
+
+    // Inserir ou atualizar agendamento
+    if ($id_agendamento) {
         $sql = "UPDATE agendamentos 
                 SET titulo = ?, data = ?, hora_inicio = ?, hora_fim = ?, cor = ?, id_sala = ?
                 WHERE id_agendamento = ? AND id_usuario = ?";
         $stmt = mysqli_prepare($conn, $sql);
         mysqli_stmt_bind_param($stmt, "ssssssii", $titulo, $data, $inicio, $fim, $cor, $id_sala, $id_agendamento, $id_usuario);
     } else {
-        // Insere novo
         $sql = "INSERT INTO agendamentos (id_usuario, id_sala, titulo, data, hora_inicio, hora_fim, cor)
                 VALUES (?, ?, ?, ?, ?, ?, ?)";
         $stmt = mysqli_prepare($conn, $sql);
@@ -38,17 +68,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         mysqli_stmt_execute($stmtUpdate);
         mysqli_stmt_close($stmtUpdate);
 
-
-        // Redireciona de volta para a página anterior
-        header("Location: " . $_SERVER['HTTP_REFERER']);
-        exit;
+        echo "OK"; // <-- use isto para o JS saber que funcionou
     } else {
-        echo "Erro ao salvar agendamento: " . mysqli_error($conn);
+        echo "ERRO: " . mysqli_error($conn);
     }
 
     mysqli_stmt_close($stmt);
     mysqli_close($conn);
 }
 ?>
-
-

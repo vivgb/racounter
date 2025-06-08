@@ -330,18 +330,19 @@ select:focus {
               <img src="img/guaxinim/rac_swag.jpeg" class="icon-option" data-src="img/guaxinim/rac_swag.jpeg">
               <img src="img/guaxinim/rac_glasses.jpeg" class="icon-option" data-src="img/guaxinim/rac_glasses.jpeg">
               <img src="img/guaxinim/rac_triste.jpeg" class="icon-option" data-src="img/guaxinim/rac_triste.jpeg">
-              <img src="img/guaxinim/rac_emo.jpeg" class="icon-option" data-src="img/guaxinim/rac_emo.jpeg">
+              <img src="img/guaxinim/rac_money.jpeg" class="icon-option" data-src="img/guaxinim/rac_money.jpeg">
             </div>
           </div>
           <div  class="info-box" aria-labelledby="personalDataTitle">
             <center><h1 id="personalDataTitle">Dados Pessoais</h1></center>
-        <p class="info-text"><strong>Nome:</strong><?php echo $_SESSION["NomeLogin"]?></p>
-        <p class="info-text"><strong>Email:</strong><?php echo $_SESSION["E-mailLogin"]?></p>
-      </div>
+            <p class="info-text"><strong>Nome:</strong><?php echo $_SESSION["NomeLogin"]?></p>
+            <p class="info-text"><strong>Email:</strong><?php echo $_SESSION["E-mailLogin"]?></p>
+           </div>
+
       
-      <div class="submit-wrapper">
-        <button type="submit" class="bnt-editperfil">Salvar Alterações</button>
-      </div>
+          <div class="submit-wrapper">
+            <button type="submit" class="bnt-editperfil">Salvar Alterações</button>
+          </div>
       
     </form>
   </section>
