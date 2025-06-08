@@ -9,6 +9,7 @@ const btnCancelar = document.getElementById('btnCancelar');
 var titulo = document.getElementById('tituloform');
 
 btnCriar.onclick = () => {
+    
     titulo.textContent = 'Cadastrar novo usuário';
     console.log("Criar novo usuário");
     form.reset();

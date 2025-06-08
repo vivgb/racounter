@@ -11,14 +11,12 @@ $sql = "SELECT id_usuario, nome, email, senha, Foto FROM usuarios";
 $result = $conn->query($sql);
 ?>
 <section id="usuarios">
-
     <h1 class="title-adm">Tela exclusiva adm</h1>
-    
-    <button class="bnt-perfil" id="btnCriarUsuario">Cadastrar Novo Usuário</button>
+    <button class="bnt-perfil" id="btnCriarUsuario">Criar Novo Usuário</button>
+
     <div class="table-data">
         <div class="order order-usuarios">
             <table>
-                
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -28,57 +26,45 @@ $result = $conn->query($sql);
                         <th>Foto</th>
                         <th>Ações</th>
                     </tr>
-            </thead>
-      <tbody>
-        <?php 
-        $contador = 1;
-        while ($row = $result->fetch_assoc()): ?>
-            <tr>
-                <td class="id-coluna"><?= $contador ?></td>  <!-- número sequencial -->
-                <td><?= htmlspecialchars($row['nome']) ?></td>
-                <td><?= htmlspecialchars($row['email']) ?></td>
-                <td><?= htmlspecialchars($row['senha']) ?></td>
-                <td>
-                    <?php if (!empty($row['Foto'])): ?>
-                        <img src="<?= htmlspecialchars($row['Foto']) ?>" alt="Foto do usuário" width="40" height="40" style="border-radius: 50%;">
-                    <?php else: ?>
-                        <img src="img/guaxinim/default.jpeg" alt="Sem foto" width="40" height="40" style="border-radius: 50%;">
-                    <?php endif; ?>
-                </td>
-                <td>
-                    <button class="btnEditar" data-id="<?= $row['id_usuario'] ?>" title="Editar" style="background:none; border:none; cursor:pointer;">
-                        <i class='bx bx-pencil' style="font-size: 20px; color: #4caf50; cursor: pointer;"></i>
-                    </button>
-                    <button class="btnExcluir" 
-                            data-id="<?= $row['id_usuario'] ?>" 
-                            data-nome="<?= htmlspecialchars($row['nome']) ?>" 
-                            title="Excluir" 
-                            style="background:none; border:none; cursor:pointer;">
-                        <i class='bx bx-trash' style="font-size: 20px; color: #f44336; cursor: pointer;"></i>
-                    </button>
-                </td>
-            </tr>
-        <?php 
-            $contador++;
-        endwhile; 
-        ?>
-        </tbody>
-
-
-                        <td>
-                            <button class="btnEditar" data-id="<?= $row['id_usuario'] ?>">Editar</button>
-                            <a href="/racounter/php/excluir_usuario.php?id=<?= $row['id_usuario'] ?>" onclick="return confirm('Tem certeza que deseja excluir?');">
-                                <button class="btnEditar">Excluir</button>
-                            </a>
-                            
-                        </td>
-                    </tr>
-                    <?php endwhile; ?>
+                </thead>
+                <tbody>
+                    <?php 
+                    $contador = 1;
+                    while ($row = $result->fetch_assoc()): ?>
+                        <tr>
+                            <td class="id-coluna"><?= $contador ?></td>
+                            <td><?= htmlspecialchars($row['nome']) ?></td>
+                            <td><?= htmlspecialchars($row['email']) ?></td>
+                            <td><?= htmlspecialchars($row['senha']) ?></td>
+                            <td>
+                                <?php if (!empty($row['Foto'])): ?>
+                                    <img src="<?= htmlspecialchars($row['Foto']) ?>" alt="Foto do usuário" width="40" height="40" style="border-radius: 50%;">
+                                <?php else: ?>
+                                    <img src="img/guaxinim/default.jpeg" alt="Sem foto" width="40" height="40" style="border-radius: 50%;">
+                                <?php endif; ?>
+                            </td>
+                            <td>
+                                <button class="btnEditar" data-id="<?= $row['id_usuario'] ?>" title="Editar" style="background:none; border:none; cursor:pointer;">
+                                    <i class='bx bx-pencil' style="font-size: 20px; color: #4caf50;"></i>
+                                </button>
+                                <button class="btnExcluir" 
+                                        data-id="<?= $row['id_usuario'] ?>" 
+                                        data-nome="<?= htmlspecialchars($row['nome']) ?>" 
+                                        title="Excluir" 
+                                        style="background:none; border:none; cursor:pointer;">
+                                    <i class='bx bx-trash' style="font-size: 20px; color: #f44336;"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    <?php 
+                        $contador++;
+                    endwhile; 
+                    ?>
                 </tbody>
             </table>
-            <div class="head"></div>
+        </div>
     </div>
-</div>
+
 
 <dialog id="dialogUsuario">
     <h1 id="tituloform"></h1>
@@ -87,18 +73,18 @@ $result = $conn->query($sql);
         <input type="hidden" name="id" id="usuarioId" value="">
         
         <label>Nome:</label>
-        <input class="inputdialog" type="text" name="nNome" id="nNome" required>
+        <input type="text" name="nNome" id="nNome" required>
         
         <label>Email:</label>
-        <input class="inputdialog" type="email" name="nEmail" id="nEmail" required>
+        <input type="email" name="nEmail" id="nEmail" required>
         
-        <label>Senha:</label>
-        <input class="inputdialog" type="password" name="nSenha" id="nSenha">
+        <label>Senha:</label><br>
+        <input type="password" name="nSenha" id="nSenha">
         <small id="senhaInfo"></small>
     
         
-        <label>Tipo de Usuário:</label>
-        <select class="inputdialog" name="nTipoUsuario" id="nTipoUsuario" required>
+        <label>Tipo de Usuário:</label><br>
+        <select name="nTipoUsuario" id="nTipoUsuario" required>
             <option value="">Selecione</option>
             <?php
             $tipos = mysqli_query($conn, "SELECT * FROM tipo_usuario");
@@ -115,9 +101,8 @@ $result = $conn->query($sql);
         
         
         <label>Foto:</label>
-        <img id="fotoPreview" src="" alt="Foto do usuário" width="80" style="display:none;">
-        <input class="inputdialog" type="file" name="nFoto" id="nFoto">
-
+        <img id="fotoPreview" src="" alt="Foto do usuário" width="80" style="display:none;"><br>
+        <input type="file" name="nFoto" id="nFoto"><br><br>
         
         <div class="button-row">
             <button class="bnt-perfil" id="btnSalvar" type="submit">Salvar</button>

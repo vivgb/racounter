@@ -85,6 +85,7 @@ body.dark .info-box p{
 
 }
 
+
 .info-text {
   font-size: 1rem;
   color: #333;
@@ -150,11 +151,15 @@ body.dark .img-box{
   flex-direction: row;
 }
 
+body.dark .password-group{
+  color: #fcf4dc;
+}
+
+
 .field-label,
 .password-group label {
   font-weight: 600;
   font-size: 1rem;
-  color: #6c4434;
   flex: 1;
   min-width: 180px;
 }
