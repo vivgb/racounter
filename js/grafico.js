@@ -14,51 +14,45 @@ document.addEventListener("DOMContentLoaded", function () {
           // Criar arrays separados para labels e valores
         const labels = data.map(item => item.sala);
         const valores = data.map(item => item.total);
+const options = {
+      chart: {
+        type: "bar",
+        height: "100%",
+        width: "100%",
+        foreColor: "#ffffff", // cor dos textos gerais
+      },
+      plotOptions: {
+        bar: {
+          horizontal: true,
+          barHeight: '25%',
+        },
+      },
+      colors: ["#3c1209"], // cor das barras
+      series: [
+        {
+          name: "Agendamentos",
+          data: valores,
+        },
+      ],
+      xaxis: {
+        categories: labels,
+        labels: {
+          style: {
+            colors: "#ffffff",
+            fontSize: '14px'
+          }
+        }
+      },
+      yaxis: {
+        labels: {
+          style: {
+            colors: "#ffffff",
+            fontSize: '14px'
+          }
+        }
+      }
+    };
 
-          const options = {
-            chart: {
-              type: "bar",
-              height: "100%",
-              width: "100%",
-              foreColor: "#ffffff", // cor dos textos gerais
-            },
-            plotOptions: {
-              bar: {
-                horizontal: true,
-                barHeight: '25%',
-              },
-          },
-          colors: ["#3c1209"],
-          series: [
-            {
-              name: "Movimentações",
-              data: valores,
-            },
-            colors: ["#3c1209"], // cor das barras
-            series: [
-              {
-                name: "Agendamentos",
-                data: valores,
-              },
-            ],
-            xaxis: {
-              categories: labels,
-              labels: {
-                style: {
-                  colors: "#ffffff",
-                  fontSize: '14px'
-                }
-              }
-            },
-            yaxis: {
-              labels: {
-                style: {
-                  colors: "#ffffff",
-                  fontSize: '14px'
-                }
-              }
-            }
-          };
 
         const chart = new ApexCharts(grafico, options);
         chart.render();
