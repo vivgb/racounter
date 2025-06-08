@@ -313,6 +313,12 @@ select:focus {
 
 <div class="perfil-container">
   <section class="perfil-card">
+    <?php if (isset($_GET['erro'])): ?>
+      <div class="msg error-msg"><?php echo htmlspecialchars($_GET['erro']); ?></div>
+    <?php elseif (isset($_GET['sucesso'])): ?>
+      <div class="msg" style="color:green;">Alterações salvas com sucesso!</div>
+    <?php endif; ?>
+
       <center><h1>Perfil do Usuário</h1></center>
     <form id="formFoto" action="php/atualizar_foto.php" method="post" enctype="multipart/form-data">
 
@@ -352,7 +358,22 @@ select:focus {
             <p class="info-text"><strong>Email:</strong><?php echo $_SESSION["E-mailLogin"]?></p>
            </div>
 
-      
+          <div class="password-group">
+            <label for="senhaAtual">Senha Atual:</label>
+            <input type="password" id="senhaAtual" name="senhaAtual">
+          </div>
+
+          <div class="password-group">
+            <label for="novaSenha">Nova Senha:</label>
+            <input type="password" id="novaSenha" name="novaSenha">
+          </div>
+
+          <div class="password-group">
+            <label for="confirmarSenha">Confirmar Nova Senha:</label>
+            <input type="password" id="confirmarSenha" name="confirmarSenha">
+          </div>
+
+          
           <div class="submit-wrapper">
             <button type="submit" class="bnt-perfil">Salvar Alterações</button>
           </div>

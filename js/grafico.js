@@ -27,6 +27,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 horizontal: true,
                 barHeight: '25%',
               },
+          },
+          colors: ["#3c1209"],
+          series: [
+            {
+              name: "Movimentações",
+              data: valores,
             },
             colors: ["#3c1209"], // cor das barras
             series: [
