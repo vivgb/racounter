@@ -7,20 +7,23 @@ if ($conn->connect_error) {
     die(json_encode(['erro' => 'Erro na conexão com o banco']));
 }
 
+// Consulta: conta movimentações por sala
 $sql = "
-    SELECT s.descricao AS sala, COUNT(a.id_agendamento) AS total_agendamentos
+    SELECT s.descricao AS sala, COUNT(m.id_movimentacao) AS total_movimentacoes
     FROM salas s
-    INNER JOIN agendamentos a ON s.id_salas = a.id_sala
+    INNER JOIN movimentacao m ON s.id_salas = m.id_salas
+    /* WHERE DATE(m.data_hora) = CURDATE() */  -- filtro por movimentações do dia
     GROUP BY s.id_salas
+    ORDER BY total_movimentacoes DESC
 ";
-// Se eu quiser trazer todas as salas, mesmo sem agendamentos, posso usar LEFT JOIN
+
 $result = $conn->query($sql);
 
 $dados = [];
 while ($row = $result->fetch_assoc()) {
     $dados[] = [
         'sala' => $row['sala'],
-        'total' => (int)$row['total_agendamentos']
+        'total' => (int)$row['total_movimentacoes']
     ];
 }
 

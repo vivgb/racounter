@@ -47,13 +47,16 @@ $result = $conn->query($sql);
 
                         <td>
                             <button class="btnEditar" data-id="<?= $row['id_usuario'] ?>">Editar</button>
-                            <a href="/racounter/php/excluir_usuario.php?id=<?= $row['id_usuario'] ?>" onclick="return confirm('Tem certeza que deseja excluir?');">
-                                <button>Excluir</button>
-                            </a>
-                            
+                            <button class="btnExcluir" 
+                                    data-id="<?= $row['id_usuario'] ?>" 
+                                    data-nome="<?= htmlspecialchars($row['nome']) ?>">
+                                Excluir
+                            </button>
+                                                        
                         </td>
                     </tr>
                     <?php endwhile; ?>
+
                 </tbody>
             </table>
             <div class="head"></div>
@@ -104,5 +107,15 @@ $result = $conn->query($sql);
         
     </form>
 </dialog>
+<dialog id="confirmExcluirDialog">
+    <form method="dialog" style="text-align: center;">
+        <p id="mensagemExcluir" style="margin-bottom: 20px;"></p> 
+        <div style="margin-top: 15px; display: flex; justify-content: center; gap: 10px;">
+            <a id="confirmExcluirBtn" class="bnt-perfil" style="background-color: #d9534f;">Sim, Excluir</a>
+            <button class="bnt-perfil" id="cancelarExcluir" type="button">Cancelar</button>
+        </div>
+    </form>
+</dialog>
+
 
 </section>

@@ -23,7 +23,6 @@ btnCancelar.onclick = () => {
     dialog.close();
 };
 
-// ✅ ADICIONE ISSO AQUI
 form.addEventListener('submit', function (event) {
     event.preventDefault();
 
@@ -47,7 +46,6 @@ form.addEventListener('submit', function (event) {
     .catch(() => console.log("Erro na requisição."));
 });
 
-// Continuação: lógica para editar usuário
 document.querySelectorAll('.btnEditar').forEach(btn => {
     btn.onclick = () => {
         const id = btn.getAttribute('data-id');
@@ -82,3 +80,27 @@ document.querySelectorAll('.btnEditar').forEach(btn => {
             .catch(() => alert('Erro na requisição.'));
     };
 });
+// Exclusão com diálogo 
+document.querySelectorAll('.btnExcluir').forEach(button => {
+    button.addEventListener('click', function () {
+        const userId = this.dataset.id;
+        const userName = this.dataset.nome;
+        const dialog = document.getElementById('confirmExcluirDialog');
+        const confirmBtn = dialog.querySelector('#confirmExcluirBtn');
+        const mensagem = dialog.querySelector('#mensagemExcluir');
+
+        mensagem.textContent = `Tem certeza que deseja excluir o usuário "${userName}"?`;
+
+        confirmBtn.onclick = () => {
+            window.location.href = `/racounter/php/excluir_usuario.php?id=${userId}`;
+        };
+
+        dialog.showModal();
+    });
+});
+
+
+document.getElementById('cancelarExcluir').addEventListener('click', () => {
+    document.getElementById('confirmExcluirDialog').close();
+});
+

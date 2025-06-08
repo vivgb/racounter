@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
           colors: ["#3c1209"],
           series: [
             {
-              name: "Agendamentos",
+              name: "Movimentações",
               data: valores,
             },
           ],
