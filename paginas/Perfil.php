@@ -14,14 +14,18 @@
 
 .perfil-card {
     background-color: #fcf4dc;
-    border: 1px solid #e0e0e0;
-    border-radius: 10px;
+    border-radius: 10px;  
     padding: 20px 25px;
     width: 600px; 
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     transition: transform 0.2s;
     word-wrap: break-word;
     overflow-wrap: break-word;
+}
+
+body.dark .perfil-card {
+  background-color: #66291a;
+  color: #fcf4dc;
 }
 
 
@@ -72,6 +76,15 @@ h2 {
   margin-bottom: 1rem;
 }
 
+body.dark .info-box{
+  background-color: #41150c;
+
+}
+body.dark .info-box p{
+  color: #fcf4dc;
+
+}
+
 .info-text {
   font-size: 1rem;
   color: #333;
@@ -89,6 +102,11 @@ h2 {
   border-radius: 8px;
   padding: 1rem;
   margin-bottom: 1rem;
+}
+
+body.dark .img-box{
+  background-color: #41150c;
+  
 }
 
 .img-text {
@@ -162,18 +180,17 @@ select:focus {
 }
 
 
-.bnt-editperfil{
+.bnt-perfil{
   padding: 0.5rem 1.8rem;
-  background-color: #6c4434;
   border: none;
   border-radius: 6px;
   color: white;
   font-size: 1rem;
   cursor: pointer;
   font-weight: 600;
-  transition: background-color 0.3s ease;
   flex-shrink: 0;
   align-self: center;
+	transition: 0.2s ease;
 }
 .submit-wrapper {
   display: flex;
@@ -181,10 +198,6 @@ select:focus {
   margin-top: 20px; /* opcional, só pra dar respiro */
 }
 
-
-.bnt-editperfil:hover{
-  background-color: #3c1209;
-}
 
 /* Checkbox */
 .checkbox-label {
@@ -341,7 +354,7 @@ select:focus {
 
       
           <div class="submit-wrapper">
-            <button type="submit" class="bnt-editperfil">Salvar Alterações</button>
+            <button type="submit" class="bnt-perfil">Salvar Alterações</button>
           </div>
       
     </form>

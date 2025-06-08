@@ -15,29 +15,44 @@ document.addEventListener("DOMContentLoaded", function () {
         const labels = data.map(item => item.sala);
         const valores = data.map(item => item.total);
 
-        const options = {
-          chart: {
-            type: "bar",
-            height: "100%",
-            width: "100%",
-          },
-          plotOptions: {
-            bar: {
-              horizontal: true,
-              barHeight: '25%' 
+          const options = {
+            chart: {
+              type: "bar",
+              height: "100%",
+              width: "100%",
+              foreColor: "#ffffff", // cor dos textos gerais
             },
-          },
-          colors: ["#3c1209"],
-          series: [
-            {
-              name: "Agendamentos",
-              data: valores,
+            plotOptions: {
+              bar: {
+                horizontal: true,
+                barHeight: '25%',
+              },
             },
-          ],
-          xaxis: {
-            categories: labels,
-          },
-        };
+            colors: ["#3c1209"], // cor das barras
+            series: [
+              {
+                name: "Agendamentos",
+                data: valores,
+              },
+            ],
+            xaxis: {
+              categories: labels,
+              labels: {
+                style: {
+                  colors: "#ffffff",
+                  fontSize: '14px'
+                }
+              }
+            },
+            yaxis: {
+              labels: {
+                style: {
+                  colors: "#ffffff",
+                  fontSize: '14px'
+                }
+              }
+            }
+          };
 
         const chart = new ApexCharts(grafico, options);
         chart.render();

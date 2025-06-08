@@ -28,7 +28,7 @@ $resultSalas = mysqli_query($conn, $sqlSalas);
         </div>
     </div>
         <?php if($_SESSION['idTipoUsuario'] == 1){?>
-        <dialog id="eventDialog" >
+        <dialog id="eventDialog" class="dialog">
         <form method="POST" action="php/salvarAgendamento.php" id="eventForm">
             <h2>Agendamento</h2>
 
@@ -69,8 +69,8 @@ $resultSalas = mysqli_query($conn, $sqlSalas);
             <input type="hidden" name="cor" id="corSelecionada" value="#3b82f6">
 
             <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 15px;">
-                <button type="button" id="cancelBtn">Cancelar</button>
-                <button type="submit" id="saveBtn">Salvar</button>
+                <button type="button" class="bnt-perfil" id="cancelBtn">Cancelar</button>
+                <button type="submit" class="bnt-perfil" id="saveBtn">Salvar</button>
             </div>
         </form>
     </dialog>

@@ -6,8 +6,10 @@ const senhaInfo = document.getElementById('senhaInfo');
 const fotoPreview = document.getElementById('fotoPreview');
 const btnCriar = document.getElementById('btnCriarUsuario');
 const btnCancelar = document.getElementById('btnCancelar');
+var titulo = document.getElementById('tituloform');
 
 btnCriar.onclick = () => {
+    titulo.textContent = 'Cadastrar novo usuário';
     console.log("Criar novo usuário");
     form.reset();
     form.action = 'php/salvarUsuario.php?funcao=I';
@@ -50,6 +52,7 @@ form.addEventListener('submit', function (event) {
 // Continuação: lógica para editar usuário
 document.querySelectorAll('.btnEditar').forEach(btn => {
     btn.onclick = () => {
+        titulo.textContent = 'Editar usuário';
         const id = btn.getAttribute('data-id');
         console.log("Editar usuário ID:", id);
 

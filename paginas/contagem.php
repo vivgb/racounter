@@ -1,4 +1,7 @@
 <?php
+if (!isset($_SESSION)) {
+  session_start();
+}
 // Mostra os erros para facilitar depuração
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -26,22 +29,25 @@ if ($id_sala) {
 
 
             <div id="controles">
-                <div class="icones-controle">
+                <?php if($_SESSION['idTipoUsuario'] == 1){?>
 
-                    <div class="btn" id="editarsala"
-                        data-id="<?= $sala['id_salas'] ?>"
-                        data-descricao="<?= htmlspecialchars($sala['descricao'], ENT_QUOTES) ?>"
-                        data-lotacao="<?= $sala['lotacao_maxima'] ?>"
-                        data-idusuario="<?= $sala['id_usuario'] ?>"
-                        data-idempresa="<?= $sala['id_empresa'] ?>">
-                        <i class='bx bx-pencil' style="font-size: 20px; color: #4caf50; cursor: pointer;"></i>
+                    <div class="icones-controle">
+                        <div class="btn" id="editarsala"
+                            data-id="<?= $sala['id_salas'] ?>"
+                            data-descricao="<?= htmlspecialchars($sala['descricao'], ENT_QUOTES) ?>"
+                            data-lotacao="<?= $sala['lotacao_maxima'] ?>"
+                            data-idusuario="<?= $sala['id_usuario'] ?>"
+                            data-idempresa="<?= $sala['id_empresa'] ?>">
+                            <i class='bx bx-pencil' style="font-size: 20px; color: #4caf50; cursor: pointer;"></i>
+                        </div>
+                        <div class="btn" id="excluirsala"
+                            data-id="<?= $sala['id_salas'] ?>"
+                            data-nome="<?= htmlspecialchars($sala['descricao'], ENT_QUOTES) ?>">
+                            <i class='bx bx-trash' style="font-size: 20px; color: #f44336; cursor: pointer;"></i>
+                        </div>
                     </div>
-                    <div class="btn" id="excluirsala"
-                        data-id="<?= $sala['id_salas'] ?>"
-                        data-nome="<?= htmlspecialchars($sala['descricao'], ENT_QUOTES) ?>">
-                        <i class='bx bx-trash' style="font-size: 20px; color: #f44336; cursor: pointer;"></i>
-                    </div>
-                </div>
+                <?php }?>
+
                 <p class="title"><?= htmlspecialchars($sala['descricao'] ?? '') ?></p>
                 <div id="conteudo" data-id="<?= $id_sala ?>">
                     <div id="menos" class="acoes" onclick="atualizarLotacao(this)">
@@ -67,7 +73,7 @@ if ($id_sala) {
         </section>
 
         <!--aq eu tirei o botao de delete de dentro do edicao-->
-        <dialog id="edit_delet">
+        <dialog id="edit_delet" class="dialog">
             <form method="POST" action="php/funcoes_salas.php" id="editform">
                 <h2>Editar sala</h2>
                 <input type="hidden" name="classId" value="<?= htmlspecialchars($sala['id_salas']) ?>">
@@ -119,7 +125,7 @@ if ($id_sala) {
         </dialog>
         
         <!--o dialog de confirmação de exclusão-->
-        <dialog id="confirmExcluirDialog">
+        <dialog id="confirmExcluirDialog" class="dialog">
             <form method="dialog" style="text-align: center;">
                 <p id="confirmMessage">Tem certeza que deseja excluir esta sala?</p>
                 <div style="margin-top: 15px; display: flex; justify-content: center; gap: 10px;">

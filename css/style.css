@@ -25,11 +25,16 @@ li {
 	--dark-grey: #AAAAAA;
 	--dark: #342E37;
 	--red: #DB504A;
-	--yellow: #d3eb4d;
+	--yellow: #fff9a9;
 	--green: #2d6805;
-	--light-yellow: #70ce8f;
-	--orange: #FD7238;
-	--light-orange: #FFE0D3;
+	--light-yellow: #82f4a8;
+	--orange: #FFE0D3;
+	--light-orange: #ff694e;
+	--light-gray: #e2e2e2;
+	--dark-gray: #7e7c7c;
+	--dark-blue: #3052ff;
+	--dark-brown: #290b05;
+	--moon: #ffff7a;
 }
 
 html {
@@ -41,6 +46,16 @@ body.dark {
 	--brown:  #41150c; 
 	--dark: #FBFBFB;
     --blue:  #d5c1ac;
+	--yellow: #22c056;
+	--light-yellow: #fffdd8;
+	--orange: #FD7238;
+	--light-orange: #FFE0D3;
+	--light-gray: #7e7c7c;
+	--dark-gray: #e2e2e2;
+	--dark-blue: #CFE8FF;
+	--light-blue: #6781ff;
+	--dark-brown: #FBFBFB;
+
 }
 
 body {
@@ -458,11 +473,11 @@ body.dark #content nav .profile-menu li a {
 	transform: translateX(22px);
 }
 .bxs-moon {
-	color: var(--yellow);
+	color: var(--moon);
 }
 
 .bx-sun {
-	color: var(--orange);
+	color: var(--moon);
 	animation: shakeOn .7s;
 }
 
@@ -560,7 +575,7 @@ body.dark #content main .head-title .left h1 {
 }
 #content main .box-info li:nth-child(1) .bx {
 	background: var(--light-blue);
-	color: var(--blue);
+	color: var(--dark-blue);
 }
 #content main .box-info li:nth-child(2) .bx {
 	background: var(--light-yellow);
@@ -569,6 +584,10 @@ body.dark #content main .head-title .left h1 {
 #content main .box-info li:nth-child(3) .bx {
 	background: var(--light-orange);
 	color: var(--orange);
+}
+#content main .box-info li:nth-child(4) .bx {
+	background: var(--light-gray);
+	color: var(--dark-gray);
 }
 #content main .box-info li .text h3 {
 	font-size: 24px;
@@ -671,6 +690,7 @@ body.dark #content main .head-title .left h1 {
 #grafico {
 	width: 100%;
 	height: 100%;
+	color: var(--dark-brown);
 }
 
 
@@ -688,18 +708,27 @@ body.dark #content main .head-title .left h1 {
   .order-usuarios button.btnEditar,
   .order-usuarios a button,
   .order-usuarios button {
-	background-color: #6c4434;
+	background-color: #41150c;
 	border: none;
 	padding: 6px 10px;
 	margin: 0 5px;
 	border-radius: 4px;
 	font-size: 13px;
 	cursor: pointer;
-	transition: background-color 0.2s ease;
+	transition: 0.2s ease;
+	color: #fcf4dc;
   }
   
   .order-usuarios button:hover {
-	background-color: #947364;
+	background-color: #66291a;
+	transform: scale(1.02);
+  }
+
+  body.dark .order-usuarios button.btnEditar,
+  .order-usuarios a button,
+  .order-usuarios button {
+	background-color: #d5c1ac;
+	color: #41150c;
   }
   
 
@@ -1191,7 +1220,8 @@ dialog::backdrop {
 dialog form {
 	display: flex;
 	flex-direction: column;
-}
+	gap: 10px;
+}	
 dialog h2 {
 	margin-bottom: 10px;
 }
@@ -1200,20 +1230,46 @@ dialog label {
 }
 dialog input[type="text"],
 dialog input[type="date"],
+dialog input[type="number"],
+dialog select,
 dialog input[type="time"] {
 	width: 100%;
 	padding: 6px;
 	font-size: 14px;
 	border-radius: 4px;
 	border: 1px solid #ccc;
+	outline: none;
 }
+
+body.dark dialog {
+	background-color: #66291a;
+	color: #fcf4dc;
+
+}
+
 .color-option {
-	width: 28px;
-	height: 28px;
-	border-radius: 50%;
-	border: none;
-	cursor: pointer;
-	padding: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+
+.color-option::-webkit-color-swatch-wrapper {
+  padding: 0;
+  border-radius: 50%;
+}
+
+.color-option::-webkit-color-swatch {
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  margin: 0;
 }
 
 #salaSelect, #nTipoUsuario, #nEmail{
@@ -1236,34 +1292,24 @@ dialog input[type="time"] {
 
   
 #cancelBtn {
-  background-color: #6c4434;
-  color: white;
   padding: 10px 16px;
   font-size: 14px;
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: 0.3s ease;
 }
 
-#cancelBtn:hover {
-  background-color: #8b5f4f;
-}
 
 #saveBtn {
-  background-color: #6c4434;
-  color: white;
   padding: 10px 16px;
   font-size: 14px;
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: 0.3s ease;
 }
 
-#saveBtn:hover {
-  background-color:#8b5f4f;
-}
 
 /* Nome do Usuario */
 .profile-name {
@@ -1509,7 +1555,7 @@ body.dark #controles{
 }
 
 #info {
-    background-color: #f9f5e7; 
+    background-color: #fcf4dc; 
     padding: 24px;
     border-radius: 16px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -1518,9 +1564,12 @@ body.dark #controles{
     font-family: 'Poppins', sans-serif;
 }
 
+body.dark #info{
+	background-color: var(--light);
+}
 
 #info h2 {
-    font-size: 20px;
+    font-size: 30px;
     margin-bottom: 15px;
     border-bottom: 2px solid #3c2c1e;
     padding-bottom: 5px;
@@ -1529,35 +1578,28 @@ body.dark #controles{
 
 }
 
-#info p {
-    margin: 6px 0;
-    font-size: 16px;
-    color: #333;
-}
 
 
 .subtitle {
-	margin: 30px 0;
+	margin-bottom: 20px;
 	font-size: 24px;
 	color: #290b05;	
 	text-align: left;
 	font-weight: 600;
 	width: 30%;                
-  	border-bottom: 4px solid #290b05;
   	padding-bottom: 2px;
 }
 
 body.dark #contagem .subtitle {
 	color: #fcf4dc;
-	border-bottom: 4px solid #fcf4dc;
 }
 
 #dialogUsuario {
-	width: 350px;         
+	width: 450px;         
 	max-width: 90%;       
 	border: none;
 	border-radius: 10px;
-
+	
 }
 
 
@@ -1579,33 +1621,56 @@ body.dark #dialogUsuario {
 	margin-bottom: 1px;
 }
 
-#dialogUsuario input[type="text"],
-#dialogUsuario input[type="email"],
-#dialogUsuario input[type="password"],
-#dialogUsuario select,
-#dialogUsuario input[type="file"] {
-	border: 1px solid #a67955; 
-	color: #3e2a1d; 
+#dialogUsuario input {
+	background-color: #fdf7f2;
+}
+
+#dialogUsuario .inputdialog {
+	color: #290b05; 
 	width: 100%;
 	padding: 8px 10px;
 	font-size: 14px;
 	border-radius: 6px;
-	border: 1px solid #ccc;
+	border: 1px solid #290b05;
 	box-sizing: border-box;
+	outline: none;
+	background-color: #fdf7f2;
+
 }
 
-body.dark #dialogUsuario #nNome {
-	background-color: var(--light  );
-	color: #fdf7f2;
+
+#dialogUsuario #nEmail, #nTipoUsuario, #nFoto {
+	color: #290b05; 
+	width: 100%;
+	padding: 8px 10px;
+	font-size: 14px;
+	border-radius: 6px;
+	border: 1px solid #290b05;
+	box-sizing: border-box;
+	background-color: #fdf7f2;
 }
 
-body.dark content #dialogUsuario input[type="text"],
+#dialogUsuario  #nSenha {
+	color: #290b05; 
+	width: 100%;
+	padding: 8px 10px;
+	font-size: 14px;
+	border-radius: 6px;
+	border: 1px solid #290b05;
+	box-sizing: border-box;
+	background-color: #fdf7f2;
+}
+
+
+
+
+body.dark #dialogUsuario input[type="text"],
 #dialogUsuario input[type="email"],
 #dialogUsuario input[type="password"],
 #dialogUsuario select,
 #dialogUsuario input[type="file"]{
-	background-color: var(--light  );
-	color: #fdf7f2;
+	color: #290b05;
+	border: 1px solid #fdf7f2;
 
 }
 
@@ -1634,6 +1699,10 @@ body.dark content #dialogUsuario input[type="text"],
 	margin-top: -8px;
 }
 
+body.dark #dialogUsuario small {
+	color: #fdf7f2;
+}
+
 .checkbox-container {
 	display: flex;
 	align-items: center;
@@ -1660,8 +1729,8 @@ body.dark content #dialogUsuario input[type="text"],
 }
 
 .bnt-perfil {
-	background-color: #5a3d2b;
-	color: white;
+	background-color: #41150c;
+	color: #f9f5e7;
 	border: none;
 	padding: 6px 14px;
 	border-radius: 6px;
@@ -1670,28 +1739,31 @@ body.dark content #dialogUsuario input[type="text"],
 	transition: 0.2s ease;
 }
 
-.bnt-perfil:hover {
-	transform: scale(1.02);
-}
-
 body.dark #btnCriarUsuario{
-	background-color: var(--light);
+	background-color: #d5c1ac;
+	color: #41150c;
 }
 body.dark #btnCancelar{
-	background-color: var(--brown);
+	background-color: #d5c1ac;
+	color: #41150c;
 }
 body.dark #btnSalvar{
-	background-color: var(--brown);
+	background-color: #d5c1ac;
+	color: #41150c;
+
 }
 body.dark .bnt-perfil{
-	background-color: var(--light);
+	background-color: #d5c1ac;
+	color: #41150c;
+
 }
 
 .bnt-perfil:hover {
-	background-color: #7a523c;
+	background-color: #66291a;
+	transform: scale(1.02);
 }
 #btnCriarUsuario {
-	margin-left: 210px; 
+	margin-left: 170px; 
 	margin-top: 20px;
 	padding: 10px 20px;
 	border-radius: 8px;
@@ -1702,13 +1774,13 @@ body.dark .bnt-perfil{
 
 .title-adm {
     font-size: 36px;
-    font-weight: 600;
+    font-weight: 630;
     color: #290b05;
-	margin-bottom: 10px;    
+	margin-bottom: 55px;    
 	text-align: left;
     letter-spacing: 1px;
     padding-left: 40px;  
-	margin-top: 50px; 
+	margin-top: 60px; 
 }
 
 body.dark .title-adm {

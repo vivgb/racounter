@@ -46,7 +46,7 @@ $salas = buscarTodasSalas($conn);
   
 </section>
 
-<dialog id="new_class">
+<dialog id="new_class" class="dialog">
   <form method="POST" action="php/funcoes_salas.php" id="classForm">
     <h2>Nova sala</h2>
 

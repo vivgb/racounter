@@ -14,7 +14,7 @@ $result = $conn->query($sql);
 
     <h1 class="title-adm">Tela exclusiva adm</h1>
     
-    <button class="bnt-perfil" id="btnCriarUsuario">Criar Novo Usuário</button>
+    <button class="bnt-perfil" id="btnCriarUsuario">Cadastrar Novo Usuário</button>
     <div class="table-data">
         <div class="order order-usuarios">
             <table>
@@ -48,7 +48,7 @@ $result = $conn->query($sql);
                         <td>
                             <button class="btnEditar" data-id="<?= $row['id_usuario'] ?>">Editar</button>
                             <a href="/racounter/php/excluir_usuario.php?id=<?= $row['id_usuario'] ?>" onclick="return confirm('Tem certeza que deseja excluir?');">
-                                <button>Excluir</button>
+                                <button class="btnEditar">Excluir</button>
                             </a>
                             
                         </td>
@@ -61,23 +61,24 @@ $result = $conn->query($sql);
 </div>
 
 <dialog id="dialogUsuario">
+    <h1 id="tituloform"></h1>
     <form id="formUsuario" action="php/salvarUsuario.php?funcao=I" method="post" enctype="multipart/form-data">
         <input type="hidden" name="funcao" id="funcao" value="">
         <input type="hidden" name="id" id="usuarioId" value="">
         
-        <label>Nome:</label><br>
-        <input type="text" name="nNome" id="nNome" required><br><br>
+        <label>Nome:</label>
+        <input class="inputdialog" type="text" name="nNome" id="nNome" required>
         
-        <label>Email:</label><br>
-        <input type="email" name="nEmail" id="nEmail" required><br><br>
+        <label>Email:</label>
+        <input class="inputdialog" type="email" name="nEmail" id="nEmail" required>
         
-        <label>Senha:</label><br>
-        <input type="password" name="nSenha" id="nSenha"><br>
-        <small id="senhaInfo"></small><br><br>
+        <label>Senha:</label>
+        <input class="inputdialog" type="password" name="nSenha" id="nSenha">
+        <small id="senhaInfo"></small>
     
         
-        <label>Tipo de Usuário:</label><br>
-        <select name="nTipoUsuario" id="nTipoUsuario" required>
+        <label>Tipo de Usuário:</label>
+        <select class="inputdialog" name="nTipoUsuario" id="nTipoUsuario" required>
             <option value="">Selecione</option>
             <?php
             $tipos = mysqli_query($conn, "SELECT * FROM tipo_usuario");
@@ -85,7 +86,7 @@ $result = $conn->query($sql);
                 echo "<option value='{$tipo['id_tipo_usuario']}'>{$tipo['descricao']}</option>";
             }
             ?>
-        </select><br><br>
+        </select>
         
         <div class="checkbox-container">
             <input type="checkbox" name="nAtivo" id="nAtivo">
@@ -93,9 +94,10 @@ $result = $conn->query($sql);
         </div>
         
         
-        <label>Foto:</label><br>
-        <img id="fotoPreview" src="" alt="Foto do usuário" width="80" style="display:none;"><br>
-        <input type="file" name="nFoto" id="nFoto"><br><br>
+        <label>Foto:</label>
+        <img id="fotoPreview" src="" alt="Foto do usuário" width="80" style="display:none;">
+        <input class="inputdialog" type="file" name="nFoto" id="nFoto">
+
         
         <div class="button-row">
             <button class="bnt-perfil" id="btnSalvar" type="submit">Salvar</button>
