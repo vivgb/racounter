@@ -98,7 +98,7 @@ $result = $conn->query($sql);
         <input type="file" name="nFoto" id="nFoto"><br><br>
         
         <div class="button-row">
-            <button class="bnt-perfil" type="submit">Salvar</button>
+            <button class="bnt-perfil" id="btnSalvar" type="submit">Salvar</button>
             <button class="bnt-perfil" type="button" id="btnCancelar">Cancelar</button>
         </div>
         

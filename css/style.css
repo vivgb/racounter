@@ -1180,6 +1180,11 @@ dialog {
 	font-size: 16px;
 	background: #fcf4dc;
   }
+
+body.dark content dialog{
+	background-color: var(--brown);
+}
+
 dialog::backdrop {
 	background: rgba(0,0,0,0.4);
 }
@@ -1331,6 +1336,7 @@ dialog input[type="time"] {
   position: relative;
   cursor: pointer;
 }
+
 
 
 .botoes-perfil {
@@ -1554,6 +1560,12 @@ body.dark #contagem .subtitle {
 
 }
 
+
+body.dark #dialogUsuario {
+	background-color: var(--light);
+	color: #fcf4dc;
+}
+
 #dialogUsuario form {
 	display: flex;
 	flex-direction: column;
@@ -1572,7 +1584,6 @@ body.dark #contagem .subtitle {
 #dialogUsuario input[type="password"],
 #dialogUsuario select,
 #dialogUsuario input[type="file"] {
-	background-color: #fdf7f2; 
 	border: 1px solid #a67955; 
 	color: #3e2a1d; 
 	width: 100%;
@@ -1582,6 +1593,22 @@ body.dark #contagem .subtitle {
 	border: 1px solid #ccc;
 	box-sizing: border-box;
 }
+
+body.dark #dialogUsuario #nNome {
+	background-color: var(--light  );
+	color: #fdf7f2;
+}
+
+body.dark content #dialogUsuario input[type="text"],
+#dialogUsuario input[type="email"],
+#dialogUsuario input[type="password"],
+#dialogUsuario select,
+#dialogUsuario input[type="file"]{
+	background-color: var(--light  );
+	color: #fdf7f2;
+
+}
+
 
 #dialogUsuario input[type="file"] {
   background-color: #fdf7f2; 
@@ -1640,6 +1667,24 @@ body.dark #contagem .subtitle {
 	border-radius: 6px;
 	cursor: pointer;
 	font-size: 14px;
+	transition: 0.2s ease;
+}
+
+.bnt-perfil:hover {
+	transform: scale(1.02);
+}
+
+body.dark #btnCriarUsuario{
+	background-color: var(--light);
+}
+body.dark #btnCancelar{
+	background-color: var(--brown);
+}
+body.dark #btnSalvar{
+	background-color: var(--brown);
+}
+body.dark .bnt-perfil{
+	background-color: var(--light);
 }
 
 .bnt-perfil:hover {
@@ -1664,4 +1709,8 @@ body.dark #contagem .subtitle {
     letter-spacing: 1px;
     padding-left: 40px;  
 	margin-top: 50px; 
+}
+
+body.dark .title-adm {
+	color: #fdf7f2;
 }
