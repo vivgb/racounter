@@ -114,7 +114,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['email_recuperacao']  = $email;
 
         if (sendEmail($email, $assunto, $mensagem)) {
-            $_SESSION['mensagem_sucesso'] = "Enviamos o código de verificação para o e-mail: {$_SESSION['email_recuperacao']}";
+            $_SESSION['mensagem_sucesso'] = "Enviamos um código de verificação para o e-mail: {$_SESSION['email_recuperacao']}";
             header('Location: ../verificarCodigo.php');
             exit;
 
