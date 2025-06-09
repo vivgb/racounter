@@ -25,9 +25,10 @@
             <form method="POST" action="php/email-rec.php">
                 <h2>Recuperar Senha</h2>
                 <?php
-                if (isset($_SESSION['erro_login'])) {
-                   echo '<div class="erro">' . $_SESSION['erro_login'] . '</div>';
-                   unset($_SESSION['erro_login']);
+                session_start();
+                if (isset($_SESSION['erro_email'])) {
+                   echo '<div class="erro">' . $_SESSION['erro_email'] . '</div>';
+                   unset($_SESSION['erro_email']);
                }
                 ?>
                 <div class="input-box">

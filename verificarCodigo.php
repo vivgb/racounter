@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -20,8 +21,13 @@
             <form method="POST" action="php/verificarCodigo.php">
                 <h2>Código de verificação</h2>
                 <!-- Dentro do form, antes do input -->
+                 <?php
+                if (isset($_SESSION['mensagem_sucesso'])) {
+                    echo "<p class='mensagem-sucesso'>{$_SESSION['mensagem_sucesso']}</p>";
+                    unset($_SESSION['mensagem_sucesso']);
+                }
+                ?>
                 <?php
-                session_start();
                 if (isset($_SESSION['erro_codigo'])) {
                     echo '<div class="erro">'.$_SESSION['erro_codigo'].'</div>';
                     unset($_SESSION['erro_codigo']);

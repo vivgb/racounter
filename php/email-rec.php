@@ -8,7 +8,7 @@ require __DIR__ . '/../vendor/autoload.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-
+//funcaoo para enviar o email
 function sendEmail($to, $subject, $message) {
     $mail = new PHPMailer(true);
     try {
@@ -34,15 +34,26 @@ function sendEmail($to, $subject, $message) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $email = $_POST['nEmail'];
+    $email = mysqli_real_escape_string($conn, $_POST['nEmail']);
     $codigo = rand(100000, 999999);
     $assunto = "Email de Recuperacao - Raccounter";
+
+    // Verifica se o e-mail existe
+    $checkEmailQuery = "SELECT id_usuario FROM usuarios WHERE email = '$email'";
+    $resultEmail = mysqli_query($conn, $checkEmailQuery);
+
+    if (mysqli_num_rows($resultEmail) === 0) {
+        $_SESSION['erro_email'] = "E-mail inválido!";
+        mysqli_close($conn);
+        header('Location: ../esqueceu-senha.php');
+        exit;
+    }
 
     $mensagem = '
     <html>
     <head>
       <style>
-        body {
+         body {
           font-family: Roboto, Arial, sans-serif;
           background-color: #ffffff;
           color: #202124;
@@ -95,19 +106,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </html>
     ';
 
-    $codigo = mysqli_real_escape_string($conn, $codigo);
-    $email  = mysqli_real_escape_string($conn, $email);
-
     $update_query = "UPDATE usuarios SET codigo_recuperacao = '$codigo' WHERE email = '$email'";
     $result = mysqli_query($conn, $update_query);
 
     if ($result) {
         $_SESSION['codigo_recuperacao'] = $codigo;
-        $_SESSION['email_recuperacao'] = $email;
+        $_SESSION['email_recuperacao']  = $email;
 
         if (sendEmail($email, $assunto, $mensagem)) {
-            $_SESSION['msg'] = "E-mail enviado com sucesso!";
+            $_SESSION['mensagem_sucesso'] = "Enviamos o código de verificação para o e-mail: {$_SESSION['email_recuperacao']}";
             header('Location: ../verificarCodigo.php');
+            exit;
+
             exit;
         } else {
             header('Location: ../email-rec.php');
