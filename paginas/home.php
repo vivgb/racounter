@@ -95,7 +95,7 @@ require_once 'php/dashboard_dados.php';
 
         <div class="grafico">
             <div class="head">
-                <h3>Gráfico de Agendamentos</h3>
+                <h3>Gráfico de Movimentações</h3>
             </div>
             <div id="grafico"></div>
        </div>

@@ -12,7 +12,7 @@ $sql = "
     SELECT s.descricao AS sala, COUNT(m.id_movimentacao) AS total_movimentacoes
     FROM salas s
     INNER JOIN movimentacao m ON s.id_salas = m.id_salas
-    /* WHERE DATE(m.data_hora) = CURDATE() */  -- filtro por movimentações do dia
+     WHERE DATE(m.data_hora) = CURDATE()
     GROUP BY s.id_salas
     ORDER BY total_movimentacoes DESC
 ";

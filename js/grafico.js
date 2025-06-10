@@ -30,7 +30,7 @@ const options = {
       colors: ["#3c1209"], // cor das barras
       series: [
         {
-          name: "Agendamentos",
+          name: "movimentação",
           data: valores,
         },
       ],
