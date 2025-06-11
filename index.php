@@ -30,11 +30,11 @@
                     <div class="erro"><?php echo $_SESSION['erro_login']; unset($_SESSION['erro_login']); ?></div>
                 <?php endif; ?>
                 <div class="input-box">
-                    <input type="text" name="nEmail" placeholder="Usuário" required>
+                    <input type="text" name="nEmail" id="nEmail" placeholder="Usuário" required>
                     <i class='bx bxs-user'></i>
                 </div>
                 <div class="input-box">
-                    <input type="password" name="nSenha" placeholder="Senha" required>
+                    <input type="password" name="nSenha" id="nSenha" placeholder="Senha" required>
                     <i class='bx bxs-lock-alt' ></i>
                 </div>
                 <div class="forgot-link">
